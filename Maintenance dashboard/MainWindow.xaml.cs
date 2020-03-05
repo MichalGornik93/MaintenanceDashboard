@@ -24,5 +24,22 @@ namespace Maintenance_dashboard
         {
             InitializeComponent();
         }
+
+        private void btnCloseWindow_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int index = ListViewMenu.SelectedIndex;
+            MoveCursorMenu(index);
+        }
+
+        private void MoveCursorMenu(int index)
+        {
+            TrainsitioningContentSlide.OnApplyTemplate();
+            GridCursor.Margin = new Thickness(0, (10 +(60* index)), 0, 0);
+        }
     }
 }
