@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace Maintenance_dashboard
 {
-    /// <summary>
-    /// Logika interakcji dla klasy MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -34,6 +31,28 @@ namespace Maintenance_dashboard
         {
             int index = ListViewMenu.SelectedIndex;
             MoveCursorMenu(index);
+
+            switch (index)
+            {
+                case 0:
+                    GridPrincipal.Children.Clear();
+                    GridPrincipal.Children.Add(new WindowControl.HomeControl());
+                    break;
+
+                case 1:
+                    GridPrincipal.Children.Clear();
+                    GridPrincipal.Children.Add(new AddUserControl());
+                    break;
+                case 2:
+                    GridPrincipal.Children.Clear();
+                    break;
+                case 3:
+                    GridPrincipal.Children.Clear();
+                    GridPrincipal.Children.Add(new WindowControl.AddRegisterToolControl());
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void MoveCursorMenu(int index)

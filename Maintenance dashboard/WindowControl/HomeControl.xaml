@@ -1,0 +1,13 @@
+﻿<UserControl x:Class="Maintenance_dashboard.WindowControl.HomeControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Maintenance_dashboard.WindowControl"
+             mc:Ignorable="d" 
+             Height="auto" Width="auto">
+    <Grid>
+        <TextBlock Text="Maintenance dashboard" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="2" FontSize="30" FontFamily="Comic Sans MS" Foreground="#FF0069C0"/>
+        <Image Source="/Maintenance dashboard;component/Photo/Zenek.png" Margin="0 50"/>
+    </Grid>
+</UserControl>
