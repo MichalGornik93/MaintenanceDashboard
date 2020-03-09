@@ -63,6 +63,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="PlcConnection\IPlcNetLibrariesBaseInterface.cs" />
+    <Compile Include="PlcConnection\PlcConnection.cs" />
     <Compile Include="WindowControl\AddRegisterToolControl.xaml.cs">
       <DependentUpon>AddRegisterToolControl.xaml</DependentUpon>
     </Compile>

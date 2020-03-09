@@ -7,7 +7,6 @@
              mc:Ignorable="d" 
              Height="auto" Width="auto">
     <Grid>
-        <TextBlock Text="Maintenance dashboard" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="2" FontSize="30" FontFamily="Comic Sans MS" Foreground="#FF0069C0"/>
         <Image Source="/Maintenance dashboard;component/Photo/Zenek.png" Margin="0 50"/>
     </Grid>
 </UserControl>

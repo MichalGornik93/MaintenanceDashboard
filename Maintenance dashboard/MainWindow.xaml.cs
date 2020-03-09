@@ -20,6 +20,7 @@ namespace Maintenance_dashboard
         public MainWindow()
         {
             InitializeComponent();
+            var plcConnection = new PlcConnection("192.168.0.1",0,0);
         }
 
         private void btnCloseWindow_Click(object sender, RoutedEventArgs e)
@@ -35,18 +36,13 @@ namespace Maintenance_dashboard
             switch (index)
             {
                 case 0:
-                    GridPrincipal.Children.Clear();
-                    GridPrincipal.Children.Add(new WindowControl.HomeControl());
-                    break;
-
-                case 1:
-                    GridPrincipal.Children.Clear();
+                    GridPrincipal.Children.Clear();   
                     GridPrincipal.Children.Add(new AddUserControl());
                     break;
-                case 2:
+                case 1:
                     GridPrincipal.Children.Clear();
                     break;
-                case 3:
+                case 2:
                     GridPrincipal.Children.Clear();
                     GridPrincipal.Children.Add(new WindowControl.AddRegisterToolControl());
                     break;
@@ -54,11 +50,15 @@ namespace Maintenance_dashboard
                     break;
             }
         }
-
         private void MoveCursorMenu(int index)
         {
             TrainsitioningContentSlide.OnApplyTemplate();
             GridCursor.Margin = new Thickness(0, (10 +(60* index)), 0, 0);
+        }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            GridPrincipal.Children.Clear();
+            GridPrincipal.Children.Add(new WindowControl.HomeControl());
         }
     }
 }
