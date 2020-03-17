@@ -23,11 +23,11 @@
                     <Button Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray">
                         <materialDesign:PackIcon Kind="BellOutline" IsEnabled="False"/>
                     </Button>
-                    <Button Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray" Click="Button_Click">
+                    <Button x:Name="btnHome" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray" Click="btnHomeWindow_Click">
                         <materialDesign:PackIcon Kind="Home" />
                     </Button>
-                    <Button Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray">
-                        <materialDesign:PackIcon Kind="Settings" IsEnabled="False"/>
+                    <Button x:Name="btnSetting" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray" Click="btnSetting_Click">
+                        <materialDesign:PackIcon Kind="Settings"/>
                     </Button>
                     <Button x:Name="btnCloseWindow" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray" Click="btnCloseWindow_Click">
                         <materialDesign:PackIcon Kind="Power"/>
@@ -44,8 +44,8 @@
         </Grid>
 
         <StackPanel Width="320" HorizontalAlignment="Left" Background="#ff222222" >
-                <Image Source="Photo/MarelliLogo.jpg" Margin="10"/>
-                <Grid HorizontalAlignment="Left" Background="#ff222222" VerticalAlignment="Bottom">
+            <Image Source="Photo/MarelliLogo.jpg" Margin="10"/>
+            <Grid HorizontalAlignment="Left" Background="#ff222222" VerticalAlignment="Bottom">
                 <materialDesign:TransitioningContent x:Name="TrainsitioningContentSlide" OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.3}">
                     <Grid x:Name="GridCursor" Margin="0 10 0  0" Width="10" HorizontalAlignment="Left" Height="60" Background="#FF0069C0" VerticalAlignment="Top"/>
                 </materialDesign:TransitioningContent>
@@ -94,7 +94,17 @@
                         </StackPanel>
                     </ListViewItem>
                 </ListView>
-        </Grid>
+                <StackPanel VerticalAlignment="Center">
+                    
+                </StackPanel>
+            </Grid>
+
         </StackPanel>
+        <Grid HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="15" Width="220" >
+            <materialDesign:Card UniformCornerRadius="14" Padding="4" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" >
+                <ProgressBar x:Name="progPlcConnectionStatus" Style="{StaticResource MaterialDesignCircularProgressBar}" Value="50" IsIndeterminate="False" Foreground="Red"/>
+            </materialDesign:Card>
+            <Label x:Name="lblPlcConnectionStatus" Content="SIMATIC NOT CONNECTED"  HorizontalAlignment="Right" Margin="5" Foreground="Red"/>
+        </Grid>
     </Grid>
 </Window>

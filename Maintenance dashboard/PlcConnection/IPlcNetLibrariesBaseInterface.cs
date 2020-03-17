@@ -14,24 +14,16 @@ namespace Maintenance_dashboard
 
         string PlcLastErrorMessage { get; set; }
 
-        event EventHandler DataReadHandler;
         event EventHandler ConnectedHandler;
-        event EventHandler DisconnectedHandler;
         event EventHandler ErrorHandler;
+        event EventHandler DisonnectedHandler;
 
-        void RaiseDataReaded();
         void RaiseIsConnected();
-        void RaiseIsDisconnected();
         void RaiseError();
+        void RaiseInDisonnected();
 
         bool Connect();
         bool Disconnect();
 
-        bool SetStart();
-        bool SetStop();
-
-        bool SetSetPoint(int value);
-
-        int GetLastReadedValue();
     }
 }

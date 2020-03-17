@@ -63,6 +63,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="MainLogic\PlcIsError.cs" />
+    <Compile Include="MainLogic\PlcIsConnected.cs" />
+    <Compile Include="MainLogic\PlcIsDisconnected.cs" />
     <Compile Include="PlcConnection\IPlcNetLibrariesBaseInterface.cs" />
     <Compile Include="PlcConnection\PlcConnection.cs" />
     <Compile Include="WindowControl\AddRegisterToolControl.xaml.cs">
@@ -74,6 +77,9 @@
     <Compile Include="PlcConnection\Sharp7.cs" />
     <Compile Include="WindowControl\HomeControl.xaml.cs">
       <DependentUpon>HomeControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowControl\SettingsControl.xaml.cs">
+      <DependentUpon>SettingsControl.xaml</DependentUpon>
     </Compile>
     <Page Include="WindowControl\AddRegisterToolControl.xaml">
       <SubType>Designer</SubType>
@@ -96,6 +102,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="WindowControl\HomeControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowControl\SettingsControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -132,6 +142,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Photo\MarelliLogo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Photo\cat_simatic.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

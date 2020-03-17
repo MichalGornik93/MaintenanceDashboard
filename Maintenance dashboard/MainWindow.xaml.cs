@@ -17,10 +17,28 @@ namespace Maintenance_dashboard
 {
     public partial class MainWindow : Window
     {
+        public bool IsConnect = false;
+
         public MainWindow()
         {
             InitializeComponent();
-            var plcConnection = new PlcConnection("192.168.0.1",0,0);
+            var plcConnection = new PlcConnection("192.168.0.1", 0, 0);
+
+            //plcConnection. += PlcIsConnected.OnPlcConnected;
+            IsConnect = plcConnection.Connect();
+            PlcConnetedProgressBar();
+        }
+
+        private void PlcConnetedProgressBar()
+        {
+
+            if (IsConnect)
+            {
+                progPlcConnectionStatus.IsIndeterminate = true;
+                lblPlcConnectionStatus.Content = "SIMATIC CONNECTED";
+                lblPlcConnectionStatus.Foreground = Brushes.Green;
+                progPlcConnectionStatus.Foreground = Brushes.Green;
+            }
         }
 
         private void btnCloseWindow_Click(object sender, RoutedEventArgs e)
@@ -50,15 +68,24 @@ namespace Maintenance_dashboard
                     break;
             }
         }
+
         private void MoveCursorMenu(int index)
         {
             TrainsitioningContentSlide.OnApplyTemplate();
             GridCursor.Margin = new Thickness(0, (10 +(60* index)), 0, 0);
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btnHomeWindow_Click(object sender, RoutedEventArgs e)
         {
             GridPrincipal.Children.Clear();
             GridPrincipal.Children.Add(new WindowControl.HomeControl());
         }
+
+        private void btnSetting_Click(object sender, RoutedEventArgs e)
+        {
+            GridPrincipal.Children.Clear();
+            GridPrincipal.Children.Add(new WindowControl.SettingsControl());           
+        }
+
+        
     }
 }
