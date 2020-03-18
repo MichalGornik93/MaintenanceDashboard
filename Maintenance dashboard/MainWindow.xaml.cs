@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -17,28 +18,29 @@ namespace Maintenance_dashboard
 {
     public partial class MainWindow : Window
     {
-        public bool IsConnect = false;
-
         public MainWindow()
         {
             InitializeComponent();
-            var plcConnection = new PlcConnection("192.168.0.1", 0, 0);
-
-            //plcConnection. += PlcIsConnected.OnPlcConnected;
-            IsConnect = plcConnection.Connect();
-            PlcConnetedProgressBar();
-        }
-
-        private void PlcConnetedProgressBar()
-        {
-
-            if (IsConnect)
-            {
+            PlcNetInterface plcNetInterface = new PlcNetInterface("192.168.0.1", 0, 0);
+            plcNetInterface.Connected += (() => {
                 progPlcConnectionStatus.IsIndeterminate = true;
                 lblPlcConnectionStatus.Content = "SIMATIC CONNECTED";
-                lblPlcConnectionStatus.Foreground = Brushes.Green;
+                lblPlcConnectionStatus.Foreground = Brushes.Green;  
                 progPlcConnectionStatus.Foreground = Brushes.Green;
-            }
+                ;});
+            plcNetInterface.Disconected += (() => {
+                progPlcConnectionStatus.IsIndeterminate = false;
+                lblPlcConnectionStatus.Content = "SIMATIC NOT CONNECTED";
+                lblPlcConnectionStatus.Foreground = Brushes.Red;
+                progPlcConnectionStatus.Foreground = Brushes.Red; 
+                ;});
+            
+            plcNetInterface.Connect(); 
+            
+            if (plcNetInterface.StatusPolaczeniaPole)
+                lbl.Content = "Polaczono";
+            else
+                lbl.Content = "Nie poloczono";
         }
 
         private void btnCloseWindow_Click(object sender, RoutedEventArgs e)
@@ -83,9 +85,7 @@ namespace Maintenance_dashboard
         private void btnSetting_Click(object sender, RoutedEventArgs e)
         {
             GridPrincipal.Children.Clear();
-            GridPrincipal.Children.Add(new WindowControl.SettingsControl());           
-        }
-
-        
+            GridPrincipal.Children.Add(new WindowControl.SettingsControl());
+        }      
     }
 }

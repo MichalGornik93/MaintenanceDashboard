@@ -41,6 +41,7 @@
                
                 <Image Source="Photo/Zenek.png" Margin="0 50"/>
             </Grid>
+            <Label x:Name="lbl" Content="Label" HorizontalAlignment="Left" Margin="30,440,0,0" VerticalAlignment="Top"/>
         </Grid>
 
         <StackPanel Width="320" HorizontalAlignment="Left" Background="#ff222222" >
