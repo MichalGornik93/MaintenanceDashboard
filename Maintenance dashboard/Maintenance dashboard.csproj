@@ -63,9 +63,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="MainLogic\PlcIsError.cs" />
-    <Compile Include="MainLogic\PlcIsConnected.cs" />
-    <Compile Include="MainLogic\PlcIsDisconnected.cs" />
     <Compile Include="PlcConnection\IPlcNetLibrariesBaseInterface.cs" />
     <Compile Include="PlcConnection\PlcNetInterface.cs" />
     <Compile Include="WindowControl\AddRegisterToolControl.xaml.cs">

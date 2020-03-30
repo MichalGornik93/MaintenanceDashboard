@@ -33,14 +33,8 @@ namespace Maintenance_dashboard
                 lblPlcConnectionStatus.Content = "SIMATIC NOT CONNECTED";
                 lblPlcConnectionStatus.Foreground = Brushes.Red;
                 progPlcConnectionStatus.Foreground = Brushes.Red; 
-                ;});
-            
+                ;});           
             plcNetInterface.Connect(); 
-            
-            if (plcNetInterface.StatusPolaczeniaPole)
-                lbl.Content = "Polaczono";
-            else
-                lbl.Content = "Nie poloczono";
         }
 
         private void btnCloseWindow_Click(object sender, RoutedEventArgs e)

@@ -15,7 +15,7 @@ namespace Maintenance_dashboard
         public int Rack { get; set; }
         public int Slot { get; set; }
         public string PlcLastErrorMessage { get; set; }
-        public bool StatusPolaczeniaPole;
+
 
         private readonly S7Client _s7Plc;
         private readonly Timer _dataReadTimer;
@@ -35,10 +35,6 @@ namespace Maintenance_dashboard
             Rack = rack;
             Slot = slot;
             _s7Plc = new S7Client();
-
-            _dataReadTimer = new Timer(100);
-            _dataReadTimer.Elapsed += StatusPolaczeniaMetoda;
-            _dataReadTimer.Start();
         }
 
         public void Connect()
@@ -62,10 +58,5 @@ namespace Maintenance_dashboard
             if (Disconected != null)
                 Disconected();
         }
-        private void StatusPolaczeniaMetoda(Object source, System.Timers.ElapsedEventArgs e)
-        {
-            StatusPolaczeniaPole = _s7Plc.Connected;
-        }
-
     }
 }
