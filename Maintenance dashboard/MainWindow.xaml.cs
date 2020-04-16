@@ -18,6 +18,7 @@ namespace Maintenance_dashboard
 {
     public partial class MainWindow : Window
     {
+        //Wyłącznie wywołania objektów, metod oraz logika dotycząca interface użytkownika
         public MainWindow()
         {
             InitializeComponent();
