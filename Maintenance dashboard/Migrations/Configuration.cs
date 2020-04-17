@@ -5,14 +5,14 @@
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Maintenance_dashboard.SQL.WorkshopDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<Maintenance_dashboard.WorkshopDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(Maintenance_dashboard.SQL.WorkshopDbContext context)
+        protected override void Seed(Maintenance_dashboard.WorkshopDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

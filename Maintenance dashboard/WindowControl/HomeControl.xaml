@@ -7,6 +7,6 @@
              mc:Ignorable="d" 
              Height="auto" Width="auto">
     <Grid>
-        <Image Source="/Maintenance dashboard;component/Photo/Zenek.png" Margin="0 50"/>
+        <Image Source="/Maintenance dashboard;component/Resources/Zenek.png" Margin="0,50,0,23.665"/>
     </Grid>
 </UserControl>
