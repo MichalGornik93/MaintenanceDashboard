@@ -6,16 +6,17 @@
              xmlns:local="clr-namespace:Maintenance_dashboard.WindowControl"
              xmlns:Maintenance_dashboard="clr-namespace:Maintenance_dashboard" x:Class="Maintenance_dashboard.WindowControl.EmployeeList"
              mc:Ignorable="d" 
-             Height="980" Width="1505" Margin="15" Loaded="UserControl_Loaded">
+             Height="auto" Width="auto" Margin="15" Loaded="UserControl_Loaded">
     <UserControl.Resources>
         <CollectionViewSource x:Key="employeeViewSource" d:DesignSource="{d:DesignInstance {x:Type Maintenance_dashboard:Employee}, CreateList=True}"/>
     </UserControl.Resources>
     <Grid DataContext="{StaticResource employeeViewSource}">
-        <DataGrid x:Name="employeeDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected"  ItemsSource="{Binding}" EnableRowVirtualization="True" AutoGenerateColumns="False">
+        <DataGrid x:Name="employeeDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" IsReadOnly="True" ItemsSource="{Binding}" EnableRowVirtualization="True" AutoGenerateColumns="False" >
             <DataGrid.Columns >
                 <DataGridTextColumn x:Name="idColumn" Width="Auto" Header="Id" Binding="{Binding Id}"/>
-                <DataGridTextColumn x:Name="nameColumn" Width="Auto" Header="Name" Binding="{Binding Name}"/>
-                <DataGridTextColumn x:Name="uidColumn" Width="Auto" Header="Uid" Binding="{Binding Uid}"/>
+                <DataGridTextColumn x:Name="nameColumn" Width="Auto" Header="Imie" Binding="{Binding Name}"/>
+                <DataGridTextColumn x:Name="surnameColumn" Width="SizeToHeader" Header="Nazwisko" Binding="{Binding Surname}"/>
+                <DataGridTextColumn x:Name="uidColumn" Width="Auto" Header="Kod UID" Binding="{Binding Uid}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

@@ -18,7 +18,6 @@ namespace Maintenance_dashboard
 {
     public partial class MainWindow : Window
     {
-        
         //Wyłącznie wywołania objektów, metod oraz logika dotycząca interface użytkownika
         public MainWindow()
         {
@@ -36,9 +35,7 @@ namespace Maintenance_dashboard
                 lblPlcConnectionStatus.Foreground = Brushes.Red;
                 progPlcConnectionStatus.Foreground = Brushes.Red; 
                 ;});           
-            plcNetInterface.Connect(); 
-        
-            
+            plcNetInterface.Connect();             
         }
 
         private void btnCloseWindow_Click(object sender, RoutedEventArgs e)
@@ -65,6 +62,10 @@ namespace Maintenance_dashboard
                     GridPrincipal.Children.Clear();
                     GridPrincipal.Children.Add(new WindowControl.AddRegisterToolControl());
                     break;
+                case 3:
+                    GridPrincipal.Children.Clear();
+                    GridPrincipal.Children.Add(new WindowControl.RegisterToolList());
+                    break;
                 default:
                     break;
             }
@@ -86,7 +87,6 @@ namespace Maintenance_dashboard
             GridPrincipal.Children.Clear();
             GridPrincipal.Children.Add(new WindowControl.SettingsControl());
         }
-
 
     }
 }

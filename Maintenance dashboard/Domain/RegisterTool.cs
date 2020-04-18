@@ -7,13 +7,11 @@ using System.Threading.Tasks;
 
 namespace Maintenance_dashboard
 {
-    class Employee
+    class RegisterTool
     {
         public int Id { get; set; }
         [Required]
-        public string Name { get; set;}
-        [Required]
-        public string Surname { get; set; }
+        public string Name { get; set; }
         [Required]
         public string Uid { get; set; }
     }

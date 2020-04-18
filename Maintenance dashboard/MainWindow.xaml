@@ -13,7 +13,7 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Width="1920" Height="1080" WindowState="Maximized" WindowStyle="None">
+        Width="Auto" Height="Auto" WindowState="Maximized" WindowStyle="None">
     <Grid Background="#FFEEEEEE">
         <StackPanel>
             <Grid Background="#FF0069C0" Height="10"/>
@@ -35,7 +35,7 @@
                 </StackPanel>
             </Grid>
         </StackPanel>
-        <TextBlock Text="Maintenance dashboard" VerticalAlignment="Top" HorizontalAlignment="Right" FontSize="30" FontFamily="Comic Sans MS" Foreground="#FF0069C0" Margin="0,13,597,0"/>
+        <TextBlock Text="Maintenance dashboard" VerticalAlignment="Top" HorizontalAlignment="Right" FontSize="30" FontFamily="Comic Sans MS" Foreground="#FF0069C0" Margin="0,13,400,0"/>
         <Grid Margin="330 20 10 10">
             <Grid x:Name="GridPrincipal" HorizontalAlignment="Center" VerticalAlignment="Center">
 

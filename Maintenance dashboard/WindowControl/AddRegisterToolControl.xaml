@@ -31,7 +31,7 @@
                         <TextBox materialDesign:HintAssist.Hint="Kod UID" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0, 10" />
                     </StackPanel>
                 </Grid>
-                <Button VerticalAlignment="Bottom" Background="#FF0069C0" BorderBrush="#FF0069C0" Margin="0,310" Width="150" Content="DODAJ"/>
+                <Button VerticalAlignment="Bottom" Background="#FF0069C0" BorderBrush="#FF0069C0" Margin="0,310" Width="150" Content="DODAJ" Click="Button_Click"/>
             </Grid>
         </materialDesign:TransitioningContent>
     </Grid>

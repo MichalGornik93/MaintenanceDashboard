@@ -20,9 +20,28 @@ namespace Maintenance_dashboard
     /// </summary>
     public partial class AddUserControl : UserControl
     {
+        private WorkshopDbContext _context = new WorkshopDbContext();
         public AddUserControl()
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+            _context.Employees.Add(new Employee
+            {
+                Name = txtName.Text,
+                Surname = txtSurname.Text,
+                Uid = "111"
+            });
+            _context.SaveChanges();
+
+            gridInfoAddToDataBase.Visibility = Visibility.Visible;
+            test.Visibility = Visibility.Hidden;
+            btnAddEmployee.Visibility = Visibility.Hidden;
+
+        }
     }
 }
+

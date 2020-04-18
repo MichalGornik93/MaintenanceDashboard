@@ -71,9 +71,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Domain\RegisterTool.cs" />
     <Compile Include="Migrations\202004161712421_InitialModel.cs" />
     <Compile Include="Migrations\202004161712421_InitialModel.designer.cs">
       <DependentUpon>202004161712421_InitialModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004171937021_AddRegisterToolTable.cs" />
+    <Compile Include="Migrations\202004171937021_AddRegisterToolTable.designer.cs">
+      <DependentUpon>202004171937021_AddRegisterToolTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004171945307_AddRequiredParameter.cs" />
+    <Compile Include="Migrations\202004171945307_AddRequiredParameter.designer.cs">
+      <DependentUpon>202004171945307_AddRequiredParameter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004181932049_AddSurnameColumnToEmploeeTable.cs" />
+    <Compile Include="Migrations\202004181932049_AddSurnameColumnToEmploeeTable.designer.cs">
+      <DependentUpon>202004181932049_AddSurnameColumnToEmploeeTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PlcConnection\IPlcNetLibrariesBaseInterface.cs" />
@@ -87,11 +100,14 @@
       <DependentUpon>AddUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="PlcConnection\Sharp7.cs" />
-    <Compile Include="WindowControl\EmployeesList.xaml.cs">
-      <DependentUpon>EmployeesList.xaml</DependentUpon>
+    <Compile Include="WindowControl\EmployeesListControl.xaml.cs">
+      <DependentUpon>EmployeesListControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="WindowControl\HomeControl.xaml.cs">
       <DependentUpon>HomeControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowControl\RegisterToolListControl.xaml.cs">
+      <DependentUpon>RegisterToolListControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="WindowControl\SettingsControl.xaml.cs">
       <DependentUpon>SettingsControl.xaml</DependentUpon>
@@ -116,11 +132,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="WindowControl\EmployeesList.xaml">
+    <Page Include="WindowControl\EmployeesListControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WindowControl\HomeControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowControl\RegisterToolListControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -146,12 +166,22 @@
     <EmbeddedResource Include="Migrations\202004161712421_InitialModel.resx">
       <DependentUpon>202004161712421_InitialModel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004171937021_AddRegisterToolTable.resx">
+      <DependentUpon>202004171937021_AddRegisterToolTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004171945307_AddRequiredParameter.resx">
+      <DependentUpon>202004171945307_AddRequiredParameter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004181932049_AddSurnameColumnToEmploeeTable.resx">
+      <DependentUpon>202004181932049_AddSurnameColumnToEmploeeTable.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Employee.datasource" />
+    <None Include="Properties\DataSources\RegisterTool.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

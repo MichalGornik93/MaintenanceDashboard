@@ -5,11 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Maintenance_dashboard"
              mc:Ignorable="d" 
-             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" Height="980" Width="1505" Margin="15">
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" Height="980" Width="800" Margin="15">
     <Grid>
         <materialDesign:TransitioningContent x:Name="TrainsitioningContentSlide" OpeningEffect="{materialDesign:TransitionEffect FadeIn }">
-            <Grid Background="White">
-                <Rectangle Height="490" Width="1505" VerticalAlignment="Top">
+            <Grid Background="White" Margin="1,0,-1,0">
+                <Rectangle Height="490" VerticalAlignment="Top">
                     <Rectangle.Fill>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FF2281D1"/>
@@ -24,15 +24,24 @@
                         <DropShadowEffect BlurRadius="10" RenderingBias="Quality" Direction="0" Color="#FFBBBBBB" ShadowDepth="1"/>
                     </Rectangle.Effect>
                 </Rectangle>
-                <Grid Width="420" Height="340">
+
+
+
+                <StackPanel Width="420" Height="340" Visibility="Hidden" x:Name="gridInfoAddToDataBase">
+                    <TextBlock Text="Pracownik dodany do bazy danych" Foreground="Gray" Margin="50" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    <materialDesign:PackIcon Kind="DatabaseAdd" VerticalAlignment="Center" Width="100" Height="100" HorizontalAlignment="Center"  Margin="5" Foreground="Gray"/>
+                </StackPanel>
+
+                <Grid x:Name="test" Width="420" Height="340">
                     <TextBlock Text="UPRAWNIENI PRACOWNICY" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5" FontSize="18" Foreground="Gray"/>
                     <StackPanel VerticalAlignment="Center" Margin="10">
-                        <TextBox materialDesign:HintAssist.Hint="Imie" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0, 10" />
-                        <TextBox materialDesign:HintAssist.Hint="Nazwisko" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0, 10" />
-                        <TextBox materialDesign:HintAssist.Hint="Kod UID" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0, 10" />
+                        <TextBox x:Name="txtName" materialDesign:HintAssist.Hint="Imie" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0, 10" />
+                        <TextBox x:Name="txtSurname" materialDesign:HintAssist.Hint="Nazwisko" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0, 10" />
+                        <TextBlock x:Name="txtUidCode" Text="..........." Margin="0, 10" Foreground="Gray" HorizontalAlignment="Center"/>
+                        <TextBlock Text="Kod UID" Margin="0, 10" Foreground="Gray" HorizontalAlignment="Center"/>
                     </StackPanel>
                 </Grid>
-                <Button VerticalAlignment="Bottom" Background="#FF0069C0" BorderBrush="#FF0069C0" Margin="0,310" Width="150" Content="DODAJ"/>
+                <Button x:Name="btnAddEmployee" VerticalAlignment="Bottom" Background="#FF0069C0" BorderBrush="#FF0069C0" Margin="0,310" Width="150" Content="DODAJ" Click="Button_Click"/>
             </Grid>
         </materialDesign:TransitioningContent> 
     </Grid>
