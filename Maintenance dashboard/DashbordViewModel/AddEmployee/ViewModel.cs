@@ -21,14 +21,18 @@ namespace Maintenance_dashboard.DashbordViewModel.AddEmployee
                     case "FirstName":
                         if (string.IsNullOrEmpty(FirstName))
                             message = "Pole musi być wypełnione";
-                        else if (FirstName.Length < 2)
+                        else if (FirstName.Length < 3)
                             message = "Nazwa jest zbyt krótka";
+                        else if (FirstName.Length > 12)
+                            message = "Nazwa jest zbyt długa";
                         break;
                     case "LastName":
                         if (string.IsNullOrEmpty(LastName))
                             message = "Pole musi być wypełnione";
                         else if (LastName.Length < 2)
                             message = "Nazwa jest zbyt krótka";
+                        else if (LastName.Length > 12)
+                            message = "Nazwa jest zbyt długa";
                         break;
                 };
                 return message;
