@@ -97,30 +97,27 @@
     <Compile Include="PlcConnection\PlcNetInterface.cs" />
     <Compile Include="Domain\WorkshopDbContext.cs" />
     <Compile Include="Domain\Employee.cs" />
-    <Compile Include="WindowControl\AddRegisterToolControl.xaml.cs">
+    <Compile Include="ViewModel\AddRegisterTool\AddRegisterToolControl.xaml.cs">
       <DependentUpon>AddRegisterToolControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WindowControl\AddUserControl.xaml.cs">
+    <Compile Include="ViewModel\AddUser\AddUserControl.xaml.cs">
       <DependentUpon>AddUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="PlcConnection\Sharp7.cs" />
-    <Compile Include="WindowControl\EmployeesListControl.xaml.cs">
+    <Compile Include="ViewModel\EmployessList\EmployeesListControl.xaml.cs">
       <DependentUpon>EmployeesListControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WindowControl\HomeControl.xaml.cs">
+    <Compile Include="ViewModel\HomeControl\HomeControl.xaml.cs">
       <DependentUpon>HomeControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WindowControl\RegisterToolListControl.xaml.cs">
+    <Compile Include="ViewModel\RegisterToolControl\RegisterToolListControl.xaml.cs">
       <DependentUpon>RegisterToolListControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WindowControl\SettingsControl.xaml.cs">
-      <DependentUpon>SettingsControl.xaml</DependentUpon>
-    </Compile>
-    <Page Include="WindowControl\AddRegisterToolControl.xaml">
+    <Page Include="ViewModel\AddRegisterTool\AddRegisterToolControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="WindowControl\AddUserControl.xaml">
+    <Page Include="ViewModel\AddUser\AddUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -136,19 +133,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="WindowControl\EmployeesListControl.xaml">
+    <Page Include="ViewModel\EmployessList\EmployeesListControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="WindowControl\HomeControl.xaml">
+    <Page Include="ViewModel\HomeControl\HomeControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="WindowControl\RegisterToolListControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="WindowControl\SettingsControl.xaml">
+    <Page Include="ViewModel\RegisterToolControl\RegisterToolListControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
