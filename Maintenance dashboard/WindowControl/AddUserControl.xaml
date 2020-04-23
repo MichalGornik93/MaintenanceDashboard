@@ -23,7 +23,7 @@
                     </Rectangle.Fill>
                 </Rectangle>
                 <materialDesign:PackIcon Kind="UsersAddOutline" VerticalAlignment="Top" Width="100" Height="100" HorizontalAlignment="Center" Margin="15" Foreground="White"/>
-                <Rectangle Width="420" Height="340" Fill="White" Margin="40,180" RadiusX="15" RadiusY="15">
+                <Rectangle Width="420" Height="340" Fill="White" RadiusX="15" RadiusY="15">
                     <Rectangle.Effect>
                         <DropShadowEffect BlurRadius="10" RenderingBias="Quality" Direction="0" Color="#FFBBBBBB" ShadowDepth="1"/>
                     </Rectangle.Effect>
@@ -44,7 +44,22 @@
                         <TextBox  materialDesign:HintAssist.Hint="Kod UID" materialDesign:HintAssist.HelperText="" IsReadOnly="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0, 10" />
                     </StackPanel>
                 </Grid>
-                <Button x:Name="btnAddEmployee" VerticalAlignment="Bottom" Background="#FF0069C0" BorderBrush="#FF0069C0" Margin="0,310" Width="150" Content="DODAJ" Click="Button_Click"/>
+                <Button  x:Name="btnAddEmployee" Height="25" VerticalAlignment="Bottom" Background="#FF0069C0"  BorderBrush="#FF0069C0" Margin="332,0,318,308" Width="150" Content="DODAJ" Click="Button_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="IsEnabled" Value="false" />
+                            <Style.Triggers>
+                                <MultiDataTrigger>
+                                    <Setter Property="IsEnabled" Value="true" />
+                                    <MultiDataTrigger.Conditions>
+                                        <Condition Binding="{Binding ElementName=txtFirstName, Path=(Validation.HasError)}" Value="false" />
+                                        <Condition Binding="{Binding ElementName=txtLastName , Path=(Validation.HasError)}" Value="false" />
+                                    </MultiDataTrigger.Conditions>
+                                </MultiDataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
             </Grid>
         </materialDesign:TransitioningContent> 
     </Grid>
