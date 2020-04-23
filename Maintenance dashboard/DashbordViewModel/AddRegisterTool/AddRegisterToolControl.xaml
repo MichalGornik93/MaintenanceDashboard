@@ -1,11 +1,11 @@
-﻿<UserControl x:Class="Maintenance_dashboard.WindowControl.AddRegisterToolControl"
+﻿<UserControl x:Class="Maintenance_dashboard.DashbordViewModel.AddRegisterTool.AddRegisterToolControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Maintenance_dashboard.WindowControl"
+             xmlns:local="clr-namespace:Maintenance_dashboard.DashbordViewModel.AddRegisterTool" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" Height="980" Width="1505" Margin="15" >
+             Height="auto" Width="auto">
     <Grid>
         <materialDesign:TransitioningContent x:Name="TrainsitioningContentSlide" OpeningEffect="{materialDesign:TransitionEffect FadeIn}">
             <Grid Background="White">

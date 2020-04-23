@@ -1,18 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using Maintenance_dashboard.DashbordViewModel.RegisterTool;
+using Maintenance_dashboard.DashbordViewModel.EmployeeList;
+using Maintenance_dashboard.DashbordViewModel.AddEmployee;
+using Maintenance_dashboard.DashbordViewModel.AddRegisterTool;
 
 namespace Maintenance_dashboard
 {
@@ -52,19 +44,19 @@ namespace Maintenance_dashboard
             {
                 case 0:
                     GridPrincipal.Children.Clear();   
-                    GridPrincipal.Children.Add(new AddUserControl());
+                    GridPrincipal.Children.Add(new AddEmployeeControl());
                     break;
                 case 1:
                     GridPrincipal.Children.Clear();
-                    GridPrincipal.Children.Add(new WindowControl.EmployeeList());
+                    GridPrincipal.Children.Add(new EmployeeList());
                     break;
                 case 2:
                     GridPrincipal.Children.Clear();
-                    GridPrincipal.Children.Add(new WindowControl.AddRegisterToolControl());
+                    GridPrincipal.Children.Add(new AddRegisterToolControl());
                     break;
                 case 3:
                     GridPrincipal.Children.Clear();
-                    GridPrincipal.Children.Add(new WindowControl.RegisterToolList());
+                    GridPrincipal.Children.Add(new RegisterToolList());
                     break;
                 default:
                     break;
@@ -85,7 +77,6 @@ namespace Maintenance_dashboard
         private void btnSetting_Click(object sender, RoutedEventArgs e)
         {
             GridPrincipal.Children.Clear();
-            GridPrincipal.Children.Add(new WindowControl.SettingsControl());
         }
 
     }

@@ -71,6 +71,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DashbordViewModel\AddEmployee\AddEmployeeControl.xaml.cs">
+      <DependentUpon>AddEmployeeControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DashbordViewModel\AddEmployee\ViewModel.cs" />
+    <Compile Include="DashbordViewModel\AddRegisterTool\AddRegisterToolControl.xaml.cs">
+      <DependentUpon>AddRegisterToolControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Domain\RegisterTool.cs" />
     <Compile Include="Migrations\202004161712421_InitialModel.cs" />
     <Compile Include="Migrations\202004161712421_InitialModel.designer.cs">
@@ -97,27 +104,21 @@
     <Compile Include="PlcConnection\PlcNetInterface.cs" />
     <Compile Include="Domain\WorkshopDbContext.cs" />
     <Compile Include="Domain\Employee.cs" />
-    <Compile Include="ViewModel\AddRegisterTool\AddRegisterToolControl.xaml.cs">
-      <DependentUpon>AddRegisterToolControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ViewModel\AddUser\AddUserControl.xaml.cs">
-      <DependentUpon>AddUserControl.xaml</DependentUpon>
-    </Compile>
     <Compile Include="PlcConnection\Sharp7.cs" />
-    <Compile Include="ViewModel\EmployessList\EmployeesListControl.xaml.cs">
+    <Compile Include="DashbordViewModel\EmployessList\EmployeesListControl.xaml.cs">
       <DependentUpon>EmployeesListControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\HomeControl\HomeControl.xaml.cs">
+    <Compile Include="DashbordViewModel\HomeControl\HomeControl.xaml.cs">
       <DependentUpon>HomeControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\RegisterToolControl\RegisterToolListControl.xaml.cs">
+    <Compile Include="DashbordViewModel\RegisterToolControl\RegisterToolListControl.xaml.cs">
       <DependentUpon>RegisterToolListControl.xaml</DependentUpon>
     </Compile>
-    <Page Include="ViewModel\AddRegisterTool\AddRegisterToolControl.xaml">
+    <Page Include="DashbordViewModel\AddEmployee\AddEmployeeControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ViewModel\AddUser\AddUserControl.xaml">
+    <Page Include="DashbordViewModel\AddRegisterTool\AddRegisterToolControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -133,15 +134,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="ViewModel\EmployessList\EmployeesListControl.xaml">
+    <Page Include="DashbordViewModel\EmployessList\EmployeesListControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ViewModel\HomeControl\HomeControl.xaml">
+    <Page Include="DashbordViewModel\HomeControl\HomeControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ViewModel\RegisterToolControl\RegisterToolListControl.xaml">
+    <Page Include="DashbordViewModel\RegisterToolControl\RegisterToolListControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,8 +1,10 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using Maintenance_dashboard;
 
-namespace Maintenance_dashboard.WindowControl
+namespace Maintenance_dashboard.DashbordViewModel.AddRegisterTool
 {
+
     public partial class AddRegisterToolControl : UserControl
     {
         private WorkshopDbContext _context = new WorkshopDbContext();
@@ -12,13 +14,7 @@ namespace Maintenance_dashboard.WindowControl
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            _context.RegisterTools.Add(new RegisterTool
-            {
-                ToolName = txtToolName.Text,
-                UidCode = "111"
-            }); ;
-            _context.SaveChanges();
+        { 
         }
     }
 }

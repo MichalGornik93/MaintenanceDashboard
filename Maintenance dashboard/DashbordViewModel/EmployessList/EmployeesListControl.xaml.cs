@@ -4,7 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 
-namespace Maintenance_dashboard.WindowControl
+namespace Maintenance_dashboard.DashbordViewModel.EmployeeList
 {
     public partial class EmployeeList : UserControl
     {

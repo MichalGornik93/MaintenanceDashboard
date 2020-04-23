@@ -3,11 +3,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 
-namespace Maintenance_dashboard.WindowControl
+namespace Maintenance_dashboard.DashbordViewModel.RegisterTool
 {
-    /// <summary>
-    /// Logika interakcji dla klasy RegisterToolList.xaml
-    /// </summary>
     public partial class RegisterToolList : UserControl
     {
         private WorkshopDbContext _context = new WorkshopDbContext();
