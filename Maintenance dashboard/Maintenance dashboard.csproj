@@ -88,6 +88,10 @@
     <Compile Include="Migrations\202004181932049_AddSurnameColumnToEmploeeTable.designer.cs">
       <DependentUpon>202004181932049_AddSurnameColumnToEmploeeTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004211714483_ChangedPropertyNameInEmployeeAndRegisterToolTable.cs" />
+    <Compile Include="Migrations\202004211714483_ChangedPropertyNameInEmployeeAndRegisterToolTable.designer.cs">
+      <DependentUpon>202004211714483_ChangedPropertyNameInEmployeeAndRegisterToolTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PlcConnection\IPlcNetLibrariesBaseInterface.cs" />
     <Compile Include="PlcConnection\PlcNetInterface.cs" />
@@ -174,6 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004181932049_AddSurnameColumnToEmploeeTable.resx">
       <DependentUpon>202004181932049_AddSurnameColumnToEmploeeTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004211714483_ChangedPropertyNameInEmployeeAndRegisterToolTable.resx">
+      <DependentUpon>202004211714483_ChangedPropertyNameInEmployeeAndRegisterToolTable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -11,8 +11,8 @@ namespace Maintenance_dashboard
     {
         public int Id { get; set; }
         [Required]
-        public string Name { get; set; }
+        public string ToolName { get; set; }
         [Required]
-        public string Uid { get; set; }
+        public string UidCode { get; set; }
     }
 }
