@@ -1,25 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Maintenance_dashboard.WindowControl
 {
-    /// <summary>
-    /// Logika interakcji dla klasy AddRegisterToolControl.xaml
-    /// </summary>
     public partial class AddRegisterToolControl : UserControl
     {
+        private WorkshopDbContext _context = new WorkshopDbContext();
         public AddRegisterToolControl()
         {
             InitializeComponent();
@@ -27,7 +13,12 @@ namespace Maintenance_dashboard.WindowControl
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            _context.RegisterTools.Add(new RegisterTool
+            {
+                ToolName = txtToolName.Text,
+                UidCode = "111"
+            }); ;
+            _context.SaveChanges();
         }
     }
 }

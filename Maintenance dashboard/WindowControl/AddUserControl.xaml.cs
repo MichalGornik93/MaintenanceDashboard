@@ -23,17 +23,18 @@ namespace Maintenance_dashboard
         public AddUserControl()
         {
             InitializeComponent();
-            var viewMode = new ViewModel();
+            //var viewModel = new ViewModel();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+
             _context.Employees.Add(new Employee
             {
-                //Name = txtName.Text,
-                //Surname = txtSurname.Text,
-                //Uid = "111"
-            });
+                FirstName = txtFirstName.Text,
+                LastName = txtLastName.Text,
+                UidCode = "1111"
+            }) ;  
             _context.SaveChanges();
 
             gridInfoAddToDataBase.Visibility = Visibility.Visible;

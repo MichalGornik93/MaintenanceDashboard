@@ -11,12 +11,12 @@
         <CollectionViewSource x:Key="employeeViewSource" d:DesignSource="{d:DesignInstance {x:Type Maintenance_dashboard:Employee}, CreateList=True}"/>
     </UserControl.Resources>
     <Grid DataContext="{StaticResource employeeViewSource}">
-        <DataGrid x:Name="employeeDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" IsReadOnly="True" ItemsSource="{Binding}" EnableRowVirtualization="True" AutoGenerateColumns="False" >
-            <DataGrid.Columns >
-                <DataGridTextColumn x:Name="idColumn" Width="Auto" Header="Id" Binding="{Binding Id}"/>
-                <DataGridTextColumn x:Name="nameColumn" Width="Auto" Header="Imie" Binding="{Binding Name}"/>
-                <DataGridTextColumn x:Name="surnameColumn" Width="SizeToHeader" Header="Nazwisko" Binding="{Binding Surname}"/>
-                <DataGridTextColumn x:Name="uidColumn" Width="Auto" Header="Kod UID" Binding="{Binding Uid}"/>
+        <DataGrid x:Name="employeeDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="5,0,-5,4" RowDetailsVisibilityMode="VisibleWhenSelected">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="firstNameColumn" Binding="{Binding FirstName}" Header="First Name" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="idColumn" Binding="{Binding Id}" Header="Id" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="lastNameColumn" Binding="{Binding LastName}" Header="Last Name" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="uidCodeColumn" Binding="{Binding UidCode}" Header="Uid Code" Width="SizeToHeader"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

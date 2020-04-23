@@ -27,7 +27,7 @@
                 <Grid Width="420" Height="340">
                     <TextBlock Text="REJESTROWANE WYPOSAŻENIE" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5" FontSize="18" Foreground="Gray"/>
                     <StackPanel VerticalAlignment="Center" Margin="10">
-                        <TextBox materialDesign:HintAssist.Hint="Nazwa" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0, 10" />
+                        <TextBox x:Name="txtToolName" materialDesign:HintAssist.Hint="Nazwa" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0, 10" />
                         <TextBox materialDesign:HintAssist.Hint="Kod UID" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0, 10" />
                     </StackPanel>
                 </Grid>
