@@ -29,12 +29,31 @@
                     <Button x:Name="btnSetting" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray" Click="btnSetting_Click">
                         <materialDesign:PackIcon Kind="Settings"/>
                     </Button>
+
+
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PopupBox StaysOpen="True">
+                            <materialDesign:PopupBox.ToggleContent>
+                                <materialDesign:PackIcon Kind="Login" Foreground="Gray"/>
+                            </materialDesign:PopupBox.ToggleContent>
+                            <StackPanel Width="300" Margin="8">
+                                <TextBlock Style="{StaticResource MaterialDesignHeadline6TextBlock}" HorizontalAlignment="Center" Margin="8" Foreground="Gray" Text="LOGOWANIE"/>
+                                <PasswordBox x:Name="PasswordBox" Margin="8" materialDesign:HintAssist.Hint="Hasło" materialDesign:TextFieldAssist.HasClearButton="True" materialDesign:HintAssist.HelperText="Wpisz hasło" />
+                                <Button Style="{StaticResource MaterialDesignFlatButton}" Click="Button_Click" Margin="8"  ToolTip="MaterialDesignFlatButton" Content="AKCEPTUJ"/>
+                            </StackPanel>
+                        </materialDesign:PopupBox>
+                    </StackPanel>
+
+                    
                     <Button x:Name="btnCloseWindow" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray" Click="btnCloseWindow_Click">
                         <materialDesign:PackIcon Kind="Power"/>
                     </Button>
+                    
                 </StackPanel>
             </Grid>
+
         </StackPanel>
+
         <Grid Margin="330 20 10 10">
             <Grid x:Name="GridPrincipal" HorizontalAlignment="Center" VerticalAlignment="Center">
 
