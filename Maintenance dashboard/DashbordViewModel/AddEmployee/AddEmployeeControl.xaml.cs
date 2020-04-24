@@ -14,7 +14,7 @@ namespace Maintenance_dashboard.DashbordViewModel.AddEmployee
             InitializeComponent();
             plcNetInterface.Connect();
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
 
             _context.Employees.Add(new Employee
@@ -23,7 +23,7 @@ namespace Maintenance_dashboard.DashbordViewModel.AddEmployee
                 LastName = txtLastName.Text,
                 UidCode = "1111"
             }) ;
-            _context.SaveChanges();
+            await Task.Run(()=>_context.SaveChanges());
 
             gridInfoAddToDataBase.Visibility = Visibility.Visible;
             test.Visibility = Visibility.Hidden;
