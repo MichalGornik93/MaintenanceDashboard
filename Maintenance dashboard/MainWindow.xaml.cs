@@ -5,6 +5,7 @@ using Maintenance_dashboard.DashbordViewModel.RegisterTool;
 using Maintenance_dashboard.DashbordViewModel.EmployeeList;
 using Maintenance_dashboard.DashbordViewModel.AddEmployee;
 using Maintenance_dashboard.DashbordViewModel.AddRegisterTool;
+using System;
 
 namespace Maintenance_dashboard
 {
@@ -79,9 +80,14 @@ namespace Maintenance_dashboard
             GridPrincipal.Children.Clear();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btnSavePassword_Click(object sender, RoutedEventArgs e)
         {
-            if
+            var DateTimeNow = Convert.ToString(DateTime.Now.DayOfWeek);
+            if (DateTimeNow == PasswordBox.Password)
+            {
+                ListViewMenu.IsEnabled = IsEnabled;
+                btnCloseWindow.IsEnabled = IsEnabled;
+            }
         }
     }
 }
