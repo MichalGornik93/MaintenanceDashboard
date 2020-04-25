@@ -31,6 +31,7 @@
                                 <materialDesign:PackIcon Kind="Information" Foreground="Gray"/>
                             </materialDesign:PopupBox.ToggleContent>
                             <StackPanel Width="300" Margin="8">
+                                <TextBlock Style="{StaticResource MaterialDesignHeadline6TextBlock}" HorizontalAlignment="Center" Margin="8" Foreground="Gray" Text="INFORMACJE"/>
                             </StackPanel>
                         </materialDesign:PopupBox>
                     </StackPanel>
@@ -41,6 +42,7 @@
                                 <materialDesign:PackIcon Kind="BellOutline" Foreground="Gray"/>
                             </materialDesign:PopupBox.ToggleContent>
                             <StackPanel Width="300" Margin="8">
+                                <TextBlock Style="{StaticResource MaterialDesignHeadline6TextBlock}" HorizontalAlignment="Center" Margin="8" Foreground="Gray" Text="ALARMY"/>
                             </StackPanel>
                         </materialDesign:PopupBox>
                     </StackPanel>
@@ -51,6 +53,7 @@
                                 <materialDesign:PackIcon Kind="Settings" Foreground="Gray"/>
                             </materialDesign:PopupBox.ToggleContent>
                             <StackPanel Width="300" Margin="8">
+                                <TextBlock Style="{StaticResource MaterialDesignHeadline6TextBlock}" HorizontalAlignment="Center" Margin="8" Foreground="Gray" Text="OPCJE"/>
                             </StackPanel>
                         </materialDesign:PopupBox>
                     </StackPanel>
