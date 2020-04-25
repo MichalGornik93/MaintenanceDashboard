@@ -72,7 +72,7 @@
                     </StackPanel>
 
                     
-                    <Button x:Name="btnCloseWindow" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray" Click="btnCloseWindow_Click" IsEnabled="False">
+                    <Button x:Name="btnCloseWindow" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray" Click="btnCloseWindow_Click" >
                         <materialDesign:PackIcon Kind="Power"/>
                     </Button>
                     
@@ -95,35 +95,35 @@
                     <Grid x:Name="GridCursor" Margin="0 10 0  0" Width="10" HorizontalAlignment="Left" Height="60" Background="#FF0069C0" VerticalAlignment="Top"/>
                 </materialDesign:TransitioningContent>
 
-                <ListView x:Name="ListViewMenu" Margin="0 10" SelectionChanged="ListViewMenu_SelectionChanged" IsEnabled="False">
+                <ListView x:Name="ListViewMenu" Margin="0 10" SelectionChanged="ListViewMenu_SelectionChanged">
                     <ListViewItem Height="60" Foreground="LightGray">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="UsersAddOutline" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
-                            <TextBlock Text="Dodaj uprawnionego pracownika" FontSize="13" VerticalAlignment="Center" Margin="20 0" FontFamily="Comic Sans MS"/>
+                            <TextBlock Text="Lista uprawnionych pracowników" FontSize="13" VerticalAlignment="Center" Margin="20 0" FontFamily="Comic Sans MS"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="60" Foreground="LightGray" >
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="UserGroup" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
-                            <TextBlock Text="Lista uprawnionych pracowników" FontSize="13" VerticalAlignment="Center" Margin="20 0" FontFamily="Comic Sans MS"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem Height="60" Foreground="LightGray">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Tools" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
-                            <TextBlock Text="Dodaj rejestrowane wyposażenie" FontSize="13" VerticalAlignment="Center" Margin="20 0" FontFamily="Comic Sans MS"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem Height="60" Foreground="LightGray">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="ViewList" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
                             <TextBlock Text="Lista rejestrowanego wyposażenia" FontSize="13" VerticalAlignment="Center" Margin="20 0" FontFamily="Comic Sans MS"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="60" Foreground="LightGray">
                         <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Tools" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
+                            <TextBlock Text="" FontSize="13" VerticalAlignment="Center" Margin="20 0" FontFamily="Comic Sans MS"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60" Foreground="LightGray">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="ViewList" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
+                            <TextBlock Text="" FontSize="13" VerticalAlignment="Center" Margin="20 0" FontFamily="Comic Sans MS"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60" Foreground="LightGray">
+                        <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Database" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
-                            <TextBlock Text="Rejestr pobrań wyposażenia" FontSize="13" VerticalAlignment="Center" Margin="20 0" FontFamily="Comic Sans MS"/>
+                            <TextBlock Text="" FontSize="13" VerticalAlignment="Center" Margin="20 0" FontFamily="Comic Sans MS"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="60" Foreground="LightGray" IsEnabled="False">

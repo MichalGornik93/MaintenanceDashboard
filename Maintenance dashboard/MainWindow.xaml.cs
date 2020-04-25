@@ -2,8 +2,7 @@
 using System.Windows.Controls;
 using System.Windows.Media;
 using Maintenance_dashboard.DashbordViewModel.RegisterTool;
-using Maintenance_dashboard.DashbordViewModel.EmployeeList;
-using Maintenance_dashboard.DashbordViewModel.AddEmployee;
+using Maintenance_dashboard.DashbordViewModel.EmployeeControl;
 using Maintenance_dashboard.DashbordViewModel.AddRegisterTool;
 using System;
 
@@ -45,11 +44,11 @@ namespace Maintenance_dashboard
             {
                 case 0:
                     GridPrincipal.Children.Clear();   
-                    GridPrincipal.Children.Add(new AddEmployeeControl());
+                    GridPrincipal.Children.Add(new EmployeeControl());
                     break;
                 case 1:
                     GridPrincipal.Children.Clear();
-                    GridPrincipal.Children.Add(new EmployeeList());
+                    GridPrincipal.Children.Add(new AddRegisterToolControl());
                     break;
                 case 2:
                     GridPrincipal.Children.Clear();

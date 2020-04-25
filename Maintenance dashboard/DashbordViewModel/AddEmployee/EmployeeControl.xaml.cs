@@ -1,18 +1,21 @@
-﻿using System.ComponentModel;
+﻿using System.Data;
 using System.Data.Entity;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using Maintenance_dashboard;
 
-namespace Maintenance_dashboard.DashbordViewModel.EmployeeList
+namespace Maintenance_dashboard.DashbordViewModel.EmployeeControl
 {
-    public partial class EmployeeList : UserControl
+    public partial class EmployeeControl : UserControl
     {
         private WorkshopDbContext _context = new WorkshopDbContext();
-        public EmployeeList()
+        private PlcNetInterface plcNetInterface = new PlcNetInterface("192.168.0.1",0,0);
+        public EmployeeControl()
         {
             InitializeComponent();
+            plcNetInterface.Connect();
         }
 
         private async void UserControl_Loaded(object sender, RoutedEventArgs e)
@@ -24,11 +27,30 @@ namespace Maintenance_dashboard.DashbordViewModel.EmployeeList
             // similar to ToList but without creating a list.
             // When used with Linq to Entities this method
             // creates entity objects and adds them to the context.
-            await Task.Run(()=>_context.Employees.Load());
+            await Task.Run(() => _context.Employees.Load());
             // After the data is loaded call the DbSet<T>.Local property
             // to use the DbSet<T> as a binding source.
             employeeViewSource.Source = _context.Employees.Local;
         }
 
+        private async void btnAddEmployee_Click(object sender, RoutedEventArgs e)
+        {
+            _context.Employees.Add(new Employee
+            {
+                FirstName = txtFirstName.Text,
+                LastName = txtLastName.Text,
+                UidCode = "TestString"
+            });
+            await Task.Run(() => _context.SaveChanges());
+            txtFirstName.Clear();
+            txtLastName.Clear();
+        }
+
+  
+
+        private void employeeDataGrid_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+        }
     }
 }
+
