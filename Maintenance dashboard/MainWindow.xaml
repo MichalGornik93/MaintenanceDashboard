@@ -20,17 +20,41 @@
             <Grid Margin="5">
 
                 <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Margin="0,0,10,0" Grid.Column="1">
-                    <Button Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray">
-                        <materialDesign:PackIcon Kind="BellOutline" IsEnabled="False"/>
-                    </Button>
+
                     <Button x:Name="btnHome" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray" Click="btnHomeWindow_Click">
                         <materialDesign:PackIcon Kind="Home" />
                     </Button>
-                    <Button x:Name="btnSetting" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray" Click="btnSetting_Click">
-                        <materialDesign:PackIcon Kind="Settings"/>
-                    </Button>
 
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PopupBox StaysOpen="True">
+                            <materialDesign:PopupBox.ToggleContent>
+                                <materialDesign:PackIcon Kind="Information" Foreground="Gray"/>
+                            </materialDesign:PopupBox.ToggleContent>
+                            <StackPanel Width="300" Margin="8">
+                            </StackPanel>
+                        </materialDesign:PopupBox>
+                    </StackPanel>
 
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PopupBox StaysOpen="True">
+                            <materialDesign:PopupBox.ToggleContent>
+                                <materialDesign:PackIcon Kind="BellOutline" Foreground="Gray"/>
+                            </materialDesign:PopupBox.ToggleContent>
+                            <StackPanel Width="300" Margin="8">
+                            </StackPanel>
+                        </materialDesign:PopupBox>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PopupBox StaysOpen="True">
+                            <materialDesign:PopupBox.ToggleContent>
+                                <materialDesign:PackIcon Kind="Settings" Foreground="Gray"/>
+                            </materialDesign:PopupBox.ToggleContent>
+                            <StackPanel Width="300" Margin="8">
+                            </StackPanel>
+                        </materialDesign:PopupBox>
+                    </StackPanel>
+                    
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PopupBox StaysOpen="True">
                             <materialDesign:PopupBox.ToggleContent>
@@ -38,7 +62,7 @@
                             </materialDesign:PopupBox.ToggleContent>
                             <StackPanel Width="300" Margin="8">
                                 <TextBlock Style="{StaticResource MaterialDesignHeadline6TextBlock}" HorizontalAlignment="Center" Margin="8" Foreground="Gray" Text="LOGOWANIE"/>
-                                <PasswordBox x:Name="PasswordBox" Margin="8" materialDesign:HintAssist.Hint="Hasło" materialDesign:TextFieldAssist.HasClearButton="True" materialDesign:HintAssist.HelperText="Wpisz hasło" />
+                                <PasswordBox x:Name="PasswordBox" Margin="8" materialDesign:HintAssist.Hint="Hasło" materialDesign:TextFieldAssist.HasClearButton="True" materialDesign:HintAssist.HelperText="Wpisz hasło"  />
                                 <Button x:Name="btnSavePassword" Click="btnSavePassword_Click" Style="{StaticResource MaterialDesignFlatButton}" Margin="8"  ToolTip="MaterialDesignFlatButton" Content="AKCEPTUJ"/>
                             </StackPanel>
                         </materialDesign:PopupBox>
@@ -57,7 +81,7 @@
         <Grid Margin="330 20 10 10">
             <Grid x:Name="GridPrincipal" HorizontalAlignment="Center" VerticalAlignment="Center">
 
-                <Image Source="Resources/Zenek.png" Margin="0 50"/>
+                <Image Source="Resources/Zenek.png"/>
             </Grid>
         </Grid>
 

@@ -83,11 +83,12 @@ namespace Maintenance_dashboard
         private void btnSavePassword_Click(object sender, RoutedEventArgs e)
         {
             var DateTimeNow = Convert.ToString(DateTime.Now.DayOfWeek);
-            if (DateTimeNow == PasswordBox.Password)
+            if (DateTimeNow.ToLower() == PasswordBox.Password.ToLower())
             {
                 ListViewMenu.IsEnabled = IsEnabled;
                 btnCloseWindow.IsEnabled = IsEnabled;
             }
+            PasswordBox.Clear();
         }
     }
 }
