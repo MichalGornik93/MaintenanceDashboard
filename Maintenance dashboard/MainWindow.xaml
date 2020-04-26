@@ -99,42 +99,30 @@
                     <ListViewItem Height="60" Foreground="LightGray">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="UsersAddOutline" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
-                            <TextBlock Text="Lista uprawnionych pracowników" FontSize="13" VerticalAlignment="Center" Margin="20 0" FontFamily="Comic Sans MS"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem Height="60" Foreground="LightGray" >
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="UserGroup" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
-                            <TextBlock Text="Lista rejestrowanego wyposażenia" FontSize="13" VerticalAlignment="Center" Margin="20 0" FontFamily="Comic Sans MS"/>
+                            <TextBlock Text="Baza uprawnionych pracowników" FontSize="13" VerticalAlignment="Center" Margin="20 0" FontFamily="Comic Sans MS"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="60" Foreground="LightGray">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Tools" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
-                            <TextBlock Text="" FontSize="13" VerticalAlignment="Center" Margin="20 0" FontFamily="Comic Sans MS"/>
+                            <TextBlock Text="Baza rejestrowanego wyposażenia" FontSize="13" VerticalAlignment="Center" Margin="20 0" FontFamily="Comic Sans MS"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="60" Foreground="LightGray">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="ViewList" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
-                            <TextBlock Text="" FontSize="13" VerticalAlignment="Center" Margin="20 0" FontFamily="Comic Sans MS"/>
+                            <TextBlock Text="Rejestr pobrań wyposażenia" FontSize="13" VerticalAlignment="Center" Margin="20 0" FontFamily="Comic Sans MS"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="60" Foreground="LightGray">
                         <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Database" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
-                            <TextBlock Text="" FontSize="13" VerticalAlignment="Center" Margin="20 0" FontFamily="Comic Sans MS"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem Height="60" Foreground="LightGray" IsEnabled="False">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="FileExcel" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
+                            <materialDesign:PackIcon Kind="Toolbox" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
                             <TextBlock Text="Baza termostatów" FontSize="13" VerticalAlignment="Center" Margin="20 0" FontFamily="Comic Sans MS"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="60" Foreground="LightGray" IsEnabled="False">
+                    <ListViewItem Height="60" Foreground="LightGray">
                         <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="FileExcel" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
+                            <materialDesign:PackIcon Kind="Toolbox" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
                             <TextBlock Text="Baza paletek" FontSize="13" VerticalAlignment="Center" Margin="20 0" FontFamily="Comic Sans MS"/>
                         </StackPanel>
                     </ListViewItem>

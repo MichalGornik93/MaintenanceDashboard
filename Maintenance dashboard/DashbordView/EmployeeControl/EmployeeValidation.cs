@@ -1,9 +1,9 @@
 ﻿using System;
 using System.ComponentModel;
 
-namespace Maintenance_dashboard.DashbordViewModel.AddEmployee
+namespace Maintenance_dashboard.DashbordView.EmployeeControl
 {
-    public class ViewModel : IDataErrorInfo
+    public class EmployeeValidation : IDataErrorInfo
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

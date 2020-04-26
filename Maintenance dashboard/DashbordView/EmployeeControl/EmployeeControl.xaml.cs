@@ -6,7 +6,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using Maintenance_dashboard;
 
-namespace Maintenance_dashboard.DashbordViewModel.EmployeeControl
+namespace Maintenance_dashboard.DashbordView.EmployeeControl
 {
     public partial class EmployeeControl : UserControl
     {
@@ -15,7 +15,6 @@ namespace Maintenance_dashboard.DashbordViewModel.EmployeeControl
         public EmployeeControl()
         {
             InitializeComponent();
-            plcNetInterface.Connect();
         }
 
         private async void UserControl_Loaded(object sender, RoutedEventArgs e)
@@ -46,11 +45,6 @@ namespace Maintenance_dashboard.DashbordViewModel.EmployeeControl
             txtLastName.Clear();
         }
 
-  
-
-        private void employeeDataGrid_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-        }
     }
 }
 

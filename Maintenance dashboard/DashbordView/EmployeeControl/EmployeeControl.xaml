@@ -3,17 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Maintenance_dashboard.DashbordViewModel.AddEmployee" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             xmlns:Maintenance_dashboard="clr-namespace:Maintenance_dashboard" x:Class="Maintenance_dashboard.DashbordViewModel.EmployeeControl.EmployeeControl"
+             xmlns:local="clr-namespace:Maintenance_dashboard.DashbordView.EmployeeControl" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:Maintenance_dashboard="clr-namespace:Maintenance_dashboard" x:Class="Maintenance_dashboard.DashbordView.EmployeeControl.EmployeeControl"
              mc:Ignorable="d" 
              Height="auto" Width="auto" Loaded="UserControl_Loaded">
     <UserControl.Resources>
         <CollectionViewSource x:Key="employeeViewSource" d:DesignSource="{d:DesignInstance {x:Type Maintenance_dashboard:Employee}, CreateList=True}"/>
     </UserControl.Resources>
 
-
     <UserControl.DataContext>
-        <local:ViewModel/>
+        <local:EmployeeValidation/>
     </UserControl.DataContext>
 
     <Grid Margin="25">
@@ -60,7 +59,7 @@
                     </StackPanel>
 
 
-                    <DataGrid x:Name="employeeDataGrid" Height="auto" Width="auto" Margin="10" AutoGenerateColumns="False" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" EnableRowVirtualization="True" ItemsSource="{Binding Source={StaticResource employeeViewSource}}" RowDetailsVisibilityMode="VisibleWhenSelected" MouseDoubleClick="employeeDataGrid_MouseDoubleClick">
+                    <DataGrid x:Name="employeeDataGrid" Height="auto" Width="auto" Margin="10" AutoGenerateColumns="False" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" EnableRowVirtualization="True" ItemsSource="{Binding Source={StaticResource employeeViewSource}}" RowDetailsVisibilityMode="VisibleWhenSelected">
                         <DataGrid.Columns>
                             <DataGridTextColumn x:Name="idColumn" Binding="{Binding Id}" Header="Id" Width="SizeToHeader"/>
                             <DataGridTextColumn x:Name="firstNameColumn" Binding="{Binding FirstName}" Header="First Name" Width="SizeToHeader"/>
@@ -75,7 +74,7 @@
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                    <Button  x:Name="btnAddEmployee" Height="25"  Background="#FF0069C0"  BorderBrush="#FF0069C0"  Width="100" Content="DODAJ" Margin="10"  Grid.Column="0" Click="btnAddEmployee_Click">
+                    <Button  x:Name="btnAddEmployee" Height="25"  Background="#FF0069C0"  BorderBrush="#FF0069C0"  Width="100" Content="DODAJ" Margin="10"  Grid.Column="1" Click="btnAddEmployee_Click">
                         <Button.Style>
                             <Style TargetType="{x:Type Button}">
                                 <Setter Property="IsEnabled" Value="false" />
@@ -92,38 +91,11 @@
                         </Button.Style>
                     </Button>
 
-                        <Button  x:Name="btnEditEmployee" Height="25"  Width="100"  Background="#FF0069C0"  BorderBrush="#FF0069C0"  Content="EDYTUJ"  Margin="10" Grid.Column="1">
-                        <Button.Style>
-                            <Style TargetType="{x:Type Button}">
-                                <Setter Property="IsEnabled" Value="false" />
-                                <Style.Triggers>
-                                    <MultiDataTrigger>
-                                        <MultiDataTrigger.Conditions>
-                                            <Condition Binding="{Binding (Validation.HasError), ElementName=txtFirstName}" Value="false" />
-                                            <Condition Binding="{Binding (Validation.HasError), ElementName=txtLastName}" Value="false" />
-                                        </MultiDataTrigger.Conditions>
-                                        <Setter Property="IsEnabled" Value="true" />
-                                    </MultiDataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
-                    </Button>
+                        <Button  x:Name="btnEditEmployee" Height="25"  Width="100"  Background="#FF0069C0"  BorderBrush="#FF0069C0"  Content="EDYTUJ"  Margin="10" Grid.Column="0" Visibility="Hidden">
+                        </Button>
 
-                        <Button  x:Name="btnDeleteEmployee" Height="25"  Width="100"  Background="#FF0069C0"  BorderBrush="#FF0069C0"  Content="USUŃ"  Margin="10" Grid.Column="2">
-                            <Button.Style>
-                                <Style TargetType="{x:Type Button}">
-                                    <Setter Property="IsEnabled" Value="false" />
-                                    <Style.Triggers>
-                                        <MultiDataTrigger>
-                                            <MultiDataTrigger.Conditions>
-                                                <Condition Binding="{Binding (Validation.HasError), ElementName=txtFirstName}" Value="false" />
-                                                <Condition Binding="{Binding (Validation.HasError), ElementName=txtLastName}" Value="false" />
-                                            </MultiDataTrigger.Conditions>
-                                            <Setter Property="IsEnabled" Value="true" />
-                                        </MultiDataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </Button.Style>
+                        <Button  x:Name="btnDeleteEmployee" Height="25"  Width="100"  Background="#FF0069C0"  BorderBrush="#FF0069C0"  Content="USUŃ"  Margin="10" Grid.Column="2" Visibility="Hidden">
+               
                         </Button>
                     </Grid>
                 </Grid>

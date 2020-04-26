@@ -1,9 +1,8 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using Maintenance_dashboard.DashbordViewModel.RegisterTool;
-using Maintenance_dashboard.DashbordViewModel.EmployeeControl;
-using Maintenance_dashboard.DashbordViewModel.AddRegisterTool;
+using Maintenance_dashboard.DashbordView.RegisterToolControl;
+using Maintenance_dashboard.DashbordView.EmployeeControl;
 using System;
 
 namespace Maintenance_dashboard
@@ -48,15 +47,7 @@ namespace Maintenance_dashboard
                     break;
                 case 1:
                     GridPrincipal.Children.Clear();
-                    GridPrincipal.Children.Add(new AddRegisterToolControl());
-                    break;
-                case 2:
-                    GridPrincipal.Children.Clear();
-                    GridPrincipal.Children.Add(new AddRegisterToolControl());
-                    break;
-                case 3:
-                    GridPrincipal.Children.Clear();
-                    GridPrincipal.Children.Add(new RegisterToolList());
+                    GridPrincipal.Children.Add(new RegisterToolControl());
                     break;
                 default:
                     break;

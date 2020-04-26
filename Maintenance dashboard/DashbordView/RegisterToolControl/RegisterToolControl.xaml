@@ -1,0 +1,98 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Maintenance_dashboard.DashbordView.RegisterToolControl" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:Maintenance_dashboard="clr-namespace:Maintenance_dashboard" x:Class="Maintenance_dashboard.DashbordView.RegisterToolControl.RegisterToolControl"
+             mc:Ignorable="d" 
+             Height="auto" Width="auto" Loaded="UserControl_Loaded">
+    <UserControl.Resources>
+        <CollectionViewSource x:Key="registerToolViewSource" d:DesignSource="{d:DesignInstance {x:Type Maintenance_dashboard:RegisterTool}, CreateList=True}"/>
+    </UserControl.Resources>
+
+    <UserControl.DataContext>
+        <local:RegisterToolValidation/>
+    </UserControl.DataContext>
+
+
+    <Grid Margin="25" >
+        <materialDesign:TransitioningContent x:Name="TrainsitioningContentSlide" OpeningEffect="{materialDesign:TransitionEffect FadeIn}"/>
+        <Grid>
+            <Border Height="auto" Width="auto" CornerRadius="20">
+                <Border.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF2281D1"/>
+                        <GradientStop Color="#FF34288B" Offset="1"/>
+                        <GradientStop Color="#FF33288B" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+
+            
+            <materialDesign:PackIcon Kind="UserAddOutline" VerticalAlignment="Top" Width="80" Height="80" HorizontalAlignment="Center" Margin="5" Foreground="White"/>
+            <Rectangle Fill="White" Margin="15,80,15, 15" RadiusX="15" RadiusY="15" RenderTransformOrigin="0.5,0.5">
+                <Rectangle.Effect>
+                    <DropShadowEffect BlurRadius="10" RenderingBias="Quality" Direction="0" Color="#FFBBBBBB" ShadowDepth="1"/>
+                </Rectangle.Effect>
+            </Rectangle>
+
+            <Grid Width="auto" Height="auto" Margin="15,80,15, 15" DataContext="{StaticResource registerToolViewSource}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="REJESTROWANE WYPOSAŻENIE" HorizontalAlignment="Center" VerticalAlignment="Top"  FontSize="18" Grid.Column="0" Grid.Row="0" Foreground="Gray" Grid.ColumnSpan="2" Margin="0,5,0,0"/>
+
+                <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="5" Grid.Column="0" Grid.Row="1">
+
+                    <TextBox x:Name="txtID" Width="400" IsReadOnly="True" materialDesign:HintAssist.Hint="Id" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"/>
+                    <TextBox x:Name="txtRegisterToolName" Width="400" materialDesign:HintAssist.Hint="Nazwa wyposażenia" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Text="{Binding RegisterToolName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Margin="10"/>
+                    <TextBox  materialDesign:HintAssist.Hint="Kod UID" Width="400" materialDesign:HintAssist.HelperText="" IsReadOnly="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"/>
+
+                </StackPanel>
+
+                <DataGrid x:Name="registerToolDataGrid" AutoGenerateColumns="False" Margin="10" EnableRowVirtualization="True" ItemsSource="{Binding}"  Grid.Row="1" Grid.Column="1" RowDetailsVisibilityMode="VisibleWhenSelected">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn x:Name="idColumn" Binding="{Binding Id}" Header="Id" Width="SizeToHeader"/>
+                        <DataGridTextColumn x:Name="toolNameColumn" Binding="{Binding ToolName}" Header="Tool Name" Width="SizeToHeader"/>
+                        <DataGridTextColumn x:Name="uidCodeColumn" Binding="{Binding UidCode}" Header="Uid Code" Width="SizeToHeader"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <Grid Grid.Column="0" Grid.Row="2" VerticalAlignment="Top" DataContext="{StaticResource registerToolViewSource}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button  x:Name="btnAddRegisterTool" Height="25"  Background="#FF0069C0"  BorderBrush="#FF0069C0"  Width="100" Content="DODAJ" Margin="10"  Grid.Column="1" Click="btnAddRegisterTool_Click">
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="IsEnabled" Value="false" />
+                                <Style.Triggers>
+                                    <MultiDataTrigger>
+                                        <MultiDataTrigger.Conditions>
+                                            <Condition Binding="{Binding (Validation.HasError), ElementName=txtRegisterToolName}" Value="false" />
+
+                                        </MultiDataTrigger.Conditions>
+                                        <Setter Property="IsEnabled" Value="true" />
+                                    </MultiDataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <Button  x:Name="btnEditEmployee" Height="25"  Width="100"  Background="#FF0069C0"  BorderBrush="#FF0069C0"  Content="EDYTUJ"  Margin="10" Grid.Column="0" Visibility="Hidden"/>
+                    <Button  x:Name="btnDeleteEmployee" Height="25"  Width="100"  Background="#FF0069C0"  BorderBrush="#FF0069C0"  Content="USUŃ"  Margin="10" Grid.Column="2" Visibility="Hidden"/>
+                
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>
