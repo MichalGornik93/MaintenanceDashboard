@@ -5,7 +5,7 @@ namespace Maintenance_dashboard.DashbordView.RegisterToolControl
 {
     public class RegisterToolValidation : IDataErrorInfo
     { 
-        public string RegisterToolName { get; set; }
+        public string RegisterTool { get; set; }
 
         public string Error => throw new NotImplementedException();
 
@@ -17,12 +17,12 @@ namespace Maintenance_dashboard.DashbordView.RegisterToolControl
 
                 switch (columnName)
                 {
-                    case "RegisterToolName":
-                        if (string.IsNullOrEmpty(RegisterToolName))
+                    case "RegisterTool":
+                        if (string.IsNullOrEmpty(RegisterTool))
                             message = "Pole musi być wypełnione";
-                        else if (RegisterToolName.Length < 2)
+                        else if (RegisterTool.Length < 2)
                             message = "Nazwa jest zbyt krótka";
-                        else if (RegisterToolName.Length > 12)
+                        else if (RegisterTool.Length > 12)
                             message = "Nazwa jest zbyt długa";
                         break;
                 };
