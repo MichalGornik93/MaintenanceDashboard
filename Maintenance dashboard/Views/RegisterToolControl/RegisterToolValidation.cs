@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 
-namespace Maintenance_dashboard.DashbordView.RegisterToolControl
+namespace Maintenance_dashboard.Views.RegisterToolControl
 {
     public class RegisterToolValidation : IDataErrorInfo
     { 

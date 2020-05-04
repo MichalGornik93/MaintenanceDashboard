@@ -1,12 +1,10 @@
-﻿using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using Maintenance_dashboard;
 
-namespace Maintenance_dashboard.DashbordView.EmployeeControl
+namespace Maintenance_dashboard.Views.EmployeeControl
 {
     public partial class EmployeeControl : UserControl
     {

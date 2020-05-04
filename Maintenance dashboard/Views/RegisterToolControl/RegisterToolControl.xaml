@@ -3,8 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Maintenance_dashboard.DashbordView.RegisterToolControl" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             xmlns:Maintenance_dashboard="clr-namespace:Maintenance_dashboard" x:Class="Maintenance_dashboard.DashbordView.RegisterToolControl.RegisterToolControl"
+             xmlns:local="clr-namespace:Maintenance_dashboard.Views.RegisterToolControl" 
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:Maintenance_dashboard="clr-namespace:Maintenance_dashboard" x:Class="Maintenance_dashboard.Views.RegisterToolControl.RegisterToolControl"
              mc:Ignorable="d" 
              Height="auto" Width="auto" Loaded="UserControl_Loaded">
     <UserControl.Resources>

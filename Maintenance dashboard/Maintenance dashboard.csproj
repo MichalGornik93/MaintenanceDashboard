@@ -71,15 +71,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="DashbordView\EmployeeControl\EmployeeControl.xaml.cs">
+    <Compile Include="Views\EmployeeControl\EmployeeControl.xaml.cs">
       <DependentUpon>EmployeeControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DashbordView\RegisterToolControl\RegisterToolValidation.cs" />
-    <Compile Include="DashbordView\RegisterToolControl\RegisterToolControl.xaml.cs">
+    <Compile Include="Views\RegisterToolControl\RegisterToolValidation.cs" />
+    <Compile Include="Views\RegisterToolControl\RegisterToolControl.xaml.cs">
       <DependentUpon>RegisterToolControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DashbordView\EmployeeControl\EmployeeValidation.cs" />
-    <Compile Include="Domain\RegisterTool.cs" />
+    <Compile Include="Views\EmployeeControl\EmployeeValidation.cs" />
+    <Compile Include="Models\RegisterTool.cs" />
     <Compile Include="Migrations\202004161712421_InitialModel.cs" />
     <Compile Include="Migrations\202004161712421_InitialModel.designer.cs">
       <DependentUpon>202004161712421_InitialModel.cs</DependentUpon>
@@ -103,17 +103,17 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PlcConnection\IPlcNetLibrariesBaseInterface.cs" />
     <Compile Include="PlcConnection\PlcNetInterface.cs" />
-    <Compile Include="Domain\WorkshopDbContext.cs" />
-    <Compile Include="Domain\Employee.cs" />
+    <Compile Include="Models\WorkshopDbContext.cs" />
+    <Compile Include="Models\Employee.cs" />
     <Compile Include="PlcConnection\Sharp7.cs" />
-    <Compile Include="DashbordView\HomeControl\HomeControl.xaml.cs">
+    <Compile Include="Views\HomeControl\HomeControl.xaml.cs">
       <DependentUpon>HomeControl.xaml</DependentUpon>
     </Compile>
-    <Page Include="DashbordView\EmployeeControl\EmployeeControl.xaml">
+    <Page Include="Views\EmployeeControl\EmployeeControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DashbordView\RegisterToolControl\RegisterToolControl.xaml">
+    <Page Include="Views\RegisterToolControl\RegisterToolControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -129,7 +129,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="DashbordView\HomeControl\HomeControl.xaml">
+    <Page Include="Views\HomeControl\HomeControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,8 +1,8 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using Maintenance_dashboard.DashbordView.RegisterToolControl;
-using Maintenance_dashboard.DashbordView.EmployeeControl;
+using Maintenance_dashboard.Views.RegisterToolControl;
+using Maintenance_dashboard.Views.EmployeeControl;
 using System;
 
 namespace Maintenance_dashboard

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 
-namespace Maintenance_dashboard.DashbordView.EmployeeControl
+namespace Maintenance_dashboard.Views.EmployeeControl
 {
     public class EmployeeValidation : IDataErrorInfo
     {
@@ -39,4 +39,5 @@ namespace Maintenance_dashboard.DashbordView.EmployeeControl
             }
         }
     }
+    //Jakiś komentartz
 }
