@@ -3,7 +3,10 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using Maintenance_dashboard.Views.RegisterToolControl;
 using Maintenance_dashboard.Views.EmployeeControl;
+using Maintenance_dashboard.Views.AddPaddle;
+using Maintenance_dashboard.Views.PaddleControl;
 using System;
+using Maintenance_dashboard.WindowControl;
 
 namespace Maintenance_dashboard
 {
@@ -39,36 +42,42 @@ namespace Maintenance_dashboard
             int index = ListViewMenu.SelectedIndex;
             MoveCursorMenu(index);
 
-            switch (index)
+            switch (ListViewMenu.SelectedIndex)
             {
                 case 0:
+                    GridPrincipal.Children.Clear();
+                    GridPrincipal.Children.Add(new WindowControl.HomeControl());
+                    break;
+                case 1:
                     GridPrincipal.Children.Clear();   
                     GridPrincipal.Children.Add(new EmployeeControl());
                     break;
-                case 1:
+                case 2:
                     GridPrincipal.Children.Clear();
                     GridPrincipal.Children.Add(new RegisterToolControl());
+                    break;
+                case 3:
+                    GridPrincipal.Children.Clear();
+                    break;
+                case 4:
+                    GridPrincipal.Children.Clear();
+                    GridPrincipal.Children.Add(new PaddleControl());
+                    MessageBox.Show("Test");
                     break;
                 default:
                     break;
             }
+
         }
+
 
         private void MoveCursorMenu(int index)
         {
             TrainsitioningContentSlide.OnApplyTemplate();
             GridCursor.Margin = new Thickness(0, (10 +(60* index)), 0, 0);
         }
-        private void btnHomeWindow_Click(object sender, RoutedEventArgs e)
-        {
-            GridPrincipal.Children.Clear();
-            GridPrincipal.Children.Add(new WindowControl.HomeControl());
-        }
 
-        private void btnSetting_Click(object sender, RoutedEventArgs e)
-        {
-            GridPrincipal.Children.Clear();
-        }
+
 
         private void btnSavePassword_Click(object sender, RoutedEventArgs e)
         {
@@ -80,5 +89,6 @@ namespace Maintenance_dashboard
             }
             PasswordBox.Clear();
         }
+
     }
 }

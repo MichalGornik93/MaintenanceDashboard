@@ -19,76 +19,76 @@
             <Grid Background="#FF0069C0" Height="10"/>
             <Grid Margin="5">
 
-                <StackPanel HorizontalAlignment="Right"
+                <StackPanel HorizontalAlignment="Right" Height="55"
                             Orientation="Horizontal" Margin="0,0,10,0" 
                             Grid.Column="1">
 
-                    <Button x:Name="btnHome" Width="30" Height="30" 
-                            Background="{x:Null}" BorderBrush="{x:Null}"
-                            Padding="0" Foreground="Gray" Click="btnHomeWindow_Click">
-                        <materialDesign:PackIcon Kind="Home" />
-                    </Button>
 
-                    <StackPanel Orientation="Horizontal">
-                        <materialDesign:PopupBox StaysOpen="True">
+                    <StackPanel VerticalAlignment="Center" Margin="7">
+                        <materialDesign:PopupBox StaysOpen="True" HorizontalAlignment="Center">
                             <materialDesign:PopupBox.ToggleContent>
                                 <materialDesign:PackIcon Kind="Information" Foreground="Gray"/>
                             </materialDesign:PopupBox.ToggleContent>
                             <StackPanel Width="300" Margin="8">
                                 <TextBlock Style="{StaticResource MaterialDesignHeadline6TextBlock}"
                                            HorizontalAlignment="Center" Margin="8" Foreground="Gray" 
-                                           Text="INFORMACJE"/>
+                                           Text="Informacje" FontSize="14"/>
                             </StackPanel>
                         </materialDesign:PopupBox>
+                        <TextBlock Text="Informacje" FontSize="8" Foreground="Gray"/>
                     </StackPanel>
 
-                    <StackPanel Orientation="Horizontal">
-                        <materialDesign:PopupBox StaysOpen="True">
+                    <StackPanel VerticalAlignment="Center" Margin="7">
+                        <materialDesign:PopupBox StaysOpen="True" HorizontalAlignment="Center">
                             <materialDesign:PopupBox.ToggleContent>
-                                <materialDesign:PackIcon Kind="BellOutline" Foreground="Gray"/>
+                                <materialDesign:PackIcon Kind="BellOutline" Foreground="#F44336"/>
                             </materialDesign:PopupBox.ToggleContent>
                             <StackPanel Width="300" Margin="8">
                                 <TextBlock Style="{StaticResource MaterialDesignHeadline6TextBlock}" 
-                                           HorizontalAlignment="Center" Margin="8" Foreground="Gray" Text="ALARMY"/>
+                                           HorizontalAlignment="Center" Margin="8" Foreground="Gray" Text="Alarmy" FontSize="14" />
                             </StackPanel>
                         </materialDesign:PopupBox>
+                        <TextBlock Text="Alarmy" FontSize="8" Foreground="#F44336"/>
                     </StackPanel>
 
-                    <StackPanel Orientation="Horizontal">
-                        <materialDesign:PopupBox StaysOpen="True">
+                    <StackPanel VerticalAlignment="Center" Margin="7">
+                        <materialDesign:PopupBox StaysOpen="True" HorizontalAlignment="Center">
                             <materialDesign:PopupBox.ToggleContent>
                                 <materialDesign:PackIcon Kind="Settings" Foreground="Gray"/>
                             </materialDesign:PopupBox.ToggleContent>
                             <StackPanel Width="300" Margin="8">
                                 <TextBlock Style="{StaticResource MaterialDesignHeadline6TextBlock}" 
-                                           HorizontalAlignment="Center" Margin="8" Foreground="Gray" Text="OPCJE"/>
+                                           HorizontalAlignment="Center" Margin="8" Foreground="Gray" Text="Ustawienia" FontSize="14"/>
                             </StackPanel>
                         </materialDesign:PopupBox>
+                        <TextBlock Text="Ustawienia" FontSize="8" Foreground="Gray"/>
                     </StackPanel>
-                    
-                    <StackPanel Orientation="Horizontal">
-                        <materialDesign:PopupBox StaysOpen="True">
+
+                    <StackPanel VerticalAlignment="Center" Margin="7">
+                        <materialDesign:PopupBox StaysOpen="True" HorizontalAlignment="Center">
                             <materialDesign:PopupBox.ToggleContent>
-                                <materialDesign:PackIcon Kind="Login" Foreground="Gray"/>
+                                <materialDesign:PackIcon Kind="Login" Foreground="Gray" />
                             </materialDesign:PopupBox.ToggleContent>
+                            
                             <StackPanel Width="300" Margin="8">
-                                <TextBlock Style="{StaticResource MaterialDesignHeadline6TextBlock}" 
-                                           HorizontalAlignment="Center" Margin="8" Foreground="Gray" Text="LOGOWANIE"/>
+                                <TextBlock Style="{StaticResource MaterialDesignHeadline6TextBlock}" FontSize="14"
+                                           HorizontalAlignment="Center" Margin="8" Foreground="Gray" Text="Logowanie"/>
                                 <PasswordBox x:Name="PasswordBox" Margin="8" materialDesign:HintAssist.Hint="Hasło"
                                              materialDesign:TextFieldAssist.HasClearButton="True" 
                                              materialDesign:HintAssist.HelperText="Wpisz hasło"  />
                                 <Button x:Name="btnSavePassword" Click="btnSavePassword_Click" 
-                                        Style="{StaticResource MaterialDesignFlatButton}" Margin="8"  
+                                        Style="{StaticResource MaterialDesignFlatButton}" Margin="8" FontSize="12" 
                                         ToolTip="MaterialDesignFlatButton" Content="AKCEPTUJ"/>
                             </StackPanel>
                         </materialDesign:PopupBox>
+                        <TextBlock Text="Logowanie" FontSize="8" Foreground="Gray"/>
                     </StackPanel>
 
                     
                     <Button x:Name="btnCloseWindow" Width="30" Height="30" 
                             Background="{x:Null}" BorderBrush="{x:Null}" 
                             Padding="0" Foreground="Gray" Click="btnCloseWindow_Click" >
-                        <materialDesign:PackIcon Kind="Power"/>
+                        <materialDesign:PackIcon Kind="Power" Width="22" Height="22"/>
                     </Button>
                     
                 </StackPanel>
@@ -115,6 +115,15 @@
                 </materialDesign:TransitioningContent>
 
                 <ListView x:Name="ListViewMenu" Margin="0 10" SelectionChanged="ListViewMenu_SelectionChanged" FontSize="14">
+
+                    <ListViewItem Height="60" Foreground="LightGray">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Home" Width="30" Height="30"
+                                                     VerticalAlignment="Center" Margin="5"/>
+                            <TextBlock Text="Strona główna" 
+                                       VerticalAlignment="Center" Margin="20 0" />
+                        </StackPanel>
+                    </ListViewItem>
                     <ListViewItem Height="60" Foreground="LightGray">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="UsersAddOutline" Width="30" Height="30"
@@ -140,48 +149,26 @@
                         </StackPanel>
                     </ListViewItem>
                     
-                    <ListViewItem x:Name="listaPaletek"  Foreground="LightGray">
+                    <ListViewItem x:Name="ListaPaletek"  Foreground="LightGray">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Toolbox" Width="30" 
                                                      Height="35" VerticalAlignment="Top" Margin="5"/>
+                            <TextBlock Text="Baza paletek"  
+                                       VerticalAlignment="Center" Margin="20 0" />
                             
-                            <TreeView  VerticalAlignment="Center" Margin="10 0" Background="Transparent">
-                                <TreeViewItem Header="Baza paletek" Foreground="White" IsEnabled="{Binding ElementName=listaPaletek, Path=IsFocused}" 
-                                              IsExpanded="{Binding ElementName=listaPaletek, Path=IsFocused}" >
-                                    <TreeViewItem Header="Wydanie paletki" Foreground="White" 
-                                                  materialDesign:TreeViewAssist.AdditionalTemplate="{x:Static materialDesign:TreeViewAssist.SuppressAdditionalTemplate}" />
-                                    <TreeViewItem Header="Przyjecie paletki" 
-                                                  Foreground="White" materialDesign:TreeViewAssist.AdditionalTemplate="{x:Static materialDesign:TreeViewAssist.SuppressAdditionalTemplate}" />
-                                    <TreeViewItem Header="Przeglądanie bazy" 
-                                                  Foreground="White" materialDesign:TreeViewAssist.AdditionalTemplate="{x:Static materialDesign:TreeViewAssist.SuppressAdditionalTemplate}" />
-                                </TreeViewItem>
-                            </TreeView>
                             
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem x:Name="listaTermostatow" Foreground="LightGray">
+
+                    <ListViewItem x:Name="ListaTermostatow" Foreground="LightGray">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Toolbox" Width="30" 
                                                      Height="35" VerticalAlignment="top" Margin="5"/>
-
-                            <TreeView VerticalAlignment="Center" Margin="10 0"  Background="Transparent">
-                                <TreeViewItem Header="Baza termostatów" Foreground="White" IsEnabled="{Binding ElementName=listaTermostatow, Path=IsFocused}" 
-                                              IsExpanded="{Binding ElementName=listaTermostatow, Path=IsFocused}" >
-                                    <TreeViewItem Header="Wydanie termostatu" Foreground="White" 
-                                                  materialDesign:TreeViewAssist.AdditionalTemplate="{x:Static materialDesign:TreeViewAssist.SuppressAdditionalTemplate}" />
-                                    <TreeViewItem Header="Przyjecie paletki" 
-                                                  Foreground="White" materialDesign:TreeViewAssist.AdditionalTemplate="{x:Static materialDesign:TreeViewAssist.SuppressAdditionalTemplate}" />
-                                    <TreeViewItem Header="Przeglądanie bazy" 
-                                                  Foreground="White" materialDesign:TreeViewAssist.AdditionalTemplate="{x:Static materialDesign:TreeViewAssist.SuppressAdditionalTemplate}" />
-                                </TreeViewItem>
-                            </TreeView>
-
+                            <TextBlock Text="Baza termostatów"  VerticalAlignment="Center" Margin="20 0" />
                         </StackPanel>
                     </ListViewItem>
                 </ListView>
-                <StackPanel VerticalAlignment="Center">
-                    
-                </StackPanel>
+
             </Grid>
 
         </StackPanel>
