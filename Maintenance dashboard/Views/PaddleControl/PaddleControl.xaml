@@ -7,15 +7,63 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              TextElement.Foreground="{DynamicResource MaterialDesignBody}"
              TextElement.FontWeight="Regular"
-             TextElement.FontSize="13"
+             TextElement.FontSize="16"
              TextOptions.TextFormattingMode="Ideal"
              TextOptions.TextRenderingMode="Auto"
-             Background="{DynamicResource MaterialDesignPaper}"
+             
              FontFamily="{DynamicResource MaterialDesignFont}"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid x:Name="GridPrincipal">
-        <Grid Width="200" Height="200">
+             mc:Ignorable="d" >
+    <Grid x:Name="GridPrincipal" >
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="130"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition  Width="170"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+
+            <StackPanel Grid.Row="0" Grid.Column="0" >
+                <Button Background="#FF0069C0" BorderBrush="#FF0069C0" ToolTip="MaterialDesignFloatingActionButton" 
+                                    Height="170" Width="170"  materialDesign:ButtonAssist.CornerRadius="15">
+                    <materialDesign:PackIcon Height="90" Width="90" Kind="Download" />
+                </Button>
+                <TextBlock Text="Przyjecie paletki" HorizontalAlignment="Center" Foreground="Gray" VerticalAlignment="Center" Margin="7"/>
+            </StackPanel>
+
+
+
+
+            <StackPanel Grid.Row="0" Grid.Column="2" >
+                <Button Background="#FF0069C0" BorderBrush="#FF0069C0" ToolTip="MaterialDesignFloatingActionButton" 
+                                    Height="170" Width="170"  materialDesign:ButtonAssist.CornerRadius="15">
+                    <materialDesign:PackIcon Height="90" Width="90" Kind="Upload" />
+                </Button>
+                <TextBlock Text="Wydanie paletki" HorizontalAlignment="Center" Foreground="Gray" VerticalAlignment="Center" Margin="7"/>
+            </StackPanel>
+
+
+
+            <StackPanel Grid.Row="2" Grid.Column="0"  >
+                <Button Background="#FF0069C0" BorderBrush="#FF0069C0" ToolTip="MaterialDesignFloatingActionButton" 
+                                    Height="170" Width="170"  materialDesign:ButtonAssist.CornerRadius="15">
+                    <materialDesign:PackIcon Height="90" Width="90" Kind="FindInPage" />
+                </Button>
+                <TextBlock Text="Przeglądanie bazy" Foreground="Gray" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7"/>
+            </StackPanel>
+
+
+            <StackPanel Grid.Row="2" Grid.Column="2"  VerticalAlignment="Bottom" >
+                <Button Background="#FF0069C0" BorderBrush="#FF0069C0" ToolTip="MaterialDesignFloatingActionButton" 
+                                    Height="170" Width="170"  materialDesign:ButtonAssist.CornerRadius="15">
+                    <materialDesign:PackIcon Height="90" Width="90" Kind="ClipboardList" />
+                </Button>
+                <TextBlock Text="Wykaz termostatów" Foreground="Gray" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7"/>
+            </StackPanel>
 
         </Grid>
     </Grid>

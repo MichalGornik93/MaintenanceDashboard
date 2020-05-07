@@ -62,7 +62,6 @@ namespace Maintenance_dashboard
                 case 4:
                     GridPrincipal.Children.Clear();
                     GridPrincipal.Children.Add(new PaddleControl());
-                    MessageBox.Show("Test");
                     break;
                 default:
                     break;
