@@ -1,11 +1,11 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using Maintenance_dashboard.Views.RegisterToolControl;
 using Maintenance_dashboard.Views.EmployeeControl;
 using Maintenance_dashboard.Views.AddPaddle;
 using Maintenance_dashboard.Views.PaddleControl;
-using System;
 using Maintenance_dashboard.WindowControl;
 
 namespace Maintenance_dashboard

@@ -1,4 +1,4 @@
-﻿namespace MaintenanceDashbord.Tests.UnitTests
+﻿namespace Maintenance_dashbord.Tests.UnitTests
 {
     using System;
     using Maintenance_dashboard;

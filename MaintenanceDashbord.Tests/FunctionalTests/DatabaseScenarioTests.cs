@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Maintenance_dashboard;
 
-namespace MaintenanceDashbord.Tests
+namespace Maintenance_dashbord.Tests
 {
     [TestClass]
     public class DatabaseScenarioTests

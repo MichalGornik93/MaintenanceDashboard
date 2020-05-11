@@ -66,9 +66,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Maintenance dashboard\Maintenance_dashboard.csproj">
+    <ProjectReference Include="..\Maintenance dashboard\Maintenance_dashboard.Client.csproj">
       <Project>{7831659a-ca23-4dd5-92ca-6f3bb8bf583b}</Project>
-      <Name>Maintenance_dashboard</Name>
+      <Name>Maintenance_dashboard.Client</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
