@@ -2,7 +2,7 @@
 
 namespace Maintenance_dashboard
 {
-    class Employee
+    public class Employee
     {
         public int Id { get; set; }
         [Required]

@@ -2,7 +2,7 @@
 
 namespace Maintenance_dashboard
 {
-    class WorkshopDbContext:DbContext
+    public class WorkshopDbContext:DbContext
     {
         public DbSet <Employee> Employees { get; set; }
         public DbSet<RegisterTool> RegisterTools  { get; set; }

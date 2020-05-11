@@ -2,7 +2,7 @@
 
 namespace Maintenance_dashboard
 {
-    class RegisterTool
+    public class RegisterTool
     {
         public int Id { get; set; }
         [Required]

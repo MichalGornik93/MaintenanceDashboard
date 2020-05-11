@@ -39,5 +39,4 @@ namespace Maintenance_dashboard.Views.EmployeeControl
             }
         }
     }
-    //Jakiś komentartz
 }
