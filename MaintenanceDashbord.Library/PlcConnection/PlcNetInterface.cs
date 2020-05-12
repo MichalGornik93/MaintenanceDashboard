@@ -1,9 +1,9 @@
 ﻿using System.Timers;
 using Sharp7;
 
-namespace Maintenance_dashboard
+namespace MaintenanceDashbord.Library.PlcConnection
 {
-    class PlcNetInterface //:IPlcNetLibrariesBaseInterface
+    public class PlcNetInterface //:IPlcNetLibrariesBaseInterface
     {
         public string IpAddress { get; set; }
         public int Rack { get; set; }

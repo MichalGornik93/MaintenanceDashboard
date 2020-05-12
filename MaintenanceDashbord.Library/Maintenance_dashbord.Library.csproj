@@ -41,6 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PlcConnection\IPlcNetLibrariesBaseInterface.cs" />
+    <Compile Include="PlcConnection\PlcNetInterface.cs" />
+    <Compile Include="PlcConnection\Sharp7.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

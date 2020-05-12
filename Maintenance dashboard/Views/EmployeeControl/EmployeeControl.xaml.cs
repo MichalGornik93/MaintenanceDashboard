@@ -9,7 +9,6 @@ namespace Maintenance_dashboard.Views.EmployeeControl
     public partial class EmployeeControl : UserControl
     {
         private WorkshopDbContext _context = new WorkshopDbContext();
-        private PlcNetInterface plcNetInterface = new PlcNetInterface("192.168.0.1",0,0);
         public EmployeeControl()
         {
             InitializeComponent();

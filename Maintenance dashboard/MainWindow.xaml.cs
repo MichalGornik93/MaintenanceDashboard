@@ -7,6 +7,7 @@ using Maintenance_dashboard.Views.EmployeeControl;
 using Maintenance_dashboard.Views.AddPaddle;
 using Maintenance_dashboard.Views.PaddleControl;
 using Maintenance_dashboard.WindowControl;
+using MaintenanceDashbord.Library.PlcConnection;
 
 namespace Maintenance_dashboard
 {
@@ -17,6 +18,7 @@ namespace Maintenance_dashboard
         {
             InitializeComponent();
             PlcNetInterface plcNetInterface = new PlcNetInterface("192.168.0.1", 0, 0);
+            
             plcNetInterface.Connected += (() => {
                 progPlcConnectionStatus.IsIndeterminate = true;
                 lblPlcConnectionStatus.Content = "SIMATIC CONNECTED";
