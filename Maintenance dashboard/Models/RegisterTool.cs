@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Maintenance_dashboard
+namespace MaintenanceDashboard
 {
     public class RegisterTool
     {

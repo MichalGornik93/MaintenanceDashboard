@@ -1,6 +1,6 @@
 ﻿using System.Data.Entity;
 
-namespace Maintenance_dashboard
+namespace MaintenanceDashboard
 {
     public class WorkshopDbContext:DbContext
     {

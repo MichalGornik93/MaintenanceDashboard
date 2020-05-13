@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Maintenance_dashboard
+namespace MaintenanceDashboard
 {
     /// <summary>
     /// Logika interakcji dla klasy App.xaml

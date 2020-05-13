@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Maintenance_dashboard;
+using MaintenanceDashboard;
 
 namespace Maintenance_dashbord.Tests
 {

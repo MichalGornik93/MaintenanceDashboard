@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29519.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maintenance_dashboard.Client", "Maintenance dashboard\Maintenance_dashboard.Client.csproj", "{7831659A-CA23-4DD5-92CA-6F3BB8BF583B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaintenanceDashboard.Client", "Maintenance dashboard\MaintenanceDashboard.Client.csproj", "{7831659A-CA23-4DD5-92CA-6F3BB8BF583B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maintenance_dashbord.Tests", "MaintenanceDashbord.Tests\Maintenance_dashbord.Tests.csproj", "{41935DDF-455A-4446-8FF3-1F6C6F8F95D8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaintenanceDashbord.Tests", "MaintenanceDashbord.Tests\MaintenanceDashbord.Tests.csproj", "{41935DDF-455A-4446-8FF3-1F6C6F8F95D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maintenance_dashbord.Library", "MaintenanceDashbord.Library\Maintenance_dashbord.Library.csproj", "{491C2945-9DC9-4B47-BC61-1F913DDBFD85}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaintenanceDashbord.Library", "MaintenanceDashbord.Library\MaintenanceDashbord.Library.csproj", "{491C2945-9DC9-4B47-BC61-1F913DDBFD85}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

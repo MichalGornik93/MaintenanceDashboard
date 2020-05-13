@@ -67,13 +67,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Maintenance dashboard\Maintenance_dashboard.Client.csproj">
+    <ProjectReference Include="..\Maintenance dashboard\MaintenanceDashboard.Client.csproj">
       <Project>{7831659a-ca23-4dd5-92ca-6f3bb8bf583b}</Project>
-      <Name>Maintenance_dashboard.Client</Name>
+      <Name>MaintenanceDashboard.Client</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MaintenanceDashbord.Library\Maintenance_dashbord.Library.csproj">
+    <ProjectReference Include="..\MaintenanceDashbord.Library\MaintenanceDashbord.Library.csproj">
       <Project>{491c2945-9dc9-4b47-bc61-1f913ddbfd85}</Project>
-      <Name>Maintenance_dashbord.Library</Name>
+      <Name>MaintenanceDashbord.Library</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

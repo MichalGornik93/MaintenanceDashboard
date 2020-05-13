@@ -1,7 +1,7 @@
-﻿<Application x:Class="Maintenance_dashboard.App"
+﻿<Application x:Class="MaintenanceDashboard.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Maintenance_dashboard"
+             xmlns:local="clr-namespace:MaintenanceDashboard"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>

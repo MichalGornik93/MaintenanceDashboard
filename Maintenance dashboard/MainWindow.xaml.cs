@@ -2,14 +2,14 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using Maintenance_dashboard.Views.RegisterToolControl;
-using Maintenance_dashboard.Views.EmployeeControl;
-using Maintenance_dashboard.Views.AddPaddle;
-using Maintenance_dashboard.Views.PaddleControl;
-using Maintenance_dashboard.WindowControl;
-using MaintenanceDashbord.Library.PlcConnection;
+using MaintenanceDashboard.Views.RegisterToolControl;
+using MaintenanceDashboard.Views.EmployeeControl;
+using MaintenanceDashboard.Views.AddPaddle;
+using MaintenanceDashboard.Views.PaddleControl;
+using MaintenanceDashboard.WindowControl;
+using MaintenanceDashbord.Library;
 
-namespace Maintenance_dashboard
+namespace MaintenanceDashboard
 {
     public partial class MainWindow : Window
     {

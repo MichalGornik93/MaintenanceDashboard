@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 
-namespace Maintenance_dashboard.Views.EmployeeControl
+namespace MaintenanceDashboard.Views.EmployeeControl
 {
     public class EmployeeValidation : IDataErrorInfo
     {

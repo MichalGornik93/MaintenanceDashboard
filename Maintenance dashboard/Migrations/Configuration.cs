@@ -1,18 +1,18 @@
-﻿namespace Maintenance_dashboard.Migrations
+﻿namespace MaintenanceDashboard.Migrations
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Maintenance_dashboard.WorkshopDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<MaintenanceDashboard.WorkshopDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(Maintenance_dashboard.WorkshopDbContext context)
+        protected override void Seed(MaintenanceDashboard.WorkshopDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

@@ -1,4 +1,4 @@
-﻿namespace Maintenance_dashboard.Migrations
+﻿namespace MaintenanceDashboard.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
