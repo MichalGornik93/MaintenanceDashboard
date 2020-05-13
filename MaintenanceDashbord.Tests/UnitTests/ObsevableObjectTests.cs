@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 
-namespace MaintenanceDashbord.Tests
+namespace MaintenanceDashbord.Tests.UnitTests
 {
 
     [TestClass]
@@ -26,8 +26,6 @@ namespace MaintenanceDashbord.Tests
 
             if (raised==false) Assert.Fail("PropertyChanged was never invoked");
         }
-
-        //
 
     }
 
