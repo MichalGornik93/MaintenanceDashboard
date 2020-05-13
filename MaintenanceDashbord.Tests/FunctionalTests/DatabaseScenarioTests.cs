@@ -4,7 +4,7 @@ using Maintenance_dashboard;
 namespace Maintenance_dashbord.Tests
 {
     [TestClass]
-    public class DatabaseScenarioTests
+    class DatabaseScenarioTests
     {
         [TestMethod]
         public void CanCreateDatabase()
