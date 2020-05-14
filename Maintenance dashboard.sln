@@ -5,9 +5,15 @@ VisualStudioVersion = 16.0.29519.181
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaintenanceDashboard.Client", "Maintenance dashboard\MaintenanceDashboard.Client.csproj", "{7831659A-CA23-4DD5-92CA-6F3BB8BF583B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaintenanceDashbord.Tests", "MaintenanceDashbord.Tests\MaintenanceDashbord.Tests.csproj", "{41935DDF-455A-4446-8FF3-1F6C6F8F95D8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaintenanceDashbord.Library.Tests", "MaintenanceDashbord.Tests\MaintenanceDashbord.Library.Tests.csproj", "{41935DDF-455A-4446-8FF3-1F6C6F8F95D8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaintenanceDashbord.Library", "MaintenanceDashbord.Library\MaintenanceDashbord.Library.csproj", "{491C2945-9DC9-4B47-BC61-1F913DDBFD85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaintenanceDashbord.Client.Tests", "MaintenanceDashbord.Client.Tests\MaintenanceDashbord.Client.Tests.csproj", "{72BD7D3D-375A-47E0-81F4-90F25E5BA9BA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MaintenanceDashbord.Client", "MaintenanceDashbord.Client", "{242FBF6A-41A8-4290-A412-F01559C0E38F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MaintenanceDashbord.Tests", "MaintenanceDashbord.Tests", "{6EB78CE6-1FA7-4570-A423-D45AE28EBAFB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,9 +33,19 @@ Global
 		{491C2945-9DC9-4B47-BC61-1F913DDBFD85}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{491C2945-9DC9-4B47-BC61-1F913DDBFD85}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{491C2945-9DC9-4B47-BC61-1F913DDBFD85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72BD7D3D-375A-47E0-81F4-90F25E5BA9BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72BD7D3D-375A-47E0-81F4-90F25E5BA9BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72BD7D3D-375A-47E0-81F4-90F25E5BA9BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72BD7D3D-375A-47E0-81F4-90F25E5BA9BA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7831659A-CA23-4DD5-92CA-6F3BB8BF583B} = {242FBF6A-41A8-4290-A412-F01559C0E38F}
+		{41935DDF-455A-4446-8FF3-1F6C6F8F95D8} = {6EB78CE6-1FA7-4570-A423-D45AE28EBAFB}
+		{491C2945-9DC9-4B47-BC61-1F913DDBFD85} = {242FBF6A-41A8-4290-A412-F01559C0E38F}
+		{72BD7D3D-375A-47E0-81F4-90F25E5BA9BA} = {6EB78CE6-1FA7-4570-A423-D45AE28EBAFB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {648B8B0B-3C19-4F81-9AFE-263E3E4AF5C5}

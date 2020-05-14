@@ -24,6 +24,12 @@ namespace MaintenanceDashbord.Tests.UnitTests
         }
 
         [TestMethod]
+        public void IsObservalbeObject()
+        {
+            Assert.IsTrue(typeof(ViewModel).BaseType == typeof(ObservableObject));
+        }
+
+        [TestMethod]
         [ExpectedException(typeof(NotSupportedException))] 
         public void  IDataErrorInfo_ErrorProperty_IsNotSUpported()
         {

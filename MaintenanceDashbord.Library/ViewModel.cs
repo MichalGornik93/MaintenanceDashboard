@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MaintenanceDashbord.Library
 {
-    public abstract class ViewModel : IDataErrorInfo
+    public abstract class ViewModel : ObservableObject, IDataErrorInfo
     {
         public string this[string columnName]
         {
