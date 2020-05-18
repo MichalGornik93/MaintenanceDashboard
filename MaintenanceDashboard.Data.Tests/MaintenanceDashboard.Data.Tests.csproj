@@ -55,16 +55,15 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FunctionalTests\EmployeeScenerioTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitTests\WorkshopContextTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="FunctionalTests\" />
-    <Folder Include="UnitTests\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\MaintenanceDashboard.Data\MaintenanceDashboard.Data.csproj">
       <Project>{8d9815c9-9905-4105-8452-238ad8cd39c5}</Project>

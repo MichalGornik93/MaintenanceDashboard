@@ -2,14 +2,14 @@
 
 namespace MaintenanceDashboard.Data.Domain
 {
-    public class WorkshopDbContext:DbContext
+    public class DataContext:DbContext
     {
         public DbSet <Employee> Employees { get; set; }
         public DbSet<RegisterTool> RegisterTools  { get; set; }
         public DbSet<Paddle> Paddles { get; set; }
 
-        public WorkshopDbContext()
-            :base("name=WorkshopDbContext")
+        public DataContext()
+            :base("name=DataContext")
         {}
     }
 }

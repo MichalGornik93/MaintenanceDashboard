@@ -10,7 +10,7 @@ namespace MaintenanceDashboard.Views.RegisterToolControl
 
     public partial class RegisterToolControl : UserControl
     {
-        private WorkshopDbContext _context = new WorkshopDbContext();
+        private DataContext _context = new DataContext();
         public RegisterToolControl()
         {
             InitializeComponent();

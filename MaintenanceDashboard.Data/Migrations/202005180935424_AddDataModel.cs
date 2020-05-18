@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class AddDataModelWorkshopDbContext : DbMigration
+    public partial class AddDataModel : DbMigration
     {
         public override void Up()
         {
