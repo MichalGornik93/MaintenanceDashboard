@@ -9,7 +9,7 @@ namespace MaintenanceDashboard.Views.EmployeeControl
 {
     public partial class EmployeeControl : UserControl
     {
-        private WorkshopDbContext _context = new WorkshopDbContext();
+        private DataContext _context = new DataContext();
         public EmployeeControl()
         {
             InitializeComponent();
