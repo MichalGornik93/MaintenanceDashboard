@@ -1,11 +1,12 @@
 ﻿using System.Data.Entity;
 
-namespace MaintenanceDashboard
+namespace MaintenanceDashboard.Data.Domain
 {
     public class WorkshopDbContext:DbContext
     {
         public DbSet <Employee> Employees { get; set; }
         public DbSet<RegisterTool> RegisterTools  { get; set; }
+        public DbSet<Paddle> Paddles { get; set; }
 
         public WorkshopDbContext()
             :base("name=WorkshopDbContext")

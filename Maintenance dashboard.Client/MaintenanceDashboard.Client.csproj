@@ -101,30 +101,6 @@
       <DependentUpon>RegisterToolControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\EmployeeControl\EmployeeValidation.cs" />
-    <Compile Include="Models\RegisterTool.cs" />
-    <Compile Include="Migrations\202004161712421_InitialModel.cs" />
-    <Compile Include="Migrations\202004161712421_InitialModel.designer.cs">
-      <DependentUpon>202004161712421_InitialModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004171937021_AddRegisterToolTable.cs" />
-    <Compile Include="Migrations\202004171937021_AddRegisterToolTable.designer.cs">
-      <DependentUpon>202004171937021_AddRegisterToolTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004171945307_AddRequiredParameter.cs" />
-    <Compile Include="Migrations\202004171945307_AddRequiredParameter.designer.cs">
-      <DependentUpon>202004171945307_AddRequiredParameter.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004181932049_AddSurnameColumnToEmploeeTable.cs" />
-    <Compile Include="Migrations\202004181932049_AddSurnameColumnToEmploeeTable.designer.cs">
-      <DependentUpon>202004181932049_AddSurnameColumnToEmploeeTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004211714483_ChangedPropertyNameInEmployeeAndRegisterToolTable.cs" />
-    <Compile Include="Migrations\202004211714483_ChangedPropertyNameInEmployeeAndRegisterToolTable.designer.cs">
-      <DependentUpon>202004211714483_ChangedPropertyNameInEmployeeAndRegisterToolTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\WorkshopDbContext.cs" />
-    <Compile Include="Models\Employee.cs" />
     <Compile Include="Views\HomeControl\HomeControl.xaml.cs">
       <DependentUpon>HomeControl.xaml</DependentUpon>
     </Compile>
@@ -175,21 +151,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\202004161712421_InitialModel.resx">
-      <DependentUpon>202004161712421_InitialModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004171937021_AddRegisterToolTable.resx">
-      <DependentUpon>202004171937021_AddRegisterToolTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004171945307_AddRequiredParameter.resx">
-      <DependentUpon>202004171945307_AddRequiredParameter.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004181932049_AddSurnameColumnToEmploeeTable.resx">
-      <DependentUpon>202004181932049_AddSurnameColumnToEmploeeTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004211714483_ChangedPropertyNameInEmployeeAndRegisterToolTable.resx">
-      <DependentUpon>202004211714483_ChangedPropertyNameInEmployeeAndRegisterToolTable.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -212,6 +173,10 @@
     <Resource Include="Resources\MarelliLogo.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MaintenanceDashboard.Data\MaintenanceDashboard.Data.csproj">
+      <Project>{8d9815c9-9905-4105-8452-238ad8cd39c5}</Project>
+      <Name>MaintenanceDashboard.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MaintenanceDashbord.Library\MaintenanceDashbord.Library.csproj">
       <Project>{491c2945-9dc9-4b47-bc61-1f913ddbfd85}</Project>
       <Name>MaintenanceDashbord.Library</Name>

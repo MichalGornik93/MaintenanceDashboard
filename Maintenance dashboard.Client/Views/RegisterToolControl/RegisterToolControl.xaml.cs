@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using MaintenanceDashboard.Data.Domain;
+using System.Data.Entity;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
