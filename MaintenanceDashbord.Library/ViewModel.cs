@@ -42,18 +42,18 @@ namespace MaintenanceDashbord.Library
 
         protected virtual string OnValidate(string propertyName)
         {
-            var context = new ValidationContext(this) //Opisuje kontekst, w którym jest wykonywane sprawdzanie poprawności.
+            var context = new ValidationContext(this) //Describes the context in which validation is performed.
             {
-                //MeberName - Pobiera lub ustawia nazwę elementu członkowskiego do zweryfikowania.
+                //MeberName - Gets or sets the name of the member to verify.
                 MemberName = propertyName
             };
 
 
-            var results = new Collection<ValidationResult>(); //ValidationResult- Reprezentuje kontener dla wyników żądania walidacji
+            var results = new Collection<ValidationResult>(); //ValidationResult- Represents the container for the results of the validation request
 
 
-            //TryValidateObject - Określa, czy określony obiekt jest prawidłowy przy użyciu kontekstu walidacji, kolekcji wyników walidacji oraz wartości określającej, czy należy zweryfikować wszystkie właściwości.
-            var isValid = Validator.TryValidateObject(this, context, results, true); //(Obiekt do zweryfikowania, Kontekst, który opisuje obiekt do zweryfikowania, Kolekcja do przechowywania każdej nieudanej weryfikacji, true, jeśli obiekt zostanie sprawdzony; w przeciwnym razie false)
+            //TryValidateObject - Specifies whether the specified object is valid using a validation context, a collection of validation results, and a value that indicates whether all properties should be verified.
+            var isValid = Validator.TryValidateObject(this, context, results, true); //(Object to be verified, Context that describes the object to be verified, Collection to store every failed verification, true if the object will be checked; otherwise false)
 
             //is this condition true ? yes : no
             return isValid==false ? results[0].ErrorMessage : null;

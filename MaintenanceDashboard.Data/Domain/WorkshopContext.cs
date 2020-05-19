@@ -2,7 +2,7 @@
 
 namespace MaintenanceDashboard.Data.Domain
 {
-    public sealed class WorkshopContext : IDisposable
+    public sealed class WorkshopContext : IDisposable //IDisposable- Provides a mechanism for releasing unmanaged resources
     {
         private readonly DataContext context;
         private bool disposed;
@@ -47,20 +47,27 @@ namespace MaintenanceDashboard.Data.Domain
         #region IDisposable Members
         public void Dispose()
         {
-            // tu zwalniamy wszystkie zasoby
+            //Free all object here            
             Dispose(true);
-            GC.SuppressFinalize(this); //Destruktor
+
+            // This object will be cleaned up by the Dispose method.
+            // Therefore, you should call GC.SupressFinalize to
+            // take this object off the finalization queue
+            // and prevent finalization code for this object
+            // from executing a second time.
+            GC.SuppressFinalize(this); 
         }
 
         private void Dispose(bool disposing)
         {
+            //Check to see if Dispose has already been called.
             if (disposed || !disposing)
                 return;
 
             if (context != null)
-                context.Dispose();
+                context.Dispose(); //Free any unmenaged object here
 
-            disposed = true;
+            disposed = true; // Note disposing has been done.
         }
         #endregion
     }
