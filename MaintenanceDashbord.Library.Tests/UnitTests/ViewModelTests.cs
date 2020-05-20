@@ -54,13 +54,27 @@ namespace MaintenanceDashbord.Tests.UnitTests
 
             Assert.IsNull(viewModel["RequiredProperty"]);
         }
+
+        [TestMethod]
+        public void IndexerReturnsErrorMessageForReqestedInvalidProperty()
+        {
+            var viewModel = new TestViewModel
+            {
+                RequiredProperty = null,
+                SomeOtherProperty = null
+            };
+
+            var msg = viewModel["SomeOtherProperty"];
+
+            Assert.AreEqual("Pole SomeOtherProperty jest wymagane.", msg);
+        }
     }
 
     class TestViewModel:ViewModel
     {
         [Required]
-        public string RequiredProperty
-        { get; set; }
-
+        public string RequiredProperty { get; set; }
+        [Required]
+        public object SomeOtherProperty { get;  set; }
     }
 }

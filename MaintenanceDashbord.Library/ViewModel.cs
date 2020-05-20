@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace MaintenanceDashbord.Library
 {
@@ -55,8 +56,18 @@ namespace MaintenanceDashbord.Library
             //TryValidateObject - Specifies whether the specified object is valid using a validation context, a collection of validation results, and a value that indicates whether all properties should be verified.
             var isValid = Validator.TryValidateObject(this, context, results, true); //(Object to be verified, Context that describes the object to be verified, Collection to store every failed verification, true if the object will be checked; otherwise false)
 
-            //is this condition true ? yes : no
-            return isValid==false ? results[0].ErrorMessage : null;
+
+        
+            if(!isValid)
+            {
+                ValidationResult result = results.SingleOrDefault(p =>
+                                                                  p.MemberNames.Any(memberName =>
+                                                                  memberName == propertyName));
+                //is this condition true ? yes : no
+                return result == null ? null : result.ErrorMessage;
+            }
+
+            return null;
         }
     }
 }

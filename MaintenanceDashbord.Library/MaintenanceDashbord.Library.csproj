@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionCommand.cs" />
     <Compile Include="ObservableObject.cs" />
     <Compile Include="PlcNetInterface\IPlcNetLibrariesBaseInterface.cs" />
     <Compile Include="PlcNetInterface\PlcNetInterface.cs" />
