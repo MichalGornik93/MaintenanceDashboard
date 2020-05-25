@@ -12,9 +12,16 @@ namespace MaintenanceDashboard.Data.Tests.FunctionalTests
         {
             using (var wc = new WorkshopContext())
             {
-                Employee entity = wc.AddNewEmployee("TestName", "TestLastName", "TestString");
+                var employee = new Employee
+                {
+                    FirstName = "TestFirstName",
+                    LastName = "TestLastName",
+                    UidCode = "TestUidCode"
+                };
 
-                bool exist = wc.DataContext.Employees.Any(e => e.Id == entity.Id);
+                wc.AddNewEmployee(employee);
+
+                bool exist = wc.DataContext.Employees.Any(e => e.Id == employee.Id);
 
                 Assert.IsTrue(exist);
             }

@@ -17,31 +17,25 @@ namespace MaintenanceDashboard.Data.Domain
             get { return context; }
         }
 
-        public Employee AddNewEmployee(string firstName, string lastName, string uidCode)
+        public void AddNewEmployee(Employee employee)
         {
-            if (firstName == null)
-                throw new ArgumentNullException("firstName", "firstName must be non-null");
-
-            if (String.IsNullOrEmpty(firstName))
-                throw new ArgumentException("firstName must not be an empty string", "firstName");
-
-            if (lastName == null)
-                throw new ArgumentNullException("lastName", "lastName must be non-null");
-
-            if (String.IsNullOrEmpty(lastName))
-                throw new ArgumentException("lastName must not be an empty string", "lastName");
-
-            var employee = new Employee
-            {
-                FirstName = firstName,
-                LastName = lastName,
-                UidCode = uidCode
-            };
+            Check.Require(employee.FirstName);
+            Check.Require(employee.LastName);
 
             context.Employees.Add(employee);
             context.SaveChanges();
 
-            return employee;
+        }
+
+        static class Check
+        {
+            public static void Require(string value)
+            {
+                if (value == null)
+                    throw new ArgumentNullException();
+                else if (value.Trim().Length == 0)
+                    throw new ArgumentException();
+            }
         }
 
         #region IDisposable Members

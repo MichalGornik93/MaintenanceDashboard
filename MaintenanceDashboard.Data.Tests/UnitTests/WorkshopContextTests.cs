@@ -13,7 +13,13 @@ namespace MaintenanceDashboard.Data.Tests.UnitTests
         {
             using (var wc = new WorkshopContext())
             {
-                wc.AddNewEmployee(null, "TestLastName", "TestUid");
+                var employee = new Employee
+                {
+                    FirstName = null,
+                    LastName = "TestLastName",
+                    UidCode = "TestUidCode"
+                };
+                wc.AddNewEmployee(employee);
             }
         }
 
@@ -23,7 +29,13 @@ namespace MaintenanceDashboard.Data.Tests.UnitTests
         {
             using (var wc = new WorkshopContext())
             {
-                wc.AddNewEmployee("", "TestLastName", "TestUid");
+                var employee = new Employee
+                {
+                    FirstName = "",
+                    LastName = "TestLastName",
+                    UidCode = "TestUidCode"
+                };
+                wc.AddNewEmployee(employee);
             }
         }
 
@@ -34,7 +46,13 @@ namespace MaintenanceDashboard.Data.Tests.UnitTests
         {
             using (var wc = new WorkshopContext())
             {
-                wc.AddNewEmployee("TestFirstName", null, "TestUid");
+                var employee = new Employee
+                {
+                    FirstName = "TestLastName",
+                    LastName = null,
+                    UidCode = "TestUidCode"
+                };
+                wc.AddNewEmployee(employee);
             }
         }
 
@@ -44,7 +62,13 @@ namespace MaintenanceDashboard.Data.Tests.UnitTests
         {
             using (var wc = new WorkshopContext())
             {
-                wc.AddNewEmployee("TestFirstName", "", "TestUid");
+                var employee = new Employee
+                {
+                    FirstName = "TestLastName",
+                    LastName = "",
+                    UidCode = "TestUidCode"
+                };
+                wc.AddNewEmployee(employee);
             }
         }
     }
