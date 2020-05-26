@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MaintenanceDashboard.Views.AddPaddle
+namespace MaintenanceDashboard.Client
 {
     /// <summary>
     /// Logika interakcji dla klasy AddPadleControl.xaml

@@ -5,7 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 
-namespace MaintenanceDashboard.Views.RegisterToolControl
+namespace MaintenanceDashboard.Client
 {
 
     public partial class RegisterToolControl : UserControl

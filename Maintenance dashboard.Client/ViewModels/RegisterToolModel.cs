@@ -1,7 +1,7 @@
 ﻿using MaintenanceDashbord.Library;
 using System.ComponentModel.DataAnnotations;
 
-namespace MaintenanceDashboard.ViewModels
+namespace MaintenanceDashboard.Client
 {
     public class RegisterToolModel:ViewModel
     {

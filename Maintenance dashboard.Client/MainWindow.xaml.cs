@@ -2,14 +2,9 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using MaintenanceDashboard.Views.RegisterToolControl;
-using MaintenanceDashboard.Views.EmployeeControl;
-using MaintenanceDashboard.Views.AddPaddle;
-using MaintenanceDashboard.Views.PaddleControl;
-using MaintenanceDashboard.WindowControl;
 using MaintenanceDashbord.Library;
 
-namespace MaintenanceDashboard
+namespace MaintenanceDashboard.Client
 {
     public partial class MainWindow : Window
     {
@@ -48,7 +43,7 @@ namespace MaintenanceDashboard
             {
                 case 0:
                     GridPrincipal.Children.Clear();
-                    GridPrincipal.Children.Add(new WindowControl.HomeControl());
+                    GridPrincipal.Children.Add(new HomeControl());
                     break;
                 case 1:
                     GridPrincipal.Children.Clear();   

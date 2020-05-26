@@ -3,17 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:MaintenanceDashboard.Views.EmployeeControl" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             xmlns:Maintenance_dashboard="clr-namespace:MaintenanceDashboard" x:Class="MaintenanceDashboard.Views.EmployeeControl.EmployeeControl"
+             xmlns:local="clr-namespace:MaintenanceDashboard.Client" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:Maintenance_dashboard="clr-namespace:MaintenanceDashboard" x:Class="MaintenanceDashboard.Client.EmployeeControl"
              mc:Ignorable="d" 
              Height="auto" Width="auto" Loaded="UserControl_Loaded">
     <UserControl.Resources>
         <CollectionViewSource x:Key="employeeViewSource" d:DesignSource="{d:DesignInstance {x:Type Maintenance_dashboard:Employee}, CreateList=True}"/>
     </UserControl.Resources>
 
-    <UserControl.DataContext>
-        <local:EmployeeValidation/>
-    </UserControl.DataContext>
 
     <Grid Margin="25">
         <materialDesign:TransitioningContent x:Name="TrainsitioningContentSlide" OpeningEffect="{materialDesign:TransitionEffect FadeIn}">

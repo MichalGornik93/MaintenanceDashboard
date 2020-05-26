@@ -1,8 +1,7 @@
-﻿using MaintenanceDashboard.Views.AddPaddle;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace MaintenanceDashboard.Views.PaddleControl
+namespace MaintenanceDashboard.Client
 {
     /// <summary>
     /// Logika interakcji dla klasy PaddleControl.xaml
