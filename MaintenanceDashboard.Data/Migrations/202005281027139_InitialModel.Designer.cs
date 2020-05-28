@@ -7,13 +7,13 @@ namespace MaintenanceDashboard.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class AddDataModel : IMigrationMetadata
+    public sealed partial class InitialModel : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddDataModel));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialModel));
         
         string IMigrationMetadata.Id
         {
-            get { return "202005180935424_AddDataModel"; }
+            get { return "202005281027139_InitialModel"; }
         }
         
         string IMigrationMetadata.Source

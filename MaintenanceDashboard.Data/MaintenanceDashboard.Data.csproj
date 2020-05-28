@@ -56,9 +56,9 @@
     <Compile Include="Domain\RegisterTool.cs" />
     <Compile Include="Domain\DataContext.cs" />
     <Compile Include="Domain\WorkshopContext.cs" />
-    <Compile Include="Migrations\202005180935424_AddDataModel.cs" />
-    <Compile Include="Migrations\202005180935424_AddDataModel.designer.cs">
-      <DependentUpon>202005180935424_AddDataModel.cs</DependentUpon>
+    <Compile Include="Migrations\202005281027139_InitialModel.cs" />
+    <Compile Include="Migrations\202005281027139_InitialModel.designer.cs">
+      <DependentUpon>202005281027139_InitialModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -68,8 +68,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202005180935424_AddDataModel.resx">
-      <DependentUpon>202005180935424_AddDataModel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202005281027139_InitialModel.resx">
+      <DependentUpon>202005281027139_InitialModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

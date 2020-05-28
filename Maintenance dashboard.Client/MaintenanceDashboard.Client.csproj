@@ -86,7 +86,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ViewModels\RegisterToolModel.cs" />
+    <Compile Include="ViewModels\RegisterToolViewModel.cs" />
     <Compile Include="Views\AddPaddleControl\AddPadleControl.xaml.cs">
       <DependentUpon>AddPadleControl.xaml</DependentUpon>
     </Compile>
@@ -96,7 +96,6 @@
     <Compile Include="Views\PaddleControl\PaddleControl.xaml.cs">
       <DependentUpon>PaddleControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\RegisterToolControl\RegisterToolValidation.cs" />
     <Compile Include="Views\RegisterToolControl\RegisterToolControl.xaml.cs">
       <DependentUpon>RegisterToolControl.xaml</DependentUpon>
     </Compile>

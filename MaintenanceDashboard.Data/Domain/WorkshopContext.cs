@@ -27,6 +27,15 @@ namespace MaintenanceDashboard.Data.Domain
 
         }
 
+        public void AddNewRegisterTool(RegisterTool registerTool)
+        {
+            Check.Require(registerTool.ToolName);
+            //Check.Require(registerTool.);
+
+            context.RegisterTools.Add(registerTool);
+            context.SaveChanges();
+        }
+
         static class Check
         {
             public static void Require(string value)

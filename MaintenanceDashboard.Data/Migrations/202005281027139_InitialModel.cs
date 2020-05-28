@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class AddDataModel : DbMigration
+    public partial class InitialModel : DbMigration
     {
         public override void Up()
         {
@@ -32,8 +32,8 @@
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        ToolName = c.String(nullable: false),
-                        UidCode = c.String(nullable: false),
+                        ToolName = c.String(),
+                        UidCode = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
             
