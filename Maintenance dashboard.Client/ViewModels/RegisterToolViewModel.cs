@@ -9,27 +9,27 @@ namespace MaintenanceDashboard.Client.ViewModels
 {
     public class RegisterToolViewlModel:ViewModel
     {
-        public ICollection<RegisterTool> RegisterTools { get; private set; } //definicja Obserwowanej kolekcji klientów
+        public ICollection<RegisterTool> RegisterTools { get; private set; } 
         public string ToolName { get; set; }
         public string UidCode { get; set; }
 
-        public RegisterToolViewlModel() //Konstruktor
+        public RegisterToolViewlModel() 
         {
-            RegisterTools = new ObservableCollection<RegisterTool>(); //Inicjalizacja Obserwowanej kolekcji klientów
+            RegisterTools = new ObservableCollection<RegisterTool>(); 
         }
 
-        //private string customerName;
-        //[Required]
-        //[StringLength(32, MinimumLength = 2)]
-        //public string CustomerName
-        //{
-        //    get { return customerName; }
-        //    set
-        //    {
-        //        customerName = value;
-        //        NotifyPropertyChanged();
-        //    }
-        //}
+        private string tool;
+        [Required]
+        [StringLength(32, MinimumLength = 2)]
+        public string Tool
+        {
+            get { return tool; }
+            set
+            {
+                tool = value;
+                NotifyPropertyChanged();
+            }
+        }
 
 
 
@@ -64,11 +64,11 @@ namespace MaintenanceDashboard.Client.ViewModels
 
                 try
                 {
-                    api.AddNewRegisterTool(registerTool); //Dodanie do bazy danych
+                    api.AddNewRegisterTool(registerTool); 
                 }
                 catch (Exception ex)
                 {
-                    // TODO: In later session, cover error handling
+                    // TODO:
                     return;
                 }
 

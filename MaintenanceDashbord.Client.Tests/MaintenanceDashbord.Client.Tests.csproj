@@ -50,13 +50,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitTests\RegisterToolViewModelTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="FunctionalTests\" />
-    <Folder Include="UnitTests\" />
+    <ProjectReference Include="..\Maintenance dashboard.Client\MaintenanceDashboard.Client.csproj">
+      <Project>{7831659a-ca23-4dd5-92ca-6f3bb8bf583b}</Project>
+      <Name>MaintenanceDashboard.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MaintenanceDashboard.Data\MaintenanceDashboard.Data.csproj">
+      <Project>{8D9815C9-9905-4105-8452-238AD8CD39C5}</Project>
+      <Name>MaintenanceDashboard.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MaintenanceDashbord.Library\MaintenanceDashbord.Library.csproj">
+      <Project>{491C2945-9DC9-4B47-BC61-1F913DDBFD85}</Project>
+      <Name>MaintenanceDashbord.Library</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
