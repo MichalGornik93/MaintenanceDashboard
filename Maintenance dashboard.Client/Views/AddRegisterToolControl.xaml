@@ -1,41 +1,56 @@
-﻿<UserControl x:Class="Maintenance_dashboard.DashbordViewModel.AddRegisterTool.AddRegisterToolControl"
+﻿<UserControl x:Class="MaintenanceDashboard.Client.Views.AddRegisterToolControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Maintenance_dashboard.DashbordViewModel.AddRegisterTool" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             Height="auto" Width="auto">
-    <Grid >
-        <materialDesign:TransitioningContent x:Name="TrainsitioningContentSlide" OpeningEffect="{materialDesign:TransitionEffect FadeIn}">
-            <Grid Background="White">
-                <Rectangle Height="350" Width="1000" VerticalAlignment="Top">
-                    <Rectangle.Fill>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="#FF2281D1"/>
-                            <GradientStop Color="#FF34288B" Offset="1"/>
-                            <GradientStop Color="#FF33288B" Offset="1"/>
-                        </LinearGradientBrush>
-                    </Rectangle.Fill>
-                </Rectangle>
-                <materialDesign:PackIcon Kind="Tools" VerticalAlignment="Top" Width="100" Height="100" HorizontalAlignment="Center" Margin="15" Foreground="White"/>
-                <Rectangle Width="420" Height="340" Fill="White" Margin="40,180" RadiusX="15" RadiusY="15">
-                    <Rectangle.Effect>
-                        <DropShadowEffect BlurRadius="10" RenderingBias="Quality" Direction="0" Color="#FFBBBBBB" ShadowDepth="1"/>
-                    </Rectangle.Effect>
-                </Rectangle>
+             xmlns:data="clr-namespace:MaintenanceDashboard.Data.Domain;assembly=MaintenanceDashboard.Data"
+             xmlns:viewModels="clr-namespace:MaintenanceDashboard.Client.ViewModels"
+             d:DataContext="{d:DesignInstance viewModels:RegisterToolViewlModel}" >
+    <Grid>
+        <Border Height="auto" Width="auto" CornerRadius="20">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF2281D1"/>
+                    <GradientStop Color="#FF34288B" Offset="1"/>
+                    <GradientStop Color="#FF33288B" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+
+
+        <materialDesign:PackIcon Kind="Tools" VerticalAlignment="Top" Width="80" Height="80" 
+                                     HorizontalAlignment="Center" Margin="5" Foreground="White"/>
+
+        <Rectangle Fill="White" Margin="15,85,15, 15" RadiusX="15" RadiusY="15" 
+                       RenderTransformOrigin="0.5,0.5">
+            <Rectangle.Effect>
+                <DropShadowEffect BlurRadius="10" RenderingBias="Quality" Direction="0" Color="#FFBBBBBB" 
+                                      ShadowDepth="1"/>
+            </Rectangle.Effect>
+        </Rectangle>
+
+        <Grid Margin="15,80,15, 15">
+            <TextBlock Text="DODAJ WYPOSAŻENIE" HorizontalAlignment="Center" VerticalAlignment="Top"  
+                           FontSize="18"  Foreground="Gray" Margin="10"/>
+
+            <StackPanel  HorizontalAlignment="Center" Margin="25" >
+
+                <TextBox  Width="400" materialDesign:HintAssist.Hint="Nazwa wyposażenia" 
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"  
+                             Text="{Binding ToolName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Margin="10"/>
                 
-                
-                
-                <Grid Width="420" Height="340">
-                    <TextBlock Text="REJESTROWANE WYPOSAŻENIE" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5" FontSize="18" Foreground="Gray"/>
-                    <StackPanel VerticalAlignment="Center" Margin="10">
-                        <TextBox x:Name="txtToolName" materialDesign:HintAssist.Hint="Nazwa" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0, 10" />
-                        <TextBox materialDesign:HintAssist.Hint="Kod UID" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0, 10" />
-                    </StackPanel>
-                </Grid>
-                <Button VerticalAlignment="Bottom" Background="#FF0069C0" BorderBrush="#FF0069C0" Margin="425,0,425,163" Width="150" Content="DODAJ" Click="Button_Click"/>
-            </Grid>
-        </materialDesign:TransitioningContent>
+                <TextBox  materialDesign:HintAssist.Hint="Kod UID" Width="400" 
+                              materialDesign:HintAssist.HelperText="" IsReadOnly="True" 
+                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"
+                              Text="{Binding UidCode, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
+
+                <Button  x:Name="btnAddRegisterTool" Height="25"  Background="#FF0069C0"  
+                             BorderBrush="#FF0069C0"  Width="100" Content="DODAJ" Margin="10"  Grid.Column="1"
+                             Command="{Binding AddRegisterToolCommand}"/>
+
+            </StackPanel>
+        </Grid>
     </Grid>
 </UserControl>
