@@ -4,31 +4,39 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
+using System.Windows.Input;
 
 namespace MaintenanceDashboard.Client.ViewModels
 {
-    public class RegisterToolViewlModel:ViewModel
+    public class RegisterToolViewModel : ViewModel
     {
-        public ICollection<RegisterTool> RegisterTools { get; private set; } 
+        private readonly WorkshopContext context;
+        public ICollection<RegisterTool> RegisterTools { get; private set; } //definicja Obserwowanej kolekcji klientów
+
+        private RegisterTool selectedRegisterTool;
+
+        public RegisterTool SelectedRegisterTool
+        {
+            get { return selectedRegisterTool; }
+            set
+            {
+                selectedRegisterTool = value;
+                NotifyPropertyChanged();
+            }
+        }
+
         public string ToolName { get; set; }
         public string UidCode { get; set; }
 
-        public RegisterToolViewlModel() 
+        public RegisterToolViewModel() : this(new WorkshopContext())
         {
-            RegisterTools = new ObservableCollection<RegisterTool>(); 
+
         }
 
-        private string tool;
-        [Required]
-        [StringLength(32, MinimumLength = 2)]
-        public string Tool
+        public RegisterToolViewModel(WorkshopContext context)
         {
-            get { return tool; }
-            set
-            {
-                tool = value;
-                NotifyPropertyChanged();
-            }
+            this.context = context;
+            RegisterTools = new ObservableCollection<RegisterTool>(); //Inicjalizacja Obserwowanej kolekcji klientów
         }
 
 
@@ -41,12 +49,40 @@ namespace MaintenanceDashboard.Client.ViewModels
                                          p => IsValid);
             }
         }
-
-        public bool IsValid
+        public ActionCommand SaveRegisterToolCommand
         {
             get
             {
-                return !String.IsNullOrWhiteSpace(ToolName);
+                return new ActionCommand(p => SaveRegisterTool(),
+                                         p => IsValid);
+            }
+        }
+
+        public ICommand DeleteRegisterToolCommand
+        {
+            get
+            {
+                return new ActionCommand(p => DeleteRegisterTool(),
+                    p => IsValid);
+            }
+        }
+
+
+        public ICommand GetRegisterToolListCommand
+        {
+            get
+            {
+                return new ActionCommand(p => GetRegisterToolList());
+            }
+        }
+
+
+        public bool IsValid //Zwraca true, Jest sprawdzone jesli
+        {
+            get
+            {
+                return SelectedRegisterTool == null || //Nie jest zaznczaczony lub
+                !String.IsNullOrWhiteSpace(SelectedRegisterTool.ToolName); //zaznaczony toolname nie jest pusty 
             }
         }
 
@@ -62,17 +98,36 @@ namespace MaintenanceDashboard.Client.ViewModels
                     UidCode = uidCode
                 };
 
-                try
-                {
-                    api.AddNewRegisterTool(registerTool); 
-                }
-                catch (Exception ex)
-                {
-                    // TODO:
-                    return;
-                }
+                api.AddNewRegisterTool(registerTool);
 
                 RegisterTools.Add(registerTool);
+            }
+        }
+
+        private void GetRegisterToolList()
+        {
+            RegisterTools.Clear();
+
+            foreach (var item in context.GetRegisterToolList())
+                RegisterTools.Add(item);
+        }
+
+        private void SaveRegisterTool()
+        {
+            if (SelectedRegisterTool != null)
+            {
+                context.UpdateRegisterTool(SelectedRegisterTool);
+            }
+        }
+
+        private void DeleteRegisterTool()
+        {
+            if (SelectedRegisterTool != null)
+            {
+                context.DataContext.RegisterTools.Remove(SelectedRegisterTool);
+                context.DataContext.SaveChanges();
+                RegisterTools.Remove(SelectedRegisterTool);
+
             }
         }
     }

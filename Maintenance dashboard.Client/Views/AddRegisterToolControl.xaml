@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              xmlns:data="clr-namespace:MaintenanceDashboard.Data.Domain;assembly=MaintenanceDashboard.Data"
              xmlns:viewModels="clr-namespace:MaintenanceDashboard.Client.ViewModels"
-             d:DataContext="{d:DesignInstance viewModels:RegisterToolViewlModel}" >
+             d:DataContext="{d:DesignInstance viewModels:RegisterToolViewModel}" >
     <Grid>
         <Border Height="auto" Width="auto" CornerRadius="20">
             <Border.Background>

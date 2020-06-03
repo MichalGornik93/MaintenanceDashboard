@@ -15,7 +15,7 @@ namespace MaintenanceDashboard
 
             var window = new MainWindow
             {
-                DataContext = new RegisterToolViewlModel()
+                DataContext = new RegisterToolViewModel()
             };
 
             window.ShowDialog();

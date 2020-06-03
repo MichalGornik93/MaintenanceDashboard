@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace MaintenanceDashboard.Data.Domain
 {
@@ -30,10 +32,30 @@ namespace MaintenanceDashboard.Data.Domain
         public void AddNewRegisterTool(RegisterTool registerTool)
         {
             Check.Require(registerTool.ToolName);
-            //Check.Require(registerTool.);
 
             context.RegisterTools.Add(registerTool);
             context.SaveChanges();
+        }
+
+
+        public void UpdateRegisterTool(RegisterTool registerTool)
+        {
+            var entity = context.RegisterTools.Find(registerTool.Id);
+
+            if (entity == null)
+            {
+                throw new NotImplementedException("Handle appropriately for your API design. ");
+            }
+
+            context.Entry(entity).CurrentValues.SetValues(registerTool);
+
+            context.SaveChanges();
+
+        }
+
+        public ICollection<RegisterTool> GetRegisterToolList()
+        {
+            return context.RegisterTools.OrderBy(p => p.Id).ToArray();
         }
 
         static class Check
