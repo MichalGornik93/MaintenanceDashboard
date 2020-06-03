@@ -87,35 +87,35 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ViewModels\RegisterToolViewModel.cs" />
-    <Compile Include="Views\AddPaddleControl\AddPadleControl.xaml.cs">
+    <Compile Include="Views\AddPadleControl.xaml.cs">
       <DependentUpon>AddPadleControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\EmployeeControl\EmployeeControl.xaml.cs">
+    <Compile Include="Views\EmployeeControl.xaml.cs">
       <DependentUpon>EmployeeControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\PaddleControl\PaddleControl.xaml.cs">
+    <Compile Include="Views\PaddleControl.xaml.cs">
       <DependentUpon>PaddleControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\RegisterToolControl\RegisterToolControl.xaml.cs">
+    <Compile Include="Views\RegisterToolControl.xaml.cs">
       <DependentUpon>RegisterToolControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\EmployeeControl\EmployeeValidation.cs" />
-    <Compile Include="Views\HomeControl\HomeControl.xaml.cs">
+    <Compile Include="Views\EmployeeValidation.cs" />
+    <Compile Include="Views\HomeControl.xaml.cs">
       <DependentUpon>HomeControl.xaml</DependentUpon>
     </Compile>
-    <Page Include="Views\AddPaddleControl\AddPadleControl.xaml">
+    <Page Include="Views\AddPadleControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\EmployeeControl\EmployeeControl.xaml">
+    <Page Include="Views\EmployeeControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\PaddleControl\PaddleControl.xaml">
+    <Page Include="Views\PaddleControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\RegisterToolControl\RegisterToolControl.xaml">
+    <Page Include="Views\RegisterToolControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -131,7 +131,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\HomeControl\HomeControl.xaml">
+    <Page Include="Views\HomeControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

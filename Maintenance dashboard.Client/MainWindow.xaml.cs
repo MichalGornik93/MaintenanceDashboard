@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using MaintenanceDashboard.Library;
+using MaintenanceDashboard.Client.Views;
 
 namespace MaintenanceDashboard.Client
 {

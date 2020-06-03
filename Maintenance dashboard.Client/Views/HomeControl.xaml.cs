@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace MaintenanceDashboard.Client
+namespace MaintenanceDashboard.Client.Views
 {
     public partial class HomeControl : UserControl
     {
