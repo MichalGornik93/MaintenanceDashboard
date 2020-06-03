@@ -1,8 +1,8 @@
-﻿using MaintenanceDashbord.Library;
+﻿using MaintenanceDashboard.Library;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 
-namespace MaintenanceDashbord.Tests.UnitTests
+namespace MaintenanceDashboard.Tests.UnitTests
 {
 
     [TestClass]

@@ -1,10 +1,10 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MaintenanceDashbord.Library;
+using MaintenanceDashboard.Library;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace MaintenanceDashbord.Tests.UnitTests
+namespace MaintenanceDashboard.Tests.UnitTests
 {
     [TestClass]
     public class ViewModelTests

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace MaintenanceDashbord.Library
+namespace MaintenanceDashboard.Library
 {
     public class ActionCommand:ICommand
     {

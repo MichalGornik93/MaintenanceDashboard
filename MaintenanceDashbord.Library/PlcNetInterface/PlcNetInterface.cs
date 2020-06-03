@@ -1,7 +1,7 @@
 ﻿using System.Timers;
 using Sharp7;
 
-namespace MaintenanceDashbord.Library
+namespace MaintenanceDashboard.Library
 {
     public class PlcNetInterface //:IPlcNetLibrariesBaseInterface
     {

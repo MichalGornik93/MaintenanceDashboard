@@ -1,8 +1,8 @@
-﻿using MaintenanceDashbord.Library;
+﻿using MaintenanceDashboard.Library;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MaintenanceDashboard.Client.ViewModels;
 
-namespace MaintenanceDashbord.Client.Tests.UnitTests
+namespace MaintenanceDashboard.Client.Tests.UnitTests
 {
     [TestClass]
     public class RegisterToolViewModelTests

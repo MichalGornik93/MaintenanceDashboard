@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using MaintenanceDashbord.Library;
+using MaintenanceDashboard.Library;
 
 namespace MaintenanceDashboard.Client
 {

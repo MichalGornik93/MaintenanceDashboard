@@ -1,8 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MaintenanceDashbord.Library;
+using MaintenanceDashboard.Library;
 using System;
 
-namespace MaintenanceDashbord.Tests.UnitTests
+namespace MaintenanceDashboard.Tests.UnitTests
 {
     [TestClass]
     public class ActionCommandTests
