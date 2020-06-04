@@ -33,6 +33,16 @@
                                 <TextBlock Style="{StaticResource MaterialDesignHeadline6TextBlock}"
                                            HorizontalAlignment="Center" Margin="8" Foreground="Gray" 
                                            Text="Informacje" FontSize="14"/>
+
+                                <TextBlock Style="{StaticResource MaterialDesignHeadline6TextBlock}" FontSize="12"
+                                           HorizontalAlignment="Center" Margin="8" Foreground="Gray" TextWrapping="Wrap"> 
+                                           Development by Michał Górnik <LineBreak/>
+                                           881766346 <LineBreak/>
+                                           michalgornik93@outlook.com <LineBreak/>
+                                           MaintenanceDashboard<LineBreak/>
+                                           Vesion 1.0.0 <LineBreak/>
+                                           
+                                </TextBlock>
                             </StackPanel>
                         </materialDesign:PopupBox>
                         <TextBlock Text="Informacje" FontSize="8" Foreground="Gray"/>

@@ -1,4 +1,5 @@
 ﻿using System.Windows.Controls;
+using System.Windows;
 
 namespace MaintenanceDashboard.Client.Views
 {
@@ -10,6 +11,9 @@ namespace MaintenanceDashboard.Client.Views
             InitializeComponent();
         }
 
-      
+        private void btnAddRegisterTool_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            gridInfoAddToDataBase.Visibility = Visibility.Visible;
+        }
     }
 }

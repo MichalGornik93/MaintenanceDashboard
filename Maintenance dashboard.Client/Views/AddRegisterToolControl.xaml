@@ -9,52 +9,63 @@
              xmlns:viewModels="clr-namespace:MaintenanceDashboard.Client.ViewModels"
              d:DataContext="{d:DesignInstance viewModels:RegisterToolViewModel}" >
     <Grid >
- 
+
 
         <Grid>
             <Border Height="auto" Width="auto" CornerRadius="20" >
-            <Border.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF2281D1"/>
-                    <GradientStop Color="#FF34288B" Offset="1"/>
-                    <GradientStop Color="#FF33288B" Offset="1"/>
-                </LinearGradientBrush>
-            </Border.Background>
-        </Border>
+                <Border.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF2281D1"/>
+                        <GradientStop Color="#FF34288B" Offset="1"/>
+                        <GradientStop Color="#FF33288B" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
 
 
-        <materialDesign:PackIcon Kind="Tools" VerticalAlignment="Top" Width="80" Height="80" 
+            <materialDesign:PackIcon Kind="Tools" VerticalAlignment="Top" Width="80" Height="80" 
                                      HorizontalAlignment="Center" Margin="5" Foreground="White"/>
 
-        <Rectangle Fill="White" Margin="15,85,15, 15" RadiusX="15" RadiusY="15" 
-                       RenderTransformOrigin="0.5,0.5">
-            <Rectangle.Effect>
-                <DropShadowEffect BlurRadius="10" RenderingBias="Quality" Direction="0" Color="#FFBBBBBB" 
+            <Rectangle Fill="White" Margin="15,85,15, 15" RadiusX="15" RadiusY="15" 
+                       RenderTransformOrigin="0.5,0.5" Width="700" Height="400">
+                <Rectangle.Effect>
+                    <DropShadowEffect BlurRadius="10" RenderingBias="Quality" Direction="0" Color="#FFBBBBBB" 
                                       ShadowDepth="1"/>
-            </Rectangle.Effect>
-        </Rectangle>
+                </Rectangle.Effect>
+            </Rectangle>
 
-        <Grid Margin="15,80,15, 15" >
-            <TextBlock Text="DODAJ WYPOSAŻENIE" HorizontalAlignment="Center" VerticalAlignment="Top"  
-                           FontSize="18"  Foreground="Gray" Margin="10"/>
+            <Grid   Margin="15,50,15, 15"  x:Name="gridInfoAddToDataBase" Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Text="Dodano do bazy danych" Foreground="Gray" Margin="10" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <materialDesign:PackIcon Grid.Row="1" Kind="DatabaseAdd" VerticalAlignment="Center" Width="100" Height="100" HorizontalAlignment="Center"  Margin="5" Foreground="Gray"/>
+            </Grid>
 
-            <StackPanel  HorizontalAlignment="Center" Margin="25" >
+            <Grid Margin="15,80,15, 15" Width="700" Height="400">
+                <TextBlock Text="DODAJ WYPOSAŻENIE" HorizontalAlignment="Center" VerticalAlignment="Top"  
+                           FontSize="18"  Foreground="Gray" Margin="18"/>
 
-                <TextBox  Width="400" materialDesign:HintAssist.Hint="Nazwa wyposażenia" 
+                <StackPanel  HorizontalAlignment="Center" Margin="25" VerticalAlignment="Center">
+
+                    <TextBox  Width="400" materialDesign:HintAssist.Hint="Nazwa wyposażenia" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"  
                              Text="{Binding ToolName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Margin="10"/>
-                
-                <TextBox  materialDesign:HintAssist.Hint="Kod UID" Width="400" 
+
+                    <TextBox  materialDesign:HintAssist.Hint="Kod UID" Width="400" 
                               materialDesign:HintAssist.HelperText="" 
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"
                               Text="{Binding UidCode, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
 
-                <Button  x:Name="btnAddRegisterTool" Height="25"  Background="#FF0069C0"  
+                    <Button  x:Name="btnAddRegisterTool" Height="25"  Background="#FF0069C0"  
                              BorderBrush="#FF0069C0"  Width="100" Content="DODAJ" Margin="10"  Grid.Column="1"
-                             Command="{Binding AddRegisterToolCommand}"/>
+                             Command="{Binding AddRegisterToolCommand}" Click="btnAddRegisterTool_Click"/>
 
-            </StackPanel>
-        </Grid>
+
+
+                </StackPanel>
+            </Grid>
         </Grid>
     </Grid>
 </UserControl>

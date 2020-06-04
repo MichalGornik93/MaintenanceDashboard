@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using MaintenanceDashboard.Library;
 using MaintenanceDashboard.Client.Views;
+using MaintenanceDashboard.Client.ViewModels;
 
 namespace MaintenanceDashboard.Client
 {
@@ -13,6 +14,8 @@ namespace MaintenanceDashboard.Client
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new RegisterToolViewModel();
+            //DataContext = new EmployeeViewModel();
             PlcNetInterface plcNetInterface = new PlcNetInterface("192.168.0.1", 0, 0);
             
             plcNetInterface.Connected += (() => {

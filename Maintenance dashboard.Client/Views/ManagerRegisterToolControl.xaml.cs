@@ -7,18 +7,25 @@ namespace MaintenanceDashboard.Client.Views
         public ManagerRegisterToolControl()
         {
             InitializeComponent();
+            
         }
 
         private void btnOpenAddRegisterTool_Checked(object sender, System.Windows.RoutedEventArgs e)
         {
-            GridPrincipal.Children.Clear();
-            GridPrincipal.Children.Add(new AddRegisterToolControl());
+            if (GridPrincipal != null)
+            {
+                GridPrincipal.Children.Clear();
+                GridPrincipal.Children.Add(new AddRegisterToolControl());
+            }
         }
 
         private void btnOpenEditRegisterTool_Checked(object sender, System.Windows.RoutedEventArgs e)
         {
-            GridPrincipal.Children.Clear();
-            GridPrincipal.Children.Add(new RegisterToolControl());
+            if (GridPrincipal != null)
+            {
+                GridPrincipal.Children.Clear();
+                GridPrincipal.Children.Add(new RegisterToolControl());
+            }
         }
     }
 }

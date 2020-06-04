@@ -46,7 +46,7 @@ namespace MaintenanceDashboard.Client.ViewModels
             get
             {
                 return new ActionCommand(p => AddRegisterTool(ToolName, UidCode),
-                                         p => IsValid);
+                                         p => !String.IsNullOrWhiteSpace(ToolName));
             }
         }
         public ActionCommand SaveRegisterToolCommand

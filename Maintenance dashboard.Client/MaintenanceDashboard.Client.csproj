@@ -86,6 +86,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModels\EmployeeViewModel.cs" />
     <Compile Include="ViewModels\RegisterToolViewModel.cs" />
     <Compile Include="Views\AddPadleControl.xaml.cs">
       <DependentUpon>AddPadleControl.xaml</DependentUpon>
