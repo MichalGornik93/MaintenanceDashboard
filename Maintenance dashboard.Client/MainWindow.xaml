@@ -14,7 +14,7 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         Width="Auto" Height="Auto" WindowState="Maximized" WindowStyle="None">
-    <Grid Background="#FFEEEEEE">
+    <Grid Background="#FFFFFFFF">
         <StackPanel>
             <Grid Background="#FF0069C0" Height="10"/>
             <Grid Margin="5">
@@ -140,14 +140,7 @@
                                        VerticalAlignment="Center" Margin="20 0" />
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="60" Foreground="LightGray" IsEnabled="False">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="ViewList" Width="30" Height="30"  
-                                                     VerticalAlignment="Center" Margin="5"/>
-                            <TextBlock Text="Rejestr pobrań wyposażenia" 
-                                       VerticalAlignment="Center" Margin="20 0" />
-                        </StackPanel>
-                    </ListViewItem>
+                  
                     
                     <ListViewItem x:Name="ListaPaletek"  Foreground="LightGray">
                         <StackPanel Orientation="Horizontal">
@@ -167,7 +160,18 @@
                             <TextBlock Text="Baza termostatów"  VerticalAlignment="Center" Margin="20 0" />
                         </StackPanel>
                     </ListViewItem>
+
+                    <ListViewItem Height="60" Foreground="LightGray" >
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="ViewList" Width="30" Height="30"  
+                                                     VerticalAlignment="Center" Margin="5"/>
+                            <TextBlock Text="Rejestr pobrań wyposażenia" 
+                                       VerticalAlignment="Center" Margin="20 0" />
+                        </StackPanel>
+                    </ListViewItem>
                 </ListView>
+                
+                
 
             </Grid>
 

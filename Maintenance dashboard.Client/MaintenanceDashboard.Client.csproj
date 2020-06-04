@@ -93,8 +93,14 @@
     <Compile Include="Views\AddRegisterToolControl.xaml.cs">
       <DependentUpon>AddRegisterToolControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\BuiltFunctionControl.xaml.cs">
+      <DependentUpon>BuiltFunctionControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\EmployeeControl.xaml.cs">
       <DependentUpon>EmployeeControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ManagerRegisterToolControl.xaml.cs">
+      <DependentUpon>ManagerRegisterToolControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PaddleControl.xaml.cs">
       <DependentUpon>PaddleControl.xaml</DependentUpon>
@@ -114,7 +120,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\BuiltFunctionControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\EmployeeControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ManagerRegisterToolControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

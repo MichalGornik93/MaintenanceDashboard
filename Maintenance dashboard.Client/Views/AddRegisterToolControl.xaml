@@ -8,8 +8,11 @@
              xmlns:data="clr-namespace:MaintenanceDashboard.Data.Domain;assembly=MaintenanceDashboard.Data"
              xmlns:viewModels="clr-namespace:MaintenanceDashboard.Client.ViewModels"
              d:DataContext="{d:DesignInstance viewModels:RegisterToolViewModel}" >
-    <Grid>
-        <Border Height="auto" Width="auto" CornerRadius="20">
+    <Grid >
+ 
+
+        <Grid>
+            <Border Height="auto" Width="auto" CornerRadius="20" >
             <Border.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF2281D1"/>
@@ -31,7 +34,7 @@
             </Rectangle.Effect>
         </Rectangle>
 
-        <Grid Margin="15,80,15, 15">
+        <Grid Margin="15,80,15, 15" >
             <TextBlock Text="DODAJ WYPOSAŻENIE" HorizontalAlignment="Center" VerticalAlignment="Top"  
                            FontSize="18"  Foreground="Gray" Margin="10"/>
 
@@ -42,7 +45,7 @@
                              Text="{Binding ToolName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Margin="10"/>
                 
                 <TextBox  materialDesign:HintAssist.Hint="Kod UID" Width="400" 
-                              materialDesign:HintAssist.HelperText="" IsReadOnly="True" 
+                              materialDesign:HintAssist.HelperText="" 
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"
                               Text="{Binding UidCode, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
 
@@ -51,6 +54,7 @@
                              Command="{Binding AddRegisterToolCommand}"/>
 
             </StackPanel>
+        </Grid>
         </Grid>
     </Grid>
 </UserControl>
