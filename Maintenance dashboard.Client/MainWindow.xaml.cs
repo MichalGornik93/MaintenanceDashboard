@@ -51,7 +51,7 @@ namespace MaintenanceDashboard.Client
                     break;
                 case 1:
                     GridPrincipal.Children.Clear();   
-                    GridPrincipal.Children.Add(new EmployeeControl());
+                    GridPrincipal.Children.Add(new ManagerEmployeeControl());
                     break;
                 case 2:
                     GridPrincipal.Children.Clear();
@@ -59,7 +59,7 @@ namespace MaintenanceDashboard.Client
                     break;
                 case 3:
                     GridPrincipal.Children.Clear();
-                    GridPrincipal.Children.Add(new PaddleControl());
+                    GridPrincipal.Children.Add(new ManagerPaddleControl());
                     break;
                 case 4:
                     GridPrincipal.Children.Clear();
@@ -72,17 +72,13 @@ namespace MaintenanceDashboard.Client
                 default:
                     break;
             }
-
         }
-
 
         private void MoveCursorMenu(int index)
         {
             TrainsitioningContentSlide.OnApplyTemplate();
             GridCursor.Margin = new Thickness(0, (10 +(60* index)), 0, 0);
         }
-
-
 
         private void btnSavePassword_Click(object sender, RoutedEventArgs e)
         {
@@ -94,6 +90,5 @@ namespace MaintenanceDashboard.Client
             }
             PasswordBox.Clear();
         }
-
     }
 }

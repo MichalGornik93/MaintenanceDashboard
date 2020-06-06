@@ -88,8 +88,8 @@
     </ApplicationDefinition>
     <Compile Include="ViewModels\EmployeeViewModel.cs" />
     <Compile Include="ViewModels\MaintenanceDashboardViewModel.cs" />
-    <Compile Include="Views\AddPadleControl.xaml.cs">
-      <DependentUpon>AddPadleControl.xaml</DependentUpon>
+    <Compile Include="Views\AddEmployeeControl.xaml.cs">
+      <DependentUpon>AddEmployeeControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\AddRegisterToolControl.xaml.cs">
       <DependentUpon>AddRegisterToolControl.xaml</DependentUpon>
@@ -97,23 +97,25 @@
     <Compile Include="Views\BuiltFunctionControl.xaml.cs">
       <DependentUpon>BuiltFunctionControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\EmployeeControl.xaml.cs">
-      <DependentUpon>EmployeeControl.xaml</DependentUpon>
+    <Compile Include="Views\EditEmployeeControl.xaml.cs">
+      <DependentUpon>EditEmployeeControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ManagerEmployeeControl.xaml.cs">
+      <DependentUpon>ManagerEmployeeControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ManagerRegisterToolControl.xaml.cs">
       <DependentUpon>ManagerRegisterToolControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\PaddleControl.xaml.cs">
-      <DependentUpon>PaddleControl.xaml</DependentUpon>
+    <Compile Include="Views\ManagerPaddleControl.xaml.cs">
+      <DependentUpon>ManagerPaddleControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\RegisterToolControl.xaml.cs">
-      <DependentUpon>RegisterToolControl.xaml</DependentUpon>
+    <Compile Include="Views\EditRegisterToolControl.xaml.cs">
+      <DependentUpon>EditRegisterToolControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\EmployeeValidation.cs" />
     <Compile Include="Views\HomeControl.xaml.cs">
       <DependentUpon>HomeControl.xaml</DependentUpon>
     </Compile>
-    <Page Include="Views\AddPadleControl.xaml">
+    <Page Include="Views\AddEmployeeControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -125,7 +127,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\EmployeeControl.xaml">
+    <Page Include="Views\EditEmployeeControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ManagerEmployeeControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -133,11 +139,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\PaddleControl.xaml">
+    <Page Include="Views\ManagerPaddleControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\RegisterToolControl.xaml">
+    <Page Include="Views\EditRegisterToolControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -2,13 +2,11 @@
 
 namespace MaintenanceDashboard.Client.Views
 {
-
-    public partial class RegisterToolControl : UserControl
+    public partial class EditRegisterToolControl : UserControl
     {      
-        public RegisterToolControl()
+        public EditRegisterToolControl()
         {
             InitializeComponent();
         }
-
     }
 }

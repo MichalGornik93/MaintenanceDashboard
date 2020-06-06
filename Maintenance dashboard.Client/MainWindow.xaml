@@ -154,7 +154,7 @@
                     
                     <ListViewItem x:Name="ListaPaletek"  Foreground="LightGray">
                         <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Toolbox" Width="30" 
+                            <materialDesign:PackIcon Kind="ClipboardList" Width="30" 
                                                      Height="35" VerticalAlignment="Top" Margin="5"/>
                             <TextBlock Text="Baza paletek"  
                                        VerticalAlignment="Center" Margin="20 0" />
@@ -165,7 +165,7 @@
 
                     <ListViewItem x:Name="ListaTermostatow" Foreground="LightGray">
                         <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Toolbox" Width="30" 
+                            <materialDesign:PackIcon Kind="ClipboardList" Width="30" 
                                                      Height="35" VerticalAlignment="top" Margin="5"/>
                             <TextBlock Text="Baza termostatów"  VerticalAlignment="Center" Margin="20 0" />
                         </StackPanel>

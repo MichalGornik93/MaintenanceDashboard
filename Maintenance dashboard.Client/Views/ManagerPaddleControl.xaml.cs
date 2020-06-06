@@ -6,9 +6,9 @@ namespace MaintenanceDashboard.Client.Views
     /// <summary>
     /// Logika interakcji dla klasy PaddleControl.xaml
     /// </summary>
-    public partial class PaddleControl : UserControl
+    public partial class ManagerPaddleControl : UserControl
     {
-        public PaddleControl()
+        public ManagerPaddleControl()
         {
             InitializeComponent();
         }
