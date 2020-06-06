@@ -4,12 +4,12 @@ using System.Linq;
 
 namespace MaintenanceDashboard.Data.Domain
 {
-    public sealed class WorkshopContext : IDisposable //IDisposable- Provides a mechanism for releasing unmanaged resources
+    public sealed class MaintenanceDashboardContext : IDisposable //IDisposable- Provides a mechanism for releasing unmanaged resources
     {
         private readonly DataContext context;
         private bool disposed;
 
-        public WorkshopContext()
+        public MaintenanceDashboardContext()
         {
             context = new DataContext();
         }
@@ -19,6 +19,8 @@ namespace MaintenanceDashboard.Data.Domain
             get { return context; }
         }
 
+        #region EmployeeContext
+
         public void AddNewEmployee(Employee employee)
         {
             Check.Require(employee.FirstName);
@@ -26,9 +28,11 @@ namespace MaintenanceDashboard.Data.Domain
 
             context.Employees.Add(employee);
             context.SaveChanges();
-
         }
 
+        #endregion
+
+        #region RegisterToolContext
         public void AddNewRegisterTool(RegisterTool registerTool)
         {
             Check.Require(registerTool.ToolName);
@@ -50,13 +54,14 @@ namespace MaintenanceDashboard.Data.Domain
             context.Entry(entity).CurrentValues.SetValues(registerTool);
 
             context.SaveChanges();
-
         }
 
         public ICollection<RegisterTool> GetRegisterToolList()
         {
             return context.RegisterTools.OrderBy(p => p.Id).ToArray();
         }
+
+        #endregion
 
         static class Check
         {

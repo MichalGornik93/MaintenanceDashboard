@@ -12,10 +12,10 @@
         </Grid.RowDefinitions>
 
         <StackPanel Orientation="Horizontal" Margin="4" Grid.Row="0">
-            <RadioButton x:Name="btnOpenAddRegisterTool" Style="{StaticResource MaterialDesignTabRadioButton}"  Margin="4"  Content="DODAJ WYPOSAŻENIE" Checked="btnOpenAddRegisterTool_Checked" IsChecked="False"/>
-            <RadioButton x:Name="btnOpenEditRegisterTool" Style="{StaticResource MaterialDesignTabRadioButton}" Margin="4" Content="EDYTUJ WYPOSAŻENIE" Checked="btnOpenEditRegisterTool_Checked" Command="{Binding GetRegisterToolListCommand}" />
+            <RadioButton x:Name="btnOpenAddRegisterTool" Style="{StaticResource MaterialDesignTabRadioButton}"  Margin="4"  Content="DODAJ WYPOSAŻENIE" Checked="btnOpenAddRegisterTool_Checked" />
+            <RadioButton x:Name="btnOpenEditRegisterTool" Style="{StaticResource MaterialDesignTabRadioButton}" Margin="4" Content="EDYTUJ WYPOSAŻENIE" Checked="btnOpenEditRegisterTool_Checked" IsChecked="True" Command="{Binding GetRegisterToolListCommand}" />
         </StackPanel>
 
-        <Grid x:Name="GridPrincipal" Grid.Row="1"/>
+        <Grid x:Name="GridPrincipal" Grid.Row="1" Width="700" Height="400"/>
     </Grid>
 </UserControl>

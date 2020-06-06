@@ -10,7 +10,7 @@ namespace MaintenanceDashboard.Data.Tests.FunctionalTests
         [TestMethod]
         public void AddNewEmployeeIsSuccessful()
         {
-            using (var wc = new WorkshopContext())
+            using (var wc = new MaintenanceDashboardContext())
             {
                 var employee = new Employee
                 {

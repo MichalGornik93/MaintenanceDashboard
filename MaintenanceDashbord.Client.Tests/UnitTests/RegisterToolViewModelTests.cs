@@ -10,7 +10,7 @@ namespace MaintenanceDashboard.Client.Tests.UnitTests
         [TestMethod]
         public void IsViewModel()
         {
-            Assert.IsTrue(typeof(RegisterToolViewModel).BaseType == typeof(ViewModel));
+            Assert.IsTrue(typeof(MaintenanceDashboardViewModel).BaseType == typeof(ViewModel));
         }
 
         //[TestMethod]
@@ -49,7 +49,7 @@ namespace MaintenanceDashboard.Client.Tests.UnitTests
         [TestMethod]
         public void AddRegisterToolCommandCannotExecuteWhenToolNameIsNotValid()
         {
-            var viewModel = new RegisterToolViewModel
+            var viewModel = new MaintenanceDashboardViewModel
             {
                 ToolName=null,
                 UidCode ="TestUid"

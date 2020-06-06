@@ -11,7 +11,7 @@ namespace MaintenanceDashboard.Data.Tests.UnitTests
         [ExpectedException(typeof(ArgumentNullException))]
         public void AddNewEmployee_ThrowsException_WhenFirstNameIsNull()
         {
-            using (var wc = new WorkshopContext())
+            using (var wc = new MaintenanceDashboardContext())
             {
                 var employee = new Employee
                 {
@@ -27,7 +27,7 @@ namespace MaintenanceDashboard.Data.Tests.UnitTests
         [ExpectedException(typeof(ArgumentException))]
         public void AddNewEmployee_ThrowsException_WhenFirstNameIsEmpty()
         {
-            using (var wc = new WorkshopContext())
+            using (var wc = new MaintenanceDashboardContext())
             {
                 var employee = new Employee
                 {
@@ -44,7 +44,7 @@ namespace MaintenanceDashboard.Data.Tests.UnitTests
         [ExpectedException(typeof(ArgumentNullException))]
         public void AddNewEmployee_ThrowsException_WhenLastNameIsNull()
         {
-            using (var wc = new WorkshopContext())
+            using (var wc = new MaintenanceDashboardContext())
             {
                 var employee = new Employee
                 {
@@ -60,7 +60,7 @@ namespace MaintenanceDashboard.Data.Tests.UnitTests
         [ExpectedException(typeof(ArgumentException))]
         public void AddNewEmployee_ThrowsException_WhenLastNameIsEmpty()
         {
-            using (var wc = new WorkshopContext())
+            using (var wc = new MaintenanceDashboardContext())
             {
                 var employee = new Employee
                 {

@@ -1,17 +1,18 @@
-﻿using MaintenanceDashboard.Data.Domain;
-using MaintenanceDashboard.Library;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations;
 using System.Windows.Input;
+using MaintenanceDashboard.Data.Domain;
+using MaintenanceDashboard.Library;
 
 namespace MaintenanceDashboard.Client.ViewModels
 {
-    public class RegisterToolViewModel : ViewModel
+    public class MaintenanceDashboardViewModel : ViewModel
     {
-        private readonly WorkshopContext context;
-        public ICollection<RegisterTool> RegisterTools { get; private set; } //definicja Obserwowanej kolekcji klientów
+        private readonly MaintenanceDashboardContext context;
+        public ICollection<RegisterTool> RegisterTools { get; private set; }
+        public string ToolName { get; set; }
+        public string UidCode { get; set; }
 
         private RegisterTool selectedRegisterTool;
 
@@ -25,22 +26,15 @@ namespace MaintenanceDashboard.Client.ViewModels
             }
         }
 
-        public string ToolName { get; set; }
-        public string UidCode { get; set; }
+        public MaintenanceDashboardViewModel() : this(new MaintenanceDashboardContext()) {}
 
-        public RegisterToolViewModel() : this(new WorkshopContext())
-        {
-
-        }
-
-        public RegisterToolViewModel(WorkshopContext context)
+        public MaintenanceDashboardViewModel(MaintenanceDashboardContext context)
         {
             this.context = context;
-            RegisterTools = new ObservableCollection<RegisterTool>(); //Inicjalizacja Obserwowanej kolekcji klientów
+            RegisterTools = new ObservableCollection<RegisterTool>(); 
         }
 
-
-
+        #region RegisterToolViewModel
         public ActionCommand AddRegisterToolCommand
         {
             get
@@ -76,21 +70,18 @@ namespace MaintenanceDashboard.Client.ViewModels
             }
         }
 
-
-        public bool IsValid //Zwraca true, Jest sprawdzone jesli
+        public bool IsValid
         {
             get
             {
-                return SelectedRegisterTool == null || //Nie jest zaznczaczony lub
-                !String.IsNullOrWhiteSpace(SelectedRegisterTool.ToolName); //zaznaczony toolname nie jest pusty 
+                return SelectedRegisterTool == null ||
+                !String.IsNullOrWhiteSpace(SelectedRegisterTool.ToolName);
             }
         }
 
-
-
         private void AddRegisterTool(string toolName, string uidCode)
         {
-            using (var api = new WorkshopContext())
+            using (var api = new MaintenanceDashboardContext())
             {
                 var registerTool = new RegisterTool
                 {
@@ -130,5 +121,9 @@ namespace MaintenanceDashboard.Client.ViewModels
 
             }
         }
+
+        #endregion
+
+
     }
 }

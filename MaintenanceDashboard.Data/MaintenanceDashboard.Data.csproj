@@ -55,7 +55,7 @@
     <Compile Include="Domain\Paddle.cs" />
     <Compile Include="Domain\RegisterTool.cs" />
     <Compile Include="Domain\DataContext.cs" />
-    <Compile Include="Domain\WorkshopContext.cs" />
+    <Compile Include="Domain\MaintenanceDashboardContext.cs" />
     <Compile Include="Migrations\202005281027139_InitialModel.cs" />
     <Compile Include="Migrations\202005281027139_InitialModel.designer.cs">
       <DependentUpon>202005281027139_InitialModel.cs</DependentUpon>

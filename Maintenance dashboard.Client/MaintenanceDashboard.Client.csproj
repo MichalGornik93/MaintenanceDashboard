@@ -87,7 +87,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ViewModels\EmployeeViewModel.cs" />
-    <Compile Include="ViewModels\RegisterToolViewModel.cs" />
+    <Compile Include="ViewModels\MaintenanceDashboardViewModel.cs" />
     <Compile Include="Views\AddPadleControl.xaml.cs">
       <DependentUpon>AddPadleControl.xaml</DependentUpon>
     </Compile>
