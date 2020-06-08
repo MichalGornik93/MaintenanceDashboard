@@ -21,7 +21,11 @@ namespace MaintenanceDashboard.Client.Views
 
         private void btnOpenEditEmployee_Checked(object sender, RoutedEventArgs e)
         {
-
+            if (GridPrincipal != null)
+            {
+                GridPrincipal.Children.Clear();
+                GridPrincipal.Children.Add(new EditEmployeeControl());
+            }
         }
     }
 }

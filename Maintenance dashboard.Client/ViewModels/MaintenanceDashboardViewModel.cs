@@ -169,7 +169,7 @@ namespace MaintenanceDashboard.Client.ViewModels
             get
             {
                 return new ActionCommand(p => DeleteEmployee(),
-                    p => IsValidEmployee);
+                   p => IsValidEmployee);
             }
         }
 
@@ -218,7 +218,7 @@ namespace MaintenanceDashboard.Client.ViewModels
 
         private void SaveEmployee()
         {
-            if (SelectedRegisterTool != null)
+            if (SelectedEmployee != null)
             {
                 context.UpdateEmployee(SelectedEmployee);
             }
@@ -226,7 +226,7 @@ namespace MaintenanceDashboard.Client.ViewModels
 
         private void DeleteEmployee()
         {
-            if (SelectedRegisterTool != null)
+            if (SelectedEmployee != null)
             {
                 context.DataContext.Employees.Remove(SelectedEmployee);
                 context.DataContext.SaveChanges();
