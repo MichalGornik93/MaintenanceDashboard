@@ -11,8 +11,15 @@ namespace MaintenanceDashboard.Client.ViewModels
     {
         private readonly MaintenanceDashboardContext context;
         public ICollection<RegisterTool> RegisterTools { get; private set; }
+        public ICollection<Employee> Employees { get; private set; }
+
         public string ToolName { get; set; }
-        public string UidCode { get; set; }
+        public string UidCode { get; set; }  //for refactoring
+
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string UidCodeEmployee { get; set; }
+
 
         private RegisterTool selectedRegisterTool;
 
@@ -26,13 +33,28 @@ namespace MaintenanceDashboard.Client.ViewModels
             }
         }
 
+        private Employee selectedEmployee;
+
+        public Employee SelectedEmployee
+        {
+            get { return selectedEmployee; }
+            set
+            {
+                selectedEmployee = value;
+                NotifyPropertyChanged();
+            }
+        }
+
         public MaintenanceDashboardViewModel() : this(new MaintenanceDashboardContext()) {}
 
         public MaintenanceDashboardViewModel(MaintenanceDashboardContext context)
         {
             this.context = context;
-            RegisterTools = new ObservableCollection<RegisterTool>(); 
+            RegisterTools = new ObservableCollection<RegisterTool>();
+            Employees = new ObservableCollection<Employee>();
         }
+
+        //for refactoring
 
         #region RegisterToolViewModel
         public ActionCommand AddRegisterToolCommand
@@ -124,6 +146,95 @@ namespace MaintenanceDashboard.Client.ViewModels
 
         #endregion
 
+        #region EmployeeViewModel
+        public ActionCommand AddEmployeeCommand
+        {
+            get
+            {
+                return new ActionCommand(p => AddEmployee(FirstName, LastName, UidCodeEmployee),
+                                         p => !String.IsNullOrWhiteSpace(FirstName) && !String.IsNullOrWhiteSpace(LastName));
+            }
+        }
+        public ActionCommand SaveEmployeeCommand
+        {
+            get
+            {
+                return new ActionCommand(p => SaveEmployee(),
+                                         p => IsValidEmployee);
+            }
+        }
+
+        public ICommand DeleteEmployeeCommand
+        {
+            get
+            {
+                return new ActionCommand(p => DeleteEmployee(),
+                    p => IsValidEmployee);
+            }
+        }
+
+
+        public ICommand GetEmployeeListCommand
+        {
+            get
+            {
+                return new ActionCommand(p => GetEmployeeList());
+            }
+        }
+
+        public bool IsValidEmployee //for refactoring
+        {
+            get
+            {
+                return SelectedEmployee == null ||
+                (!String.IsNullOrWhiteSpace(SelectedEmployee.FirstName) && !String.IsNullOrWhiteSpace(SelectedEmployee.LastName));
+            }
+        }
+
+        private void AddEmployee(string firstName, string lastName, string uidCodeEmployee) //for refactorning
+        {
+            using (var api = new MaintenanceDashboardContext())
+            {
+                var employee = new Employee
+                {
+                    FirstName = firstName,
+                    LastName = lastName,
+                    UidCode = uidCodeEmployee
+                };
+
+                api.AddNewEmployee(employee);
+
+                Employees.Add(employee);
+            }
+        }
+
+        private void GetEmployeeList()
+        {
+            Employees.Clear();
+
+            foreach (var item in context.GetEmployeeList())
+                Employees.Add(item);
+        }
+
+        private void SaveEmployee()
+        {
+            if (SelectedRegisterTool != null)
+            {
+                context.UpdateEmployee(SelectedEmployee);
+            }
+        }
+
+        private void DeleteEmployee()
+        {
+            if (SelectedRegisterTool != null)
+            {
+                context.DataContext.Employees.Remove(SelectedEmployee);
+                context.DataContext.SaveChanges();
+                Employees.Remove(SelectedEmployee);
+
+            }
+        }
+        #endregion
 
     }
 }

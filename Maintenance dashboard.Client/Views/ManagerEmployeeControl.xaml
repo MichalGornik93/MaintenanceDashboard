@@ -12,8 +12,8 @@
         </Grid.RowDefinitions>
 
         <StackPanel Orientation="Horizontal" Margin="4" Grid.Row="0">
-            <RadioButton x:Name="btnOpenAddEmployee" Style="{StaticResource MaterialDesignTabRadioButton}"  Margin="4"  Content="DODAJ PRACOWNIKA" Checked="btnOpenAddEmployee_Checked" />
-            <RadioButton x:Name="btnOpenEditEmployee" Style="{StaticResource MaterialDesignTabRadioButton}" Margin="4" Content="EDYTUJ PRACOWNIKA" Checked="btnOpenEditEmployee_Checked" Command="{Binding }" />
+            <RadioButton x:Name="btnOpenAddEmployee" Style="{StaticResource MaterialDesignTabRadioButton}"  Margin="4"  Content="DODAWANIE PRACOWNIKÓW" Checked="btnOpenAddEmployee_Checked" />
+            <RadioButton x:Name="btnOpenEditEmployee" Style="{StaticResource MaterialDesignTabRadioButton}" Margin="4" Content="EDYTOWANIE PRACOWNIKÓW" Checked="btnOpenEditEmployee_Checked" Command="{Binding }" />
         </StackPanel>
 
         <Grid x:Name="GridPrincipal" Grid.Row="1" Width="700" Height="400"/>

@@ -60,6 +60,10 @@
     <Compile Include="Migrations\202005281027139_InitialModel.designer.cs">
       <DependentUpon>202005281027139_InitialModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202006081230432_ChengedUidPropertyToEmployeeTable.cs" />
+    <Compile Include="Migrations\202006081230432_ChengedUidPropertyToEmployeeTable.designer.cs">
+      <DependentUpon>202006081230432_ChengedUidPropertyToEmployeeTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -70,6 +74,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202005281027139_InitialModel.resx">
       <DependentUpon>202005281027139_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006081230432_ChengedUidPropertyToEmployeeTable.resx">
+      <DependentUpon>202006081230432_ChengedUidPropertyToEmployeeTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -4,13 +4,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             mc:Ignorable="d" 
-             xmlns:data="clr-namespace:MaintenanceDashboard.Data.Domain;assembly=MaintenanceDashboard.Data"
+             mc:Ignorable="d"
              xmlns:viewModels="clr-namespace:MaintenanceDashboard.Client.ViewModels"
              d:DataContext="{d:DesignInstance viewModels:MaintenanceDashboardViewModel}" >
     <Grid >
-
-
         <Grid>
             <Border Height="auto" Width="auto" CornerRadius="20" >
                 <Border.Background>
@@ -61,8 +58,6 @@
                     <Button  x:Name="btnAddRegisterTool" Height="25"  Background="#FF0069C0"  
                              BorderBrush="#FF0069C0"  Width="100" Content="DODAJ" Margin="10"  Grid.Column="1"
                              Command="{Binding AddRegisterToolCommand}" Click="btnAddRegisterTool_Click"/>
-
-
 
                 </StackPanel>
             </Grid>

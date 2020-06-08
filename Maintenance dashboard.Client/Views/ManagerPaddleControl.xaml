@@ -12,58 +12,19 @@
              
              FontFamily="{DynamicResource MaterialDesignFont}"
              mc:Ignorable="d" >
-    <Grid x:Name="GridPrincipal" >
-        <Grid >
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition Height="110"/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition  Width="170"/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
 
+        <StackPanel Orientation="Horizontal" Margin="4" Grid.Row="0">
+            <RadioButton Style="{StaticResource MaterialDesignTabRadioButton}"  Margin="4"  Content="PRZYJECIE PALETKI"/>
+            <RadioButton Style="{StaticResource MaterialDesignTabRadioButton}" Margin="4" Content="WYDANIE PALETKI"/>
+            <RadioButton Style="{StaticResource MaterialDesignTabRadioButton}" Margin="4" Content="PRZEGLĄDANIE BAZY"/>
+            <RadioButton Style="{StaticResource MaterialDesignTabRadioButton}" Margin="4" Content="DODAWANIE NOWYCH PALETEK"/>
+        </StackPanel>
 
-            <StackPanel Grid.Row="0" Grid.Column="0" >
-                <Button Background="#FF0069C0" BorderBrush="#FF0069C0" ToolTip="MaterialDesignFloatingActionButton" 
-                                    Height="170" Width="170"  materialDesign:ButtonAssist.CornerRadius="15">
-                    <materialDesign:PackIcon Height="90" Width="90" Kind="Download" />
-                </Button>
-                <TextBlock Text="Przyjecie paletki" HorizontalAlignment="Center" Foreground="Gray" VerticalAlignment="Center" Margin="7"/>
-            </StackPanel>
-
-
-
-
-            <StackPanel Grid.Row="0" Grid.Column="2" >
-                <Button Background="#FF0069C0" BorderBrush="#FF0069C0" ToolTip="MaterialDesignFloatingActionButton" 
-                                    Height="170" Width="170"  materialDesign:ButtonAssist.CornerRadius="15">
-                    <materialDesign:PackIcon Height="90" Width="90" Kind="Upload" />
-                </Button>
-                <TextBlock Text="Wydanie paletki" HorizontalAlignment="Center" Foreground="Gray" VerticalAlignment="Center" Margin="7"/>
-            </StackPanel>
-
-
-
-            <StackPanel Grid.Row="2" Grid.Column="0"  >
-                <Button Background="#FF0069C0" BorderBrush="#FF0069C0" ToolTip="MaterialDesignFloatingActionButton" 
-                                    Height="170" Width="170"  materialDesign:ButtonAssist.CornerRadius="15">
-                    <materialDesign:PackIcon Height="90" Width="90" Kind="FindInPage" />
-                </Button>
-                <TextBlock Text="Przeglądanie bazy" Foreground="Gray" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7"/>
-            </StackPanel>
-
-
-            <StackPanel Grid.Row="2" Grid.Column="2"  VerticalAlignment="Bottom" >
-                <Button Background="#FF0069C0" BorderBrush="#FF0069C0" ToolTip="MaterialDesignFloatingActionButton" 
-                                    Height="170" Width="170"  materialDesign:ButtonAssist.CornerRadius="15">
-                    <materialDesign:PackIcon Height="90" Width="90" Kind="ClipboardList" />
-                </Button>
-                <TextBlock Text="Wykaz termostatów" Foreground="Gray" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7"/>
-            </StackPanel>
-
-        </Grid>
+        <Grid x:Name="GridPrincipal" Grid.Row="1" Width="700" Height="400"/>
     </Grid>
 </UserControl>

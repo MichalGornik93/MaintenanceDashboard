@@ -30,6 +30,25 @@ namespace MaintenanceDashboard.Data.Domain
             context.SaveChanges();
         }
 
+        public void UpdateEmployee(Employee employee)
+        {
+            var entity = context.Employees.Find(employee.Id);
+
+            if (entity == null)
+            {
+                throw new NotImplementedException("Handle appropriately for your API design. ");
+            }
+
+            context.Entry(entity).CurrentValues.SetValues(employee);
+
+            context.SaveChanges();
+        }
+
+        public ICollection<Employee> GetEmployeeList()
+        {
+            return context.Employees.OrderBy(p => p.Id).ToArray();
+        }
+
         #endregion
 
         #region RegisterToolContext
