@@ -7,6 +7,7 @@ namespace MaintenanceDashboard.Data.Domain
     public sealed class MaintenanceDashboardContext : IDisposable //IDisposable- Provides a mechanism for releasing unmanaged resources
     {
         private readonly DataContext context;
+        
         private bool disposed;
 
         public MaintenanceDashboardContext()

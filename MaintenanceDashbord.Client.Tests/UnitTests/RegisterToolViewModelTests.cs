@@ -1,6 +1,8 @@
 ﻿using MaintenanceDashboard.Library;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MaintenanceDashboard.Data.Domain;
 using MaintenanceDashboard.Client.ViewModels;
+using System.Linq;
 
 namespace MaintenanceDashboard.Client.Tests.UnitTests
 {
@@ -13,65 +15,102 @@ namespace MaintenanceDashboard.Client.Tests.UnitTests
             Assert.IsTrue(typeof(MaintenanceDashboardViewModel).BaseType == typeof(ViewModel));
         }
 
-        //[TestMethod]
-        //public void ValidationErrorWhenRegisterToolIsNotGreaterThanOrEqualTo2Characters()
-        //{
-        //    var viewModel = new RegisterToolViewlModel
-        //    {
-        //        Tool = "B"
-        //    };
-
-        //    Assert.IsNotNull(viewModel["Tool"]);
-        //}
-
-        //[TestMethod]
-        //public void NoValidationErrorWhenRegisterToolMeetsAllRequirements()
-        //{
-        //    var viewModel = new RegisterToolViewlModel
-        //    {
-        //        Tool = "David Anderson"
-        //    };
-
-        //    Assert.IsNull(viewModel["Tool"]);
-        //}
-
-        //[TestMethod]
-        //public void ValidationErrorWhenRegisterToolIsNotProvided()
-        //{
-        //    var viewModel = new RegisterToolViewlModel
-        //    {
-        //        Tool = null
-        //    };
-
-        //    Assert.IsNotNull(viewModel["Tool"]);
-        //}
-
         [TestMethod]
-        public void AddRegisterToolCommandCannotExecuteWhenToolNameIsNotValid()
+        public void AddCommand_CannotExecuteWhenToolNameIsNotValid()
         {
             var viewModel = new MaintenanceDashboardViewModel
             {
-                ToolName=null,
-                UidCodeRegisterTool ="TestUid"
+                SelectedRegisterTool = new RegisterTool
+                {
+                    ToolName = null,
+                    UidCode = "TestCode"
+                }
             };
 
             Assert.IsFalse(viewModel.AddRegisterToolCommand.CanExecute(null));
         }
 
 
-        //[TestMethod]
-        //public void AddRegisterToolCommandAddsToolNameToRegisterToolsCollectionWhenExecutedSuccessfully()
-        //{
-        //    var viewModel = new RegisterToolViewlModel
-        //    {
-        //        ToolName="TestName",
-        //        UidCode ="TestCode"
-        //    };
+        [TestMethod]
+        public void GetRegisterToolListCommand_PopulatesRegisterToolsPropertyWithExpectedCollectionFromDataStore()
+        {
+            using (var context = new MaintenanceDashboardContext())
+            {
+                context.AddNewRegisterTool(new RegisterTool { ToolName = "TestName1", UidCode="TestCode1"});
+                context.AddNewRegisterTool(new RegisterTool { ToolName = "TestName2", UidCode = "TestCode2" });
+                context.AddNewRegisterTool(new RegisterTool { ToolName = "TestName3", UidCode = "TestCode3" });
 
-        //    viewModel.AddRegisterToolCommand.Execute();
+                var viewModel = new MaintenanceDashboardViewModel(context);
 
-        //    Assert.IsTrue(viewModel.RegisterTools.Count == 1);
-        //}
+                viewModel.GetRegisterToolListCommand.Execute(null);
 
+                Assert.IsTrue(viewModel.RegisterTools.Count == 3);
+
+            }
+        }
+
+        [TestMethod]
+        public void GetRegisterToolListCommand_SelectedRegisterToolIsSetToNullWhenExecuted()
+        {
+            var viewModel = new MaintenanceDashboardViewModel();
+
+            viewModel.SelectedRegisterTool = new RegisterTool
+            {
+                //Id = 1,
+                ToolName = "Test",
+                UidCode = "Customer"
+            };
+
+            viewModel.GetRegisterToolListCommand.Execute(null);
+
+            Assert.IsNull(viewModel.SelectedRegisterTool);
+        }
+
+        [TestMethod]
+        public void SaveCommand_SelectedRegisterToolsToolNameIsUpdatedInDataStore()
+        {
+            using (var context = new MaintenanceDashboardContext())
+            {
+                // Arrange
+                context.AddNewRegisterTool(new RegisterTool { ToolName = "TestName1", UidCode = "TestCode1" });
+
+                var viewModel = new MaintenanceDashboardViewModel(context);
+
+                viewModel.GetRegisterToolListCommand.Execute(null);
+                viewModel.SelectedRegisterTool = viewModel.RegisterTools.First();
+
+                // Act
+                viewModel.SelectedRegisterTool.ToolName = "newValue";
+                viewModel.SaveRegisterToolCommand.Execute(null);
+
+                // Assert
+                var customer = context.DataContext.RegisterTools.Single();
+
+                context.DataContext.Entry(customer).Reload();
+
+                Assert.AreEqual(viewModel.SelectedRegisterTool.ToolName, customer.ToolName);
+            }
+        }
+
+        [TestMethod]
+        public void DeleteCommand_SelectedRegisterToolIsDeletedFromDataStore()
+        {
+            using (var context = new MaintenanceDashboardContext())
+            {
+                // Arrange
+                context.AddNewRegisterTool(new RegisterTool { ToolName = "TestName1", UidCode = "TestCode1" });
+
+                var viewModel = new MaintenanceDashboardViewModel(context);
+
+                viewModel.GetRegisterToolListCommand.Execute(null);
+                viewModel.SelectedRegisterTool = viewModel.RegisterTools.First();
+
+                // Act
+                viewModel.DeleteRegisterToolCommand.Execute(null);
+
+                // Assert
+                Assert.IsFalse(context.DataContext.RegisterTools.Any());
+            }
+        }
     }
 }

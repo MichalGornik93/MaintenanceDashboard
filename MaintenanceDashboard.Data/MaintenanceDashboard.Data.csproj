@@ -60,9 +60,9 @@
     <Compile Include="Migrations\202005281027139_InitialModel.designer.cs">
       <DependentUpon>202005281027139_InitialModel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202006081230432_ChangedUidPropertyToEmployeeTable.cs" />
-    <Compile Include="Migrations\202006081230432_ChangedUidPropertyToEmployeeTable.designer.cs">
-      <DependentUpon>202006081230432_ChangedUidPropertyToEmployeeTable.cs</DependentUpon>
+    <Compile Include="Migrations\202006090922507_ChangedUidPropertyToEmployeeTable.cs" />
+    <Compile Include="Migrations\202006090922507_ChangedUidPropertyToEmployeeTable.designer.cs">
+      <DependentUpon>202006090922507_ChangedUidPropertyToEmployeeTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -75,8 +75,8 @@
     <EmbeddedResource Include="Migrations\202005281027139_InitialModel.resx">
       <DependentUpon>202005281027139_InitialModel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202006081230432_ChangedUidPropertyToEmployeeTable.resx">
-      <DependentUpon>202006081230432_ChangedUidPropertyToEmployeeTable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202006090922507_ChangedUidPropertyToEmployeeTable.resx">
+      <DependentUpon>202006090922507_ChangedUidPropertyToEmployeeTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

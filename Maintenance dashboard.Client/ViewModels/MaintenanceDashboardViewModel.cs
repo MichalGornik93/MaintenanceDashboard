@@ -14,7 +14,7 @@ namespace MaintenanceDashboard.Client.ViewModels
         public ICollection<Employee> Employees { get; private set; }
 
         public string ToolName { get; set; }
-        public string UidCodeRegisterTool { get; set; }  //for refactoring
+        public string UidCodeRegisterTool { get; set; } 
 
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -119,6 +119,7 @@ namespace MaintenanceDashboard.Client.ViewModels
         private void GetRegisterToolList()
         {
             RegisterTools.Clear();
+            SelectedRegisterTool = null;
 
             foreach (var item in context.GetRegisterToolList())
                 RegisterTools.Add(item);
@@ -142,6 +143,8 @@ namespace MaintenanceDashboard.Client.ViewModels
 
             }
         }
+
+        //public override 
 
         #endregion
 

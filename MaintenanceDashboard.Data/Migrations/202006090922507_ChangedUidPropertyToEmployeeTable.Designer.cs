@@ -7,13 +7,13 @@ namespace MaintenanceDashboard.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class ChengedUidPropertyToEmployeeTable : IMigrationMetadata
+    public sealed partial class ChangedUidPropertyToEmployeeTable : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ChengedUidPropertyToEmployeeTable));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ChangedUidPropertyToEmployeeTable));
         
         string IMigrationMetadata.Id
         {
-            get { return "202006081230432_ChengedUidPropertyToEmployeeTable"; }
+            get { return "202006090922507_ChangedUidPropertyToEmployeeTable"; }
         }
         
         string IMigrationMetadata.Source

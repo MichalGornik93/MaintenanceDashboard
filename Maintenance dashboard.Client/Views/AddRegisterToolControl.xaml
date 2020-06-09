@@ -9,7 +9,7 @@
              d:DataContext="{d:DesignInstance viewModels:MaintenanceDashboardViewModel}" >
     <Grid >
         <Grid>
-            <Border Height="auto" Width="auto" CornerRadius="20" >
+            <Border CornerRadius="20" >
                 <Border.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FF2281D1"/>
@@ -24,7 +24,7 @@
                                      HorizontalAlignment="Center" Margin="5" Foreground="White"/>
 
             <Rectangle Fill="White" Margin="15,85,15, 15" RadiusX="15" RadiusY="15" 
-                       RenderTransformOrigin="0.5,0.5" Width="700" Height="500">
+                       RenderTransformOrigin="0.5,0.5" Width="700" Height="400">
                 <Rectangle.Effect>
                     <DropShadowEffect BlurRadius="10" RenderingBias="Quality" Direction="0" Color="#FFBBBBBB" 
                                       ShadowDepth="1"/>
@@ -40,7 +40,7 @@
                 <materialDesign:PackIcon Grid.Row="1" Kind="DatabaseAdd" VerticalAlignment="Center" Width="100" Height="100" HorizontalAlignment="Center"  Margin="5" Foreground="Gray"/>
             </Grid>
 
-            <Grid Margin="15,80,15, 15" Width="700" Height="500">
+            <Grid Margin="15,80,15, 15" Width="700" Height="400">
                 <TextBlock Text="DODAWANIE WYPOSAŻENIA" HorizontalAlignment="Center" VerticalAlignment="Top"  
                            FontSize="18"  Foreground="Gray" Margin="18"/>
 
