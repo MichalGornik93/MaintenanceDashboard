@@ -23,18 +23,18 @@
             </Border>
 
 
-            <materialDesign:PackIcon Kind="Tools" VerticalAlignment="Top" Width="80" Height="80" 
+            <materialDesign:PackIcon Kind="UsersGroupOutline" VerticalAlignment="Top" Width="80" Height="80" 
                                      HorizontalAlignment="Center" Margin="5" Foreground="White"/>
 
             <Rectangle Fill="White" Margin="15,85,15, 15" RadiusX="15" RadiusY="15" 
-                       RenderTransformOrigin="0.5,0.5" Width="700" Height="400">
+                       RenderTransformOrigin="0.5,0.5" Width="700" Height="600">
                 <Rectangle.Effect>
                     <DropShadowEffect BlurRadius="10" RenderingBias="Quality" Direction="0" Color="#FFBBBBBB" 
                                       ShadowDepth="1"/>
                 </Rectangle.Effect>
             </Rectangle>
 
-            <Grid  Margin="15,80,15, 15" Width="700" Height="400">
+            <Grid  Margin="15,80,15, 15" Width="700" Height="500">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>

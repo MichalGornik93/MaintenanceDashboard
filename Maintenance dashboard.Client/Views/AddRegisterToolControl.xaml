@@ -24,7 +24,7 @@
                                      HorizontalAlignment="Center" Margin="5" Foreground="White"/>
 
             <Rectangle Fill="White" Margin="15,85,15, 15" RadiusX="15" RadiusY="15" 
-                       RenderTransformOrigin="0.5,0.5" Width="700" Height="400">
+                       RenderTransformOrigin="0.5,0.5" Width="700" Height="500">
                 <Rectangle.Effect>
                     <DropShadowEffect BlurRadius="10" RenderingBias="Quality" Direction="0" Color="#FFBBBBBB" 
                                       ShadowDepth="1"/>
@@ -40,11 +40,11 @@
                 <materialDesign:PackIcon Grid.Row="1" Kind="DatabaseAdd" VerticalAlignment="Center" Width="100" Height="100" HorizontalAlignment="Center"  Margin="5" Foreground="Gray"/>
             </Grid>
 
-            <Grid Margin="15,80,15, 15" Width="700" Height="400">
-                <TextBlock Text="DODAJ WYPOSAŻENIE" HorizontalAlignment="Center" VerticalAlignment="Top"  
+            <Grid Margin="15,80,15, 15" Width="700" Height="500">
+                <TextBlock Text="DODAWANIE WYPOSAŻENIA" HorizontalAlignment="Center" VerticalAlignment="Top"  
                            FontSize="18"  Foreground="Gray" Margin="18"/>
 
-                <StackPanel  HorizontalAlignment="Center" Margin="25" VerticalAlignment="Center">
+                <StackPanel  HorizontalAlignment="Center"  VerticalAlignment="Center">
 
                     <TextBox  Width="400" materialDesign:HintAssist.Hint="Nazwa wyposażenia" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"  

@@ -3,8 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             mc:Ignorable="d" >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -12,10 +11,10 @@
         </Grid.RowDefinitions>
 
         <StackPanel Orientation="Horizontal" Margin="4" Grid.Row="0">
-            <RadioButton x:Name="btnOpenAddEmployee" Style="{StaticResource MaterialDesignTabRadioButton}"  Margin="4"  Content="DODAWANIE PRACOWNIKÓW" Checked="btnOpenAddEmployee_Checked" />
+            <RadioButton x:Name="btnOpenAddEmployee" Style="{StaticResource MaterialDesignTabRadioButton}"  Margin="4"  Content="DODAWANIE PRACOWNIKÓW" IsChecked="True" Checked="btnOpenAddEmployee_Checked" />
             <RadioButton x:Name="btnOpenEditEmployee" Style="{StaticResource MaterialDesignTabRadioButton}" Margin="4" Content="EDYTOWANIE PRACOWNIKÓW" Checked="btnOpenEditEmployee_Checked" Command="{Binding GetEmployeeListCommand}" />
         </StackPanel>
 
-        <Grid x:Name="GridPrincipal" Grid.Row="1" Width="700" Height="400"/>
+        <Grid x:Name="GridPrincipal" Grid.Row="1" Width="700" Height="500"/>
     </Grid>
 </UserControl>

@@ -14,7 +14,7 @@ namespace MaintenanceDashboard.Client.ViewModels
         public ICollection<Employee> Employees { get; private set; }
 
         public string ToolName { get; set; }
-        public string UidCode { get; set; }  //for refactoring
+        public string UidCodeRegisterTool { get; set; }  //for refactoring
 
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -54,14 +54,13 @@ namespace MaintenanceDashboard.Client.ViewModels
             Employees = new ObservableCollection<Employee>();
         }
 
-        //for refactoring
 
         #region RegisterToolViewModel
         public ActionCommand AddRegisterToolCommand
         {
             get
             {
-                return new ActionCommand(p => AddRegisterTool(ToolName, UidCode),
+                return new ActionCommand(p => AddRegisterTool(ToolName, UidCodeRegisterTool),
                                          p => !String.IsNullOrWhiteSpace(ToolName));
             }
         }
@@ -70,7 +69,7 @@ namespace MaintenanceDashboard.Client.ViewModels
             get
             {
                 return new ActionCommand(p => SaveRegisterTool(),
-                                         p => IsValid);
+                                         p => IsValidRegisterTool);
             }
         }
 
@@ -79,7 +78,7 @@ namespace MaintenanceDashboard.Client.ViewModels
             get
             {
                 return new ActionCommand(p => DeleteRegisterTool(),
-                    p => IsValid);
+                    p => IsValidRegisterTool);
             }
         }
 
@@ -92,7 +91,7 @@ namespace MaintenanceDashboard.Client.ViewModels
             }
         }
 
-        public bool IsValid
+        public bool IsValidRegisterTool
         {
             get
             {

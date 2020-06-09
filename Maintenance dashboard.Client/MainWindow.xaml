@@ -136,7 +136,7 @@
                     </ListViewItem>
                     <ListViewItem Height="60" Foreground="LightGray">
                         <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="UsersAddOutline" Width="30" Height="30"
+                            <materialDesign:PackIcon Kind="UsersGroupOutline" Width="30" Height="30"
                                                      VerticalAlignment="Center" Margin="5"/>
                             <TextBlock Text="Baza uprawnionych pracowników" 
                                        VerticalAlignment="Center" Margin="20 0" />

@@ -52,7 +52,7 @@ namespace MaintenanceDashboard.Client.Tests.UnitTests
             var viewModel = new MaintenanceDashboardViewModel
             {
                 ToolName=null,
-                UidCode ="TestUid"
+                UidCodeRegisterTool ="TestUid"
             };
 
             Assert.IsFalse(viewModel.AddRegisterToolCommand.CanExecute(null));

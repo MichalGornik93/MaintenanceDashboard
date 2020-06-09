@@ -29,14 +29,14 @@
                                      HorizontalAlignment="Center" Margin="5" Foreground="White"/>
 
             <Rectangle Fill="White" Margin="15,85,15, 15" RadiusX="15" RadiusY="15" 
-                       RenderTransformOrigin="0.5,0.5" Width="700" Height="400">
+                       RenderTransformOrigin="0.5,0.5" Width="700" Height="500">
                 <Rectangle.Effect>
                     <DropShadowEffect BlurRadius="10" RenderingBias="Quality" Direction="0" Color="#FFBBBBBB" 
                                       ShadowDepth="1"/>
                 </Rectangle.Effect>
             </Rectangle>
 
-            <Grid  Margin="15,80,15, 15" Width="700" Height="400">
+            <Grid  Margin="15,80,15, 15" Width="700" Height="500">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -53,7 +53,7 @@
 
 
 
-                <TextBlock Text="EDYTUJ WYPOSAŻENIE" HorizontalAlignment="Center" VerticalAlignment="Center"  
+                <TextBlock Text="EDYTOWANIE WYPOSAŻENIA" HorizontalAlignment="Center" VerticalAlignment="Center"  
                            FontSize="18" Grid.Column="0" Grid.Row="0" Foreground="Gray" Grid.ColumnSpan="2" Margin="10"/>
 
                 <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5" Grid.Column="0" Grid.Row="1">

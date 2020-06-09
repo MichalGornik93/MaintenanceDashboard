@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class ChengedUidPropertyToEmployeeTable : DbMigration
+    public partial class ChangedUidPropertyToEmployeeTable : DbMigration
     {
         public override void Up()
         {
