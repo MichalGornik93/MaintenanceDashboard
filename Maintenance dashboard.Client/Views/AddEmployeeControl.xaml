@@ -4,10 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d" 
-             xmlns:viewModels="clr-namespace:MaintenanceDashboard.Client.ViewModels" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:viewModels="clr-namespace:MaintenanceDashboard.Client.ViewModels" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              d:DataContext="{d:DesignInstance viewModels:MaintenanceDashboardViewModel}">
-    <Grid>
-        <Border Height="auto" Width="auto" CornerRadius="20" >
+    <Grid Width="730">
+        <Border CornerRadius="20" >
             <Border.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF2281D1"/>
@@ -22,14 +23,14 @@
                                      HorizontalAlignment="Center" Margin="5" Foreground="White"/>
 
         <Rectangle Fill="White" Margin="15,85,15, 15" RadiusX="15" RadiusY="15" 
-                       RenderTransformOrigin="0.5,0.5" Width="700" Height="400">
+                       RenderTransformOrigin="0.5,0.5" >
             <Rectangle.Effect>
                 <DropShadowEffect BlurRadius="10" RenderingBias="Quality" Direction="0" Color="#FFBBBBBB" 
                                       ShadowDepth="1"/>
             </Rectangle.Effect>
         </Rectangle>
 
-        <Grid   Margin="15,50,15, 15"  x:Name="gridInfoAddToDataBase" Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid   Margin="15,85,15, 15"  x:Name="gridInfoAddToDataBase" Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -38,7 +39,7 @@
             <materialDesign:PackIcon Grid.Row="1" Kind="DatabaseAdd" VerticalAlignment="Center" Width="100" Height="100" HorizontalAlignment="Center"  Margin="5" Foreground="Gray"/>
         </Grid>
 
-        <Grid Margin="15,80,15, 15" Width="700" Height="400">
+        <Grid Margin="15,85,15, 15" Width="700" Height="400">
             <TextBlock Text="DODAWANIE PRACOWNIKÓW" HorizontalAlignment="Center" VerticalAlignment="Top"  
                            FontSize="18"  Foreground="Gray" Margin="18"/>
 

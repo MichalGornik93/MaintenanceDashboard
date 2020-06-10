@@ -15,6 +15,6 @@
             <RadioButton x:Name="btnOpenEditEmployee" Style="{StaticResource MaterialDesignTabRadioButton}" Margin="4" Content="EDYTOWANIE PRACOWNIKÓW" Checked="btnOpenEditEmployee_Checked" Command="{Binding GetEmployeeListCommand}" />
         </StackPanel>
 
-        <Grid x:Name="GridPrincipal" Grid.Row="1" Width="700" Height="500"/>
+        <Grid x:Name="GridPrincipal" Grid.Row="1" Width="750" Height="550"/>
     </Grid>
 </UserControl>

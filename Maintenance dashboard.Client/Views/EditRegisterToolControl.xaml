@@ -29,7 +29,7 @@
                                      HorizontalAlignment="Center" Margin="5" Foreground="White"/>
 
             <Rectangle Fill="White" Margin="15,85,15, 15" RadiusX="15" RadiusY="15" 
-                       RenderTransformOrigin="0.5,0.5" Width="700" Height="500">
+                       RenderTransformOrigin="0.5,0.5" >
                 <Rectangle.Effect>
                     <DropShadowEffect BlurRadius="10" RenderingBias="Quality" Direction="0" Color="#FFBBBBBB" 
                                       ShadowDepth="1"/>
@@ -43,12 +43,12 @@
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="60"/>
-                    <RowDefinition />
+                    <RowDefinition Height="250"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
 
-                <DataGrid ItemsSource="{Binding RegisterTools}" SelectedItem="{Binding SelectedRegisterTool}" 
+                <DataGrid ItemsSource="{Binding RegisterTools}" SelectedItem="{Binding SelectedRegisterTool}"  Height="300"
                           Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Margin="10" Background="White"/>
 
 
