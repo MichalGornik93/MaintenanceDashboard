@@ -144,7 +144,6 @@ namespace MaintenanceDashboard.Client.ViewModels
             }
         }
 
-        //public override 
 
         #endregion
 
@@ -213,6 +212,7 @@ namespace MaintenanceDashboard.Client.ViewModels
         private void GetEmployeeList()
         {
             Employees.Clear();
+            SelectedEmployee = null;
 
             foreach (var item in context.GetEmployeeList())
                 Employees.Add(item);

@@ -56,9 +56,8 @@ namespace MaintenanceDashboard.Client.Tests.UnitTests
 
             viewModel.SelectedRegisterTool = new RegisterTool
             {
-                //Id = 1,
-                ToolName = "Test",
-                UidCode = "Customer"
+                ToolName = "TestName",
+                UidCode = "TestCode"
             };
 
             viewModel.GetRegisterToolListCommand.Execute(null);
@@ -84,11 +83,11 @@ namespace MaintenanceDashboard.Client.Tests.UnitTests
                 viewModel.SaveRegisterToolCommand.Execute(null);
 
                 // Assert
-                var customer = context.DataContext.RegisterTools.Single();
+                var registerTool = context.DataContext.RegisterTools.Single();
 
-                context.DataContext.Entry(customer).Reload();
+                context.DataContext.Entry(registerTool).Reload();
 
-                Assert.AreEqual(viewModel.SelectedRegisterTool.ToolName, customer.ToolName);
+                Assert.AreEqual(viewModel.SelectedRegisterTool.ToolName, registerTool.ToolName);
             }
         }
 
