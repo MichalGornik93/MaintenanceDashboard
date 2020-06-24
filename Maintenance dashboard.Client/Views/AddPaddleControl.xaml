@@ -1,10 +1,12 @@
-﻿<UserControl x:Class="MaintenanceDashboard.Client.Views.AddRegisterToolControl"
+﻿<UserControl x:Class="MaintenanceDashboard.Client.Views.AddPaddleControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MaintenanceDashboard.Client.Views" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             mc:Ignorable="d"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
              xmlns:viewModels="clr-namespace:MaintenanceDashboard.Client.ViewModels"
              d:DataContext="{d:DesignInstance viewModels:MaintenanceDashboardViewModel}" >
     <Grid >
@@ -20,8 +22,6 @@
             </Border>
 
 
-            <materialDesign:PackIcon Kind="Tools" VerticalAlignment="Top" Width="80" Height="80" 
-                                     HorizontalAlignment="Center" Margin="5" Foreground="White"/>
 
             <Rectangle Fill="White" Margin="15,85,15, 15" RadiusX="15" RadiusY="15" 
                        RenderTransformOrigin="0.5,0.5">
@@ -31,7 +31,7 @@
                 </Rectangle.Effect>
             </Rectangle>
 
-            <Grid   Margin="15,50,15, 15"  x:Name="gridInfoAddToDataBase" Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid   Margin="15,15,15, 15"  x:Name="gridInfoAddToDataBase" Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
@@ -41,23 +41,23 @@
             </Grid>
 
             <Grid Margin="15,80,15, 15" Width="700" Height="400">
-                <TextBlock Text="DODAWANIE WYPOSAŻENIA" HorizontalAlignment="Center" VerticalAlignment="Top"  
+                <TextBlock Text="DODANIE NOWYCH PALETEK" HorizontalAlignment="Center" VerticalAlignment="Top"  
                            FontSize="18"  Foreground="Gray" Margin="18"/>
 
                 <StackPanel  HorizontalAlignment="Center"  VerticalAlignment="Center">
 
-                    <TextBox  Width="400" materialDesign:HintAssist.Hint="Nazwa wyposażenia"  x:Name="test"
-                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                              materialDesign:HintAssist.HelperText="Pole musi być wypełnione"
+                    <TextBox  Width="400" materialDesign:HintAssist.Hint="Numer paletki" 
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"  
                              Text="{Binding ToolName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Margin="10"/>
 
-                    <TextBox  materialDesign:HintAssist.Hint="Kod UID" Width="400"  
+                    <TextBox  materialDesign:HintAssist.Hint="Kod UID" Width="400" 
+                              materialDesign:HintAssist.HelperText="" IsReadOnly="True" 
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"
-                              Text="{Binding UidCode, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
+                              Text="VW380 T1/T2 Base/High" />
 
                     <Button  x:Name="btnAddRegisterTool" Height="25"  Background="#FF0069C0"  
                              BorderBrush="#FF0069C0"  Width="100" Content="DODAJ" Margin="10"  Grid.Column="1"
-                             Command="{Binding AddRegisterToolCommand}" Click="btnAddRegisterTool_Click"/>
+                             Command="{Binding AddRegisterToolCommand}"/>
 
                 </StackPanel>
             </Grid>

@@ -27,14 +27,7 @@
             <RadioButton Style="{StaticResource MaterialDesignTabRadioButton}" Margin="4" Content="EDYCJA ISTNIEJĄCYCH AKCJI PREWENCYJNYCH"/>
         </StackPanel>
 
-        <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            
-        </Grid>
+        <Grid x:Name="GridPrincipal" Grid.Row="1" Width="750" Height="550"/>
+        
     </Grid>
 </UserControl>

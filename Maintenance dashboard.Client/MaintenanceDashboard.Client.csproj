@@ -90,6 +90,9 @@
     <Compile Include="Views\AddEmployeeControl.xaml.cs">
       <DependentUpon>AddEmployeeControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\AddPaddleControl.xaml.cs">
+      <DependentUpon>AddPaddleControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\AddRegisterToolControl.xaml.cs">
       <DependentUpon>AddRegisterToolControl.xaml</DependentUpon>
     </Compile>
@@ -118,6 +121,10 @@
       <DependentUpon>TakePaddleControl.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\AddEmployeeControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddPaddleControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

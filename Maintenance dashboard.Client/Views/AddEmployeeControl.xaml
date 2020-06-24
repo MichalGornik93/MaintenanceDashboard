@@ -46,10 +46,12 @@
             <StackPanel  HorizontalAlignment="Center" Margin="25" VerticalAlignment="Center">
 
                 <TextBox  Width="400" materialDesign:HintAssist.Hint="Imie" 
+                          materialDesign:HintAssist.HelperText="Pole musi być wypełnione"
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"  
                              Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Margin="10"/>
 
                 <TextBox  Width="400" materialDesign:HintAssist.Hint="Nazwisko" 
+                          materialDesign:HintAssist.HelperText="Pole musi być wypełnione"
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"  
                              Text="{Binding LastName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Margin="10"/>
 

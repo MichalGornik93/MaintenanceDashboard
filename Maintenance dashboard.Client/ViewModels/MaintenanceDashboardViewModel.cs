@@ -102,6 +102,7 @@ namespace MaintenanceDashboard.Client.ViewModels
 
         private void AddRegisterTool(string toolName, string uidCode)
         {
+            
             using (var api = new MaintenanceDashboardContext())
             {
                 var registerTool = new RegisterTool
@@ -114,6 +115,9 @@ namespace MaintenanceDashboard.Client.ViewModels
 
                 RegisterTools.Add(registerTool);
             }
+
+            ToolName = string.Empty;
+            UidCodeRegisterTool = string.Empty;
         }
 
         private void GetRegisterToolList()
@@ -207,6 +211,10 @@ namespace MaintenanceDashboard.Client.ViewModels
 
                 Employees.Add(employee);
             }
+
+            FirstName = string.Empty;
+            LastName = string.Empty;
+            UidCodeEmployee = string.Empty;
         }
 
         private void GetEmployeeList()
