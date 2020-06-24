@@ -21,8 +21,10 @@
         <StackPanel Orientation="Horizontal" Margin="4" Grid.Row="0">
             <RadioButton Style="{StaticResource MaterialDesignTabRadioButton}"  Margin="4"  Content="PRZYJECIE PALETKI"/>
             <RadioButton Style="{StaticResource MaterialDesignTabRadioButton}" Margin="4" Content="WYDANIE PALETKI"/>
-            <RadioButton Style="{StaticResource MaterialDesignTabRadioButton}" Margin="4" Content="PRZEGLĄDANIE BAZY"/>
-            <RadioButton Style="{StaticResource MaterialDesignTabRadioButton}" Margin="4" Content="DODAWANIE NOWYCH PALETEK"/>
+            <RadioButton Style="{StaticResource MaterialDesignTabRadioButton}" Margin="4" Content="DODANIE NOWYCH PALETEK"/>
+            <RadioButton Style="{StaticResource MaterialDesignTabRadioButton}" Margin="4" Content="EDYCJA ISTNIEJĄCYCH PALETEK"/>
+            <RadioButton Style="{StaticResource MaterialDesignTabRadioButton}" Margin="4" Content="DODANIE NOWYCH AKCJI PREWENCYJNYCH"/>
+            <RadioButton Style="{StaticResource MaterialDesignTabRadioButton}" Margin="4" Content="EDYCJA ISTNIEJĄCYCH AKCJI PREWENCYJNYCH"/>
         </StackPanel>
 
         <Grid Grid.Row="1">
