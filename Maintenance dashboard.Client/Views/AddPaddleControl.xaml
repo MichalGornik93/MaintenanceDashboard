@@ -50,14 +50,21 @@
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"  
                              Text="{Binding ToolName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Margin="10"/>
 
-                    <TextBox  materialDesign:HintAssist.Hint="Kod UID" Width="400" 
-                              materialDesign:HintAssist.HelperText="" IsReadOnly="True" 
+                    <TextBox  materialDesign:HintAssist.Hint="Model" Width="400" IsEnabled="False" 
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"
-                              Text="VW380 T1/T2 Base/High" />
+                              Text="VW380 T1/T2 Base/High"/>
 
-                    <Button  x:Name="btnAddRegisterTool" Height="25"  Background="#FF0069C0"  
+                    <TextBox  materialDesign:HintAssist.Hint="Wersja" Width="400" IsEnabled="False"
+                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"
+                              Text="ECE/UK/SAE"/>
+
+                    <TextBox  materialDesign:HintAssist.Hint="Operacja" Width="400" IsEnabled="False"
+                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"
+                              Text="OP700-720"/>
+
+                    <Button  x:Name="btnAddPaddle" Height="25"  Background="#FF0069C0"  
                              BorderBrush="#FF0069C0"  Width="100" Content="DODAJ" Margin="10"  Grid.Column="1"
-                             Command="{Binding AddRegisterToolCommand}"/>
+                             Command="{Binding AddRegisterToolCommand}" Click="btnAddPaddle_Click"/>
 
                 </StackPanel>
             </Grid>

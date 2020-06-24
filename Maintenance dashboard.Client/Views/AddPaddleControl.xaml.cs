@@ -24,5 +24,10 @@ namespace MaintenanceDashboard.Client.Views
         {
             InitializeComponent();
         }
+
+        private void btnAddPaddle_Click(object sender, RoutedEventArgs e)
+        {
+            gridInfoAddToDataBase.Visibility = Visibility.Visible;
+        }
     }
 }
