@@ -5,8 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MaintenanceDashboard.Client.Views" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"
+             d:DesignHeight="650" d:DesignWidth="1200"
              xmlns:viewModels="clr-namespace:MaintenanceDashboard.Client.ViewModels"
              d:DataContext="{d:DesignInstance viewModels:MaintenanceDashboardViewModel}" >
     <Grid >
@@ -40,7 +41,7 @@
                 <materialDesign:PackIcon Grid.Row="1" Kind="DatabaseAdd" VerticalAlignment="Center" Width="100" Height="100" HorizontalAlignment="Center"  Margin="5" Foreground="Gray"/>
             </Grid>
 
-            <Grid Margin="15,80,15, 15" Width="700" Height="400">
+            <Grid Margin="15,80,15, 15" >
                 <TextBlock Text="DODANIE NOWYCH PALETEK" HorizontalAlignment="Center" VerticalAlignment="Top"  
                            FontSize="18"  Foreground="Gray" Margin="18"/>
 
@@ -48,24 +49,26 @@
 
                     <TextBox  Width="400" materialDesign:HintAssist.Hint="Numer paletki" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"  
-                             Text="{Binding ToolName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Margin="10"/>
+                             materialDesign:HintAssist.HelperText="Pole musi być wypełnione"
+                             Text="{Binding PaddleNumber, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Margin="10"/>
 
                     <TextBox  materialDesign:HintAssist.Hint="Model" Width="400" IsEnabled="False" 
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"
                               Text="VW380 T1/T2 Base/High"/>
 
-                    <TextBox  materialDesign:HintAssist.Hint="Wersja" Width="400" IsEnabled="False"
-                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"
-                              Text="ECE/UK/SAE"/>
 
-                    <TextBox  materialDesign:HintAssist.Hint="Operacja" Width="400" IsEnabled="False"
-                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"
-                              Text="OP700-720"/>
+                    <TextBox  Width="400" materialDesign:HintAssist.Hint="Czas dodania" IsEnabled="False"
+                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                             Text="{Binding Source={x:Static sys:DateTime.Now}, StringFormat='yyyy-MM-dd HH:mm:ss', Mode=OneWay}" Margin="10"/>
+
+                    <TextBox  Width="400" materialDesign:HintAssist.Hint="Komentarz" 
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"  
+                             Text="{Binding PaddleComments, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Margin="10"/>
 
                     <Button  x:Name="btnAddPaddle" Height="25"  Background="#FF0069C0"  
                              BorderBrush="#FF0069C0"  Width="100" Content="DODAJ" Margin="10"  Grid.Column="1"
-                             Command="{Binding AddRegisterToolCommand}" Click="btnAddPaddle_Click"/>
-
+                             Command="{Binding AddPaddleCommand}" Click="btnAddPaddle_Click"/>
+                    
                 </StackPanel>
             </Grid>
         </Grid>

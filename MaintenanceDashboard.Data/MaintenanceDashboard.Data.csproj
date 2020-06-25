@@ -64,9 +64,9 @@
     <Compile Include="Migrations\202006090922507_ChangedUidPropertyToEmployeeTable.designer.cs">
       <DependentUpon>202006090922507_ChangedUidPropertyToEmployeeTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202006241150423_UpdatedPaddleTable.cs" />
-    <Compile Include="Migrations\202006241150423_UpdatedPaddleTable.designer.cs">
-      <DependentUpon>202006241150423_UpdatedPaddleTable.cs</DependentUpon>
+    <Compile Include="Migrations\202006250838448_ChangedPropertyToPaddleTable.cs" />
+    <Compile Include="Migrations\202006250838448_ChangedPropertyToPaddleTable.designer.cs">
+      <DependentUpon>202006250838448_ChangedPropertyToPaddleTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -82,8 +82,8 @@
     <EmbeddedResource Include="Migrations\202006090922507_ChangedUidPropertyToEmployeeTable.resx">
       <DependentUpon>202006090922507_ChangedUidPropertyToEmployeeTable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202006241150423_UpdatedPaddleTable.resx">
-      <DependentUpon>202006241150423_UpdatedPaddleTable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202006250838448_ChangedPropertyToPaddleTable.resx">
+      <DependentUpon>202006250838448_ChangedPropertyToPaddleTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

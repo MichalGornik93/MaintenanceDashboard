@@ -7,13 +7,13 @@ namespace MaintenanceDashboard.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class UpdatedPaddleTable : IMigrationMetadata
+    public sealed partial class ChangedPropertyToPaddleTable : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdatedPaddleTable));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ChangedPropertyToPaddleTable));
         
         string IMigrationMetadata.Id
         {
-            get { return "202006241150423_UpdatedPaddleTable"; }
+            get { return "202006250838448_ChangedPropertyToPaddleTable"; }
         }
         
         string IMigrationMetadata.Source

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace MaintenanceDashboard.Data.Domain
 {
@@ -6,12 +7,11 @@ namespace MaintenanceDashboard.Data.Domain
     {
         public int Id { get; set; }
         [Required]
-        public string Name { get; set; }
+        public string PaddleNumber { get; set; }
         [Required]
         public string Model { get; set; }
         [Required]
-        public string Version { get; set; }
-        [Required]
-        public string Operation { get; set; }
+        public DateTime AddedTime { get; set; }
+        public string Comments { get; set; }
     }
 }

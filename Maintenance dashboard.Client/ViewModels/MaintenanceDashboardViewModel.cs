@@ -12,6 +12,8 @@ namespace MaintenanceDashboard.Client.ViewModels
         private readonly MaintenanceDashboardContext context;
         public ICollection<RegisterTool> RegisterTools { get; private set; }
         public ICollection<Employee> Employees { get; private set; }
+        public ICollection<Paddle> Paddles { get; private set; }
+
 
         public string ToolName { get; set; }
         public string UidCodeRegisterTool { get; set; } 
@@ -19,6 +21,10 @@ namespace MaintenanceDashboard.Client.ViewModels
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string UidCodeEmployee { get; set; }
+
+        public string PaddleNumber { get; set; }
+        //public string PaddleModel { get; set; }
+        public string PaddleComments { get; set; }
 
 
         private RegisterTool selectedRegisterTool;
@@ -45,6 +51,18 @@ namespace MaintenanceDashboard.Client.ViewModels
             }
         }
 
+        private Paddle selectedPaddle;
+
+        public Paddle SelectedPaddle
+        {
+            get { return selectedPaddle; }
+            set
+            {
+                selectedPaddle = value;
+                NotifyPropertyChanged();
+            }
+        }
+
         public MaintenanceDashboardViewModel() : this(new MaintenanceDashboardContext()) {}
 
         public MaintenanceDashboardViewModel(MaintenanceDashboardContext context)
@@ -52,6 +70,7 @@ namespace MaintenanceDashboard.Client.ViewModels
             this.context = context;
             RegisterTools = new ObservableCollection<RegisterTool>();
             Employees = new ObservableCollection<Employee>();
+            Paddles = new ObservableCollection<Paddle>();
         }
 
 
@@ -243,6 +262,39 @@ namespace MaintenanceDashboard.Client.ViewModels
                 Employees.Remove(SelectedEmployee);
 
             }
+        }
+        #endregion
+
+        #region PaddleViewModel
+        public ActionCommand AddPaddleCommand
+        {
+            get
+            {
+                return new ActionCommand(p => AddPaddle(PaddleNumber, PaddleComments),
+                                         p => !String.IsNullOrWhiteSpace(PaddleNumber));
+            }
+        }
+
+        private void AddPaddle(string paddleNumber, string comments)
+        {
+
+            using (var api = new MaintenanceDashboardContext())
+            {
+                var paddle = new Paddle
+                {
+                    PaddleNumber = paddleNumber,
+                    Model = "VW380 T1/T2 Base/High",
+                    AddedTime = DateTime.Now,
+                    Comments = comments
+                };
+
+                api.AddNewPaddle(paddle);
+
+                Paddles.Add(paddle);
+            }
+
+            PaddleNumber = string.Empty;
+            PaddleComments = string.Empty;
         }
         #endregion
 

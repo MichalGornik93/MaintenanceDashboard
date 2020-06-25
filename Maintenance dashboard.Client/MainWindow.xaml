@@ -111,6 +111,7 @@
                   VerticalAlignment="Center">
 
                 <Image Source="Resources/Zenek.png"/>
+                
             </Grid>
         </Grid>
 

@@ -83,6 +83,37 @@ namespace MaintenanceDashboard.Data.Domain
 
         #endregion
 
+        #region PaddleContext
+        public void AddNewPaddle(Paddle paddle)
+        {
+            Check.Require(paddle.PaddleNumber);
+            Check.Require(paddle.Model);
+
+            context.Paddles.Add(paddle);
+            context.SaveChanges();
+        }
+
+
+        //public void UpdateRegisterTool(RegisterTool registerTool)
+        //{
+        //    var entity = context.RegisterTools.Find(registerTool.Id);
+
+        //    if (entity == null)
+        //    {
+        //        throw new NotImplementedException("Handle appropriately for your API design. ");
+        //    }
+
+        //    context.Entry(entity).CurrentValues.SetValues(registerTool);
+
+        //    context.SaveChanges();
+        //}
+
+        public ICollection<Paddle> GetPaddleList()
+        {
+            return context.Paddles.OrderBy(p => p.Id).ToArray();
+        }
+        #endregion
+
         static class Check
         {
             public static void Require(string value)
