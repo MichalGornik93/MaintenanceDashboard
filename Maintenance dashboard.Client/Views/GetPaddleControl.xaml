@@ -62,9 +62,8 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
-                <ComboBox materialDesign:HintAssist.Hint="Pracownicy" MinWidth="72" Grid.Column="0" Grid.Row="0" 
-                           Margin="10">
-                </ComboBox>
+                <ComboBox Width="150" materialDesign:HintAssist.Hint="Pracownicy" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="0" 
+                           Margin="10" ItemsSource="{Binding Path=Employees}" SelectedItem="{Binding SelectedEmployee}" DisplayMemberPath="LastName"/>
 
                 <TextBox  Width="400" materialDesign:HintAssist.Hint="Numer paletki" Grid.Row="1" Grid.Column="0"
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"  

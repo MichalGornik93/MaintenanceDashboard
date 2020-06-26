@@ -60,7 +60,7 @@
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                              Text="{Binding Source={x:Static sys:DateTime.Now}, StringFormat='yyyy-MM-dd HH:mm:ss', Mode=OneWay}" Margin="10"/>
 
-                    <TextBox  Width="400" materialDesign:HintAssist.Hint="Komentarz" 
+                    <TextBox  Width="400" materialDesign:HintAssist.Hint="Uwagi" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"  
                              Text="{Binding PaddleComments, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Margin="10"/>
 

@@ -23,7 +23,6 @@ namespace MaintenanceDashboard.Client.ViewModels
         public string UidCodeEmployee { get; set; }
 
         public string PaddleNumber { get; set; }
-        //public string PaddleModel { get; set; }
         public string PaddleComments { get; set; }
 
 

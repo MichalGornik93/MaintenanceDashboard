@@ -21,11 +21,11 @@
             <RadioButton x:Name="btnOpenPutPaddle" Style="{StaticResource MaterialDesignTabRadioButton}"  Content="WYDANIE PALETKI" Checked="btnOpenPutPaddle_Checked" FontSize="12"/>
             <RadioButton x:Name="btnOpenAddPaddle" Style="{StaticResource MaterialDesignTabRadioButton}" Content="DODANIE NOWYCH PALETEK" Checked="btnOpenAddPaddle_Checked" FontSize="12"/>
             <RadioButton x:Name="btnOpenEditPaddle" Style="{StaticResource MaterialDesignTabRadioButton}" Content="EDYCJA ISTNIEJĄCYCH PALETEK" Checked="btnOpenEditPaddle_Checked" FontSize="12"/>
-            <RadioButton x:Name="btnOpenAddPaddleAction" Style="{StaticResource MaterialDesignTabRadioButton}" Content="DODANIE NOWYCH AKCJI PREWENCYJNYCH" Checked="btnOpenAddPaddleAction_Checked" FontSize="12"/>
-            <RadioButton x:Name="btnOpenEditPaddleAction" Style="{StaticResource MaterialDesignTabRadioButton}" Content="EDYCJA ISTNIEJĄCYCH AKCJI PREWENCYJNYCH" Checked="btnOpenEditPaddleAction_Checked" FontSize="12"/>
+            <RadioButton x:Name="btnOpenAddPaddleAction" Style="{StaticResource MaterialDesignTabRadioButton}" Content="DODANIE NOWYCH PREWENCJI" Checked="btnOpenAddPaddleAction_Checked" FontSize="12"/>
+            <RadioButton x:Name="btnOpenEditPaddleAction" Style="{StaticResource MaterialDesignTabRadioButton}" Content="EDYCJA PREWENCJI" Checked="btnOpenEditPaddleAction_Checked" FontSize="12"/>
         </StackPanel>
 
-        <Grid x:Name="GridPrincipal" Grid.Row="1" Width="1220" Height="750" HorizontalAlignment="Center"/>
+        <Grid x:Name="GridPrincipal" Grid.Row="1" Width="1020" Height="750" HorizontalAlignment="Center"/>
 
     </Grid>
 </UserControl>
