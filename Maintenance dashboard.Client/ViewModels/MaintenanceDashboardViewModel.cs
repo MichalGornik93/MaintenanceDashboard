@@ -283,8 +283,8 @@ namespace MaintenanceDashboard.Client.ViewModels
                 {
                     PaddleNumber = paddleNumber,
                     Model = "VW380 T1/T2 Base/High",
-                    AddedTime = DateTime.Now,
-                    Comments = comments
+                    AddedDate = DateTime.Now,
+                    CommentsPaddle = comments
                 };
 
                 api.AddNewPaddle(paddle);

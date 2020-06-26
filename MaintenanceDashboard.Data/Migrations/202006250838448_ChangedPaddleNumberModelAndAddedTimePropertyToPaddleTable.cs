@@ -2,7 +2,7 @@
 {
     using System.Data.Entity.Migrations;
 
-    public partial class ChangedPropertyToPaddleTable : DbMigration
+    public partial class ChangedPaddleNumberModelAndAddedTimePropertyToPaddleTable : DbMigration
     {
         public override void Up()
         {

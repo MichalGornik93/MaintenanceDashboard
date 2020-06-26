@@ -11,7 +11,7 @@ namespace MaintenanceDashboard.Data.Domain
         [Required]
         public string Model { get; set; }
         [Required]
-        public DateTime AddedTime { get; set; }
-        public string Comments { get; set; }
+        public DateTime AddedDate { get; set; }
+        public string CommentsPaddle { get; set; }
     }
 }

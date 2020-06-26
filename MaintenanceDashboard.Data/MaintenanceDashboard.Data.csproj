@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Domain\Employee.cs" />
+    <Compile Include="Domain\GetedPaddle.cs" />
     <Compile Include="Domain\Paddle.cs" />
     <Compile Include="Domain\RegisterTool.cs" />
     <Compile Include="Domain\DataContext.cs" />
@@ -64,9 +65,17 @@
     <Compile Include="Migrations\202006090922507_ChangedUidPropertyToEmployeeTable.designer.cs">
       <DependentUpon>202006090922507_ChangedUidPropertyToEmployeeTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202006250838448_ChangedPropertyToPaddleTable.cs" />
-    <Compile Include="Migrations\202006250838448_ChangedPropertyToPaddleTable.designer.cs">
-      <DependentUpon>202006250838448_ChangedPropertyToPaddleTable.cs</DependentUpon>
+    <Compile Include="Migrations\202006250838448_ChangedPaddleNumberModelAndAddedTimePropertyToPaddleTable.cs" />
+    <Compile Include="Migrations\202006250838448_ChangedPaddleNumberModelAndAddedTimePropertyToPaddleTable.designer.cs">
+      <DependentUpon>202006250838448_ChangedPaddleNumberModelAndAddedTimePropertyToPaddleTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006261002303_AddedGetedPaddlesTable.cs" />
+    <Compile Include="Migrations\202006261002303_AddedGetedPaddlesTable.designer.cs">
+      <DependentUpon>202006261002303_AddedGetedPaddlesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006261006448_ChangedAddedDateCommentsPaddlePropertyToPaddleTable.cs" />
+    <Compile Include="Migrations\202006261006448_ChangedAddedDateCommentsPaddlePropertyToPaddleTable.designer.cs">
+      <DependentUpon>202006261006448_ChangedAddedDateCommentsPaddlePropertyToPaddleTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -82,8 +91,14 @@
     <EmbeddedResource Include="Migrations\202006090922507_ChangedUidPropertyToEmployeeTable.resx">
       <DependentUpon>202006090922507_ChangedUidPropertyToEmployeeTable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202006250838448_ChangedPropertyToPaddleTable.resx">
-      <DependentUpon>202006250838448_ChangedPropertyToPaddleTable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202006250838448_ChangedPaddleNumberModelAndAddedTimePropertyToPaddleTable.resx">
+      <DependentUpon>202006250838448_ChangedPaddleNumberModelAndAddedTimePropertyToPaddleTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006261002303_AddedGetedPaddlesTable.resx">
+      <DependentUpon>202006261002303_AddedGetedPaddlesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006261006448_ChangedAddedDateCommentsPaddlePropertyToPaddleTable.resx">
+      <DependentUpon>202006261006448_ChangedAddedDateCommentsPaddlePropertyToPaddleTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
