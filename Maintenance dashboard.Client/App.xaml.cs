@@ -7,16 +7,16 @@ namespace MaintenanceDashboard
 
     public partial class App : Application
     {
-        //protected override void OnStartup(StartupEventArgs e)
-        //{
-        //    base.OnStartup(e);
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
 
-        //    var window = new MainWindow
-        //    {
-        //        DataContext = new RegisterToolViewModel()
-        //    };
+            var window = new MainWindow
+            {
+                DataContext = new RegisterToolViewModel()
+            };
 
-        //    window.ShowDialog();
-        //}
+            window.ShowDialog();
+        }
     }
 }

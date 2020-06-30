@@ -51,12 +51,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\CheckString.cs" />
+    <Compile Include="API\IRegisterToolContext.cs" />
     <Compile Include="Domain\Employee.cs" />
+    <Compile Include="API\EmployeeContext.cs" />
     <Compile Include="Domain\GetedPaddle.cs" />
     <Compile Include="Domain\Paddle.cs" />
+    <Compile Include="API\PaddleContext.cs" />
     <Compile Include="Domain\RegisterTool.cs" />
     <Compile Include="Domain\DataContext.cs" />
-    <Compile Include="Domain\MaintenanceDashboardContext.cs" />
+    <Compile Include="API\RegisterToolContext.cs" />
     <Compile Include="Migrations\202005281027139_InitialModel.cs" />
     <Compile Include="Migrations\202005281027139_InitialModel.designer.cs">
       <DependentUpon>202005281027139_InitialModel.cs</DependentUpon>

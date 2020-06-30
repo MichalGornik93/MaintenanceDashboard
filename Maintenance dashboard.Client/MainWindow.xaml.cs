@@ -14,8 +14,7 @@ namespace MaintenanceDashboard.Client
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new MaintenanceDashboardViewModel();
-            //DataContext = new EmployeeViewModel();
+
             PlcNetInterface plcNetInterface = new PlcNetInterface("192.168.0.1", 0, 0);
             
             plcNetInterface.Connected += (() => {
