@@ -53,7 +53,7 @@
 
                     <TextBox  materialDesign:HintAssist.Hint="Kod UID" Width="400"  
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"
-                              Text="{Binding UidCodeRegisterTool, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
+                              Text="{Binding UidCode, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
 
 
                     <Button  x:Name="btnAddRegisterTool" Height="25"  Background="#FF0069C0"  

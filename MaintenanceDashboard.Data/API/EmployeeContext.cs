@@ -4,11 +4,12 @@ using System.Linq;
 
 namespace MaintenanceDashboard.Data.Domain
 {
-    public class EmployeeContext : IDisposable
+    public class EmployeeContext : IDisposable, IEmployeeContext
     {
         private readonly DataContext context;
 
         private bool disposed;
+
         public EmployeeContext()
         {
             context = new DataContext();
@@ -19,7 +20,7 @@ namespace MaintenanceDashboard.Data.Domain
             get { return context; }
         }
 
-        public void AddNewEmployee(Employee employee)
+        public void CreateEmployee(Employee employee)
         {
             CheckString.Require(employee.FirstName);
             CheckString.Require(employee.LastName);
@@ -39,6 +40,12 @@ namespace MaintenanceDashboard.Data.Domain
 
             context.Entry(entity).CurrentValues.SetValues(employee);
 
+            context.SaveChanges();
+        }
+
+        public void DeleteEmployee(Employee employee)
+        {
+            context.Employees.Remove(employee);
             context.SaveChanges();
         }
 

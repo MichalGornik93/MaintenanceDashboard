@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MaintenanceDashboard.Data.Domain
 {
-    public class PaddleContext:IDisposable
+    public class PaddleContext : IDisposable, IPaddleContext
     {
         private readonly DataContext context;
         private bool disposed;
@@ -21,7 +21,7 @@ namespace MaintenanceDashboard.Data.Domain
             get { return context; }
         }
 
-        public void AddNewPaddle(Paddle paddle)
+        public void CreatePaddle(Paddle paddle)
         {
             CheckString.Require(paddle.PaddleNumber);
             CheckString.Require(paddle.Model);

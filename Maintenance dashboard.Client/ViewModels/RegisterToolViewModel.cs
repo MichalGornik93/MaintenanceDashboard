@@ -9,13 +9,13 @@ namespace MaintenanceDashboard.Client.ViewModels
 {
     public class RegisterToolViewModel : ViewModel
     {
-        private readonly RegisterToolContext context;
+        private readonly IRegisterToolContext context;
 
         public ICollection<RegisterTool> RegisterTools { get; private set; }
-       
+
 
         public string ToolName { get; set; }
-        public string UidCodeRegisterTool { get; set; } 
+        public string UidCode { get; set; }
 
 
         private RegisterTool selectedRegisterTool;
@@ -30,10 +30,7 @@ namespace MaintenanceDashboard.Client.ViewModels
             }
         }
 
-
-        public RegisterToolViewModel() : this(new RegisterToolContext()) {}
-
-        public RegisterToolViewModel(RegisterToolContext context)
+        public RegisterToolViewModel(IRegisterToolContext context)
         {
             this.context = context;
             RegisterTools = new ObservableCollection<RegisterTool>();
@@ -45,7 +42,7 @@ namespace MaintenanceDashboard.Client.ViewModels
         {
             get
             {
-                return new ActionCommand(p => AddRegisterTool(ToolName, UidCodeRegisterTool),
+                return new ActionCommand(p => CreateRegisterTool(ToolName, UidCode),
                                          p => !String.IsNullOrWhiteSpace(ToolName));
             }
         }
@@ -85,24 +82,20 @@ namespace MaintenanceDashboard.Client.ViewModels
             }
         }
 
-        private void AddRegisterTool(string toolName, string uidCode)
+        private void CreateRegisterTool(string toolName, string uidCode)
         {
-            
-            using (var api = new RegisterToolContext())
+            var registerTool = new RegisterTool
             {
-                var registerTool = new RegisterTool
-                {
-                    ToolName = toolName,
-                    UidCode = uidCode
-                };
+                ToolName = toolName,
+                UidCode = uidCode
+            };
 
-                api.CreateRegisterTool(registerTool);
+            context.CreateRegisterTool(registerTool);
 
-                RegisterTools.Add(registerTool);
-            }
+            RegisterTools.Add(registerTool);
 
             ToolName = string.Empty;
-            UidCodeRegisterTool = string.Empty;
+            UidCode = string.Empty;
         }
 
         private void GetRegisterToolList()
@@ -126,9 +119,9 @@ namespace MaintenanceDashboard.Client.ViewModels
         {
             if (SelectedRegisterTool != null)
             {
-                context.DataContext.RegisterTools.Remove(SelectedRegisterTool);
-                context.DataContext.SaveChanges();
+                context.DeleteRegisterTool(SelectedRegisterTool);
                 RegisterTools.Remove(SelectedRegisterTool);
+                SelectedRegisterTool = null;
 
             }
         }

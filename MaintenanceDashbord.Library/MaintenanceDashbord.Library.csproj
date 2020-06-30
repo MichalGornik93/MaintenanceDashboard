@@ -45,7 +45,7 @@
   <ItemGroup>
     <Compile Include="ActionCommand.cs" />
     <Compile Include="ObservableObject.cs" />
-    <Compile Include="PlcNetInterface\IPlcNetLibrariesBaseInterface.cs" />
+    <Compile Include="PlcNetInterface\IPlcNetLibraries.cs" />
     <Compile Include="PlcNetInterface\PlcNetInterface.cs" />
     <Compile Include="PlcNetInterface\Sharp7.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

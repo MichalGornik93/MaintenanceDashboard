@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace MaintenanceDashboard.Client.ViewModels
 {
-    public class PaddleViewModel: ViewModel
+    public class PaddleViewModel : ViewModel
     {
-        private readonly PaddleContext context;
+        private readonly IPaddleContext context;
         public ICollection<Paddle> Paddles { get; private set; }
 
         public string PaddleNumber { get; set; }
@@ -29,13 +29,9 @@ namespace MaintenanceDashboard.Client.ViewModels
             }
         }
 
-
-        public PaddleViewModel() : this(new PaddleContext()) { }
-
-        public PaddleViewModel(PaddleContext context)
+        public PaddleViewModel(IPaddleContext context)
         {
             this.context = context;
-          
             Paddles = new ObservableCollection<Paddle>();
         }
 
@@ -43,28 +39,24 @@ namespace MaintenanceDashboard.Client.ViewModels
         {
             get
             {
-                return new ActionCommand(p => AddPaddle(PaddleNumber, PaddleComments),
+                return new ActionCommand(p => CreatePaddle(PaddleNumber, PaddleComments),
                                          p => !String.IsNullOrWhiteSpace(PaddleNumber));
             }
         }
 
-        private void AddPaddle(string paddleNumber, string comments)
+        private void CreatePaddle(string paddleNumber, string comments)
         {
-
-            using (var api = new PaddleContext())
+            var paddle = new Paddle
             {
-                var paddle = new Paddle
-                {
-                    PaddleNumber = paddleNumber,
-                    Model = "VW380 T1/T2 Base/High",
-                    AddedDate = DateTime.Now,
-                    CommentsPaddle = comments
-                };
+                PaddleNumber = paddleNumber,
+                Model = "VW380 T1/T2 Base/High",
+                AddedDate = DateTime.Now,
+                CommentsPaddle = comments
+            };
 
-                api.AddNewPaddle(paddle);
+            context.CreatePaddle(paddle);
 
-                Paddles.Add(paddle);
-            }
+            Paddles.Add(paddle);
 
             PaddleNumber = string.Empty;
             PaddleComments = string.Empty;

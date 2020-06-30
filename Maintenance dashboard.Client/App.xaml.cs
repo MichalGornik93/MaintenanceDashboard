@@ -1,6 +1,8 @@
 ﻿using MaintenanceDashboard.Client;
 using MaintenanceDashboard.Client.ViewModels;
+using MaintenanceDashboard.Data.Domain;
 using System.Windows;
+using Unity;
 
 namespace MaintenanceDashboard
 {
@@ -11,9 +13,16 @@ namespace MaintenanceDashboard
         {
             base.OnStartup(e);
 
+            var container = new UnityContainer();
+
+            container.RegisterType<IRegisterToolContext, RegisterToolContext>();
+            container.RegisterType<IEmployeeContext, EmployeeContext>();
+            container.RegisterType<IPaddleContext, PaddleContext>();
+            container.RegisterType<RegisterToolViewModel>();
+
             var window = new MainWindow
             {
-                DataContext = new RegisterToolViewModel()
+                DataContext = container.Resolve<RegisterToolViewModel>()
             };
 
             window.ShowDialog();

@@ -52,6 +52,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API\CheckString.cs" />
+    <Compile Include="API\IEmployeeContext.cs" />
+    <Compile Include="API\IPaddleContext.cs" />
     <Compile Include="API\IRegisterToolContext.cs" />
     <Compile Include="Domain\Employee.cs" />
     <Compile Include="API\EmployeeContext.cs" />

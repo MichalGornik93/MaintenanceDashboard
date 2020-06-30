@@ -9,13 +9,13 @@ namespace MaintenanceDashboard.Client.ViewModels
 {
     public class EmployeeViewModel:ViewModel
     {
-        private readonly EmployeeContext context;
+        private readonly IEmployeeContext context;
 
         public ICollection<Employee> Employees { get; private set; }
 
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string UidCodeEmployee { get; set; }
+        public string UidCode { get; set; }
 
         private Employee selectedEmployee;
 
@@ -29,9 +29,7 @@ namespace MaintenanceDashboard.Client.ViewModels
             }
         }
 
-        public EmployeeViewModel() : this(new EmployeeContext()) { }
-
-        public EmployeeViewModel(EmployeeContext context)
+        public EmployeeViewModel(IEmployeeContext context)
         {
             this.context = context;
             Employees = new ObservableCollection<Employee>();
@@ -41,7 +39,7 @@ namespace MaintenanceDashboard.Client.ViewModels
         {
             get
             {
-                return new ActionCommand(p => AddEmployee(FirstName, LastName, UidCodeEmployee),
+                return new ActionCommand(p => CreateEmployee(FirstName, LastName, UidCode),
                                          p => !String.IsNullOrWhiteSpace(FirstName) && !String.IsNullOrWhiteSpace(LastName));
             }
         }
@@ -81,7 +79,7 @@ namespace MaintenanceDashboard.Client.ViewModels
             }
         }
 
-        private void AddEmployee(string firstName, string lastName, string uidCodeEmployee) //for refactorning
+        private void CreateEmployee(string firstName, string lastName, string uidCodeEmployee) //for refactorning
         {
             using (var api = new EmployeeContext())
             {
@@ -92,14 +90,14 @@ namespace MaintenanceDashboard.Client.ViewModels
                     UidCode = uidCodeEmployee
                 };
 
-                api.AddNewEmployee(employee);
+                api.CreateEmployee(employee);
 
                 Employees.Add(employee);
             }
 
             FirstName = string.Empty;
             LastName = string.Empty;
-            UidCodeEmployee = string.Empty;
+            UidCode = string.Empty;
         }
 
         private void GetEmployeeList()
@@ -123,10 +121,9 @@ namespace MaintenanceDashboard.Client.ViewModels
         {
             if (SelectedEmployee != null)
             {
-                context.DataContext.Employees.Remove(SelectedEmployee);
-                context.DataContext.SaveChanges();
+                context.DeleteEmployee(SelectedEmployee);
                 Employees.Remove(SelectedEmployee);
-
+                SelectedEmployee = null;
             }
         }
     }

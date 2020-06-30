@@ -47,7 +47,8 @@ namespace MaintenanceDashboard.Data.Domain
 
         public void DeleteRegisterTool(RegisterTool registerTool)
         {
-            throw new NotImplementedException();
+            context.RegisterTools.Remove(registerTool);
+            context.SaveChanges();
         }
 
         public ICollection<RegisterTool> GetRegisterToolList()
