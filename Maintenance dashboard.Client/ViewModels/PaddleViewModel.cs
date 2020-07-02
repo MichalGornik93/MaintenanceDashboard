@@ -35,7 +35,7 @@ namespace MaintenanceDashboard.Client.ViewModels
             Paddles = new ObservableCollection<Paddle>();
         }
 
-        public ActionCommand AddPaddleCommand
+        public ActionCommand CreatePaddleCommand
         {
             get
             {

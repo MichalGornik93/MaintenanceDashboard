@@ -38,7 +38,7 @@ namespace MaintenanceDashboard.Client.ViewModels
 
 
 
-        public ActionCommand AddRegisterToolCommand
+        public ActionCommand CreateRegisterToolCommand
         {
             get
             {

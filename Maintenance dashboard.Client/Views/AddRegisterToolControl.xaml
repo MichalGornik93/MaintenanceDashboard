@@ -58,7 +58,7 @@
 
                     <Button  x:Name="btnAddRegisterTool" Height="25"  Background="#FF0069C0"  
                              BorderBrush="#FF0069C0"  Width="100" Content="DODAJ" Margin="10"  Grid.Column="1"
-                             Command="{Binding AddRegisterToolCommand}" Click="btnAddRegisterTool_Click"/>
+                             Command="{Binding CreateRegisterToolCommand}" Click="btnAddRegisterTool_Click"/>
 
                 </StackPanel>
             </Grid>

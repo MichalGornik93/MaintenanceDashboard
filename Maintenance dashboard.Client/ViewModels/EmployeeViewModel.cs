@@ -35,7 +35,7 @@ namespace MaintenanceDashboard.Client.ViewModels
             Employees = new ObservableCollection<Employee>();
         }
 
-        public ActionCommand AddEmployeeCommand
+        public ActionCommand CreateEmployeeCommand
         {
             get
             {

@@ -18,11 +18,11 @@ namespace MaintenanceDashboard
             container.RegisterType<IRegisterToolContext, RegisterToolContext>();
             container.RegisterType<IEmployeeContext, EmployeeContext>();
             container.RegisterType<IPaddleContext, PaddleContext>();
-            container.RegisterType<RegisterToolViewModel>();
+            container.RegisterType<BaseViewModel>();
 
             var window = new MainWindow
             {
-                DataContext = container.Resolve<RegisterToolViewModel>()
+                DataContext = container.Resolve<BaseViewModel>()
             };
 
             window.ShowDialog();

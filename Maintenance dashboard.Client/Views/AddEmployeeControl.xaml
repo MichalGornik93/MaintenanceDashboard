@@ -62,7 +62,7 @@
 
                 <Button  x:Name="btnAddEmployee" Height="25"  Background="#FF0069C0"  
                              BorderBrush="#FF0069C0"  Width="100" Content="DODAJ" Margin="10"  Grid.Column="1"
-                             Command="{Binding AddEmployeeCommand}" Click="btnAddEmployee_Click"/>
+                             Command="{Binding CreateEmployeeCommand}" Click="btnAddEmployee_Click"/>
 
             </StackPanel>
         </Grid>
