@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using MaintenanceDashboard.Client.ViewModels;
+using MaintenanceDashboard.Data.Domain;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace MaintenanceDashboard.Client.Views
@@ -8,6 +10,7 @@ namespace MaintenanceDashboard.Client.Views
         public ManagerEmployeeControl()
         {
             InitializeComponent();
+            this.DataContext = new EmployeeViewModel(new EmployeeContext());
         }
 
         private void btnOpenAddEmployee_Checked(object sender, RoutedEventArgs e)

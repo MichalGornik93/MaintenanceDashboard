@@ -1,4 +1,6 @@
-﻿using System.Windows.Controls;
+﻿using MaintenanceDashboard.Client.ViewModels;
+using MaintenanceDashboard.Data.Domain;
+using System.Windows.Controls;
 
 namespace MaintenanceDashboard.Client.Views
 {
@@ -7,7 +9,7 @@ namespace MaintenanceDashboard.Client.Views
         public ManagerRegisterToolControl()
         {
             InitializeComponent();
-            
+            this.DataContext = new RegisterToolViewModel(new RegisterToolContext());
         }
 
         private void btnOpenAddRegisterTool_Checked(object sender, System.Windows.RoutedEventArgs e)

@@ -1,4 +1,5 @@
-﻿using MaintenanceDashboard.Data.Domain;
+﻿using MaintenanceDashboard.Client.ViewModels;
+using MaintenanceDashboard.Data.Domain;
 using System.Data.Entity;
 using System.Threading.Tasks;
 using System.Windows;

@@ -4,7 +4,6 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using MaintenanceDashboard.Library;
 using MaintenanceDashboard.Client.Views;
-using MaintenanceDashboard.Client.ViewModels;
 
 namespace MaintenanceDashboard.Client
 {

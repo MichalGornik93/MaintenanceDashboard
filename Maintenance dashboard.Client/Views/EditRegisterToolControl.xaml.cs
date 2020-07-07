@@ -1,4 +1,6 @@
-﻿using System.Windows.Controls;
+﻿using MaintenanceDashboard.Client.ViewModels;
+using MaintenanceDashboard.Data.Domain;
+using System.Windows.Controls;
 
 namespace MaintenanceDashboard.Client.Views
 {
@@ -7,6 +9,7 @@ namespace MaintenanceDashboard.Client.Views
         public EditRegisterToolControl()
         {
             InitializeComponent();
+          
         }
     }
 }
