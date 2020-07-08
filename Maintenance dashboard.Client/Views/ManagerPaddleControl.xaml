@@ -17,7 +17,7 @@
         </Grid.RowDefinitions>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="4" Grid.Row="0" >
-            <RadioButton x:Name="btnOpenGetPaddle" Style="{StaticResource MaterialDesignTabRadioButton}"    Content="PRZYJECIE PALETKI" Checked="btnOpenGetPaddle_Checked" FontSize="12"/>
+            <RadioButton x:Name="btnOpenGetPaddle" Style="{StaticResource MaterialDesignTabRadioButton}" DataContext="{Binding EmployeeViewModel}" Content="PRZYJECIE PALETKI" Checked="btnOpenGetPaddle_Checked" FontSize="12"/>
             <RadioButton x:Name="btnOpenPutPaddle" Style="{StaticResource MaterialDesignTabRadioButton}"  Content="WYDANIE PALETKI" Checked="btnOpenPutPaddle_Checked" FontSize="12"/>
             <RadioButton x:Name="btnOpenAddPaddle" Style="{StaticResource MaterialDesignTabRadioButton}" Content="DODANIE NOWYCH PALETEK" Checked="btnOpenAddPaddle_Checked" FontSize="12"/>
             <RadioButton x:Name="btnOpenEditPaddle" Style="{StaticResource MaterialDesignTabRadioButton}" Content="EDYCJA ISTNIEJĄCYCH PALETEK" Checked="btnOpenEditPaddle_Checked" FontSize="12"/>

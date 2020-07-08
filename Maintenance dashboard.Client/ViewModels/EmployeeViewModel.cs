@@ -100,7 +100,8 @@ namespace MaintenanceDashboard.Client.ViewModels
             UidCode = string.Empty;
         }
 
-        private void GetEmployeeList()
+        //FORTEST:
+        public void GetEmployeeList()
         {
             Employees.Clear();
             SelectedEmployee = null;
