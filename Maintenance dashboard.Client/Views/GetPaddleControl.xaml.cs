@@ -3,9 +3,9 @@
 namespace MaintenanceDashboard.Client.Views
 {
 
-    public partial class GetPaddleControl : UserControl
+    public partial class AcceptancePaddle : UserControl
     {
-        public GetPaddleControl()
+        public AcceptancePaddle()
         {
             InitializeComponent();
         }

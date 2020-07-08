@@ -55,7 +55,7 @@
 
                 <TextBox x:Name="txtID" IsEnabled="False"  materialDesign:HintAssist.Hint="Id" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
-                             Text="{Binding SelectedRegisterTool.Id, 
+                             Text="{Binding SelectedEmployee.Id, 
                              UpdateSourceTrigger=PropertyChanged, 
                              ValidatesOnDataErrors=True}"
                              Margin="10"/>

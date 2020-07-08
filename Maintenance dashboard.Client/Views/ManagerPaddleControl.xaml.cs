@@ -14,16 +14,16 @@ namespace MaintenanceDashboard.Client.Views
             
         }
 
-        private void btnOpenGetPaddle_Checked(object sender, RoutedEventArgs e)
+        private void btnOpenAcceptancePaddle_Checked(object sender, RoutedEventArgs e)
         {
             if (GridPrincipal != null)
             {
                 GridPrincipal.Children.Clear();
-                GridPrincipal.Children.Add(new GetPaddleControl());
+                GridPrincipal.Children.Add(new AcceptancePaddle());
             }
         }
 
-        private void btnOpenPutPaddle_Checked(object sender, RoutedEventArgs e)
+        private void btnOpenReleasePaddle_Checked(object sender, RoutedEventArgs e)
         {
 
         }

@@ -57,7 +57,7 @@
     <Compile Include="API\IRegisterToolContext.cs" />
     <Compile Include="Domain\Employee.cs" />
     <Compile Include="API\EmployeeContext.cs" />
-    <Compile Include="Domain\GetedPaddle.cs" />
+    <Compile Include="Domain\ReceivedPaddle.cs" />
     <Compile Include="Domain\Paddle.cs" />
     <Compile Include="API\PaddleContext.cs" />
     <Compile Include="Domain\RegisterTool.cs" />
@@ -83,6 +83,10 @@
     <Compile Include="Migrations\202006261006448_ChangedAddedDateCommentsPaddlePropertyToPaddleTable.designer.cs">
       <DependentUpon>202006261006448_ChangedAddedDateCommentsPaddlePropertyToPaddleTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202007081250525_ReceivedPaddleTablePropertyNamesChanged.cs" />
+    <Compile Include="Migrations\202007081250525_ReceivedPaddleTablePropertyNamesChanged.designer.cs">
+      <DependentUpon>202007081250525_ReceivedPaddleTablePropertyNamesChanged.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -105,6 +109,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202006261006448_ChangedAddedDateCommentsPaddlePropertyToPaddleTable.resx">
       <DependentUpon>202006261006448_ChangedAddedDateCommentsPaddlePropertyToPaddleTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007081250525_ReceivedPaddleTablePropertyNamesChanged.resx">
+      <DependentUpon>202007081250525_ReceivedPaddleTablePropertyNamesChanged.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
