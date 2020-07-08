@@ -1,8 +1,9 @@
-﻿using System;
+﻿using MaintenanceDashboard.Data.Domain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MaintenanceDashboard.Data.Domain
+namespace MaintenanceDashboard.Data.Api
 {
     public class EmployeeContext : IDisposable, IEmployeeContext
     {

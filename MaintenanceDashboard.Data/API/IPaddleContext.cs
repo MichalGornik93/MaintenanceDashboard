@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using MaintenanceDashboard.Data.Domain;
+using System.Collections.Generic;
 
-namespace MaintenanceDashboard.Data.Domain
+namespace MaintenanceDashboard.Data.Api
 {
     public interface IPaddleContext
     {

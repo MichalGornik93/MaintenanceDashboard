@@ -1,10 +1,11 @@
-﻿using System;
+﻿using MaintenanceDashboard.Data.Domain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MaintenanceDashboard.Data.Domain
+namespace MaintenanceDashboard.Data.Api
 {
     public class PaddleContext : IDisposable, IPaddleContext
     {

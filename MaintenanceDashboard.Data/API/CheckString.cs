@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MaintenanceDashboard.Data.Domain
+namespace MaintenanceDashboard.Data.Api
 {
     static class CheckString
     {

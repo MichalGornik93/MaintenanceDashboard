@@ -1,4 +1,5 @@
-﻿  using MaintenanceDashboard.Data.Domain;
+﻿using MaintenanceDashboard.Data.Api;
+using MaintenanceDashboard.Data.Domain;
 using MaintenanceDashboard.Library;
 
 namespace MaintenanceDashboard.Client.ViewModels

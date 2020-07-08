@@ -1,5 +1,5 @@
 ﻿using MaintenanceDashboard.Client.ViewModels;
-using MaintenanceDashboard.Data.Domain;
+using MaintenanceDashboard.Data.Api;
 using System.Windows;
 using System.Windows.Controls;
 
