@@ -8,7 +8,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="650" d:DesignWidth="1200"
              xmlns:viewModels="clr-namespace:MaintenanceDashboard.Client.ViewModels"
-             d:DataContext="{d:DesignInstance viewModels:ManagerPaddleViewModel}" >
+             d:DataContext="{d:DesignInstance viewModels:EmployeeViewModel}" >
     <Grid>
         <Border CornerRadius="20" >
             <Border.Background>
@@ -62,7 +62,7 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
-                <ComboBox Width="150" DataContext="{Binding EmployeeViewModel}" materialDesign:HintAssist.Hint="Pracownicy" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="0" 
+                <ComboBox Width="150"  materialDesign:HintAssist.Hint="Pracownicy" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="0" 
                            Margin="10" ItemsSource="{Binding Path=Employees}" SelectedItem="{Binding SelectedEmployee}" DisplayMemberPath="LastName"/>
 
                 
@@ -92,7 +92,7 @@
                 <TextBox  Width="400" materialDesign:HintAssist.Hint="Uwagi" Grid.Row="5" Grid.Column="0"
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"/>
 
-                <DataGrid DataContext="{Binding }" ItemsSource="{Binding Employees}" Margin="10" Grid.Column="1" Grid.Row="1" Grid.RowSpan="4" Background="White"/>
+                <DataGrid  ItemsSource="{Binding Employees}" Margin="10" Grid.Column="1" Grid.Row="1" Grid.RowSpan="4" Background="White"/>
 
                 <Button  x:Name="btnGetPaddle" Height="25"  Background="#FF0069C0" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2"
                              BorderBrush="#FF0069C0"  Width="110" Content="POTWIERDŹ" Margin="10" />

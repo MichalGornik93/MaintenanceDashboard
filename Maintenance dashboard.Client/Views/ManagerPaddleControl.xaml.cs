@@ -1,4 +1,5 @@
 ﻿using MaintenanceDashboard.Client.ViewModels;
+using MaintenanceDashboard.Data.Api;
 using MaintenanceDashboard.Data.Domain;
 using System.Windows;
 using System.Windows.Controls;
@@ -9,9 +10,8 @@ namespace MaintenanceDashboard.Client.Views
     {
         public ManagerPaddleControl()
         {
-            InitializeComponent();
-            this.DataContext = new ManagerPaddleViewModel();
             
+            InitializeComponent();
         }
 
         private void btnOpenAcceptancePaddle_Checked(object sender, RoutedEventArgs e)

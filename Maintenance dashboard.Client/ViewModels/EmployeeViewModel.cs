@@ -71,7 +71,7 @@ namespace MaintenanceDashboard.Client.ViewModels
             }
         }
 
-        public bool IsValidEmployee //for refactoring
+        public bool IsValidEmployee //TODO:
         {
             get
             {

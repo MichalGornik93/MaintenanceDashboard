@@ -1,6 +1,6 @@
 ﻿using MaintenanceDashboard.Data.Api;
-using MaintenanceDashboard.Data.Domain;
 using MaintenanceDashboard.Library;
+using System.Windows.Input;
 
 namespace MaintenanceDashboard.Client.ViewModels
 {
@@ -18,12 +18,23 @@ namespace MaintenanceDashboard.Client.ViewModels
             get { return _PaddleViewModel; }
         }
 
-
-
         public ManagerPaddleViewModel()
         {
             _EmployeeViewModel = new EmployeeViewModel(new EmployeeContext());
             _PaddleViewModel = new PaddleViewModel(new PaddleContext());
+        }
+
+        public ICommand ContextInitializationCommand
+        {
+            get
+            {
+                return new ActionCommand(p => ContextInitialization());
+            }
+        }
+
+        public void ContextInitialization()
+        {
+            _EmployeeViewModel.GetEmployeeList();
         }
         
     }
