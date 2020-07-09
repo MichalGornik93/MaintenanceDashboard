@@ -18,6 +18,7 @@ namespace MaintenanceDashboard.Client.ViewModels
             get { return _PaddleViewModel; }
         }
 
+
         public ManagerPaddleViewModel()
         {
             _EmployeeViewModel = new EmployeeViewModel(new EmployeeContext());

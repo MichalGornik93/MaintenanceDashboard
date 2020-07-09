@@ -8,7 +8,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="650" d:DesignWidth="1200"
              xmlns:viewModels="clr-namespace:MaintenanceDashboard.Client.ViewModels"
-             d:DataContext="{d:DesignInstance viewModels:EmployeeViewModel}" >
+             d:DataContext="{d:DesignInstance viewModels:ManagerPaddleViewModel}" >
     <Grid>
         <Border CornerRadius="20" >
             <Border.Background>
@@ -62,37 +62,51 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
-                <ComboBox Width="150"  materialDesign:HintAssist.Hint="Pracownicy" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="0" 
-                           Margin="10" ItemsSource="{Binding Path=Employees}" SelectedItem="{Binding SelectedEmployee}" DisplayMemberPath="LastName"/>
+                <ComboBox Width="150"  DataContext="{Binding EmployeeViewModel}" materialDesign:HintAssist.Hint="Pracownicy" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="0" 
+                           Margin="10" SelectedItem="{Binding SelectedEmployee}" ItemsSource="{Binding Path=Employees}">
+                    <ComboBox.ItemTemplate >
+                        <DataTemplate>
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0} {1}">
+                                        <Binding Path="FirstName"/>
+                                        <Binding Path="LastName"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
 
-                
-                <TextBox  Width="400" materialDesign:HintAssist.Hint="Numer paletki" Grid.Row="1" Grid.Column="0"
+                <TextBox  Width="300" materialDesign:HintAssist.Hint="Numer paletki" Grid.Row="1" Grid.Column="0"
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"  
                              materialDesign:HintAssist.HelperText="Pole musi być wypełnione"
                               Margin="10"/>
 
-                <TextBox  Width="400" materialDesign:HintAssist.Hint="Data dodania" IsEnabled="False" Grid.Row="2" Grid.Column="0"
+                <TextBox  Width="300" materialDesign:HintAssist.Hint="Data dodania" IsEnabled="False" Grid.Row="2" Grid.Column="0"
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                             Text="{Binding Source={x:Static sys:DateTime.Now}, StringFormat='yyyy-MM-dd HH:mm:ss', Mode=OneWay}" Margin="10"/>
+                             Text="{Binding Source={x:Static sys:DateTime.Now}, StringFormat='yyyy-MM-dd', Mode=OneWay}" Margin="10"/>
 
                 
                 
 
                 <ComboBox materialDesign:HintAssist.Hint="Akcja" MinWidth="72" Grid.Column="0" Grid.Row="3" 
-                          Margin="10">
+                          Margin="10" Width="150" HorizontalAlignment="Left">
                 </ComboBox>
 
-                <TextBox  materialDesign:HintAssist.Hint="Data planowanej naprawy" Width="400" Grid.Row="4" Grid.Column="0"
-                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"/>
+             
+
+                <DatePicker materialDesign:HintAssist.Hint="Data planowanej naprawy" Margin="10" Style="{StaticResource MaterialDesignOutlinedDatePicker}" 
+                            Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" Width="220" />
 
                 <ComboBox materialDesign:HintAssist.Hint="Zamówienie" MinWidth="72" Grid.Column="1" Grid.Row="5" 
                           Margin="10">
                 </ComboBox>
 
-                <TextBox  Width="400" materialDesign:HintAssist.Hint="Uwagi" Grid.Row="5" Grid.Column="0"
+                <TextBox  Width="300" materialDesign:HintAssist.Hint="Uwagi" Grid.Row="5" Grid.Column="0"
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"/>
 
-                <DataGrid  ItemsSource="{Binding Employees}" Margin="10" Grid.Column="1" Grid.Row="1" Grid.RowSpan="4" Background="White"/>
+                <DataGrid DataContext="{Binding }"  ItemsSource="{Binding }" Margin="10" Grid.Column="1" Grid.Row="1" Grid.RowSpan="4" Background="White"/>
 
                 <Button  x:Name="btnGetPaddle" Height="25"  Background="#FF0069C0" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2"
                              BorderBrush="#FF0069C0"  Width="110" Content="POTWIERDŹ" Margin="10" />

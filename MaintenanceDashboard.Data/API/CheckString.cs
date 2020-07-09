@@ -2,6 +2,7 @@
 
 namespace MaintenanceDashboard.Data.Api
 {
+    //TODO: Add to BaseContext
     static class CheckString
     {
         public static void Require(string value)

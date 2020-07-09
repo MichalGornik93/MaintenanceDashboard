@@ -8,7 +8,7 @@ using System.Windows.Input;
 
 namespace MaintenanceDashboard.Client.ViewModels
 {
-    public class EmployeeViewModel:ViewModel
+    public class EmployeeViewModel : ViewModel
     {
         private readonly IEmployeeContext context;
 
@@ -71,7 +71,7 @@ namespace MaintenanceDashboard.Client.ViewModels
             }
         }
 
-        public bool IsValidEmployee //TODO:
+        public bool IsValidEmployee //TODO:Refactoring
         {
             get
             {
@@ -80,21 +80,17 @@ namespace MaintenanceDashboard.Client.ViewModels
             }
         }
 
-        private void CreateEmployee(string firstName, string lastName, string uidCodeEmployee) //for refactorning
+        private void CreateEmployee(string firstName, string lastName, string uidCodeEmployee)
         {
-            using (var api = new EmployeeContext())
+
+            var employee = new Employee
             {
-                var employee = new Employee
-                {
-                    FirstName = firstName,
-                    LastName = lastName,
-                    UidCode = uidCodeEmployee
-                };
+                FirstName = firstName,
+                LastName = lastName,
+                UidCode = uidCodeEmployee
+            };
 
-                api.CreateEmployee(employee);
-
-                Employees.Add(employee);
-            }
+            context.CreateEmployee(employee);
 
             FirstName = string.Empty;
             LastName = string.Empty;

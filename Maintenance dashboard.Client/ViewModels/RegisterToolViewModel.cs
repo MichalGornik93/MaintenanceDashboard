@@ -93,8 +93,6 @@ namespace MaintenanceDashboard.Client.ViewModels
 
             context.CreateRegisterTool(registerTool);
 
-            RegisterTools.Add(registerTool);
-
             ToolName = string.Empty;
             UidCode = string.Empty;
         }
@@ -103,7 +101,6 @@ namespace MaintenanceDashboard.Client.ViewModels
         {
             RegisterTools.Clear();
             SelectedRegisterTool = null;
-
             foreach (var item in context.GetRegisterToolList())
                 RegisterTools.Add(item);
         }
