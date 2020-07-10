@@ -25,7 +25,8 @@ namespace MaintenanceDashboard.Client.Views
 
         private void btnOpenReleasePaddle_Checked(object sender, RoutedEventArgs e)
         {
-
+            GridPrincipal.Children.Clear();
+            GridPrincipal.Children.Add(new BuiltFunctionControl());
         }
 
         private void btnOpenAddPaddle_Checked(object sender, RoutedEventArgs e)
@@ -39,17 +40,20 @@ namespace MaintenanceDashboard.Client.Views
 
         private void btnOpenEditPaddle_Checked(object sender, RoutedEventArgs e)
         {
-
+            GridPrincipal.Children.Clear();
+            GridPrincipal.Children.Add(new BuiltFunctionControl());
         }
 
         private void btnOpenAddPaddleAction_Checked(object sender, RoutedEventArgs e)
         {
-
+            GridPrincipal.Children.Clear();
+            GridPrincipal.Children.Add(new BuiltFunctionControl());
         }
 
         private void btnOpenEditPaddleAction_Checked(object sender, RoutedEventArgs e)
         {
-
+            GridPrincipal.Children.Clear();
+            GridPrincipal.Children.Add(new BuiltFunctionControl());
         }
     }
 }

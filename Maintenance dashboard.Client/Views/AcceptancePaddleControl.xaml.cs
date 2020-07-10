@@ -12,7 +12,7 @@ namespace MaintenanceDashboard.Client.Views
         {
 
             InitializeComponent();
-            _managerPaddleViewModel = new ManagerPaddleViewModel();
+            _managerPaddleViewModel = new ManagerPaddleViewModel(new ReceivedPaddleContext());
             _managerPaddleViewModel.EmployeeViewModel.GetEmployeeList();
             this.DataContext = _managerPaddleViewModel;
         }

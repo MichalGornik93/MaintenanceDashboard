@@ -14,6 +14,8 @@ namespace MaintenanceDashboard.Client.ViewModels
 
         public string PaddleNumber { get; set; }
         public string PaddleComments { get; set; }
+        public string Model = "VW380 T1/T2 Base/High";
+
 
         private Paddle selectedPaddle;
 

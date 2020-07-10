@@ -54,6 +54,7 @@
     <Compile Include="API\CheckString.cs" />
     <Compile Include="API\IEmployeeContext.cs" />
     <Compile Include="API\IPaddleContext.cs" />
+    <Compile Include="API\IReceivedPaddleContext.cs" />
     <Compile Include="API\IRegisterToolContext.cs" />
     <Compile Include="API\ReceivedPaddleContext.cs" />
     <Compile Include="Domain\Employee.cs" />
