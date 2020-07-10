@@ -33,20 +33,26 @@ namespace MaintenanceDashboard.Client.ViewModels
             this.context = context;
             ReceivedPaddles = new ObservableCollection<ReceivedPaddle>();
         }
-
-
-        //public ICommand ContextInitializationCommand
-        //{
-        //    get
-        //    {
-        //        return new ActionCommand(p => ContextInitialization());
-        //    }
-        //}
-
-        //public void ContextInitialization()
-        //{
-        //    _EmployeeViewModel.GetEmployeeList();
-        //}
         
+        private void CreateReceivedPaddle()
+        {
+
+        }
+
+        private void GetReceivedPaddleList()
+        {
+
+        }
+
+        private void SaveReceivedPaddle()
+        {
+
+        }
+
+        private void DeleteReceivedPaddle()
+        {
+
+        }
+
     }
 }

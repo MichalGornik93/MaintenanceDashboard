@@ -45,15 +45,14 @@
             <TextBlock Text="PRZYJĘCIE PALETKI" HorizontalAlignment="Center" VerticalAlignment="Top"  
                            FontSize="18"  Foreground="Gray" Margin="18"/>
 
-            <Grid HorizontalAlignment="Center"  VerticalAlignment="Center">
+            <Grid HorizontalAlignment="Center"  VerticalAlignment="Center" Height="440">
 
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
+                    <RowDefinition Height="80"/>
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
@@ -100,12 +99,13 @@
                 <WrapPanel Grid.Column="0" Grid.Row="3">
                     <materialDesign:PackIcon Kind="LightningBoltOutline" VerticalAlignment="Center" Width="30" Height="30"/>
                     <ComboBox materialDesign:HintAssist.Hint="Akcja" MinWidth="72" Grid.Column="0" Grid.Row="3" 
-                          Margin="10" Width="150" HorizontalAlignment="Left">
+                          Margin="10" Width="150" HorizontalAlignment="Left"
+                              materialDesign:HintAssist.HelperText="Wykonywane czynnosci">
                     </ComboBox>
                 </WrapPanel>
 
 
-                <DatePicker materialDesign:HintAssist.Hint="Data planowanej naprawy" Margin="10" Style="{StaticResource MaterialDesignOutlinedDatePicker}" 
+                <DatePicker materialDesign:HintAssist.Hint="Data planowanej naprawy"   Margin="10" Style="{StaticResource MaterialDesignOutlinedDatePicker}" 
                             Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" Width="220" />
 
                 <WrapPanel Grid.Column="1" Grid.Row="5">

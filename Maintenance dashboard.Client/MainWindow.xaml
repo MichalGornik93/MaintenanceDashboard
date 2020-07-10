@@ -187,14 +187,6 @@
             </Grid>
 
         </StackPanel>
-        <Grid HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="15" Width="220" >
-            <materialDesign:Card UniformCornerRadius="14" Padding="4" HorizontalAlignment="Left" 
-                                 VerticalAlignment="Center" Margin="5" >
-                <ProgressBar x:Name="progPlcConnectionStatus" Style="{StaticResource MaterialDesignCircularProgressBar}" 
-                             Value="50" IsIndeterminate="False" Foreground="Red"/>
-            </materialDesign:Card>
-            <Label x:Name="lblPlcConnectionStatus" Content="SIMATIC NOT CONNECTED" 
-                   HorizontalAlignment="Right" Margin="5" Foreground="Red"/>
-        </Grid>
+     
     </Grid>
 </Window>

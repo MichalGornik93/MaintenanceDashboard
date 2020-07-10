@@ -1,34 +1,15 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
-using MaintenanceDashboard.Library;
 using MaintenanceDashboard.Client.Views;
 
 namespace MaintenanceDashboard.Client
 {
     public partial class MainWindow : Window
     {
-        //Wyłącznie wywołania objektów, metod oraz logika dotycząca interface użytkownika
         public MainWindow()
         {
             InitializeComponent();
-
-            PlcNetInterface plcNetInterface = new PlcNetInterface("192.168.0.1", 0, 0);
-            
-            plcNetInterface.Connected += (() => {
-                progPlcConnectionStatus.IsIndeterminate = true;
-                lblPlcConnectionStatus.Content = "SIMATIC CONNECTED";
-                lblPlcConnectionStatus.Foreground = Brushes.Green;  
-                progPlcConnectionStatus.Foreground = Brushes.Green;
-                ;});
-            plcNetInterface.Disconected += (() => {
-                progPlcConnectionStatus.IsIndeterminate = false;
-                lblPlcConnectionStatus.Content = "SIMATIC NOT CONNECTED";
-                lblPlcConnectionStatus.Foreground = Brushes.Red;
-                progPlcConnectionStatus.Foreground = Brushes.Red; 
-                ;});           
-            plcNetInterface.Connect();             
         }
 
         private void btnCloseWindow_Click(object sender, RoutedEventArgs e)
