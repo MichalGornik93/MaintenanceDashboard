@@ -9,11 +9,11 @@ namespace MaintenanceDashboard.Data.Domain
         [Required]
         public string Employee { get; set; }
         [Required]
-        public DateTime DateAdded { get; set; }
+        public string DateAdded { get; set; }
         [Required]
         public string PreventiveAction { get; set; }
         [Required]
-        public DateTime PlannedRepairTime { get; set; }
+        public string PlannedRepairTime { get; set; }
         public string Comments { get; set; }
         [Required]
         public string IsOrders { get; set; }

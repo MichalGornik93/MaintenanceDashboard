@@ -8,7 +8,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="650" d:DesignWidth="1220"
              xmlns:viewModels="clr-namespace:MaintenanceDashboard.Client.ViewModels"
-             d:DataContext="{d:DesignInstance viewModels:RegisterToolViewModel}" >
+             d:DataContext="{d:DesignInstance viewModels:PaddleViewModel}" >
     <Grid >
         <Grid>
             <Border CornerRadius="20" >
@@ -48,31 +48,31 @@
 
                     <WrapPanel>
                         <materialDesign:PackIcon Kind="Barcode" VerticalAlignment="Center" Width="30" Height="30"/>
-                        <TextBox  Width="400" materialDesign:HintAssist.Hint="Numer paletki" 
+                        <TextBox DataContext="{Binding}" Width="400" materialDesign:HintAssist.Hint="Numer paletki" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"  
                              materialDesign:HintAssist.HelperText="Pole musi być wypełnione"
-                             Text="{Binding PaddleNumber, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Margin="10"/>
+                             Text="{Binding Number, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Margin="10"/>
                     </WrapPanel>
 
                     <WrapPanel>
                         <materialDesign:PackIcon Kind="Car" VerticalAlignment="Center" Width="30" Height="30"/>
                         <TextBox  materialDesign:HintAssist.Hint="Model" Width="400" IsEnabled="False" 
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"
-                              Text="VW380 T1/T2 Base/High" />
+                               Text="{Binding Model}"/>
                     </WrapPanel>
 
                     <WrapPanel>
                         <materialDesign:PackIcon Kind="CalendarAdd" VerticalAlignment="Center" Width="30" Height="30"/>
                         <TextBox  Width="400" materialDesign:HintAssist.Hint="Data dodania" IsEnabled="False"
-                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                             Text="{Binding Source={x:Static sys:DateTime.Now}, StringFormat='yyyy-MM-dd HH:mm:ss', Mode=OneWay}" Margin="10"/>
+                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding AddedDate}"
+                              Margin="10"/>
                     </WrapPanel>
 
                     <WrapPanel>
                         <materialDesign:PackIcon Kind="NoteTextOutline" VerticalAlignment="Center" Width="30" Height="30"/>
                         <TextBox  Width="400" materialDesign:HintAssist.Hint="Uwagi" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"  
-                             Text="{Binding PaddleComments, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Margin="10"/>
+                             Text="{Binding Comments, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Margin="10"/>
 
                     </WrapPanel>
                     <Button  x:Name="btnAddPaddle" Height="25"  Background="#FF0069C0"  

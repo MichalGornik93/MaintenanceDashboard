@@ -12,13 +12,19 @@ namespace MaintenanceDashboard.Client.ViewModels
         private readonly IPaddleContext context;
         public ICollection<Paddle> Paddles { get; private set; }
 
-        public string PaddleNumber { get; set; }
-        public string PaddleComments { get; set; }
-        public string Model = "VW380 T1/T2 Base/High";
+        public string Number { get; set; }
+        public string Comments { get; set; }
+
+        private string _Model = "VW380 T1/T2 Base/High";
+        public string Model
+        {
+            get { return _Model; }
+            set { _Model = value; }
+        }
+
 
 
         private Paddle selectedPaddle;
-
         public Paddle SelectedPaddle
         {
             get { return selectedPaddle; }
@@ -28,6 +34,14 @@ namespace MaintenanceDashboard.Client.ViewModels
                 NotifyPropertyChanged();
             }
         }
+
+        private string _addedData = DateTime.Now.ToString("MM/dd/yyyy");
+        public string AddedDate
+        {
+            get { return _addedData; }
+            set { _addedData = value; }
+        }
+
 
         public PaddleViewModel(IPaddleContext context)
         {
@@ -39,18 +53,18 @@ namespace MaintenanceDashboard.Client.ViewModels
         {
             get
             {
-                return new ActionCommand(p => CreatePaddle(PaddleNumber, PaddleComments),
-                                         p => !String.IsNullOrWhiteSpace(PaddleNumber));
+                return new ActionCommand(p => CreatePaddle(Number, Model, AddedDate, Comments),
+                                         p => !String.IsNullOrWhiteSpace(Number));
             }
         }
 
-        private void CreatePaddle(string paddleNumber, string comments)
+        private void CreatePaddle(string paddleNumber, string model, string addedDate, string comments)
         {
             var paddle = new Paddle
             {
                 PaddleNumber = paddleNumber,
-                Model = "VW380 T1/T2 Base/High",
-                AddedDate = DateTime.Now,
+                Model = model,
+                AddedDate = addedDate,
                 CommentsPaddle = comments
             };
 
@@ -58,8 +72,8 @@ namespace MaintenanceDashboard.Client.ViewModels
 
             Paddles.Add(paddle);
 
-            PaddleNumber = string.Empty;
-            PaddleComments = string.Empty;
+            Number = string.Empty;
+            Comments = string.Empty;
         }
     }
 }

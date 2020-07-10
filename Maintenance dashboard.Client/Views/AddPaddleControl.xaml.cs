@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using MaintenanceDashboard.Client.ViewModels;
+using MaintenanceDashboard.Data.Api;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace MaintenanceDashboard.Client.Views
@@ -8,6 +10,7 @@ namespace MaintenanceDashboard.Client.Views
         public AddPaddleControl()
         {
             InitializeComponent();
+            this.DataContext = new PaddleViewModel(new PaddleContext());
         }
 
         private void btnAddPaddle_Click(object sender, RoutedEventArgs e)
