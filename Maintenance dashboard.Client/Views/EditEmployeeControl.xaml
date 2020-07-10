@@ -53,31 +53,42 @@
 
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5" Grid.Column="0" Grid.Row="1">
 
-                <TextBox x:Name="txtID" IsEnabled="False"  materialDesign:HintAssist.Hint="Id" 
+                <WrapPanel>
+                    <materialDesign:PackIcon Kind="Identifier" VerticalAlignment="Center" Width="30" Height="30"/>
+                    <TextBox x:Name="txtID" IsEnabled="False"  materialDesign:HintAssist.Hint="Id" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                              Text="{Binding SelectedEmployee.Id, 
                              UpdateSourceTrigger=PropertyChanged, 
                              ValidatesOnDataErrors=True}"
                              Margin="10"/>
+                </WrapPanel>
 
-                <TextBox  Width="400" materialDesign:HintAssist.Hint="Imie" 
+                <WrapPanel>
+                    <materialDesign:PackIcon Kind="User" VerticalAlignment="Center" Width="30" Height="30"/>
+                    <TextBox  Width="250" materialDesign:HintAssist.Hint="Imie" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"  
                              Text="{Binding SelectedEmployee.FirstName, 
                              UpdateSourceTrigger=PropertyChanged, 
                              ValidatesOnDataErrors=True}" Margin="10"/>
+                </WrapPanel>
 
-                <TextBox  Width="400" materialDesign:HintAssist.Hint="Nazwisko" 
+                <WrapPanel>
+                    <materialDesign:PackIcon Kind="User" VerticalAlignment="Center" Width="30" Height="30"/>
+                    <TextBox  Width="250" materialDesign:HintAssist.Hint="Nazwisko" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"  
                              Text="{Binding SelectedEmployee.LastName, 
                              UpdateSourceTrigger=PropertyChanged, 
                              ValidatesOnDataErrors=True}" Margin="10"/>
+                </WrapPanel>
 
-                <TextBox  materialDesign:HintAssist.Hint="Kod UID" Width="400" 
-                              materialDesign:HintAssist.HelperText=""  
+                <WrapPanel>
+                    <materialDesign:PackIcon Kind="Code" VerticalAlignment="Center" Width="30" Height="30"/>
+                    <TextBox  materialDesign:HintAssist.Hint="Kod UID" Width="250" 
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"
                               Text="{Binding SelectedEmployee.UidCode, 
                               UpdateSourceTrigger=PropertyChanged, 
                               ValidatesOnDataErrors=True}" />
+                </WrapPanel>
 
             </StackPanel>
 

@@ -44,22 +44,29 @@
                            FontSize="18"  Foreground="Gray" Margin="18"/>
 
             <StackPanel  HorizontalAlignment="Center" Margin="25" VerticalAlignment="Center">
-
-                <TextBox  Width="400" materialDesign:HintAssist.Hint="Imie" 
+                <WrapPanel>
+                    <materialDesign:PackIcon Kind="User" VerticalAlignment="Center" Width="30" Height="30"/>
+                    <TextBox  Width="300" materialDesign:HintAssist.Hint="Imie" 
                           materialDesign:HintAssist.HelperText="Pole musi być wypełnione"
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"  
                              Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Margin="10"/>
+                </WrapPanel>
 
-                <TextBox  Width="400" materialDesign:HintAssist.Hint="Nazwisko" 
+                <WrapPanel>
+                    <materialDesign:PackIcon Kind="User" VerticalAlignment="Center" Width="30" Height="30"/>
+                    <TextBox  Width="300" materialDesign:HintAssist.Hint="Nazwisko" 
                           materialDesign:HintAssist.HelperText="Pole musi być wypełnione"
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"  
                              Text="{Binding LastName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Margin="10"/>
+                </WrapPanel>
 
-                <TextBox  materialDesign:HintAssist.Hint="Kod UID" Width="400" 
+                <WrapPanel>
+                    <materialDesign:PackIcon Kind="Code" VerticalAlignment="Center" Width="30" Height="30"/>
+                    <TextBox  materialDesign:HintAssist.Hint="Kod UID" Width="300" 
                               materialDesign:HintAssist.HelperText="" 
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"
                               Text="{Binding UidCode, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
-
+                </WrapPanel>
                 <Button  x:Name="btnAddEmployee" Height="25"  Background="#FF0069C0"  
                              BorderBrush="#FF0069C0"  Width="100" Content="DODAJ" Margin="10"  Grid.Column="1"
                              Command="{Binding CreateEmployeeCommand}" Click="btnAddEmployee_Click"/>

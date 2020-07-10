@@ -4,9 +4,9 @@ using System.Windows;
 namespace MaintenanceDashboard.Client.Views
 {
 
-    public partial class CreateRegisterToolControl : UserControl
+    public partial class AddRegisterToolControl : UserControl
     {
-        public CreateRegisterToolControl()
+        public AddRegisterToolControl()
         {
             InitializeComponent();
         }
