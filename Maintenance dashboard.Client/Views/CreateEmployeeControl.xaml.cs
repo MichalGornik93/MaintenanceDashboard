@@ -3,9 +3,9 @@ using System.Windows.Controls;
 
 namespace MaintenanceDashboard.Client.Views
 {
-    public partial class AddEmployeeControl : UserControl
+    public partial class CreateEmployeeControl : UserControl
     {
-        public AddEmployeeControl()
+        public CreateEmployeeControl()
         {
             InitializeComponent();
         }

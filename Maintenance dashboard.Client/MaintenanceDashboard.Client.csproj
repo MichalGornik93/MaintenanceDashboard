@@ -93,14 +93,14 @@
     <Compile Include="ViewModels\EmployeeViewModel.cs" />
     <Compile Include="ViewModels\RegisterToolViewModel.cs" />
     <Compile Include="ViewModels\PaddleViewModel.cs" />
-    <Compile Include="Views\AddEmployeeControl.xaml.cs">
-      <DependentUpon>AddEmployeeControl.xaml</DependentUpon>
+    <Compile Include="Views\CreateEmployeeControl.xaml.cs">
+      <DependentUpon>CreateEmployeeControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\AddPaddleControl.xaml.cs">
-      <DependentUpon>AddPaddleControl.xaml</DependentUpon>
+    <Compile Include="Views\CreatePaddleControl.xaml.cs">
+      <DependentUpon>CreatePaddleControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\AddRegisterToolControl.xaml.cs">
-      <DependentUpon>AddRegisterToolControl.xaml</DependentUpon>
+    <Compile Include="Views\CreateRegisterToolControl.xaml.cs">
+      <DependentUpon>CreateRegisterToolControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\BuiltFunctionControl.xaml.cs">
       <DependentUpon>BuiltFunctionControl.xaml</DependentUpon>
@@ -126,15 +126,15 @@
     <Compile Include="Views\HomeControl.xaml.cs">
       <DependentUpon>HomeControl.xaml</DependentUpon>
     </Compile>
-    <Page Include="Views\AddEmployeeControl.xaml">
+    <Page Include="Views\CreateEmployeeControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\AddPaddleControl.xaml">
+    <Page Include="Views\CreatePaddleControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\AddRegisterToolControl.xaml">
+    <Page Include="Views\CreateRegisterToolControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

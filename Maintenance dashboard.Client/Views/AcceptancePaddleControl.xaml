@@ -82,7 +82,7 @@
                 </WrapPanel>
 
                 <WrapPanel Grid.Row="1" Grid.Column="0">
-                    <materialDesign:PackIcon Kind="Barcode" VerticalAlignment="Center" Width="30" Height="30"/>
+                    <materialDesign:PackIcon Kind="BarcodeScanner" VerticalAlignment="Center" Width="30" Height="30"/>
                     <TextBox  Width="300" materialDesign:HintAssist.Hint="Numer paletki" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"  
                              materialDesign:HintAssist.HelperText="Pole musi być wypełnione"

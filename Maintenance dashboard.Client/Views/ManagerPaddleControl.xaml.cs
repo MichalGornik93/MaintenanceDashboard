@@ -34,7 +34,7 @@ namespace MaintenanceDashboard.Client.Views
             if (GridPrincipal != null)
             {
                 GridPrincipal.Children.Clear();
-                GridPrincipal.Children.Add(new AddPaddleControl());
+                GridPrincipal.Children.Add(new CreatePaddleControl());
             }
         }
 

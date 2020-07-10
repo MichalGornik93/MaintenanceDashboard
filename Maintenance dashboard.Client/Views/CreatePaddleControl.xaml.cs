@@ -5,9 +5,9 @@ using System.Windows.Controls;
 
 namespace MaintenanceDashboard.Client.Views
 {
-    public partial class AddPaddleControl : UserControl
+    public partial class CreatePaddleControl : UserControl
     {
-        public AddPaddleControl()
+        public CreatePaddleControl()
         {
             InitializeComponent();
             this.DataContext = new PaddleViewModel(new PaddleContext());
