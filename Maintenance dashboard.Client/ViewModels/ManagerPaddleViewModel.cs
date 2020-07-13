@@ -33,10 +33,32 @@ namespace MaintenanceDashboard.Client.ViewModels
             this.context = context;
             ReceivedPaddles = new ObservableCollection<ReceivedPaddle>();
         }
-        
+
+        public ActionCommand CreateReceivedPaddleCommand
+        {
+            get
+            {
+                return new ActionCommand(p => CreateReceivedPaddle());
+            }
+            //TODO: Implementation data validation
+        }
+
         private void CreateReceivedPaddle()
         {
+            var receivedPaddle = new ReceivedPaddle
+            {
+                Employee = EmployeeViewModel.SelectedEmployee.LastName,
+                DateAdded = "Test",
+                PreventiveAction = "Test",
+                PlannedRepairTime = "Test",
+                Comments = "Test",
+                IsOrders = "Test"
 
+            };
+
+            context.CreateReceivedPaddle(receivedPaddle);
+
+            //TODO: Implements clean textbox
         }
 
         private void GetReceivedPaddleList()

@@ -124,7 +124,7 @@
                 <DataGrid DataContext="{Binding }"  ItemsSource="{Binding }" Margin="10" Grid.Column="1" Grid.Row="1" Grid.RowSpan="4" Background="White"/>
 
                 <Button  x:Name="btnGetPaddle" Height="25"  Background="#FF0069C0" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2"
-                             BorderBrush="#FF0069C0"  Width="110" Content="POTWIERDŹ" Margin="10" />
+                             BorderBrush="#FF0069C0"  Width="110" Content="POTWIERDŹ" Margin="10" Command="{Binding CreateReceivedPaddleCommand}"/>
 
             </Grid>
         </Grid>
