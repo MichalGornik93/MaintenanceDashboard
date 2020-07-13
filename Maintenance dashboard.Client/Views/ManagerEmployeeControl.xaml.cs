@@ -10,7 +10,6 @@ namespace MaintenanceDashboard.Client.Views
         public ManagerEmployeeControl()
         {
             InitializeComponent();
-            this.DataContext = new EmployeeViewModel(new EmployeeContext());
         }
 
         private void btnOpenAddEmployee_Checked(object sender, RoutedEventArgs e)

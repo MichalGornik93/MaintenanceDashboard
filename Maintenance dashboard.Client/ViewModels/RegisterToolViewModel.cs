@@ -66,7 +66,7 @@ namespace MaintenanceDashboard.Client.ViewModels
         }
 
 
-        public ICommand GetRegisterToolListCommand
+        public ICommand GetRegisterToolListCommand //TODO: To delete
         {
             get
             {
@@ -97,7 +97,7 @@ namespace MaintenanceDashboard.Client.ViewModels
             UidCode = string.Empty;
         }
 
-        private void GetRegisterToolList()
+        public void GetRegisterToolList()
         {
             RegisterTools.Clear();
             SelectedRegisterTool = null;

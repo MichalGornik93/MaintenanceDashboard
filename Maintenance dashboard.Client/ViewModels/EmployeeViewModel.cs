@@ -63,7 +63,7 @@ namespace MaintenanceDashboard.Client.ViewModels
         }
 
 
-        public ICommand GetEmployeeListCommand
+        public ICommand GetEmployeeListCommand //TODO: To delete
         {
             get
             {
