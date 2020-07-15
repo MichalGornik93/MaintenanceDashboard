@@ -63,14 +63,6 @@ namespace MaintenanceDashboard.Client.ViewModels
         }
 
 
-        public ICommand GetEmployeeListCommand //TODO: To delete
-        {
-            get
-            {
-                return new ActionCommand(p => GetEmployeeList());
-            }
-        }
-
         public bool IsValidEmployee //TODO:Refactoring
         {
             get

@@ -7,10 +7,10 @@ namespace MaintenanceDashboard.Client.Views
 
     public partial class AcceptancePaddle : UserControl
     {
-        private ManagerPaddleViewModel _managerPaddleViewModel;
+        private ReceivedPaddleViewModel _managerPaddleViewModel;
         public AcceptancePaddle()
         {
-            _managerPaddleViewModel = new ManagerPaddleViewModel(new ReceivedPaddleContext());
+            _managerPaddleViewModel = new ReceivedPaddleViewModel(new ReceivedPaddleContext());
             this.DataContext = _managerPaddleViewModel;
             _managerPaddleViewModel.GetReceivedPaddleList();
             _managerPaddleViewModel.EmployeeViewModel.GetEmployeeList();

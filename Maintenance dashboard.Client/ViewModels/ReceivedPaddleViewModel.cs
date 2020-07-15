@@ -8,7 +8,7 @@ using System.Windows.Input;
 
 namespace MaintenanceDashboard.Client.ViewModels
 {
-    public class ManagerPaddleViewModel:ViewModel
+    public class ReceivedPaddleViewModel:ViewModel
     {
         private readonly IReceivedPaddleContext context;
 
@@ -26,7 +26,7 @@ namespace MaintenanceDashboard.Client.ViewModels
             get { return _PaddleViewModel; }
         }
 
-        public ManagerPaddleViewModel(IReceivedPaddleContext context)
+        public ReceivedPaddleViewModel(IReceivedPaddleContext context)
         {
             this.context = context;
 
@@ -58,6 +58,7 @@ namespace MaintenanceDashboard.Client.ViewModels
             };
 
             context.CreateReceivedPaddle(receivedPaddle);
+            ReceivedPaddles.Add(receivedPaddle);
 
             //TODO: Implements clean textbox
         }

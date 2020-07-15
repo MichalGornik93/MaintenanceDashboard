@@ -66,14 +66,6 @@ namespace MaintenanceDashboard.Client.ViewModels
         }
 
 
-        public ICommand GetRegisterToolListCommand //TODO: To delete
-        {
-            get
-            {
-                return new ActionCommand(p => GetRegisterToolList());
-            }
-        }
-
         public bool IsValidRegisterTool
         {
             get

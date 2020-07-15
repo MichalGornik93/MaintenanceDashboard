@@ -8,7 +8,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="650" d:DesignWidth="1200"
              xmlns:viewModels="clr-namespace:MaintenanceDashboard.Client.ViewModels"
-             d:DataContext="{d:DesignInstance viewModels:ManagerPaddleViewModel}" >
+             d:DataContext="{d:DesignInstance viewModels:ReceivedPaddleViewModel}" >
     <Grid>
         <Border CornerRadius="20" >
             <Border.Background>
