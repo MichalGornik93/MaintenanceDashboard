@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using MaintenanceDashboard.Client.ViewModels;
+using MaintenanceDashboard.Data.Api;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace MaintenanceDashboard.Client.Views
@@ -7,6 +9,8 @@ namespace MaintenanceDashboard.Client.Views
     {
         public CreateEmployeeControl()
         {
+            var _employeeViewModel = new EmployeeViewModel(new EmployeeContext());
+            this.DataContext = _employeeViewModel;
             InitializeComponent();
         }
 

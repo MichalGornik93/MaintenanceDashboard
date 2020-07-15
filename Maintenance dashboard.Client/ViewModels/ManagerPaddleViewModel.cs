@@ -12,7 +12,7 @@ namespace MaintenanceDashboard.Client.ViewModels
     {
         private readonly IReceivedPaddleContext context;
 
-        public ICollection<ReceivedPaddle> ReceivedPaddles;
+        public ICollection<ReceivedPaddle> ReceivedPaddles { get; private set; }
 
         private EmployeeViewModel _EmployeeViewModel;
         public EmployeeViewModel EmployeeViewModel
@@ -28,10 +28,12 @@ namespace MaintenanceDashboard.Client.ViewModels
 
         public ManagerPaddleViewModel(IReceivedPaddleContext context)
         {
+            this.context = context;
+
+            ReceivedPaddles = new ObservableCollection<ReceivedPaddle>();
+
             _EmployeeViewModel = new EmployeeViewModel(new EmployeeContext());
             _PaddleViewModel = new PaddleViewModel(new PaddleContext());
-            this.context = context;
-            ReceivedPaddles = new ObservableCollection<ReceivedPaddle>();
         }
 
         public ActionCommand CreateReceivedPaddleCommand
@@ -53,7 +55,6 @@ namespace MaintenanceDashboard.Client.ViewModels
                 PlannedRepairTime = "Test",
                 Comments = "Test",
                 IsOrders = "Test"
-
             };
 
             context.CreateReceivedPaddle(receivedPaddle);
@@ -61,9 +62,13 @@ namespace MaintenanceDashboard.Client.ViewModels
             //TODO: Implements clean textbox
         }
 
-        private void GetReceivedPaddleList()
+        public void GetReceivedPaddleList()
         {
+            ReceivedPaddles.Clear();
 
+            foreach (var item in context.GetReceivedPaddleList())
+                ReceivedPaddles.Add(item);
+                
         }
 
         private void SaveReceivedPaddle()

@@ -10,11 +10,11 @@ namespace MaintenanceDashboard.Client.Views
         private ManagerPaddleViewModel _managerPaddleViewModel;
         public AcceptancePaddle()
         {
-
-            InitializeComponent();
             _managerPaddleViewModel = new ManagerPaddleViewModel(new ReceivedPaddleContext());
-            _managerPaddleViewModel.EmployeeViewModel.GetEmployeeList();
             this.DataContext = _managerPaddleViewModel;
+            _managerPaddleViewModel.GetReceivedPaddleList();
+            _managerPaddleViewModel.EmployeeViewModel.GetEmployeeList();
+            InitializeComponent();
         }
     }
 }
