@@ -24,7 +24,7 @@ namespace MaintenanceDashboard
                 }
                 catch (Exception a)
                 {
-                    MessageBox.Show("Brak połączenia z MS SQL Server");
+                    MessageBox.Show("Brak połączenia z MS SQL Server","Alarm", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
 
             }
