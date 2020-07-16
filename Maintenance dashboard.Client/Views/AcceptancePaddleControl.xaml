@@ -45,7 +45,7 @@
             <TextBlock Text="PRZYJĘCIE PALETKI" HorizontalAlignment="Center" VerticalAlignment="Top"  
                            FontSize="18"  Foreground="Gray" Margin="18"/>
 
-            <Grid HorizontalAlignment="Center"  VerticalAlignment="Center" Height="440">
+            <Grid HorizontalAlignment="Center"  VerticalAlignment="Center" >
 
                 <Grid.RowDefinitions>
                     <RowDefinition/>
@@ -53,6 +53,7 @@
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition Height="80"/>
+                    <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
@@ -108,20 +109,29 @@
                 <DatePicker materialDesign:HintAssist.Hint="Data planowanej naprawy"   Margin="10" Style="{StaticResource MaterialDesignOutlinedDatePicker}" 
                             Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" Width="220" />
 
-                <WrapPanel Grid.Column="1" Grid.Row="5">
+                <WrapPanel Grid.Column="0" Grid.Row="5">
                     <materialDesign:PackIcon Kind="ShoppingCartMinus" VerticalAlignment="Center" Width="30" Height="30"/>
                     <ComboBox materialDesign:HintAssist.Hint="Zamówienie" MinWidth="72" Grid.Column="1" Grid.Row="5" 
                           Margin="10">
                     </ComboBox>
                 </WrapPanel>
 
-                <WrapPanel Grid.Row="5" Grid.Column="0">
+                <WrapPanel Grid.Row="6" Grid.Column="0">
                     <materialDesign:PackIcon Kind="NoteTextOutline" VerticalAlignment="Center" Width="30" Height="30"/>
                     <TextBox  Width="300" materialDesign:HintAssist.Hint="Uwagi" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"/>
                 </WrapPanel>
 
-                <DataGrid  ItemsSource="{Binding ReceivedPaddles}" Margin="10" Grid.Column="1" Grid.Row="0" Grid.RowSpan="5" Background="White"/>
+                <DataGrid ItemsSource="{Binding ReceivedPaddles}"  Margin="10" Grid.Column="1" Grid.Row="0" Grid.RowSpan="7" Background="White" AutoGenerateColumns="False" IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Pracownik" Binding="{Binding Employee}"/>
+                        <DataGridTextColumn Header="Data dodania" Binding="{Binding DateAdded}"/>
+                        <DataGridTextColumn Header="Akcja" Binding="{Binding PreventiveAction}"/>
+                        <DataGridTextColumn Header="Data naprawy" Binding="{Binding PlannedRepairTime}"/>
+                        <DataGridTextColumn Header="Komentarz" Binding="{Binding Comments}"/>
+                        <DataGridTextColumn Header="Zamówienie" Binding="{Binding IsOrders}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
 
                 <Button  x:Name="btnGetPaddle" Height="25"  Background="#FF0069C0" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2"
                              BorderBrush="#FF0069C0"  Width="110" Content="POTWIERDŹ" Margin="10" Command="{Binding CreateReceivedPaddleCommand}"/>

@@ -48,8 +48,14 @@
                 </Grid.RowDefinitions>
 
 
-                <DataGrid ItemsSource="{Binding RegisterTools}" SelectedItem="{Binding SelectedRegisterTool}"  Height="300"
-                          Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Margin="10" Background="White"/>
+                <DataGrid ItemsSource="{Binding RegisterTools}" SelectedItem="{Binding SelectedRegisterTool}"  Height="300" IsReadOnly="True"
+                          Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Margin="10" Background="White" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                        <DataGridTextColumn Header="Nazwa" Binding="{Binding ToolName}"/>
+                        <DataGridTextColumn Header="Kod UID" Binding="{Binding UidCode}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
 
 
 
