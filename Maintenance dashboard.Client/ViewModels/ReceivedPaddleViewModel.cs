@@ -1,10 +1,10 @@
 ﻿using MaintenanceDashboard.Data.Api;
 using MaintenanceDashboard.Data.Domain;
 using MaintenanceDashboard.Library;
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Windows.Input;
+using System.Linq;
 
 namespace MaintenanceDashboard.Client.ViewModels
 {
@@ -26,6 +26,33 @@ namespace MaintenanceDashboard.Client.ViewModels
             get { return _PaddleViewModel; }
         }
 
+        private string _addedData = DateTime.Now.ToString("MM/dd/yyyy");
+        public string AddedDate
+        {
+            get { return _addedData; }
+            set { _addedData = value; }
+        }
+
+        private DateTime _repairDate=DateTime.Now.AddDays(2);
+
+        public DateTime RepairDate
+        {
+            get { return _repairDate; }
+            set { _repairDate = value; }
+        }
+        public string Comments { get; set; }
+
+        private string _isOrder;
+
+        public string IsOrder
+        {
+            get { return _isOrder; }
+            set { _isOrder = value; }
+        }
+        public string PaddleNumber { get; set; }
+
+
+
         public ReceivedPaddleViewModel(IReceivedPaddleContext context)
         {
             this.context = context;
@@ -45,16 +72,17 @@ namespace MaintenanceDashboard.Client.ViewModels
             //TODO: Implementation data validation
         }
 
-        private void CreateReceivedPaddle()
+        private void CreateReceivedPaddle() //TODO: Implemented arguments
         {
             var receivedPaddle = new ReceivedPaddle
             {
                 Employee = EmployeeViewModel.SelectedEmployee.LastName,
-                DateAdded = "Test",
+                PaddleNumber = PaddleNumber,
+                DateAdded = AddedDate,
                 PreventiveAction = "Test",
-                PlannedRepairTime = "Test",
-                Comments = "Test",
-                IsOrders = "Test"
+                PlannedRepairTime = RepairDate.ToString("MM/dd/yyyy"),
+                Comments = Comments,
+                IsOrders = IsOrder.ToString()
             };
 
             context.CreateReceivedPaddle(receivedPaddle);

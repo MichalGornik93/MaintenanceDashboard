@@ -10,7 +10,6 @@ namespace MaintenanceDashboard
 
     public partial class App : Application
     {
-        //private readonly DataContext context;
 
         protected override void OnStartup(StartupEventArgs e)
         {

@@ -7,11 +7,11 @@ namespace MaintenanceDashboard.Data.Domain
     {
         public int Id { get; set; }
         [Required]
-        public string PaddleNumber { get; set; }
+        public string Number { get; set; }
         [Required]
         public string Model { get; set; }
         [Required]
         public string AddedDate { get; set; }
-        public string CommentsPaddle { get; set; }
+        public string Comments { get; set; }
     }
 }

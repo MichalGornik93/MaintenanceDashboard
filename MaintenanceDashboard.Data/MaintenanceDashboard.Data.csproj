@@ -93,6 +93,14 @@
     <Compile Include="Migrations\202007100916302_ChangeDataTimePropertyToString.designer.cs">
       <DependentUpon>202007100916302_ChangeDataTimePropertyToString.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202007161113440_AddedPaddleNumberPropertyToReceivedPaddleTable.cs" />
+    <Compile Include="Migrations\202007161113440_AddedPaddleNumberPropertyToReceivedPaddleTable.designer.cs">
+      <DependentUpon>202007161113440_AddedPaddleNumberPropertyToReceivedPaddleTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007161253239_UpdatedPropertyNameToPaddleTable.cs" />
+    <Compile Include="Migrations\202007161253239_UpdatedPropertyNameToPaddleTable.designer.cs">
+      <DependentUpon>202007161253239_UpdatedPropertyNameToPaddleTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -121,6 +129,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202007100916302_ChangeDataTimePropertyToString.resx">
       <DependentUpon>202007100916302_ChangeDataTimePropertyToString.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007161113440_AddedPaddleNumberPropertyToReceivedPaddleTable.resx">
+      <DependentUpon>202007161113440_AddedPaddleNumberPropertyToReceivedPaddleTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007161253239_UpdatedPropertyNameToPaddleTable.resx">
+      <DependentUpon>202007161253239_UpdatedPropertyNameToPaddleTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

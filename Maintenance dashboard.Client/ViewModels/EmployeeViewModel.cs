@@ -102,10 +102,7 @@ namespace MaintenanceDashboard.Client.ViewModels
         private void SaveEmployee()
         {
             if (SelectedEmployee != null)
-
-            {
                 context.UpdateEmployee(SelectedEmployee);
-            }
         }
 
         private void DeleteEmployee()

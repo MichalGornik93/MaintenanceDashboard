@@ -9,6 +9,8 @@ namespace MaintenanceDashboard.Data.Domain
         [Required]
         public string Employee { get; set; }
         [Required]
+        public string PaddleNumber { get; set; }
+        [Required]
         public string DateAdded { get; set; }
         [Required]
         public string PreventiveAction { get; set; }

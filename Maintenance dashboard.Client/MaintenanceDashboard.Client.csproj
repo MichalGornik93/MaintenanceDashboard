@@ -108,8 +108,11 @@
     <Compile Include="Views\EditEmployeeControl.xaml.cs">
       <DependentUpon>EditEmployeeControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\AcceptancePaddleControl.xaml.cs">
-      <DependentUpon>AcceptancePaddleControl.xaml</DependentUpon>
+    <Compile Include="Views\CreateAcceptancePaddleControl.xaml.cs">
+      <DependentUpon>CreateAcceptancePaddleControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditPaddleControl.xaml.cs">
+      <DependentUpon>EditPaddleControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ManagerEmployeeControl.xaml.cs">
       <DependentUpon>ManagerEmployeeControl.xaml</DependentUpon>
@@ -146,7 +149,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\AcceptancePaddleControl.xaml">
+    <Page Include="Views\CreateAcceptancePaddleControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditPaddleControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

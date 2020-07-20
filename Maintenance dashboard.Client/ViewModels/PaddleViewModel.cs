@@ -62,10 +62,10 @@ namespace MaintenanceDashboard.Client.ViewModels
         {
             var paddle = new Paddle
             {
-                PaddleNumber = paddleNumber,
+                Number = paddleNumber,
                 Model = model,
                 AddedDate = addedDate,
-                CommentsPaddle = comments
+                Comments = comments
             };
 
             context.CreatePaddle(paddle);
@@ -74,6 +74,25 @@ namespace MaintenanceDashboard.Client.ViewModels
 
             Number = string.Empty;
             Comments = string.Empty;
+        }
+
+        public void GetPaddleList()
+        {
+            Paddles.Clear();
+
+            foreach (var item in context.GetPaddleList())
+                Paddles.Add(item);
+        }
+
+        private void SavePaddle()
+        {
+            //if(SelectedPaddle !=null)
+                //context.
+        }
+
+        private void DeletePaddle()
+        {
+
         }
     }
 }

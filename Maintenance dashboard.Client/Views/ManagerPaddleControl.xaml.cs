@@ -19,7 +19,7 @@ namespace MaintenanceDashboard.Client.Views
             if (GridPrincipal != null)
             {
                 GridPrincipal.Children.Clear();
-                GridPrincipal.Children.Add(new AcceptancePaddle());
+                GridPrincipal.Children.Add(new CreateAcceptancePaddle());
             }
         }
 
@@ -41,7 +41,7 @@ namespace MaintenanceDashboard.Client.Views
         private void btnOpenEditPaddle_Checked(object sender, RoutedEventArgs e)
         {
             GridPrincipal.Children.Clear();
-            GridPrincipal.Children.Add(new BuiltFunctionControl());
+            GridPrincipal.Children.Add(new EditPaddleControl());
         }
 
         private void btnOpenAddPaddleAction_Checked(object sender, RoutedEventArgs e)
