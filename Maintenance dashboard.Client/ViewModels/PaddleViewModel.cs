@@ -10,6 +10,7 @@ namespace MaintenanceDashboard.Client.ViewModels
     public class PaddleViewModel : ViewModel
     {
         private readonly IPaddleContext context;
+        
         public ICollection<Paddle> Paddles { get; private set; }
 
         public string Number { get; set; }
@@ -86,13 +87,18 @@ namespace MaintenanceDashboard.Client.ViewModels
 
         private void SavePaddle()
         {
-            //if(SelectedPaddle !=null)
-                //context.
+            if (SelectedPaddle != null)
+                context.UpdatePaddle(SelectedPaddle);
         }
 
         private void DeletePaddle()
         {
-
+            if(SelectedPaddle !=null)
+            {
+                context.DeletePaddle(SelectedPaddle);
+                Paddles.Remove(SelectedPaddle);
+                SelectedPaddle = null;
+            }
         }
     }
 }
