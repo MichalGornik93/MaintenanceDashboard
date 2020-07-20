@@ -7,7 +7,6 @@ namespace MaintenanceDashboard.Data.Api
 {
     public sealed class RegisterToolContext : IDisposable, IRegisterToolContext
     {
-        //TODO: Implement BaseContext
         private readonly DataContext context;
 
         private bool disposed;

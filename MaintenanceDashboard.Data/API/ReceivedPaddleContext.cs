@@ -8,7 +8,6 @@ namespace MaintenanceDashboard.Data.Api
 
     public class ReceivedPaddleContext : IDisposable, IReceivedPaddleContext
     {
-        //TODO: Implement BaseContext
         private readonly DataContext context;
         private bool disposed;
 

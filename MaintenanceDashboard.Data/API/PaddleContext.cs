@@ -32,25 +32,32 @@ namespace MaintenanceDashboard.Data.Api
         }
 
 
-        //public void UpdateRegisterTool(RegisterTool registerTool)
-        //{
-        //    var entity = context.RegisterTools.Find(registerTool.Id);
+        public void UpdatePaddle (Paddle paddle)
+        {
+            var entity = context.Paddles.Find(paddle.Id);
 
-        //    if (entity == null)
-        //    {
-        //        throw new NotImplementedException("Handle appropriately for your API design. ");
-        //    }
+            if (entity == null)
+            {
+                throw new NotImplementedException("Handle appropriately for your API design. ");
+            }
 
-        //    context.Entry(entity).CurrentValues.SetValues(registerTool);
+            context.Entry(entity).CurrentValues.SetValues(paddle);
 
-        //    context.SaveChanges();
-        //}
+            context.SaveChanges();
+        }
+
+        public void DeletePaddle(Paddle paddle)
+        {
+            context.Paddles.Remove(paddle);
+            context.SaveChanges();
+        }
 
         public ICollection<Paddle> GetPaddleList()
         {
             return context.Paddles.OrderBy(p => p.Id).ToArray();
         }
 
+        #region IDisposable Members
         public void Dispose()
         {
             //Free all object here            
@@ -75,5 +82,6 @@ namespace MaintenanceDashboard.Data.Api
 
             disposed = true; // Note disposing has been done.
         }
+        #endregion
     }
 }

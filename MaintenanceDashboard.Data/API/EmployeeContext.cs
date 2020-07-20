@@ -7,7 +7,6 @@ namespace MaintenanceDashboard.Data.Api
 {
     public class EmployeeContext : IDisposable, IEmployeeContext
     {
-        //TODO: Implement BaseContext
         private readonly DataContext context;
 
         private bool disposed;
