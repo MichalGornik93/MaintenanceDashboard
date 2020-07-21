@@ -60,8 +60,7 @@ namespace MaintenanceDashboard.Client.ViewModels
         {
             get
             {
-                return new ActionCommand(p => DeleteRegisterTool(),
-                    p => IsValidRegisterTool);
+                return new ActionCommand(p => DeleteRegisterTool());
             }
         }
 

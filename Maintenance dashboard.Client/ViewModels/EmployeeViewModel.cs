@@ -57,8 +57,7 @@ namespace MaintenanceDashboard.Client.ViewModels
         {
             get
             {
-                return new ActionCommand(p => DeleteEmployee(),
-                   p => IsValidEmployee);
+                return new ActionCommand(p => DeleteEmployee());
             }
         }
 
