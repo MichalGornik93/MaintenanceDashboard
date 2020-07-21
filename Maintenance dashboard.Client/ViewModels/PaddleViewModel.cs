@@ -15,29 +15,8 @@ namespace MaintenanceDashboard.Client.ViewModels
 
         public ICollection<Paddle> Paddles { get; private set; }
 
-        private string number;
-        public string Number
-        {
-            get { return number; }
-            set
-            {
-                number = value;
-                NotifyPropertyChanged();
-            }
-        }
-
-
-        private string errorMessage;
-        public string ErrorMessage
-        {
-            get { return errorMessage; }
-            set
-            {
-                errorMessage = value;
-                NotifyPropertyChanged();
-            }
-        }
-
+        public string Number { get; set; }
+        
         public string Comments { get; set; }
 
         private string _Model = "VW380 T1/T2 Base/High";
@@ -46,7 +25,6 @@ namespace MaintenanceDashboard.Client.ViewModels
             get { return _Model; }
             set { _Model = value; }
         }
-
 
 
         private Paddle selectedPaddle;
@@ -67,8 +45,6 @@ namespace MaintenanceDashboard.Client.ViewModels
             set { _addedData = value; }
         }
 
-
-
         public PaddleViewModel(IPaddleContext context)
         {
             this.context = context;
@@ -81,6 +57,23 @@ namespace MaintenanceDashboard.Client.ViewModels
             {
                 return new ActionCommand(p => CreatePaddle(Number, Model, AddedDate, Comments),
                     p => IsValidPaddle());
+            }
+        }
+
+        public ActionCommand SavePaddleCommand
+        {
+            get
+            {
+                return new ActionCommand(p => SavePaddle());
+
+            }
+        }
+
+        public ActionCommand DaletePaddleCommand
+        {
+            get
+            {
+                return new ActionCommand(p => DeletePaddle());
             }
         }
 
@@ -100,25 +93,6 @@ namespace MaintenanceDashboard.Client.ViewModels
             else if (context.CheckPaddleExist(Number))
                 return "Istnieje w bazie danych";
             return base.OnValidate(propertyName);
-        }
-
-
-
-        public ActionCommand SavePaddleCommand
-        {
-            get
-            {
-                return new ActionCommand(p => SavePaddle());
-
-            }
-        }
-
-        public ActionCommand DaletePaddleCommand
-        {
-            get
-            {
-                return new ActionCommand(p => DeletePaddle());
-            }
         }
 
 
