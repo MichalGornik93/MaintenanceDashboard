@@ -5,6 +5,7 @@ namespace MaintenanceDashboard.Data.Api
 {
     public interface IPaddleContext
     {
+        bool CheckPaddleExist(string number);
         void CreatePaddle(Paddle paddle);
         void DeletePaddle(Paddle paddle);
         ICollection<Paddle> GetPaddleList();

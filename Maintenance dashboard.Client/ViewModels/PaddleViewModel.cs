@@ -4,16 +4,40 @@ using MaintenanceDashboard.Library;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Text.RegularExpressions;
 
 namespace MaintenanceDashboard.Client.ViewModels
 {
     public class PaddleViewModel : ViewModel
     {
+        private const string _paddleBarcodePattern = "Pal[0-9]{1,3}$";
         private readonly IPaddleContext context;
-        
+
         public ICollection<Paddle> Paddles { get; private set; }
 
-        public string Number { get; set; }
+        private string number;
+        public string Number
+        {
+            get { return number; }
+            set
+            {
+                number = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+
+        private string errorMessage;
+        public string ErrorMessage
+        {
+            get { return errorMessage; }
+            set
+            {
+                errorMessage = value;
+                NotifyPropertyChanged();
+            }
+        }
+
         public string Comments { get; set; }
 
         private string _Model = "VW380 T1/T2 Base/High";
@@ -44,6 +68,7 @@ namespace MaintenanceDashboard.Client.ViewModels
         }
 
 
+
         public PaddleViewModel(IPaddleContext context)
         {
             this.context = context;
@@ -55,7 +80,56 @@ namespace MaintenanceDashboard.Client.ViewModels
             get
             {
                 return new ActionCommand(p => CreatePaddle(Number, Model, AddedDate, Comments),
-                                         p => !String.IsNullOrWhiteSpace(Number));
+                    p => IsValidPaddle());
+            }
+        }
+
+        public bool IsValidPaddle()
+        {
+            if (OnValidate(Number) != null)
+                return false;
+            return true;
+        }
+
+        protected override string OnValidate(string propertyName)
+        {
+            if (String.IsNullOrEmpty(Number))
+                return "Pole musi być wypełnione";
+            else if (!Regex.IsMatch(Number, _paddleBarcodePattern))
+                return "Niepoprawna składnia ciągu {Pal...}";
+            else if (context.CheckPaddleExist(Number))
+                return "Istnieje w bazie danych";
+            return base.OnValidate(propertyName);
+        }
+
+
+
+        public ActionCommand SavePaddleCommand
+        {
+            get
+            {
+                return new ActionCommand(p => SavePaddle(),
+                    p => IsValidSelectedPaddle);
+
+            }
+        }
+
+        public ActionCommand DaletePaddleCommand
+        {
+            get
+            {
+                return new ActionCommand(p => DeletePaddle());
+            }
+        }
+
+        public bool IsValidSelectedPaddle
+        {
+            get
+            {
+                return SelectedPaddle == null ||
+                    (!String.IsNullOrWhiteSpace(SelectedPaddle.Number)) &&
+                    (Regex.IsMatch(SelectedPaddle.Number, _paddleBarcodePattern)) &&
+                    !context.CheckPaddleExist(SelectedPaddle.Number);
             }
         }
 
@@ -93,7 +167,7 @@ namespace MaintenanceDashboard.Client.ViewModels
 
         private void DeletePaddle()
         {
-            if(SelectedPaddle !=null)
+            if (SelectedPaddle != null)
             {
                 context.DeletePaddle(SelectedPaddle);
                 Paddles.Remove(SelectedPaddle);

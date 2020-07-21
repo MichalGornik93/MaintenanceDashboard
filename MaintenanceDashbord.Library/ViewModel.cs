@@ -13,28 +13,6 @@ namespace MaintenanceDashboard.Library
             get { return OnValidate(columnName); }
         }
 
-        #region
-        //public string this[string columnName]
-        //{
-        //    get
-        //    {
-        //        var message = String.Empty;
-
-        //        switch (columnName)
-        //        {
-        //            case "RegisterTool":
-        //                if (string.IsNullOrEmpty(RegisterTool))
-        //                    message = "Pole musi być wypełnione";
-        //                else if (RegisterTool.Length < 2)
-        //                    message = "Nazwa jest zbyt krótka";
-        //                else if (RegisterTool.Length > 12)
-        //                    message = "Nazwa jest zbyt długa";
-        //                break;
-        //        };
-        //        return message;
-        //    }
-        //}
-        #endregion
 
         public string Error
         {
@@ -53,8 +31,11 @@ namespace MaintenanceDashboard.Library
             var results = new Collection<ValidationResult>(); //ValidationResult- Represents the container for the results of the validation request
 
 
-            //TryValidateObject - Specifies whether the specified object is valid using a validation context, a collection of validation results, and a value that indicates whether all properties should be verified.
-            var isValid = Validator.TryValidateObject(this, context, results, true); //(Object to be verified, Context that describes the object to be verified, Collection to store every failed verification, true if the object will be checked; otherwise false)
+            //TryValidateObject - Specifies whether the specified object is valid using a validation context, 
+            //a collection of validation results, and a value that indicates whether all properties should be verified.
+            var isValid = Validator.TryValidateObject(this, context, results, true); 
+            //(Object to be verified, Context that describes the object to be verified, 
+            //Collection to store every failed verification, true if the object will be checked; otherwise false)
 
 
         

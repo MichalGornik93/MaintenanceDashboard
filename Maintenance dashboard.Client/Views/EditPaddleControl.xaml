@@ -74,8 +74,7 @@
 
                 <WrapPanel>
                     <materialDesign:PackIcon Kind="BarcodeScanner" VerticalAlignment="Center" Width="30" Height="30"/>
-                    <TextBox  materialDesign:HintAssist.Hint="Numer paletki" Width="250" 
-                              materialDesign:HintAssist.HelperText=""  
+                    <TextBox  materialDesign:HintAssist.Hint="Numer paletki" Width="250"
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"
                               Text="{Binding SelectedPaddle.Number, 
                               UpdateSourceTrigger=PropertyChanged, 
@@ -122,10 +121,10 @@
 
                 <Button  Height="25"  Width="100"  Background="#FF0069C0"  BorderBrush="#FF0069C0"  
                              Content="ZAPISZ"  Margin="10" Grid.Column="0" 
-                             Command="{Binding SaveRegisterToolCommand}"/>
+                             Command="{Binding SavePaddleCommand}"/>
                 <Button   Height="25"  Width="100"  Background="#FF0069C0"  BorderBrush="#FF0069C0"  
                               Content="USUŃ"  Margin="10" Grid.Column="1"
-                              Command="{Binding DeleteRegisterToolCommand}"/>
+                              Command="{Binding DaletePaddleCommand}"/>
 
             </Grid>
         </Grid>

@@ -30,7 +30,7 @@ namespace MaintenanceDashboard.Data.Api
         }
 
 
-        public void UpdatePaddle (Paddle paddle)
+        public void UpdatePaddle(Paddle paddle)
         {
             var entity = context.Paddles.Find(paddle.Id);
 
@@ -50,6 +50,16 @@ namespace MaintenanceDashboard.Data.Api
             context.SaveChanges();
         }
 
+
+        public bool CheckPaddleExist(string number)
+        {
+            var result = context.Paddles.FirstOrDefault(c => c.Number == number);
+            
+            if (result !=null) 
+                return true;
+            
+            return false; 
+        }
         public ICollection<Paddle> GetPaddleList()
         {
             return context.Paddles.OrderBy(p => p.Id).ToArray();

@@ -63,12 +63,13 @@ namespace MaintenanceDashboard.Client.ViewModels
         }
 
 
-        public bool IsValidEmployee //TODO:Refactoring
+        public bool IsValidEmployee 
         {
             get
             {
                 return SelectedEmployee == null ||
-                (!String.IsNullOrWhiteSpace(SelectedEmployee.FirstName) && !String.IsNullOrWhiteSpace(SelectedEmployee.LastName));
+                (!String.IsNullOrWhiteSpace(SelectedEmployee.FirstName) && 
+                !String.IsNullOrWhiteSpace(SelectedEmployee.LastName));
             }
         }
 

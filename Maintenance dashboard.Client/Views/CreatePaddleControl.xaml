@@ -4,11 +4,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
              d:DesignHeight="650" d:DesignWidth="1220"
              xmlns:viewModels="clr-namespace:MaintenanceDashboard.Client.ViewModels"
-             d:DataContext="{d:DesignInstance viewModels:PaddleViewModel}" >
+             d:DataContext="{d:DesignInstance viewModels:PaddleViewModel}">
     <Grid >
         <Grid>
             <Border CornerRadius="20" >
@@ -48,10 +47,11 @@
 
                     <WrapPanel>
                         <materialDesign:PackIcon Kind="BarcodeScanner" VerticalAlignment="Center" Width="30" Height="30"/>
-                        <TextBox DataContext="{Binding}" Width="400" materialDesign:HintAssist.Hint="Numer paletki" 
+                        <TextBox Width="400" materialDesign:HintAssist.Hint="Numer paletki" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"  
-                             materialDesign:HintAssist.HelperText="Pole musi być wypełnione"
+                             Background="White"
                              Text="{Binding Number, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Margin="10"/>
+
                     </WrapPanel>
 
                     <WrapPanel>
@@ -72,7 +72,7 @@
                         <materialDesign:PackIcon Kind="NoteTextOutline" VerticalAlignment="Center" Width="30" Height="30"/>
                         <TextBox  Width="400" materialDesign:HintAssist.Hint="Uwagi" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"  
-                             Text="{Binding Comments, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Margin="10"/>
+                             Text="{Binding Comments}" Margin="10"/>
 
                     </WrapPanel>
                     <Button  x:Name="btnAddPaddle" Height="25"  Background="#FF0069C0"  
