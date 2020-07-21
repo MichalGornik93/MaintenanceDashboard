@@ -7,7 +7,8 @@
              x:Class="MaintenanceDashboard.Client.Views.EditEmployeeControl"
              mc:Ignorable="d" 
               xmlns:viewModels="clr-namespace:MaintenanceDashboard.Client.ViewModels"
-             d:DataContext="{d:DesignInstance viewModels:EmployeeViewModel}">
+             d:DataContext="{d:DesignInstance viewModels:EmployeeViewModel}"
+             Width="750" Height="550" HorizontalAlignment="Left" VerticalAlignment="Top" >
 
     <Grid Width="730">
         <Border CornerRadius="20">

@@ -6,7 +6,8 @@
              mc:Ignorable="d" 
              xmlns:viewModels="clr-namespace:MaintenanceDashboard.Client.ViewModels" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             d:DataContext="{d:DesignInstance viewModels:RegisterToolViewModel}">
+             d:DataContext="{d:DesignInstance viewModels:RegisterToolViewModel}"
+             Width="750" Height="550" HorizontalAlignment="Left" VerticalAlignment="Top" >
     <Grid Width="730">
         <Border CornerRadius="20" >
             <Border.Background>

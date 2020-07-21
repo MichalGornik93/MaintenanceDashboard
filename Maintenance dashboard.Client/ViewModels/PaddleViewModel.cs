@@ -108,8 +108,7 @@ namespace MaintenanceDashboard.Client.ViewModels
         {
             get
             {
-                return new ActionCommand(p => SavePaddle(),
-                    p => IsValidSelectedPaddle);
+                return new ActionCommand(p => SavePaddle());
 
             }
         }
@@ -122,16 +121,6 @@ namespace MaintenanceDashboard.Client.ViewModels
             }
         }
 
-        public bool IsValidSelectedPaddle
-        {
-            get
-            {
-                return SelectedPaddle == null ||
-                    (!String.IsNullOrWhiteSpace(SelectedPaddle.Number)) &&
-                    (Regex.IsMatch(SelectedPaddle.Number, _paddleBarcodePattern)) &&
-                    !context.CheckPaddleExist(SelectedPaddle.Number);
-            }
-        }
 
         private void CreatePaddle(string paddleNumber, string model, string addedDate, string comments)
         {
