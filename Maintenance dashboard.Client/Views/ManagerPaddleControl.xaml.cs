@@ -44,16 +44,16 @@ namespace MaintenanceDashboard.Client.Views
             GridPrincipal.Children.Add(new EditPaddleControl());
         }
 
-        private void btnOpenAddPaddleAction_Checked(object sender, RoutedEventArgs e)
+        private void btnOpenAddPaddlePrevention_Checked(object sender, RoutedEventArgs e)
         {
             GridPrincipal.Children.Clear();
-            GridPrincipal.Children.Add(new BuiltFunctionControl());
+            GridPrincipal.Children.Add(new CreatePaddlePrevention());
         }
 
-        private void btnOpenEditPaddleAction_Checked(object sender, RoutedEventArgs e)
+        private void btnOpenEditPaddlePrevention_Checked(object sender, RoutedEventArgs e)
         {
             GridPrincipal.Children.Clear();
-            GridPrincipal.Children.Add(new BuiltFunctionControl());
+            GridPrincipal.Children.Add(new EditPaddlePrevention());
         }
     }
 }
