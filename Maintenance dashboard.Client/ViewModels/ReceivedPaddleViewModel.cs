@@ -5,11 +5,14 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace MaintenanceDashboard.Client.ViewModels
 {
     public class ReceivedPaddleViewModel:ViewModel
     {
+        private const string _paddleBarcodePattern = "Pal[0-9]{1,3}$";
+
         private readonly IReceivedPaddleContext context;
 
         public ICollection<ReceivedPaddle> ReceivedPaddles { get; private set; }
@@ -49,7 +52,7 @@ namespace MaintenanceDashboard.Client.ViewModels
             get { return _isOrder; }
             set { _isOrder = value; }
         }
-        public string PaddleNumber { get; set; }
+        public string Number { get; set; }
 
 
 
@@ -67,22 +70,42 @@ namespace MaintenanceDashboard.Client.ViewModels
         {
             get
             {
-                return new ActionCommand(p => CreateReceivedPaddle());
+                return new ActionCommand(p => CreateReceivedPaddle(EmployeeViewModel.SelectedEmployee.LastName, Number, AddedDate, "Test", RepairDate, Comments, IsOrder),
+                    p => IsValidReceivedPaddle());
             }
             //TODO: Implementation data validation
         }
 
-        private void CreateReceivedPaddle() //TODO: Implemented arguments
+        private bool IsValidReceivedPaddle()
+        {
+            if (OnValidate(Number) == null && EmployeeViewModel.SelectedEmployee !=null && RepairDate !=null && IsOrder !=null) 
+                return true;
+            return false;
+        }
+
+        protected override string OnValidate(string propertyName)
+        {
+            if (String.IsNullOrEmpty(Number))
+                return "Pole musi być wypełnione";
+            else if (!Regex.IsMatch(Number, _paddleBarcodePattern))
+                return "Niepoprawna składnia ciągu {Pal...}";
+            else if (context.CheckReceivedPaddleExist(Number))
+                return "Nie istnieje w bazie danych";
+            return base.OnValidate(propertyName);
+        }
+
+
+        private void CreateReceivedPaddle(string employee, string number, string addedDate, string preventiveAction, DateTime planedRepairDate, string comments, string isOrder) 
         {
             var receivedPaddle = new ReceivedPaddle
             {
-                Employee = EmployeeViewModel.SelectedEmployee.LastName,
-                PaddleNumber = PaddleNumber,
-                DateAdded = AddedDate,
-                PreventiveAction = "Test",
-                PlannedRepairTime = RepairDate.ToString("MM/dd/yyyy"),
-                Comments = Comments,
-                IsOrders = IsOrder.ToString()
+                Employee = employee,
+                Number = number,
+                DateAdded = addedDate,
+                PreventiveAction = preventiveAction,
+                PlannedRepairTime = planedRepairDate.ToString("MM/dd/yyyy"),
+                Comments = comments,
+                IsOrders = isOrder.ToString()
             };
 
             context.CreateReceivedPaddle(receivedPaddle);

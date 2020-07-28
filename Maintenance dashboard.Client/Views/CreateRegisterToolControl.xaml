@@ -37,9 +37,9 @@
                 <materialDesign:PackIcon Grid.Row="1" Kind="DatabaseAdd" VerticalAlignment="Center" Width="100" Height="100" HorizontalAlignment="Center"  Margin="5" Foreground="Gray"/>
             </Grid>
 
-            <Grid Margin="15,80,15, 15" Width="700" Height="400">
+            <Grid Margin="15,80,15, 15" Width="700" Height="420">
                 <TextBlock Text="DODAWANIE WYPOSAŻENIA" HorizontalAlignment="Center" VerticalAlignment="Top"  
-                           FontSize="18"  Foreground="Gray" Margin="18"/>
+                           FontSize="18"  Foreground="Gray" />
 
                 <StackPanel  HorizontalAlignment="Center"  VerticalAlignment="Center">
                     <WrapPanel>

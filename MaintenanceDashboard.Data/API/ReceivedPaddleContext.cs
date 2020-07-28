@@ -49,6 +49,16 @@ namespace MaintenanceDashboard.Data.Api
             context.SaveChanges();
         }
 
+        public bool CheckReceivedPaddleExist(string number)
+        {
+            var result = context.Paddles.FirstOrDefault(c => c.Number == number);
+
+            if (result == null)
+                return true;
+
+            return false;
+        }
+
         public ICollection<ReceivedPaddle> GetReceivedPaddleList()
         {
             return context.ReceivedPaddles.OrderBy(p => p.Id).ToArray();

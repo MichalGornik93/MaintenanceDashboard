@@ -5,6 +5,7 @@ namespace MaintenanceDashboard.Data.Api
 {
     public interface IReceivedPaddleContext
     {
+        bool CheckReceivedPaddleExist(string number);
         void CreateReceivedPaddle(ReceivedPaddle receivedPaddle);
         void DeleteReceivedPaddle(ReceivedPaddle receivedPaddle);
         ICollection<ReceivedPaddle> GetReceivedPaddleList();

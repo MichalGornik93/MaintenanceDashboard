@@ -101,6 +101,10 @@
     <Compile Include="Migrations\202007161253239_UpdatedPropertyNameToPaddleTable.designer.cs">
       <DependentUpon>202007161253239_UpdatedPropertyNameToPaddleTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202007280853589_UpdatedPropertyNameToReceivedPaddleTable.cs" />
+    <Compile Include="Migrations\202007280853589_UpdatedPropertyNameToReceivedPaddleTable.designer.cs">
+      <DependentUpon>202007280853589_UpdatedPropertyNameToReceivedPaddleTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -135,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202007161253239_UpdatedPropertyNameToPaddleTable.resx">
       <DependentUpon>202007161253239_UpdatedPropertyNameToPaddleTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007280853589_UpdatedPropertyNameToReceivedPaddleTable.resx">
+      <DependentUpon>202007280853589_UpdatedPropertyNameToReceivedPaddleTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
