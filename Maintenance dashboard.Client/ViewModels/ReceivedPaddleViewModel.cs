@@ -79,14 +79,14 @@ namespace MaintenanceDashboard.Client.ViewModels
         {
             get
             {
-                return new ActionCommand(p => CreateReceivedPaddle(EmployeeViewModel.SelectedEmployee.LastName, Number, AddedDate, ActivityPerformed, RepairDate, Comments, IsOrder),
+                return new ActionCommand(p => CreateReceivedPaddle(EmployeeViewModel.SelectedEmployee, Number, AddedDate, ActivityPerformed, RepairDate, Comments, IsOrder),
                     p => IsValidReceivedPaddle());
             }
         }
 
         private bool IsValidReceivedPaddle()
         {
-            if (OnValidate(Number) == null && EmployeeViewModel.SelectedEmployee !=null && RepairDate !=null && IsOrder !=null) 
+            if (OnValidate(Number) == null && EmployeeViewModel.SelectedEmployee != null && RepairDate != null && IsOrder != null && ActivityPerformed != null) 
                 return true;
             return false;
         }
@@ -103,12 +103,12 @@ namespace MaintenanceDashboard.Client.ViewModels
         }
 
 
-        private void CreateReceivedPaddle(string employee, string number, string addedDate, string activityPerformed, DateTime planedRepairDate, string comments, string isOrder) 
+        private void CreateReceivedPaddle(Employee employee, string number, string addedDate, string activityPerformed, DateTime planedRepairDate, string comments, string isOrder) 
         {
             var receivedPaddle = new ReceivedPaddle
             {
-                Employee = employee,
-                Number = number,
+                EmployeeId = employee.Id,
+                NumberId = context.CheckForeignKey(number), 
                 DateAdded = addedDate,
                 ActivityPerformed = activityPerformed,
                 PlannedRepairTime = planedRepairDate.ToString("MM/dd/yyyy"),
@@ -131,7 +131,6 @@ namespace MaintenanceDashboard.Client.ViewModels
 
         private void SaveReceivedPaddle()
         {
-
         }
 
         private void DeleteReceivedPaddle()

@@ -109,6 +109,14 @@
     <Compile Include="Migrations\202007290507493_ChangedActivityPerformedPropertyNameToReceivedPaddleTable.designer.cs">
       <DependentUpon>202007290507493_ChangedActivityPerformedPropertyNameToReceivedPaddleTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202007291244384_AddedEmployeeForeignKeyToReceivedPaddleTable.cs" />
+    <Compile Include="Migrations\202007291244384_AddedEmployeeForeignKeyToReceivedPaddleTable.designer.cs">
+      <DependentUpon>202007291244384_AddedEmployeeForeignKeyToReceivedPaddleTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007291253557_AddedPaddleForeignKeyToReceivedPaddleTable.cs" />
+    <Compile Include="Migrations\202007291253557_AddedPaddleForeignKeyToReceivedPaddleTable.designer.cs">
+      <DependentUpon>202007291253557_AddedPaddleForeignKeyToReceivedPaddleTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -149,6 +157,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202007290507493_ChangedActivityPerformedPropertyNameToReceivedPaddleTable.resx">
       <DependentUpon>202007290507493_ChangedActivityPerformedPropertyNameToReceivedPaddleTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007291244384_AddedEmployeeForeignKeyToReceivedPaddleTable.resx">
+      <DependentUpon>202007291244384_AddedEmployeeForeignKeyToReceivedPaddleTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007291253557_AddedPaddleForeignKeyToReceivedPaddleTable.resx">
+      <DependentUpon>202007291253557_AddedPaddleForeignKeyToReceivedPaddleTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

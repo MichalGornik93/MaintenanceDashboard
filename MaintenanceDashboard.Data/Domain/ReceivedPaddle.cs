@@ -1,5 +1,5 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MaintenanceDashboard.Data.Domain
 {
@@ -7,9 +7,11 @@ namespace MaintenanceDashboard.Data.Domain
     {
         public int Id { get; set; }
         [Required]
-        public string Employee { get; set; }
+        [ForeignKey("Employee")]
+        public int EmployeeId { get; set; }
         [Required]
-        public string Number { get; set; }
+        [ForeignKey("Paddle")]
+        public int NumberId { get; set; }
         [Required]
         public string DateAdded { get; set; }
         [Required]
@@ -19,5 +21,8 @@ namespace MaintenanceDashboard.Data.Domain
         public string Comments { get; set; }
         [Required]
         public string IsOrders { get; set; }
+        public virtual Employee Employee { get; set; }
+        public virtual Paddle Paddle { get; set; }
+
     }
 }

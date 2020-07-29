@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace MaintenanceDashboard.Data.Domain
 {
@@ -10,5 +11,6 @@ namespace MaintenanceDashboard.Data.Domain
         [Required]
         public string LastName { get; set; }
         public string UidCode { get; set; }
+        public virtual ICollection<ReceivedPaddle> ReceivedPaddles { get; set; }
     }
 }

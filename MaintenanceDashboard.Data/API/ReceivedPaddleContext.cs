@@ -24,9 +24,13 @@ namespace MaintenanceDashboard.Data.Api
         public void CreateReceivedPaddle(ReceivedPaddle receivedPaddle)
         {
             //TODO: Implementation Data Validation
-
             context.ReceivedPaddles.Add(receivedPaddle);
             context.SaveChanges();
+        }
+
+        public int CheckForeignKey(string numer)
+        {
+            return context.Paddles.FirstOrDefault(c => c.Number == numer).Id;
         }
 
         public void UpdateReceivedPaddle(ReceivedPaddle receivedPaddle)
@@ -39,7 +43,6 @@ namespace MaintenanceDashboard.Data.Api
             }
 
             context.Entry(entity).CurrentValues.SetValues(receivedPaddle);
-
             context.SaveChanges();
         }
 
