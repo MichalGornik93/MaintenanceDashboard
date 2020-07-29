@@ -16,6 +16,7 @@ namespace MaintenanceDashboard.Client.Views
         private void btnAddPaddle_Click(object sender, RoutedEventArgs e)
         {
             gridInfoAddToDataBase.Visibility = Visibility.Visible;
+            gridPrincipal.Visibility = Visibility.Collapsed;
         }
     }
 }

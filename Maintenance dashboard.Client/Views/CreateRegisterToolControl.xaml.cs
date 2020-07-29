@@ -18,6 +18,7 @@ namespace MaintenanceDashboard.Client.Views
         private void btnAddRegisterTool_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             gridInfoAddToDataBase.Visibility = Visibility.Visible;
+            gridPrincipal.Visibility = Visibility.Collapsed;
         }
     }
 }

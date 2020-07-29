@@ -13,7 +13,7 @@ namespace MaintenanceDashboard.Data.Domain
         [Required]
         public string DateAdded { get; set; }
         [Required]
-        public string PreventiveAction { get; set; }
+        public string ActivityPerformed { get; set; }
         [Required]
         public string PlannedRepairTime { get; set; }
         public string Comments { get; set; }

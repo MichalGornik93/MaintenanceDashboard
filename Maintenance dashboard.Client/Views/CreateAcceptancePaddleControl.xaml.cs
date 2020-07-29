@@ -1,6 +1,7 @@
 ﻿using MaintenanceDashboard.Client.ViewModels;
 using MaintenanceDashboard.Data.Api;
 using System.Windows.Controls;
+using System.Windows;
 
 namespace MaintenanceDashboard.Client.Views
 {
@@ -12,10 +13,14 @@ namespace MaintenanceDashboard.Client.Views
         {
             _managerPaddleViewModel = new ReceivedPaddleViewModel(new ReceivedPaddleContext());
             this.DataContext = _managerPaddleViewModel;
-            _managerPaddleViewModel.GetReceivedPaddleList();
             _managerPaddleViewModel.EmployeeViewModel.GetEmployeeList();
-            _managerPaddleViewModel.PaddleViewModel.GetPaddleList();
             InitializeComponent();
+        }
+
+        private void btnGetPaddle_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            gridInfoAddToDataBase.Visibility = Visibility.Visible;
+            gridPrincipal.Visibility = Visibility.Collapsed;
         }
     }
 }

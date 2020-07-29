@@ -89,7 +89,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ViewModels\PaddlePreventionViewModel.cs" />
     <Compile Include="ViewModels\ReceivedPaddleViewModel.cs" />
     <Compile Include="ViewModels\EmployeeViewModel.cs" />
     <Compile Include="ViewModels\RegisterToolViewModel.cs" />
@@ -99,9 +98,6 @@
     </Compile>
     <Compile Include="Views\CreatePaddleControl.xaml.cs">
       <DependentUpon>CreatePaddleControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\CreatePaddlePrevention.xaml.cs">
-      <DependentUpon>CreatePaddlePrevention.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CreateRegisterToolControl.xaml.cs">
       <DependentUpon>CreateRegisterToolControl.xaml</DependentUpon>
@@ -117,9 +113,6 @@
     </Compile>
     <Compile Include="Views\EditPaddleControl.xaml.cs">
       <DependentUpon>EditPaddleControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\EditPaddlePrevention.xaml.cs">
-      <DependentUpon>EditPaddlePrevention.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ManagerEmployeeControl.xaml.cs">
       <DependentUpon>ManagerEmployeeControl.xaml</DependentUpon>
@@ -144,10 +137,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\CreatePaddlePrevention.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\CreateRegisterToolControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -165,10 +154,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\EditPaddleControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\EditPaddlePrevention.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

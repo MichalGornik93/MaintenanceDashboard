@@ -109,9 +109,6 @@ namespace MaintenanceDashboard.Client.ViewModels
             context.CreatePaddle(paddle);
 
             Paddles.Add(paddle);
-
-            Number = string.Empty;
-            Comments = string.Empty;
         }
 
         public void GetPaddleList()

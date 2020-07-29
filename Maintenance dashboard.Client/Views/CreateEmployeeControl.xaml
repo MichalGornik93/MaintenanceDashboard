@@ -36,7 +36,7 @@
             <materialDesign:PackIcon Grid.Row="1" Kind="DatabaseAdd" VerticalAlignment="Center" Width="100" Height="100" HorizontalAlignment="Center"  Margin="5" Foreground="Gray"/>
         </Grid>
 
-        <Grid Margin="15,85,15, 15" Width="700" Height="410">
+        <Grid x:Name="gridPrincipal" Margin="15,85,15, 15" Width="700" Height="410">
             <TextBlock Text="DODAWANIE PRACOWNIKÓW" HorizontalAlignment="Center" VerticalAlignment="Top"  
                            FontSize="18"  Foreground="Gray" />
 

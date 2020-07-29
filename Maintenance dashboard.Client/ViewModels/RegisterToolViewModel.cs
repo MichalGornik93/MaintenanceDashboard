@@ -83,9 +83,6 @@ namespace MaintenanceDashboard.Client.ViewModels
             };
 
             context.CreateRegisterTool(registerTool);
-
-            ToolName = string.Empty;
-            UidCode = string.Empty;
         }
 
         public void GetRegisterToolList()

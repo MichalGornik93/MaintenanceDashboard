@@ -13,5 +13,6 @@ namespace MaintenanceDashboard.Data.Domain
         [Required]
         public string AddedDate { get; set; }
         public string Comments { get; set; }
+        //TODO: Add LastPrevention
     }
 }

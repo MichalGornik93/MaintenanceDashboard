@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="650" d:DesignWidth="1200"
+             Width="920" Height="750"
              xmlns:viewModels="clr-namespace:MaintenanceDashboard.Client.ViewModels"
              d:DataContext="{d:DesignInstance viewModels:ReceivedPaddleViewModel}" >
     <Grid>
@@ -29,14 +29,14 @@
             </Rectangle.Effect>
         </Rectangle>
 
-        <!--<Grid  Margin="15,15,15, 15"  x:Name="gridInfoAddToDataBase" Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid  Margin="15,15,15, 15"  x:Name="gridInfoAddToDataBase" Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Text="Dodano do bazy danych" Foreground="Gray" Margin="10" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             <materialDesign:PackIcon Grid.Row="1" Kind="DatabaseAdd" VerticalAlignment="Center" Width="100" Height="100" HorizontalAlignment="Center"  Margin="5" Foreground="Gray"/>
-        </Grid>-->
+        </Grid>
 
 
 
@@ -44,7 +44,7 @@
             <TextBlock Text="PRZYJĘCIE PALETKI" HorizontalAlignment="Center" VerticalAlignment="Top"  
                            FontSize="18"  Foreground="Gray" Margin="18"/>
 
-            <Grid HorizontalAlignment="Center"  VerticalAlignment="Center" >
+            <Grid x:Name="gridPrincipal" HorizontalAlignment="Center"  VerticalAlignment="Center" >
 
                 <Grid.RowDefinitions>
                     <RowDefinition/>
@@ -99,8 +99,11 @@
                 <WrapPanel Grid.Column="0" Grid.Row="3">
                     <materialDesign:PackIcon Kind="LightningBoltOutline" VerticalAlignment="Center" Width="30" Height="30"/>
                     <ComboBox materialDesign:HintAssist.Hint="Akcja" MinWidth="72" Grid.Column="0" Grid.Row="3" 
-                          Margin="10" Width="180" HorizontalAlignment="Left"
+                          Margin="10" Width="180" HorizontalAlignment="Left" SelectedValue="{Binding ActivityPerformed}" SelectedValuePath="Content"
                               materialDesign:HintAssist.HelperText="Wykonywane czynnosci">
+                        <ComboBoxItem>Prewencja</ComboBoxItem>
+                        <ComboBoxItem>Awaria</ComboBoxItem>
+                        <ComboBoxItem>Czynność planowana</ComboBoxItem>
                     </ComboBox>
                 </WrapPanel>
 
@@ -126,7 +129,7 @@
                 </WrapPanel>
 
                 <Button  x:Name="btnGetPaddle" Height="25"  Background="#FF0069C0" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2"
-                             BorderBrush="#FF0069C0"  Width="110" Content="POTWIERDŹ" Margin="10" Command="{Binding CreateReceivedPaddleCommand}"/>
+                             BorderBrush="#FF0069C0"  Width="110" Content="POTWIERDŹ" Margin="10" Command="{Binding CreateReceivedPaddleCommand}" Click="btnGetPaddle_Click"/>
 
             </Grid>
         </Grid>

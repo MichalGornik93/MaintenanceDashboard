@@ -52,6 +52,15 @@ namespace MaintenanceDashboard.Client.ViewModels
             get { return _isOrder; }
             set { _isOrder = value; }
         }
+
+        private string _activityPerformed;
+
+        public string ActivityPerformed
+        {
+            get { return _activityPerformed; }
+            set { _activityPerformed = value; }
+        }
+
         public string Number { get; set; }
 
 
@@ -70,10 +79,9 @@ namespace MaintenanceDashboard.Client.ViewModels
         {
             get
             {
-                return new ActionCommand(p => CreateReceivedPaddle(EmployeeViewModel.SelectedEmployee.LastName, Number, AddedDate, "Test", RepairDate, Comments, IsOrder),
+                return new ActionCommand(p => CreateReceivedPaddle(EmployeeViewModel.SelectedEmployee.LastName, Number, AddedDate, ActivityPerformed, RepairDate, Comments, IsOrder),
                     p => IsValidReceivedPaddle());
             }
-            //TODO: Implementation data validation
         }
 
         private bool IsValidReceivedPaddle()
@@ -95,23 +103,21 @@ namespace MaintenanceDashboard.Client.ViewModels
         }
 
 
-        private void CreateReceivedPaddle(string employee, string number, string addedDate, string preventiveAction, DateTime planedRepairDate, string comments, string isOrder) 
+        private void CreateReceivedPaddle(string employee, string number, string addedDate, string activityPerformed, DateTime planedRepairDate, string comments, string isOrder) 
         {
             var receivedPaddle = new ReceivedPaddle
             {
                 Employee = employee,
                 Number = number,
                 DateAdded = addedDate,
-                PreventiveAction = preventiveAction,
+                ActivityPerformed = activityPerformed,
                 PlannedRepairTime = planedRepairDate.ToString("MM/dd/yyyy"),
                 Comments = comments,
                 IsOrders = isOrder.ToString()
             };
 
             context.CreateReceivedPaddle(receivedPaddle);
-            ReceivedPaddles.Add(receivedPaddle);
 
-            //TODO: Implements clean textbox
         }
 
         public void GetReceivedPaddleList()

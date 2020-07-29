@@ -6,7 +6,7 @@
              mc:Ignorable="d" 
              xmlns:viewModels="clr-namespace:MaintenanceDashboard.Client.ViewModels" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              d:DataContext="{d:DesignInstance viewModels:PaddleViewModel}">
-    <Grid Width="1020" Height="750">
+    <Grid Width="920" Height="750">
         <Border CornerRadius="20" >
             <Border.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">

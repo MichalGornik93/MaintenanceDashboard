@@ -83,10 +83,6 @@ namespace MaintenanceDashboard.Client.ViewModels
             };
 
             context.CreateEmployee(employee);
-
-            FirstName = string.Empty;
-            LastName = string.Empty;
-            UidCode = string.Empty;
         }
 
         public void GetEmployeeList()

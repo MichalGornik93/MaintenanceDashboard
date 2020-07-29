@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="650" d:DesignWidth="1220"
+             Width="920" Height="750"
              xmlns:viewModels="clr-namespace:MaintenanceDashboard.Client.ViewModels"
              d:DataContext="{d:DesignInstance viewModels:PaddleViewModel}">
     <Grid >
@@ -37,7 +37,7 @@
                 <materialDesign:PackIcon Grid.Row="1" Kind="DatabaseAdd" VerticalAlignment="Center" Width="100" Height="100" HorizontalAlignment="Center"  Margin="5" Foreground="Gray"/>
             </Grid>
 
-            <Grid Margin="15,80,15, 15" >
+            <Grid x:Name="gridPrincipal" Margin="15,80,15, 15" >
                 <TextBlock Text="DODANIE NOWYCH PALETEK" HorizontalAlignment="Center" VerticalAlignment="Top"  
                            FontSize="18"  Foreground="Gray" Margin="18"/>
 

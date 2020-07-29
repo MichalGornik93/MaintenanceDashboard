@@ -20,11 +20,9 @@
             <RadioButton x:Name="btnOpenPutPaddle" Style="{StaticResource MaterialDesignTabRadioButton}"  Content="WYDANIE PALETKI" Checked="btnOpenReleasePaddle_Checked" FontSize="12"/>
             <RadioButton x:Name="btnOpenAddPaddle" Style="{StaticResource MaterialDesignTabRadioButton}" Content="DODANIE NOWYCH PALETEK" Checked="btnOpenAddPaddle_Checked" FontSize="12"/>
             <RadioButton x:Name="btnOpenEditPaddle" Style="{StaticResource MaterialDesignTabRadioButton}" Content="EDYCJA ISTNIEJĄCYCH PALETEK" Checked="btnOpenEditPaddle_Checked" FontSize="12"/>
-            <RadioButton x:Name="btnOpenAddPaddlePrevention" Style="{StaticResource MaterialDesignTabRadioButton}" Content="DODANIE NOWYCH PREWENCJI" Checked="btnOpenAddPaddlePrevention_Checked" FontSize="12"/>
-            <RadioButton x:Name="btnOpenEditPaddlePrevention" Style="{StaticResource MaterialDesignTabRadioButton}" Content="EDYCJA PREWENCJI" Checked="btnOpenEditPaddlePrevention_Checked" FontSize="12"/>
+            <RadioButton x:Name="btnOpenPerformedActivitiesList" Style="{StaticResource MaterialDesignTabRadioButton}" Content="PRZEGLĄD WYKONANYCH CZYNNOSCI" Checked="btnOpenPerformedActivitiesList_Checked" FontSize="12"/>
         </StackPanel>
 
-        <Grid x:Name="GridPrincipal" Grid.Row="1" Width="1020" Height="750" HorizontalAlignment="Center"/>
-
+        <Grid x:Name="GridPrincipal" Grid.Row="1" Width="920" Height="750" HorizontalAlignment="Center"/>
     </Grid>
 </UserControl>

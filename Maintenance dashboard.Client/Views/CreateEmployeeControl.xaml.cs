@@ -17,6 +17,7 @@ namespace MaintenanceDashboard.Client.Views
         private void btnAddEmployee_Click(object sender, RoutedEventArgs e)
         {
             gridInfoAddToDataBase.Visibility = Visibility.Visible;
+            gridPrincipal.Visibility = Visibility.Collapsed;
         }
     }
 }
