@@ -1,0 +1,142 @@
+﻿<UserControl x:Class="MaintenanceDashboard.Client.Views.SpendPaddle"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" Width="920" Height="750">
+    <Grid>
+        <Border CornerRadius="20" >
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF2281D1"/>
+                    <GradientStop Color="#FF34288B" Offset="1"/>
+                    <GradientStop Color="#FF33288B" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+
+
+
+        <Rectangle Fill="White" Margin="15,85,15, 15" RadiusX="15" RadiusY="15" 
+                       RenderTransformOrigin="0.5,0.5">
+            <Rectangle.Effect>
+                <DropShadowEffect BlurRadius="10" RenderingBias="Quality" Direction="0" Color="#FFBBBBBB" 
+                                      ShadowDepth="1"/>
+            </Rectangle.Effect>
+        </Rectangle>
+
+        <!--<Grid  Margin="15,15,15, 15"  x:Name="gridInfoAddToDataBase" Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="Dodano do bazy danych" Foreground="Gray" Margin="10" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <materialDesign:PackIcon Grid.Row="1" Kind="DatabaseAdd" VerticalAlignment="Center" Width="100" Height="100" HorizontalAlignment="Center"  Margin="5" Foreground="Gray"/>
+        </Grid>-->
+
+
+
+        <Grid Margin="15,80,15, 15" Width="Auto" Height="Auto">
+            <TextBlock Text="WYDANIE PALETKI" HorizontalAlignment="Center" VerticalAlignment="Top"  
+                           FontSize="18"  Foreground="Gray" Margin="18"/>
+
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="800" Height="520">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <WrapPanel Grid.Column="0" Grid.Row="0">
+                    <materialDesign:PackIcon Kind="User" VerticalAlignment="Center" Width="30" Height="30"/>
+                    <ComboBox Width="220"  DataContext="{Binding EmployeeViewModel}" materialDesign:HintAssist.Hint="Pracownicy" 
+                           Margin="10" SelectedItem="{Binding SelectedEmployee}" ItemsSource="{Binding Path=Employees}" 
+                              materialDesign:HintAssist.HelperText="Pole musi być wypełnione">
+                        <ComboBox.ItemTemplate >
+                            <DataTemplate>
+                                <TextBlock>
+                                    <TextBlock.Text>
+                                        <MultiBinding StringFormat="{}{0} {1}">
+                                            <Binding Path="FirstName"/>
+                                            <Binding Path="LastName"/>
+                                        </MultiBinding>
+                                    </TextBlock.Text>
+                                </TextBlock>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </WrapPanel>
+
+                <WrapPanel Grid.Row="1" Grid.Column="0">
+                    <materialDesign:PackIcon Kind="BarcodeScanner" VerticalAlignment="Center" Width="30" Height="30"/>
+                    <TextBox  Width="220" materialDesign:HintAssist.Hint="Numer paletki" 
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"  
+                               Margin="10" IsEnabled="False"/>
+                </WrapPanel>
+
+                <WrapPanel Grid.Row="2" Grid.Column="0">
+                    <materialDesign:PackIcon Kind="CalendarAdd" VerticalAlignment="Center" Width="30" Height="30"/>
+                    <TextBox  Width="220" materialDesign:HintAssist.Hint="Data dodania" IsEnabled="False"
+                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="10"
+                              />
+                </WrapPanel>
+
+
+                <WrapPanel Grid.Column="0" Grid.Row="3">
+                    <materialDesign:PackIcon Kind="LightningBoltOutline" VerticalAlignment="Center" Width="30" Height="30"/>
+                    <TextBox  Width="220" materialDesign:HintAssist.Hint="Akcja" IsEnabled="False"
+                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="10"
+                               materialDesign:HintAssist.HelperText="Wykonywane czynnosci"/>
+                </WrapPanel>
+
+                <WrapPanel Grid.Row="4" Grid.Column="0">
+                    <materialDesign:PackIcon Kind="NotebookOutline" VerticalAlignment="Center" Width="30" Height="30"/>
+                    <TextBox  Width="220" materialDesign:HintAssist.Hint="Opis interwencji" 
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"/>
+                </WrapPanel>
+
+
+                <DatePicker materialDesign:HintAssist.Hint="Data naprawy"   Margin="10" Style="{StaticResource MaterialDesignOutlinedDatePicker}" 
+                            Grid.Row="5" Grid.Column="0" HorizontalAlignment="Left" Width="240"  />
+
+                <WrapPanel Grid.Column="0" Grid.Row="6">
+                    <materialDesign:PackIcon Kind="ShoppingCartMinus" VerticalAlignment="Center" Width="30" Height="30"/>
+                    <TextBox  Width="220" materialDesign:HintAssist.Hint="Zamówienie" IsEnabled="False"
+                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="10"/>
+                </WrapPanel>
+
+                <WrapPanel Grid.Row="7" Grid.Column="0">
+                    <materialDesign:PackIcon Kind="NoteTextOutline" VerticalAlignment="Center" Width="30" Height="30"/>
+                    <TextBox  Width="220" materialDesign:HintAssist.Hint="Uwagi" 
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"
+                              />
+                </WrapPanel>
+
+                <DataGrid ItemsSource="{Binding }"  Margin="10" Height="Auto" Width="Auto" Grid.Column="1" Grid.Row="0" Grid.RowSpan="8" Background="White" AutoGenerateColumns="False" IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Numer paletki" Binding="{Binding }"/>
+                        <DataGridTextColumn Header="Data dodania" Binding="{Binding }"/>
+                        <DataGridTextColumn Header="Data planowanej naprawy" Binding="{Binding }"/>
+                        <DataGridTextColumn Header="Pracownik" Binding="{Binding }"/>
+                        <DataGridTextColumn Header="Akcja" Binding="{Binding }"/>
+                        <DataGridTextColumn Header="Zamówienie" Binding="{Binding }"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <Button Height="25"  Background="#FF0069C0" Grid.Row="8" Grid.Column="0"
+                             BorderBrush="#FF0069C0"  Width="110" Content="WYDAJ" Margin="10" Command="{Binding }"/>
+            </Grid>
+        </Grid>
+
+    </Grid>
+</UserControl>

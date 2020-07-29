@@ -6,10 +6,10 @@ using System.Windows;
 namespace MaintenanceDashboard.Client.Views
 {
 
-    public partial class CreateAcceptancePaddle : UserControl
+    public partial class AcceptancePaddleControl : UserControl
     {
         private ReceivedPaddleViewModel _managerPaddleViewModel;
-        public CreateAcceptancePaddle()
+        public AcceptancePaddleControl()
         {
             _managerPaddleViewModel = new ReceivedPaddleViewModel(new ReceivedPaddleContext());
             this.DataContext = _managerPaddleViewModel;

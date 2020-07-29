@@ -3,10 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             mc:Ignorable="d" 
+             mc:Ignorable="d" Width="920" Height="750"
              xmlns:viewModels="clr-namespace:MaintenanceDashboard.Client.ViewModels" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              d:DataContext="{d:DesignInstance viewModels:PaddleViewModel}">
-    <Grid Width="920" Height="750">
+    <Grid >
         <Border CornerRadius="20" >
             <Border.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -17,8 +17,6 @@
             </Border.Background>
         </Border>
 
-
-
         <Rectangle Fill="White" Margin="15,85,15, 15" RadiusX="15" RadiusY="15" 
                        RenderTransformOrigin="0.5,0.5">
             <Rectangle.Effect>
@@ -26,8 +24,6 @@
                                       ShadowDepth="1"/>
             </Rectangle.Effect>
         </Rectangle>
-
-
 
         <Grid  Margin="15,80,15, 15" HorizontalAlignment="Center" >
 
@@ -55,10 +51,6 @@
                     <DataGridTextColumn Header="Uwagi" Binding="{Binding Comments}"/>
                 </DataGrid.Columns>
             </DataGrid>
-
-
-
-
 
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5" Grid.Column="0" Grid.Row="1">
 

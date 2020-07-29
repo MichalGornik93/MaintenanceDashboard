@@ -19,14 +19,14 @@ namespace MaintenanceDashboard.Client.Views
             if (GridPrincipal != null)
             {
                 GridPrincipal.Children.Clear();
-                GridPrincipal.Children.Add(new CreateAcceptancePaddle());
+                GridPrincipal.Children.Add(new AcceptancePaddleControl());
             }
         }
 
         private void btnOpenReleasePaddle_Checked(object sender, RoutedEventArgs e)
         {
             GridPrincipal.Children.Clear();
-            GridPrincipal.Children.Add(new BuiltFunctionControl());
+            GridPrincipal.Children.Add(new SpendPaddle());
         }
 
         private void btnOpenAddPaddle_Checked(object sender, RoutedEventArgs e)
