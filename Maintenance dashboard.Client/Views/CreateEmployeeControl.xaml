@@ -43,7 +43,7 @@
             <StackPanel  HorizontalAlignment="Center" Margin="25" VerticalAlignment="Center">
                 <WrapPanel>
                     <materialDesign:PackIcon Kind="User" VerticalAlignment="Center" Width="30" Height="30"/>
-                    <TextBox  Width="300" materialDesign:HintAssist.Hint="Imie" 
+                    <TextBox  Width="220" materialDesign:HintAssist.Hint="Imie" 
                           materialDesign:HintAssist.HelperText="Pole musi być wypełnione"
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"  
                              Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Margin="10"/>
@@ -51,7 +51,7 @@
 
                 <WrapPanel>
                     <materialDesign:PackIcon Kind="User" VerticalAlignment="Center" Width="30" Height="30"/>
-                    <TextBox  Width="300" materialDesign:HintAssist.Hint="Nazwisko" 
+                    <TextBox  Width="220" materialDesign:HintAssist.Hint="Nazwisko" 
                           materialDesign:HintAssist.HelperText="Pole musi być wypełnione"
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"  
                              Text="{Binding LastName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Margin="10"/>
@@ -59,7 +59,7 @@
 
                 <WrapPanel>
                     <materialDesign:PackIcon Kind="Code" VerticalAlignment="Center" Width="30" Height="30"/>
-                    <TextBox  materialDesign:HintAssist.Hint="Kod UID" Width="300" 
+                    <TextBox  materialDesign:HintAssist.Hint="Kod UID" Width="220" 
                               materialDesign:HintAssist.HelperText="" 
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"
                               Text="{Binding UidCode, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />

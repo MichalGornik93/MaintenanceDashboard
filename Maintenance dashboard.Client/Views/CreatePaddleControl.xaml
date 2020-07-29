@@ -45,7 +45,7 @@
 
                     <WrapPanel>
                         <materialDesign:PackIcon Kind="BarcodeScanner" VerticalAlignment="Center" Width="30" Height="30"/>
-                        <TextBox Width="400" materialDesign:HintAssist.Hint="Numer paletki" 
+                    <TextBox Width="220" materialDesign:HintAssist.Hint="Numer paletki" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"  
                              Background="White"
                              Text="{Binding Number, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Margin="10"/>
@@ -54,21 +54,21 @@
 
                     <WrapPanel>
                         <materialDesign:PackIcon Kind="Car" VerticalAlignment="Center" Width="30" Height="30"/>
-                        <TextBox  materialDesign:HintAssist.Hint="Model" Width="400" IsEnabled="False" 
+                    <TextBox  materialDesign:HintAssist.Hint="Model" Width="220" IsEnabled="False" 
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"
                                Text="{Binding Model}"/>
                     </WrapPanel>
 
                     <WrapPanel>
                         <materialDesign:PackIcon Kind="CalendarAdd" VerticalAlignment="Center" Width="30" Height="30"/>
-                        <TextBox  Width="400" materialDesign:HintAssist.Hint="Data dodania" IsEnabled="False"
+                    <TextBox  Width="220" materialDesign:HintAssist.Hint="Data dodania" IsEnabled="False"
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding AddedDate}"
                               Margin="10"/>
                     </WrapPanel>
 
                     <WrapPanel>
                         <materialDesign:PackIcon Kind="NoteTextOutline" VerticalAlignment="Center" Width="30" Height="30"/>
-                        <TextBox  Width="400" materialDesign:HintAssist.Hint="Uwagi" 
+                    <TextBox  Width="220" materialDesign:HintAssist.Hint="Uwagi" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"  
                              Text="{Binding Comments}" Margin="10"/>
 

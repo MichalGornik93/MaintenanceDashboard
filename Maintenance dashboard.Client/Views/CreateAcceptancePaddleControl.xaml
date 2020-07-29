@@ -60,7 +60,7 @@
 
                 <WrapPanel Grid.Column="0" Grid.Row="0">
                     <materialDesign:PackIcon Kind="User" VerticalAlignment="Center" Width="30" Height="30"/>
-                    <ComboBox Width="180"  DataContext="{Binding EmployeeViewModel}" materialDesign:HintAssist.Hint="Pracownicy" 
+                    <ComboBox Width="220"  DataContext="{Binding EmployeeViewModel}" materialDesign:HintAssist.Hint="Pracownicy" 
                            Margin="10" SelectedItem="{Binding SelectedEmployee}" ItemsSource="{Binding Path=Employees}" 
                               materialDesign:HintAssist.HelperText="Pole musi być wypełnione">
                         <ComboBox.ItemTemplate >
@@ -80,7 +80,7 @@
 
                 <WrapPanel Grid.Row="1" Grid.Column="0">
                     <materialDesign:PackIcon Kind="BarcodeScanner" VerticalAlignment="Center" Width="30" Height="30"/>
-                    <TextBox  Width="180" materialDesign:HintAssist.Hint="Numer paletki" 
+                    <TextBox  Width="220" materialDesign:HintAssist.Hint="Numer paletki" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"  
                              materialDesign:HintAssist.HelperText="Pole musi być wypełnione"
                               Text="{Binding Number, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
@@ -90,7 +90,7 @@
 
                 <WrapPanel Grid.Row="2" Grid.Column="0">
                     <materialDesign:PackIcon Kind="CalendarAdd" VerticalAlignment="Center" Width="30" Height="30"/>
-                    <TextBox  Width="180" materialDesign:HintAssist.Hint="Data dodania" IsEnabled="False"
+                    <TextBox  Width="220" materialDesign:HintAssist.Hint="Data dodania" IsEnabled="False"
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding AddedDate}"
                               Margin="10"/>
                 </WrapPanel>
@@ -99,7 +99,7 @@
                 <WrapPanel Grid.Column="0" Grid.Row="3">
                     <materialDesign:PackIcon Kind="LightningBoltOutline" VerticalAlignment="Center" Width="30" Height="30"/>
                     <ComboBox materialDesign:HintAssist.Hint="Akcja" MinWidth="72" Grid.Column="0" Grid.Row="3" 
-                          Margin="10" Width="180" HorizontalAlignment="Left" SelectedValue="{Binding ActivityPerformed}" SelectedValuePath="Content"
+                          Margin="10" Width="220" HorizontalAlignment="Left" SelectedValue="{Binding ActivityPerformed}" SelectedValuePath="Content"
                               materialDesign:HintAssist.HelperText="Wykonywane czynnosci">
                         <ComboBoxItem>Prewencja</ComboBoxItem>
                         <ComboBoxItem>Awaria</ComboBoxItem>
@@ -109,11 +109,11 @@
 
 
                 <DatePicker materialDesign:HintAssist.Hint="Data planowanej naprawy"   Margin="10" Style="{StaticResource MaterialDesignOutlinedDatePicker}" 
-                            Grid.Row="4" Grid.Column="0"  Width="200" SelectedDate="{Binding RepairDate}" HorizontalAlignment="Center" />
+                            Grid.Row="4" Grid.Column="0"  Width="240" SelectedDate="{Binding RepairDate}" HorizontalAlignment="Center" />
 
                 <WrapPanel Grid.Column="0" Grid.Row="5">
                     <materialDesign:PackIcon Kind="ShoppingCartMinus" VerticalAlignment="Center" Width="30" Height="30"/>
-                    <ComboBox materialDesign:HintAssist.Hint="Zamówienie" MinWidth="180" Grid.Column="1" Grid.Row="5" 
+                    <ComboBox materialDesign:HintAssist.Hint="Zamówienie" MinWidth="200" Grid.Column="1" Grid.Row="5" 
                           Margin="10" SelectedValue="{Binding IsOrder}" SelectedValuePath="Content"
                                materialDesign:HintAssist.HelperText="Pole musi być wypełnione">
                         <ComboBoxItem>Tak</ComboBoxItem>
@@ -123,7 +123,7 @@
 
                 <WrapPanel Grid.Row="6" Grid.Column="0">
                     <materialDesign:PackIcon Kind="NoteTextOutline" VerticalAlignment="Center" Width="30" Height="30"/>
-                    <TextBox  Width="180" materialDesign:HintAssist.Hint="Uwagi" 
+                    <TextBox  Width="220" materialDesign:HintAssist.Hint="Uwagi" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"
                               Text="{Binding Comments}"/>
                 </WrapPanel>

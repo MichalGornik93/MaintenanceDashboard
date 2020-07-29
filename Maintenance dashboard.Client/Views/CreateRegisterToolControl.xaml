@@ -44,7 +44,7 @@
                 <StackPanel  HorizontalAlignment="Center"  VerticalAlignment="Center">
                     <WrapPanel>
                         <materialDesign:PackIcon Kind="Tools" VerticalAlignment="Center" Width="30" Height="30"/>
-                        <TextBox  Width="300" materialDesign:HintAssist.Hint="Nazwa wyposażenia"  x:Name="test"
+                        <TextBox  Width="220" materialDesign:HintAssist.Hint="Nazwa wyposażenia"  x:Name="test"
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                               materialDesign:HintAssist.HelperText="Pole musi być wypełnione"
                              Text="{Binding ToolName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Margin="10"/>
@@ -52,7 +52,7 @@
 
                     <WrapPanel>
                         <materialDesign:PackIcon Kind="Code" VerticalAlignment="Center" Width="30" Height="30"/>
-                        <TextBox  materialDesign:HintAssist.Hint="Kod UID" Width="300"  
+                        <TextBox  materialDesign:HintAssist.Hint="Kod UID" Width="220"  
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"
                               Text="{Binding UidCode, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
                     </WrapPanel>
