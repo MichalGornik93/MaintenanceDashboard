@@ -7,18 +7,18 @@
     {
         public override void Up()
         {
-            AddColumn("dbo.ReceivedPaddles", "NumberId", c => c.Int(nullable: false));
-            CreateIndex("dbo.ReceivedPaddles", "NumberId");
-            AddForeignKey("dbo.ReceivedPaddles", "NumberId", "dbo.Paddles", "Id", cascadeDelete: true);
+            AddColumn("dbo.ReceivedPaddles", "PaddleId", c => c.Int(nullable: false));
+            CreateIndex("dbo.ReceivedPaddles", "PaddleId");
+            AddForeignKey("dbo.ReceivedPaddles", "PaddleId", "dbo.Paddles", "Id", cascadeDelete: true);
             DropColumn("dbo.ReceivedPaddles", "Number");
         }
         
         public override void Down()
         {
             AddColumn("dbo.ReceivedPaddles", "Number", c => c.String(nullable: false));
-            DropForeignKey("dbo.ReceivedPaddles", "NumberId", "dbo.Paddles");
-            DropIndex("dbo.ReceivedPaddles", new[] { "NumberId" });
-            DropColumn("dbo.ReceivedPaddles", "NumberId");
+            DropForeignKey("dbo.ReceivedPaddles", "PaddleId", "dbo.Paddles");
+            DropIndex("dbo.ReceivedPaddles", new[] { "PaddleId" });
+            DropColumn("dbo.ReceivedPaddles", "PaddleId");
         }
     }
 }

@@ -21,11 +21,22 @@ namespace MaintenanceDashboard.Data.Api
             get { return context; }
         }
 
-        public void CreateReceivedPaddle(ReceivedPaddle receivedPaddle)
+        public void AcceptancePaddle(ReceivedPaddle receivedPaddle)
         {
-            //TODO: Implementation Data Validation
+            CheckValue.RequireString(receivedPaddle.AddedDate);
+            CheckValue.RequireString(receivedPaddle.ActivityPerformed);
+            CheckValue.RequireString(receivedPaddle.PlannedRepairDate);
+            CheckValue.RequireString(receivedPaddle.IsOrders);
+            CheckValue.RequireForeignKey(receivedPaddle.EmployeeId);
+            CheckValue.RequireForeignKey(receivedPaddle.PaddleId);
+
             context.ReceivedPaddles.Add(receivedPaddle);
             context.SaveChanges();
+        }
+
+        public void SpendPaddle(ReceivedPaddle receivedPaddle)
+        {
+            //context.
         }
 
         public int CheckForeignKey(string numer)
@@ -33,24 +44,6 @@ namespace MaintenanceDashboard.Data.Api
             return context.Paddles.FirstOrDefault(c => c.Number == numer).Id;
         }
 
-        public void UpdateReceivedPaddle(ReceivedPaddle receivedPaddle)
-        {
-            var entity = context.ReceivedPaddles.Find(receivedPaddle.Id);
-
-            if (entity == null)
-            {
-                throw new NotImplementedException("Handle appropriately for your API design. ");
-            }
-
-            context.Entry(entity).CurrentValues.SetValues(receivedPaddle);
-            context.SaveChanges();
-        }
-
-        public void DeleteReceivedPaddle(ReceivedPaddle receivedPaddle)
-        {
-            context.ReceivedPaddles.Remove(receivedPaddle);
-            context.SaveChanges();
-        }
 
         public bool CheckReceivedPaddleExist(string number)
         {

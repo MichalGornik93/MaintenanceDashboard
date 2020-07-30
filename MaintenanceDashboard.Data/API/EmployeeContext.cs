@@ -23,8 +23,8 @@ namespace MaintenanceDashboard.Data.Api
 
         public void CreateEmployee(Employee employee)
         {
-            CheckString.Require(employee.FirstName);
-            CheckString.Require(employee.LastName);
+            CheckValue.RequireString(employee.FirstName);
+            CheckValue.RequireString(employee.LastName);
 
             context.Employees.Add(employee);
             context.SaveChanges();

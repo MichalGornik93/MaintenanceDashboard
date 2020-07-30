@@ -22,8 +22,8 @@ namespace MaintenanceDashboard.Data.Api
 
         public void CreatePaddle(Paddle paddle)
         {
-            CheckString.Require(paddle.Number);
-            CheckString.Require(paddle.Model);
+            CheckValue.RequireString(paddle.Number);
+            CheckValue.RequireString(paddle.Model);
 
             context.Paddles.Add(paddle);
             context.SaveChanges();

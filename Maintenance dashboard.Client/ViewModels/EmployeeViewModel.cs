@@ -18,14 +18,14 @@ namespace MaintenanceDashboard.Client.ViewModels
         public string LastName { get; set; }
         public string UidCode { get; set; }
 
-        private Employee selectedEmployee;
+        private Employee _selectedEmployee;
 
         public Employee SelectedEmployee
         {
-            get { return selectedEmployee; }
+            get { return _selectedEmployee; }
             set
             {
-                selectedEmployee = value;
+                _selectedEmployee = value;
                 NotifyPropertyChanged();
             }
         }

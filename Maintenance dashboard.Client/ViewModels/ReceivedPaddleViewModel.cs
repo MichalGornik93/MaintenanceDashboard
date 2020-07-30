@@ -4,7 +4,6 @@ using MaintenanceDashboard.Library;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace MaintenanceDashboard.Client.ViewModels
@@ -36,17 +35,15 @@ namespace MaintenanceDashboard.Client.ViewModels
             set { _addedData = value; }
         }
 
-        private DateTime _repairDate=DateTime.Now.AddDays(2);
-
-        public DateTime RepairDate
+        private DateTime _plannedRepairDate=DateTime.Now.AddDays(2);
+        public DateTime PlannedRepairDate
         {
-            get { return _repairDate; }
-            set { _repairDate = value; }
+            get { return _plannedRepairDate; }
+            set { _plannedRepairDate = value; }
         }
         public string Comments { get; set; }
 
         private string _isOrder;
-
         public string IsOrder
         {
             get { return _isOrder; }
@@ -54,7 +51,6 @@ namespace MaintenanceDashboard.Client.ViewModels
         }
 
         private string _activityPerformed;
-
         public string ActivityPerformed
         {
             get { return _activityPerformed; }
@@ -63,6 +59,16 @@ namespace MaintenanceDashboard.Client.ViewModels
 
         public string Number { get; set; }
 
+        private ReceivedPaddle _selectedReceivedPaddle;
+        public ReceivedPaddle SelectedReceivedPaddle
+        {
+            get { return _selectedReceivedPaddle; }
+            set 
+            { 
+                _selectedReceivedPaddle = value;
+                NotifyPropertyChanged();
+            }
+        }
 
 
         public ReceivedPaddleViewModel(IReceivedPaddleContext context)
@@ -75,18 +81,26 @@ namespace MaintenanceDashboard.Client.ViewModels
             _PaddleViewModel = new PaddleViewModel(new PaddleContext());
         }
 
-        public ActionCommand CreateReceivedPaddleCommand
+        public ActionCommand AcceptancePaddleCommand
         {
             get
             {
-                return new ActionCommand(p => CreateReceivedPaddle(EmployeeViewModel.SelectedEmployee, Number, AddedDate, ActivityPerformed, RepairDate, Comments, IsOrder),
+                return new ActionCommand(p => AcceptancePaddle(EmployeeViewModel.SelectedEmployee, Number, AddedDate, ActivityPerformed, PlannedRepairDate, Comments, IsOrder),
                     p => IsValidReceivedPaddle());
+            }
+        }
+
+        public ActionCommand SpendPaddleCommand
+        {
+            get
+            {
+                return new ActionCommand(p => SpendPaddle());
             }
         }
 
         private bool IsValidReceivedPaddle()
         {
-            if (OnValidate(Number) == null && EmployeeViewModel.SelectedEmployee != null && RepairDate != null && IsOrder != null && ActivityPerformed != null) 
+            if (OnValidate(Number) == null && EmployeeViewModel.SelectedEmployee != null && PlannedRepairDate != null && IsOrder != null && ActivityPerformed != null) 
                 return true;
             return false;
         }
@@ -103,20 +117,24 @@ namespace MaintenanceDashboard.Client.ViewModels
         }
 
 
-        private void CreateReceivedPaddle(Employee employee, string number, string addedDate, string activityPerformed, DateTime planedRepairDate, string comments, string isOrder) 
+        private void AcceptancePaddle(Employee employee, string number, string addedDate, string activityPerformed, DateTime planedRepairDate, string comments, string isOrder) 
         {
             var receivedPaddle = new ReceivedPaddle
             {
                 EmployeeId = employee.Id,
-                NumberId = context.CheckForeignKey(number), 
-                DateAdded = addedDate,
+                PaddleId = context.CheckForeignKey(number),
+                AddedDate = addedDate,
                 ActivityPerformed = activityPerformed,
-                PlannedRepairTime = planedRepairDate.ToString("MM/dd/yyyy"),
+                PlannedRepairDate = planedRepairDate.ToString("MM/dd/yyyy"),
                 Comments = comments,
                 IsOrders = isOrder.ToString()
             };
 
-            context.CreateReceivedPaddle(receivedPaddle);
+            context.AcceptancePaddle(receivedPaddle);
+        }
+
+        public void SpendPaddle()
+        {
 
         }
 
@@ -129,14 +147,6 @@ namespace MaintenanceDashboard.Client.ViewModels
                 
         }
 
-        private void SaveReceivedPaddle()
-        {
-        }
-
-        private void DeleteReceivedPaddle()
-        {
-
-        }
 
     }
 }

@@ -8,19 +8,23 @@ namespace MaintenanceDashboard.Client.Views
 
     public partial class AcceptancePaddleControl : UserControl
     {
-        private ReceivedPaddleViewModel _managerPaddleViewModel;
+        private ReceivedPaddleViewModel _receivedPaddleViewModel;
         public AcceptancePaddleControl()
         {
-            _managerPaddleViewModel = new ReceivedPaddleViewModel(new ReceivedPaddleContext());
-            this.DataContext = _managerPaddleViewModel;
-            _managerPaddleViewModel.EmployeeViewModel.GetEmployeeList();
-            InitializeComponent();
+            _receivedPaddleViewModel = new ReceivedPaddleViewModel(new ReceivedPaddleContext());
+            this.DataContext = _receivedPaddleViewModel;
+           InitializeComponent();
         }
 
         private void btnGetPaddle_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             gridInfoAddToDataBase.Visibility = Visibility.Visible;
             gridPrincipal.Visibility = Visibility.Collapsed;
+        }
+
+        private void employeeComboBox_GotMouseCapture(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            _receivedPaddleViewModel.EmployeeViewModel.GetEmployeeList();
         }
     }
 }

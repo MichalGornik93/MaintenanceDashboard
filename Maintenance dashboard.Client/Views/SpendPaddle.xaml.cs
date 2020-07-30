@@ -1,28 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using MaintenanceDashboard.Client.ViewModels;
+using MaintenanceDashboard.Data.Api;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace MaintenanceDashboard.Client.Views
 {
-    /// <summary>
-    /// Logika interakcji dla klasy SpendPaddle.xaml
-    /// </summary>
     public partial class SpendPaddle : UserControl
     {
+        private ReceivedPaddleViewModel _receivedPaddleViewModel;
         public SpendPaddle()
         {
+            _receivedPaddleViewModel = new ReceivedPaddleViewModel(new ReceivedPaddleContext());
+            this.DataContext = _receivedPaddleViewModel;
+            _receivedPaddleViewModel.GetReceivedPaddleList();
             InitializeComponent();
+        }
+
+        private void employeeComboBox_GotMouseCapture(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            _receivedPaddleViewModel.EmployeeViewModel.GetEmployeeList();
         }
     }
 }

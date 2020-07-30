@@ -7,9 +7,7 @@ namespace MaintenanceDashboard.Data.Api
     {
         int CheckForeignKey(string numer);
         bool CheckReceivedPaddleExist(string number);
-        void CreateReceivedPaddle(ReceivedPaddle receivedPaddle);
-        void DeleteReceivedPaddle(ReceivedPaddle receivedPaddle);
+        void AcceptancePaddle(ReceivedPaddle receivedPaddle);
         ICollection<ReceivedPaddle> GetReceivedPaddleList();
-        void UpdateReceivedPaddle(ReceivedPaddle receivedPaddle);
     }
 }

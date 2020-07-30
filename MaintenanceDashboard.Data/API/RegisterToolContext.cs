@@ -24,7 +24,7 @@ namespace MaintenanceDashboard.Data.Api
 
         public void CreateRegisterTool(RegisterTool registerTool)
         {
-            CheckString.Require(registerTool.ToolName);
+            CheckValue.RequireString(registerTool.ToolName);
 
             context.RegisterTools.Add(registerTool);
             context.SaveChanges();

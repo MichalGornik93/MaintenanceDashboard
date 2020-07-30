@@ -5,6 +5,7 @@ namespace MaintenanceDashboard.Data.Domain
 {
     public class Paddle
     {
+        [Key]
         public int Id { get; set; }
         [Required]
         public string Number { get; set; }
@@ -14,6 +15,7 @@ namespace MaintenanceDashboard.Data.Domain
         public string AddedDate { get; set; }
         public string Comments { get; set; }
         public virtual ICollection<ReceivedPaddle> ReceivedPaddles { get; set; }
+        public virtual ICollection<SpendedPaddle> SpendedPaddles { get; set; }
         //TODO: Add LastPrevention
     }
 }

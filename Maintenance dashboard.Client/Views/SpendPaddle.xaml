@@ -4,7 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             mc:Ignorable="d" Width="920" Height="750">
+             mc:Ignorable="d" Width="920" Height="750"
+             xmlns:viewModels="clr-namespace:MaintenanceDashboard.Client.ViewModels"
+             d:DataContext="{d:DesignInstance viewModels:ReceivedPaddleViewModel}">
     <Grid>
         <Border CornerRadius="20" >
             <Border.Background>
@@ -61,8 +63,8 @@
                 <WrapPanel Grid.Column="0" Grid.Row="0">
                     <materialDesign:PackIcon Kind="User" VerticalAlignment="Center" Width="30" Height="30"/>
                     <ComboBox Width="220"  DataContext="{Binding EmployeeViewModel}" materialDesign:HintAssist.Hint="Pracownicy" 
-                           Margin="10" SelectedItem="{Binding SelectedEmployee}" ItemsSource="{Binding Path=Employees}" 
-                              materialDesign:HintAssist.HelperText="Pole musi być wypełnione">
+                           Margin="10" SelectedItem="{Binding SelectedEmployee}" ItemsSource="{Binding Path=Employees}" x:Name="employeeComboBox"
+                              materialDesign:HintAssist.HelperText="Pole musi być wypełnione" GotMouseCapture="employeeComboBox_GotMouseCapture">
                         <ComboBox.ItemTemplate >
                             <DataTemplate>
                                 <TextBlock>
@@ -82,14 +84,16 @@
                     <materialDesign:PackIcon Kind="BarcodeScanner" VerticalAlignment="Center" Width="30" Height="30"/>
                     <TextBox  Width="220" materialDesign:HintAssist.Hint="Numer paletki" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"  
-                               Margin="10" IsEnabled="False"/>
+                              Text="{Binding SelectedReceivedPaddle.Paddle.Number}" 
+                              Margin="10" IsEnabled="False"/>
                 </WrapPanel>
 
                 <WrapPanel Grid.Row="2" Grid.Column="0">
                     <materialDesign:PackIcon Kind="CalendarAdd" VerticalAlignment="Center" Width="30" Height="30"/>
                     <TextBox  Width="220" materialDesign:HintAssist.Hint="Data dodania" IsEnabled="False"
-                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="10"
-                              />
+                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"  
+                              Text="{Binding SelectedReceivedPaddle.AddedDate}"
+                              Margin="10"/>
                 </WrapPanel>
 
 
@@ -97,12 +101,14 @@
                     <materialDesign:PackIcon Kind="LightningBoltOutline" VerticalAlignment="Center" Width="30" Height="30"/>
                     <TextBox  Width="220" materialDesign:HintAssist.Hint="Akcja" IsEnabled="False"
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="10"
+                              Text="{Binding SelectedReceivedPaddle.ActivityPerformed}"
                                materialDesign:HintAssist.HelperText="Wykonywane czynnosci"/>
                 </WrapPanel>
 
                 <WrapPanel Grid.Row="4" Grid.Column="0">
                     <materialDesign:PackIcon Kind="NotebookOutline" VerticalAlignment="Center" Width="30" Height="30"/>
-                    <TextBox  Width="220" materialDesign:HintAssist.Hint="Opis interwencji" 
+                    <TextBox  Width="220" materialDesign:HintAssist.Hint="Opis interwencji"
+                              materialDesign:HintAssist.HelperText="Pole musi być wypełnione"
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"/>
                 </WrapPanel>
 
@@ -113,29 +119,38 @@
                 <WrapPanel Grid.Column="0" Grid.Row="6">
                     <materialDesign:PackIcon Kind="ShoppingCartMinus" VerticalAlignment="Center" Width="30" Height="30"/>
                     <TextBox  Width="220" materialDesign:HintAssist.Hint="Zamówienie" IsEnabled="False"
+                              Text="{Binding SelectedReceivedPaddle.IsOrders}"
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="10"/>
                 </WrapPanel>
 
                 <WrapPanel Grid.Row="7" Grid.Column="0">
                     <materialDesign:PackIcon Kind="NoteTextOutline" VerticalAlignment="Center" Width="30" Height="30"/>
-                    <TextBox  Width="220" materialDesign:HintAssist.Hint="Uwagi" 
-                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"
-                              />
+                    <TextBox  Width="220" materialDesign:HintAssist.Hint="Uwagi"
+                              Text="{Binding SelectedReceivedPaddle.Comments}"
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"/>
                 </WrapPanel>
 
-                <DataGrid ItemsSource="{Binding }"  Margin="10" Height="Auto" Width="Auto" Grid.Column="1" Grid.Row="0" Grid.RowSpan="8" Background="White" AutoGenerateColumns="False" IsReadOnly="True">
+                <DataGrid ItemsSource="{Binding ReceivedPaddles}" SelectedItem="{Binding SelectedReceivedPaddle}"  Margin="10,10,0,10" Grid.Column="1" Grid.Row="0" Grid.RowSpan="8" Background="White" AutoGenerateColumns="False" IsReadOnly="True" HorizontalAlignment="Left" Width="520">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Numer paletki" Binding="{Binding }"/>
-                        <DataGridTextColumn Header="Data dodania" Binding="{Binding }"/>
-                        <DataGridTextColumn Header="Data planowanej naprawy" Binding="{Binding }"/>
-                        <DataGridTextColumn Header="Pracownik" Binding="{Binding }"/>
-                        <DataGridTextColumn Header="Akcja" Binding="{Binding }"/>
-                        <DataGridTextColumn Header="Zamówienie" Binding="{Binding }"/>
+                        <DataGridTextColumn Header="Numer" Binding="{Binding Paddle.Number}"/>
+                        <DataGridTextColumn Header="Data dodania" Binding="{Binding AddedDate}"/>
+                        <DataGridTextColumn Header="Data planowanej naprawy" Binding="{Binding PlannedRepairDate}"/>
+                        <DataGridTextColumn Header="Akcja" Binding="{Binding ActivityPerformed}"/>
+                        <DataGridTextColumn Header="Pracownik">
+                            <DataGridTextColumn.Binding>
+                                <MultiBinding StringFormat="{}{0} {1}">
+                                    <Binding Path="Employee.FirstName" />
+                                    <Binding Path="Employee.LastName" />
+                                </MultiBinding>
+                            </DataGridTextColumn.Binding>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="Zamówienie" Binding="{Binding IsOrders}"/>
+                        <DataGridTextColumn Header="Uwagi" Binding="{Binding Comments}"/>
                     </DataGrid.Columns>
                 </DataGrid>
 
                 <Button Height="25"  Background="#FF0069C0" Grid.Row="8" Grid.Column="0"
-                             BorderBrush="#FF0069C0"  Width="110" Content="WYDAJ" Margin="10" Command="{Binding }"/>
+                             BorderBrush="#FF0069C0"  Width="110" Content="WYDAJ" Margin="10" Command="{Binding SpendPaddleCommand}"/>
             </Grid>
         </Grid>
 

@@ -60,9 +60,9 @@
 
                 <WrapPanel Grid.Column="0" Grid.Row="0">
                     <materialDesign:PackIcon Kind="User" VerticalAlignment="Center" Width="30" Height="30"/>
-                    <ComboBox Width="220"  DataContext="{Binding EmployeeViewModel}" materialDesign:HintAssist.Hint="Pracownicy" 
+                    <ComboBox x:Name="employeeComboBox" Width="220"  DataContext="{Binding EmployeeViewModel}" materialDesign:HintAssist.Hint="Pracownicy" 
                            Margin="10" SelectedItem="{Binding SelectedEmployee}" ItemsSource="{Binding Path=Employees}" 
-                              materialDesign:HintAssist.HelperText="Pole musi być wypełnione">
+                              materialDesign:HintAssist.HelperText="Pole musi być wypełnione" GotMouseCapture="employeeComboBox_GotMouseCapture" >
                         <ComboBox.ItemTemplate >
                             <DataTemplate>
                                 <TextBlock>
@@ -107,7 +107,7 @@
 
 
                 <DatePicker materialDesign:HintAssist.Hint="Data planowanej naprawy"   Margin="10" Style="{StaticResource MaterialDesignOutlinedDatePicker}" 
-                            Grid.Row="4" Grid.Column="0"  Width="240" SelectedDate="{Binding RepairDate}" HorizontalAlignment="Center" />
+                            Grid.Row="4" Grid.Column="0"  Width="240" SelectedDate="{Binding PlannedRepairDate}" HorizontalAlignment="Center" />
 
                 <WrapPanel Grid.Column="0" Grid.Row="5">
                     <materialDesign:PackIcon Kind="ShoppingCartMinus" VerticalAlignment="Center" Width="30" Height="30"/>
@@ -127,7 +127,7 @@
                 </WrapPanel>
 
                 <Button  x:Name="btnGetPaddle" Height="25"  Background="#FF0069C0" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2"
-                             BorderBrush="#FF0069C0"  Width="110" Content="POTWIERDŹ" Margin="10" Command="{Binding CreateReceivedPaddleCommand}" Click="btnGetPaddle_Click"/>
+                             BorderBrush="#FF0069C0"  Width="110" Content="POTWIERDŹ" Margin="10" Command="{Binding AcceptancePaddleCommand}" Click="btnGetPaddle_Click"/>
 
             </Grid>
         </Grid>
