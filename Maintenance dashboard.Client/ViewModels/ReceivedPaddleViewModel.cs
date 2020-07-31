@@ -5,10 +5,11 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text.RegularExpressions;
+using System.Linq;
 
 namespace MaintenanceDashboard.Client.ViewModels
 {
-    public class ReceivedPaddleViewModel:ViewModel
+    public class ReceivedPaddleViewModel : ViewModel
     {
         private const string _paddleBarcodePattern = "Pal[0-9]{1,3}$";
 
@@ -17,6 +18,7 @@ namespace MaintenanceDashboard.Client.ViewModels
         public ICollection<ReceivedPaddle> ReceivedPaddles { get; private set; }
 
         private EmployeeViewModel _EmployeeViewModel;
+
         public EmployeeViewModel EmployeeViewModel
         {
             get { return _EmployeeViewModel; }
@@ -35,7 +37,14 @@ namespace MaintenanceDashboard.Client.ViewModels
             set { _addedData = value; }
         }
 
-        private DateTime _plannedRepairDate=DateTime.Now.AddDays(2);
+        private string _repairData = DateTime.Now.ToString("MM/dd/yyyy");
+        public string RepairDate
+        {
+            get { return _repairData; }
+            set { _repairData = value; }
+        }
+
+        private DateTime _plannedRepairDate = DateTime.Now.AddDays(2);
         public DateTime PlannedRepairDate
         {
             get { return _plannedRepairDate; }
@@ -59,17 +68,18 @@ namespace MaintenanceDashboard.Client.ViewModels
 
         public string Number { get; set; }
 
+        public string DescriptionIntervention { get; set; }
+
         private ReceivedPaddle _selectedReceivedPaddle;
         public ReceivedPaddle SelectedReceivedPaddle
         {
             get { return _selectedReceivedPaddle; }
-            set 
-            { 
+            set
+            {
                 _selectedReceivedPaddle = value;
                 NotifyPropertyChanged();
             }
         }
-
 
         public ReceivedPaddleViewModel(IReceivedPaddleContext context)
         {
@@ -85,7 +95,7 @@ namespace MaintenanceDashboard.Client.ViewModels
         {
             get
             {
-                return new ActionCommand(p => AcceptancePaddle(EmployeeViewModel.SelectedEmployee, Number, AddedDate, ActivityPerformed, PlannedRepairDate, Comments, IsOrder),
+                return new ActionCommand(p => AcceptancePaddle(),
                     p => IsValidReceivedPaddle());
             }
         }
@@ -94,13 +104,16 @@ namespace MaintenanceDashboard.Client.ViewModels
         {
             get
             {
-                return new ActionCommand(p => SpendPaddle());
+                return new ActionCommand(p => SpendPaddle(),
+                    p => SelectedReceivedPaddle != null &&
+                    !String.IsNullOrWhiteSpace(DescriptionIntervention) &&
+                     EmployeeViewModel.SelectedEmployee != null);
             }
         }
 
         private bool IsValidReceivedPaddle()
         {
-            if (OnValidate(Number) == null && EmployeeViewModel.SelectedEmployee != null && PlannedRepairDate != null && IsOrder != null && ActivityPerformed != null) 
+            if (OnValidate(Number) == null && EmployeeViewModel.SelectedEmployee != null && PlannedRepairDate != null && IsOrder != null && ActivityPerformed != null)
                 return true;
             return false;
         }
@@ -116,26 +129,43 @@ namespace MaintenanceDashboard.Client.ViewModels
             return base.OnValidate(propertyName);
         }
 
-
-        private void AcceptancePaddle(Employee employee, string number, string addedDate, string activityPerformed, DateTime planedRepairDate, string comments, string isOrder) 
+        private void AcceptancePaddle()
         {
             var receivedPaddle = new ReceivedPaddle
             {
-                EmployeeId = employee.Id,
-                PaddleId = context.CheckForeignKey(number),
-                AddedDate = addedDate,
-                ActivityPerformed = activityPerformed,
-                PlannedRepairDate = planedRepairDate.ToString("MM/dd/yyyy"),
-                Comments = comments,
-                IsOrders = isOrder.ToString()
+                EmployeeId = EmployeeViewModel.SelectedEmployee.Id,
+                PaddleId = context.CheckForeignKey(Number),
+                AddedDate = AddedDate,
+                ActivityPerformed = ActivityPerformed,
+                PlannedRepairDate = PlannedRepairDate.ToString("MM/dd/yyyy"),
+                Comments = Comments,
+                IsOrders = IsOrder.ToString()
             };
-
-            context.AcceptancePaddle(receivedPaddle);
+            context.CreateReceivedPaddle(receivedPaddle);
         }
 
         public void SpendPaddle()
         {
+            var spendedPaddle = new SpendedPaddle
+            {
+                PaddleId = SelectedReceivedPaddle.PaddleId,
+                AddedDate = SelectedReceivedPaddle.AddedDate,
+                ActivityPerformed = SelectedReceivedPaddle.ActivityPerformed,
+                RepairDate = RepairDate,
+                Comments = SelectedReceivedPaddle.Comments,
+                IsOrders = SelectedReceivedPaddle.IsOrders,
+                DescriptionIntervention = DescriptionIntervention,
+                ReceivingEmployee = SelectedReceivedPaddle.Employee,
+                SpendingEmployee = context.CheckEmployee(EmployeeViewModel.SelectedEmployee)
+            };
+            context.CreateSpendedPaddle(spendedPaddle);
 
+            if (SelectedReceivedPaddle != null)
+            {
+                context.DeleteReceivedPaddle(SelectedReceivedPaddle);
+                ReceivedPaddles.Remove(SelectedReceivedPaddle);
+                SelectedReceivedPaddle = null;
+            }
         }
 
         public void GetReceivedPaddleList()
@@ -144,9 +174,6 @@ namespace MaintenanceDashboard.Client.ViewModels
 
             foreach (var item in context.GetReceivedPaddleList())
                 ReceivedPaddles.Add(item);
-                
         }
-
-
     }
 }

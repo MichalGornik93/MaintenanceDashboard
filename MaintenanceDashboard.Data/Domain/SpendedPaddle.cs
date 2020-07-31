@@ -24,7 +24,7 @@ namespace MaintenanceDashboard.Data.Domain
         public string DescriptionIntervention { get; set; }
 
         public virtual Employee ReceivingEmployee { get; set; }
-        
+
         public virtual Employee SpendingEmployee { get; set; }
 
         public virtual Paddle Paddle { get; set; }

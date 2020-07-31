@@ -34,7 +34,7 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0" Text="Dodano do bazy danych" Foreground="Gray" Margin="10" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Grid.Row="0" Text="PRZYJĘTO PALETKE" Foreground="Gray" Margin="10" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             <materialDesign:PackIcon Grid.Row="1" Kind="DatabaseAdd" VerticalAlignment="Center" Width="100" Height="100" HorizontalAlignment="Center"  Margin="5" Foreground="Gray"/>
         </Grid>
 
@@ -60,7 +60,7 @@
 
                 <WrapPanel Grid.Column="0" Grid.Row="0">
                     <materialDesign:PackIcon Kind="User" VerticalAlignment="Center" Width="30" Height="30"/>
-                    <ComboBox x:Name="employeeComboBox" Width="220"  DataContext="{Binding EmployeeViewModel}" materialDesign:HintAssist.Hint="Pracownicy" 
+                    <ComboBox x:Name="employeeComboBox" Width="220"  DataContext="{Binding EmployeeViewModel}" materialDesign:HintAssist.Hint="Przyjmujący pracownik" 
                            Margin="10" SelectedItem="{Binding SelectedEmployee}" ItemsSource="{Binding Path=Employees}" 
                               materialDesign:HintAssist.HelperText="Pole musi być wypełnione" GotMouseCapture="employeeComboBox_GotMouseCapture" >
                         <ComboBox.ItemTemplate >

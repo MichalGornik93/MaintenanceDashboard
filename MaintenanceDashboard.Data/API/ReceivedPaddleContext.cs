@@ -21,7 +21,7 @@ namespace MaintenanceDashboard.Data.Api
             get { return context; }
         }
 
-        public void AcceptancePaddle(ReceivedPaddle receivedPaddle)
+        public void CreateReceivedPaddle(ReceivedPaddle receivedPaddle)
         {
             CheckValue.RequireString(receivedPaddle.AddedDate);
             CheckValue.RequireString(receivedPaddle.ActivityPerformed);
@@ -34,9 +34,22 @@ namespace MaintenanceDashboard.Data.Api
             context.SaveChanges();
         }
 
-        public void SpendPaddle(ReceivedPaddle receivedPaddle)
+        public Employee CheckEmployee(Employee employee)
         {
-            //context.
+            return context.Employees.FirstOrDefault(c => c.Id == employee.Id);
+        }
+
+        public void CreateSpendedPaddle(SpendedPaddle spendedPaddle)
+        {
+            //TODO: Add Paddle LastPrevention
+            context.SpendedPaddles.Add(spendedPaddle);
+            context.SaveChanges();
+        }
+
+        public void DeleteReceivedPaddle(ReceivedPaddle receivedPaddle)
+        {
+            context.ReceivedPaddles.Remove(receivedPaddle);
+            context.SaveChanges();
         }
 
         public int CheckForeignKey(string numer)
