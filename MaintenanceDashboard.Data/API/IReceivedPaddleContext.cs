@@ -12,5 +12,7 @@ namespace MaintenanceDashboard.Data.Api
         void DeleteReceivedPaddle(ReceivedPaddle receivedPaddle);
         ICollection<ReceivedPaddle> GetReceivedPaddleList();
         Employee CheckEmployee(Employee employee);
+        void UpdateLastPreventionDate(ReceivedPaddle receivedPaddle);
+        bool CheckIfIsAccepted(string number);
     }
 }

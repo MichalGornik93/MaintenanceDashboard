@@ -55,7 +55,7 @@ namespace MaintenanceDashboard.Client.ViewModels
         {
             get
             {
-                return new ActionCommand(p => CreatePaddle(Number, Model, AddedDate, Comments),
+                return new ActionCommand(p => CreatePaddle(),
                     p => IsValidPaddle());
             }
         }
@@ -96,14 +96,15 @@ namespace MaintenanceDashboard.Client.ViewModels
         }
 
 
-        private void CreatePaddle(string paddleNumber, string model, string addedDate, string comments)
+        private void CreatePaddle()
         {
             var paddle = new Paddle
             {
-                Number = paddleNumber,
-                Model = model,
-                AddedDate = addedDate,
-                Comments = comments
+                Number = Number,
+                Model = Model,
+                AddedDate = AddedDate,
+                LastPrevention = DateTime.Now.ToString("MM/dd/yyyy"),
+                Comments = Comments
             };
 
             context.CreatePaddle(paddle);

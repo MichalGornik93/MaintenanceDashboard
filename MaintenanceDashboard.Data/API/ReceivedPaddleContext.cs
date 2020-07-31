@@ -57,6 +57,20 @@ namespace MaintenanceDashboard.Data.Api
             return context.Paddles.FirstOrDefault(c => c.Number == numer).Id;
         }
 
+        public void UpdateLastPreventionDate(ReceivedPaddle receivedPaddle)
+        {
+            if (receivedPaddle.ActivityPerformed == "Prewencja")
+            {
+                var t =
+                    (from c in context.Paddles
+                     where c.Id == receivedPaddle.PaddleId
+                     select c).First();
+                t.LastPrevention = DateTime.Now.ToString("MM/dd/yyyy");
+
+                context.SaveChanges();
+            }
+
+        }
 
         public bool CheckReceivedPaddleExist(string number)
         {
@@ -68,6 +82,15 @@ namespace MaintenanceDashboard.Data.Api
             return false;
         }
 
+        public bool CheckIfIsAccepted(string number)
+        {
+            var result = context.ReceivedPaddles.FirstOrDefault(c => c.Paddle.Number == number);
+
+            if (result != null)
+                return true;
+
+            return false;
+        }
         public ICollection<ReceivedPaddle> GetReceivedPaddleList()
         {
             return context.ReceivedPaddles.OrderBy(p => p.Id).ToArray();

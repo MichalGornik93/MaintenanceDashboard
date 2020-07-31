@@ -61,10 +61,10 @@ namespace MaintenanceDashboard.Client
 
         private void btnSavePassword_Click(object sender, RoutedEventArgs e)
         {
-            var DateTimeNow = Convert.ToString(DateTime.Now.DayOfWeek);
+            var DateTimeNow = DateTime.Now.ToString("ddMM");
             if (DateTimeNow.ToLower() == PasswordBox.Password.ToLower())
             {
-                ListViewMenu.IsEnabled = IsEnabled;
+                itemEmployee.IsEnabled = IsEnabled;
                 btnCloseWindow.IsEnabled = IsEnabled;
             }
             PasswordBox.Clear();

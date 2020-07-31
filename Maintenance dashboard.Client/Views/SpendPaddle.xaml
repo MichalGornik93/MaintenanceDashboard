@@ -28,14 +28,7 @@
             </Rectangle.Effect>
         </Rectangle>
 
-        <Grid  Margin="15,15,15, 15"  x:Name="gridInfoAddToDataBase" Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0" Text="WYDANO PALETKE" Foreground="Gray" Margin="10" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <materialDesign:PackIcon Grid.Row="1" Kind="DatabaseAdd" VerticalAlignment="Center" Width="100" Height="100" HorizontalAlignment="Center"  Margin="5" Foreground="Gray"/>
-        </Grid>
+        
 
 
 
@@ -43,24 +36,24 @@
             <TextBlock Text="WYDANIE PALETKI" HorizontalAlignment="Center" VerticalAlignment="Top"  
                            FontSize="18"  Foreground="Gray" Margin="18"/>
 
-            <Grid x:Name="gridPrincipal" HorizontalAlignment="Center" VerticalAlignment="Center" Width="800" Height="520">
-                <Grid.RowDefinitions>
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                </Grid.RowDefinitions>
+            <Grid  HorizontalAlignment="Center" VerticalAlignment="Center" Width="800" Height="520">
+                
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
-                <WrapPanel Grid.Column="0" Grid.Row="0">
+                <Grid  Grid.Row="0"  x:Name="gridInfoAddToDataBase" Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Text="WYDANO PALETKE" Foreground="Gray" Margin="10" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    <materialDesign:PackIcon Grid.Row="1" Kind="DatabaseAdd" VerticalAlignment="Center" Width="100" Height="100" HorizontalAlignment="Center"  Margin="5" Foreground="Gray"/>
+                </Grid>
+
+                <StackPanel x:Name="gridPrincipal" Grid.Row="0">
+                <WrapPanel>
                     <materialDesign:PackIcon Kind="User" VerticalAlignment="Center" Width="30" Height="30"/>
                     <ComboBox Width="220"  DataContext="{Binding EmployeeViewModel}" materialDesign:HintAssist.Hint="Wydający pracownik" 
                            Margin="10" SelectedItem="{Binding SelectedEmployee}" ItemsSource="{Binding Path=Employees}" x:Name="employeeComboBox"
@@ -80,7 +73,7 @@
                     </ComboBox>
                 </WrapPanel>
 
-                <WrapPanel Grid.Row="1" Grid.Column="0">
+                <WrapPanel>
                     <materialDesign:PackIcon Kind="BarcodeScanner" VerticalAlignment="Center" Width="30" Height="30"/>
                     <TextBox  Width="220" materialDesign:HintAssist.Hint="Numer paletki" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"  
@@ -88,7 +81,7 @@
                               Margin="10" IsEnabled="False"/>
                 </WrapPanel>
 
-                <WrapPanel Grid.Row="2" Grid.Column="0">
+                <WrapPanel>
                     <materialDesign:PackIcon Kind="CalendarAdd" VerticalAlignment="Center" Width="30" Height="30"/>
                     <TextBox  Width="220" materialDesign:HintAssist.Hint="Data dodania" IsEnabled="False"
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}"  
@@ -105,7 +98,7 @@
                                materialDesign:HintAssist.HelperText="Wykonywane czynnosci"/>
                 </WrapPanel>
 
-                <WrapPanel Grid.Row="4" Grid.Column="0">
+                <WrapPanel>
                     <materialDesign:PackIcon Kind="NotebookOutline" VerticalAlignment="Center" Width="30" Height="30"/>
                     <TextBox  Width="220" materialDesign:HintAssist.Hint="Opis interwencji"
                               materialDesign:HintAssist.HelperText="Pole musi być wypełnione"
@@ -114,7 +107,7 @@
                 </WrapPanel>
 
 
-                <WrapPanel Grid.Row="5" Grid.Column="0">
+                <WrapPanel>
                     <materialDesign:PackIcon Kind="CalendarAdd" VerticalAlignment="Center" Width="30" Height="30"/>
                     <TextBox  Width="220" materialDesign:HintAssist.Hint="Data naprawy" IsEnabled="False"
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}"  
@@ -122,21 +115,27 @@
                               Margin="10"/>
                 </WrapPanel>
 
-                <WrapPanel Grid.Column="0" Grid.Row="6">
+                <WrapPanel>
                     <materialDesign:PackIcon Kind="ShoppingCartMinus" VerticalAlignment="Center" Width="30" Height="30"/>
                     <TextBox  Width="220" materialDesign:HintAssist.Hint="Zamówienie" IsEnabled="False"
                               Text="{Binding SelectedReceivedPaddle.IsOrders}"
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="10"/>
                 </WrapPanel>
 
-                <WrapPanel Grid.Row="7" Grid.Column="0">
+                <WrapPanel>
                     <materialDesign:PackIcon Kind="NoteTextOutline" VerticalAlignment="Center" Width="30" Height="30"/>
                     <TextBox  Width="220" materialDesign:HintAssist.Hint="Uwagi"
                               Text="{Binding SelectedReceivedPaddle.Comments}"
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"/>
                 </WrapPanel>
 
-                <DataGrid ItemsSource="{Binding ReceivedPaddles}" SelectedItem="{Binding SelectedReceivedPaddle}"  Margin="10,10,0,10" Grid.Column="1" Grid.Row="0" Grid.RowSpan="8" Background="White" AutoGenerateColumns="False" IsReadOnly="True" HorizontalAlignment="Left" Width="520">
+                
+
+                <Button x:Name="btnSpendPaddle" Height="25"  Background="#FF0069C0" 
+                             BorderBrush="#FF0069C0"  Width="110" Content="WYDAJ" Margin="10" Command="{Binding SpendPaddleCommand}" Click="btnSpendPaddle_Click" />
+                </StackPanel>
+
+                <DataGrid ItemsSource="{Binding ReceivedPaddles}" SelectedItem="{Binding SelectedReceivedPaddle}"  Margin="10,10,0,10" Grid.Column="1" Background="White" AutoGenerateColumns="False" IsReadOnly="True" HorizontalAlignment="Left" Width="520">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Numer" Binding="{Binding Paddle.Number}"/>
                         <DataGridTextColumn Header="Data dodania" Binding="{Binding AddedDate}"/>
@@ -154,9 +153,6 @@
                         <DataGridTextColumn Header="Uwagi" Binding="{Binding Comments}"/>
                     </DataGrid.Columns>
                 </DataGrid>
-
-                <Button x:Name="btnSpendPaddle" Height="25"  Background="#FF0069C0" Grid.Row="8" Grid.Column="0"
-                             BorderBrush="#FF0069C0"  Width="110" Content="WYDAJ" Margin="10" Command="{Binding SpendPaddleCommand}" Click="btnSpendPaddle_Click" />
             </Grid>
         </Grid>
     </Grid>

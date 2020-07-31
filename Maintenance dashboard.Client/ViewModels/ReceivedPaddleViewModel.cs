@@ -125,7 +125,9 @@ namespace MaintenanceDashboard.Client.ViewModels
             else if (!Regex.IsMatch(Number, _paddleBarcodePattern))
                 return "Niepoprawna składnia ciągu {Pal...}";
             else if (context.CheckReceivedPaddleExist(Number))
-                return "Nie istnieje w bazie danych";
+                return "Paletka nie istnieje w bazie danych";
+            else if(context.CheckIfIsAccepted(Number))
+                return "Paletka jest już przyjęta";
             return base.OnValidate(propertyName);
         }
 
@@ -159,6 +161,8 @@ namespace MaintenanceDashboard.Client.ViewModels
                 SpendingEmployee = context.CheckEmployee(EmployeeViewModel.SelectedEmployee)
             };
             context.CreateSpendedPaddle(spendedPaddle);
+
+            context.UpdateLastPreventionDate(SelectedReceivedPaddle);
 
             if (SelectedReceivedPaddle != null)
             {

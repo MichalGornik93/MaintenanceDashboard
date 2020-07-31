@@ -60,6 +60,8 @@ namespace MaintenanceDashboard.Data.Api
             
             return false; 
         }
+
+     
         public ICollection<Paddle> GetPaddleList()
         {
             return context.Paddles.OrderBy(p => p.Id).ToArray();
