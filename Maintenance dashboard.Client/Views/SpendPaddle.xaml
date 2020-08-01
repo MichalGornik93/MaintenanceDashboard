@@ -103,7 +103,7 @@
                     <TextBox  Width="220" materialDesign:HintAssist.Hint="Opis interwencji"
                               materialDesign:HintAssist.HelperText="Pole musi być wypełnione"
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"
-                              Text="{Binding DescriptionIntervention}"/>
+                              Text="{Binding DescriptionIntervention, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
                 </WrapPanel>
 
 

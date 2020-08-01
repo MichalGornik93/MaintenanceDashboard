@@ -64,10 +64,16 @@ namespace MaintenanceDashboard.Client
             var DateTimeNow = DateTime.Now.ToString("ddMM");
             if (DateTimeNow.ToLower() == PasswordBox.Password.ToLower())
             {
-                itemEmployee.IsEnabled = IsEnabled;
+                itemEmployee.IsEnabled = true;
                 btnCloseWindow.IsEnabled = IsEnabled;
             }
             PasswordBox.Clear();
+        }
+
+        private void btnLogout_Click(object sender, RoutedEventArgs e)
+        {
+            itemEmployee.IsEnabled = false;
+            GridPrincipal.Children.Clear();
         }
     }
 }

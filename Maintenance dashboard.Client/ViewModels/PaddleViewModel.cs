@@ -91,7 +91,7 @@ namespace MaintenanceDashboard.Client.ViewModels
             else if (!Regex.IsMatch(Number, _paddleBarcodePattern))
                 return "Niepoprawna składnia ciągu {Pal...}";
             else if (context.CheckPaddleExist(Number))
-                return "Istnieje w bazie danych";
+                return "Paletka istnieje już w bazie danych";
             return base.OnValidate(propertyName);
         }
 
