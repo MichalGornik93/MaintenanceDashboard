@@ -130,7 +130,7 @@
                                        VerticalAlignment="Center" Margin="20 0" />
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem x:Name="itemEmployee" Height="60" Foreground="LightGray" IsEnabled="False">
+                    <ListViewItem x:Name="itemEmployee" Height="60" Foreground="LightGray" IsEnabled="True">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="UsersGroupOutline" Width="30" Height="30"
                                                      VerticalAlignment="Center" Margin="5"/>

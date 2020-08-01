@@ -30,6 +30,17 @@ namespace MaintenanceDashboard.Client.ViewModels
             get { return _PaddleViewModel; }
         }
 
+        private bool _connectedSuccessfully;
+        public bool ConnectedSuccessfully
+        {
+            get { return _connectedSuccessfully; }
+            set
+            {
+                _connectedSuccessfully = value;
+                NotifyPropertyChanged();
+            }
+        }
+
         private string _addedData = DateTime.Now.ToString("MM/dd/yyyy");
         public string AddedDate
         {
@@ -144,6 +155,7 @@ namespace MaintenanceDashboard.Client.ViewModels
                 IsOrders = IsOrder.ToString()
             };
             context.CreateReceivedPaddle(receivedPaddle);
+            ConnectedSuccessfully = true;
         }
 
         public void SpendPaddle()
@@ -162,6 +174,8 @@ namespace MaintenanceDashboard.Client.ViewModels
             };
             context.CreateSpendedPaddle(spendedPaddle);
 
+            ConnectedSuccessfully = true;
+
             context.UpdateLastPreventionDate(SelectedReceivedPaddle);
 
             if (SelectedReceivedPaddle != null)
@@ -170,6 +184,8 @@ namespace MaintenanceDashboard.Client.ViewModels
                 ReceivedPaddles.Remove(SelectedReceivedPaddle);
                 SelectedReceivedPaddle = null;
             }
+
+            
         }
 
         public void GetReceivedPaddleList()

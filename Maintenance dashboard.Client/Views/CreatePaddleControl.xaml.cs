@@ -13,10 +13,5 @@ namespace MaintenanceDashboard.Client.Views
             this.DataContext = new PaddleViewModel(new PaddleContext());
         }
 
-        private void btnAddPaddle_Click(object sender, RoutedEventArgs e)
-        {
-            gridInfoAddToDataBase.Visibility = Visibility.Visible;
-            gridPrincipal.Visibility = Visibility.Collapsed;
-        }
     }
 }

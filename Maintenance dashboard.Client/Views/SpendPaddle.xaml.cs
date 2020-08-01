@@ -20,11 +20,5 @@ namespace MaintenanceDashboard.Client.Views
         {
             _receivedPaddleViewModel.EmployeeViewModel.GetEmployeeList();
         }
-
-        private void btnSpendPaddle_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            gridInfoAddToDataBase.Visibility = Visibility.Visible;
-            gridPrincipal.Visibility = Visibility.Collapsed;
-        }
     }
 }

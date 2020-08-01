@@ -26,6 +26,16 @@ namespace MaintenanceDashboard.Client.ViewModels
             set { _Model = value; }
         }
 
+        private bool _connectedSuccessfully;
+        public bool ConnectedSuccessfully
+        {
+            get { return _connectedSuccessfully; }
+            set
+            {
+                _connectedSuccessfully = value;
+                NotifyPropertyChanged();
+            }
+        }
 
         private Paddle selectedPaddle;
         public Paddle SelectedPaddle
@@ -109,7 +119,7 @@ namespace MaintenanceDashboard.Client.ViewModels
 
             context.CreatePaddle(paddle);
 
-            Paddles.Add(paddle);
+            ConnectedSuccessfully = true;
         }
 
         public void GetPaddleList()

@@ -8,36 +8,14 @@
              xmlns:viewModels="clr-namespace:MaintenanceDashboard.Client.ViewModels"
              d:DataContext="{d:DesignInstance viewModels:ReceivedPaddleViewModel}">
     <Grid>
-        <Border CornerRadius="20" >
-            <Border.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF2281D1"/>
-                    <GradientStop Color="#FF34288B" Offset="1"/>
-                    <GradientStop Color="#FF33288B" Offset="1"/>
-                </LinearGradientBrush>
-            </Border.Background>
-        </Border>
-
-
-
-        <Rectangle Fill="White" Margin="15,85,15, 15" RadiusX="15" RadiusY="15" 
-                       RenderTransformOrigin="0.5,0.5">
-            <Rectangle.Effect>
-                <DropShadowEffect BlurRadius="10" RenderingBias="Quality" Direction="0" Color="#FFBBBBBB" 
-                                      ShadowDepth="1"/>
-            </Rectangle.Effect>
-        </Rectangle>
-
-        
-
-
+        <ContentControl Style="{StaticResource RectangleView}"/>
 
         <Grid  Margin="15,80,15, 15" Width="Auto" Height="Auto">
             <TextBlock Text="WYDANIE PALETKI" HorizontalAlignment="Center" VerticalAlignment="Top"  
                            FontSize="18"  Foreground="Gray" Margin="18"/>
 
             <Grid  HorizontalAlignment="Center" VerticalAlignment="Center" Width="800" Height="520">
-                
+
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
@@ -51,88 +29,88 @@
                     <TextBlock Grid.Row="0" Text="WYDANO PALETKE" Foreground="Gray" Margin="10" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                     <materialDesign:PackIcon Grid.Row="1" Kind="DatabaseAdd" VerticalAlignment="Center" Width="100" Height="100" HorizontalAlignment="Center"  Margin="5" Foreground="Gray"/>
                 </Grid>
-
-                <StackPanel x:Name="gridPrincipal" Grid.Row="0">
-                <WrapPanel>
-                    <materialDesign:PackIcon Kind="User" VerticalAlignment="Center" Width="30" Height="30"/>
-                    <ComboBox Width="220"  DataContext="{Binding EmployeeViewModel}" materialDesign:HintAssist.Hint="Wydający pracownik" 
+                <ContentControl Style="{StaticResource AddingRecordGridTemplete}" Grid.Row="0"/>
+                <StackPanel Grid.Row="0"  Style="{StaticResource AddingRecordDataTemplete}">
+                    <WrapPanel>
+                        <materialDesign:PackIcon Kind="User" VerticalAlignment="Center" Width="30" Height="30"/>
+                        <ComboBox Width="220"  DataContext="{Binding EmployeeViewModel}" materialDesign:HintAssist.Hint="Wydający pracownik" 
                            Margin="10" SelectedItem="{Binding SelectedEmployee}" ItemsSource="{Binding Path=Employees}" x:Name="employeeComboBox"
                               materialDesign:HintAssist.HelperText="Pole musi być wypełnione" GotMouseCapture="employeeComboBox_GotMouseCapture">
-                        <ComboBox.ItemTemplate >
-                            <DataTemplate>
-                                <TextBlock>
-                                    <TextBlock.Text>
-                                        <MultiBinding StringFormat="{}{0} {1}">
-                                            <Binding Path="FirstName"/>
-                                            <Binding Path="LastName"/>
-                                        </MultiBinding>
-                                    </TextBlock.Text>
-                                </TextBlock>
-                            </DataTemplate>
-                        </ComboBox.ItemTemplate>
-                    </ComboBox>
-                </WrapPanel>
+                            <ComboBox.ItemTemplate >
+                                <DataTemplate>
+                                    <TextBlock>
+                                        <TextBlock.Text>
+                                            <MultiBinding StringFormat="{}{0} {1}">
+                                                <Binding Path="FirstName"/>
+                                                <Binding Path="LastName"/>
+                                            </MultiBinding>
+                                        </TextBlock.Text>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                    </WrapPanel>
 
-                <WrapPanel>
-                    <materialDesign:PackIcon Kind="BarcodeScanner" VerticalAlignment="Center" Width="30" Height="30"/>
-                    <TextBox  Width="220" materialDesign:HintAssist.Hint="Numer paletki" 
+                    <WrapPanel>
+                        <materialDesign:PackIcon Kind="BarcodeScanner" VerticalAlignment="Center" Width="30" Height="30"/>
+                        <TextBox  Width="220" materialDesign:HintAssist.Hint="Numer paletki" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"  
                               Text="{Binding SelectedReceivedPaddle.Paddle.Number}" 
                               Margin="10" IsEnabled="False"/>
-                </WrapPanel>
+                    </WrapPanel>
 
-                <WrapPanel>
-                    <materialDesign:PackIcon Kind="CalendarAdd" VerticalAlignment="Center" Width="30" Height="30"/>
-                    <TextBox  Width="220" materialDesign:HintAssist.Hint="Data dodania" IsEnabled="False"
+                    <WrapPanel>
+                        <materialDesign:PackIcon Kind="CalendarAdd" VerticalAlignment="Center" Width="30" Height="30"/>
+                        <TextBox  Width="220" materialDesign:HintAssist.Hint="Data dodania" IsEnabled="False"
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}"  
                               Text="{Binding SelectedReceivedPaddle.AddedDate}"
                               Margin="10"/>
-                </WrapPanel>
+                    </WrapPanel>
 
 
-                <WrapPanel Grid.Column="0" Grid.Row="3">
-                    <materialDesign:PackIcon Kind="LightningBoltOutline" VerticalAlignment="Center" Width="30" Height="30"/>
-                    <TextBox  Width="220" materialDesign:HintAssist.Hint="Akcja" IsEnabled="False"
+                    <WrapPanel Grid.Column="0" Grid.Row="3">
+                        <materialDesign:PackIcon Kind="LightningBoltOutline" VerticalAlignment="Center" Width="30" Height="30"/>
+                        <TextBox  Width="220" materialDesign:HintAssist.Hint="Akcja" IsEnabled="False"
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="10"
                               Text="{Binding SelectedReceivedPaddle.ActivityPerformed}"
                                materialDesign:HintAssist.HelperText="Wykonywane czynnosci"/>
-                </WrapPanel>
+                    </WrapPanel>
 
-                <WrapPanel>
-                    <materialDesign:PackIcon Kind="NotebookOutline" VerticalAlignment="Center" Width="30" Height="30"/>
-                    <TextBox  Width="220" materialDesign:HintAssist.Hint="Opis interwencji"
+                    <WrapPanel>
+                        <materialDesign:PackIcon Kind="NotebookOutline" VerticalAlignment="Center" Width="30" Height="30"/>
+                        <TextBox  Width="220" materialDesign:HintAssist.Hint="Opis interwencji"
                               materialDesign:HintAssist.HelperText="Pole musi być wypełnione"
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"
                               Text="{Binding DescriptionIntervention, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
-                </WrapPanel>
+                    </WrapPanel>
 
 
-                <WrapPanel>
-                    <materialDesign:PackIcon Kind="CalendarAdd" VerticalAlignment="Center" Width="30" Height="30"/>
-                    <TextBox  Width="220" materialDesign:HintAssist.Hint="Data naprawy" IsEnabled="False"
+                    <WrapPanel>
+                        <materialDesign:PackIcon Kind="CalendarAdd" VerticalAlignment="Center" Width="30" Height="30"/>
+                        <TextBox  Width="220" materialDesign:HintAssist.Hint="Data naprawy" IsEnabled="False"
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}"  
                               Text="{Binding RepairDate}"
                               Margin="10"/>
-                </WrapPanel>
+                    </WrapPanel>
 
-                <WrapPanel>
-                    <materialDesign:PackIcon Kind="ShoppingCartMinus" VerticalAlignment="Center" Width="30" Height="30"/>
-                    <TextBox  Width="220" materialDesign:HintAssist.Hint="Zamówienie" IsEnabled="False"
+                    <WrapPanel>
+                        <materialDesign:PackIcon Kind="ShoppingCartMinus" VerticalAlignment="Center" Width="30" Height="30"/>
+                        <TextBox  Width="220" materialDesign:HintAssist.Hint="Zamówienie" IsEnabled="False"
                               Text="{Binding SelectedReceivedPaddle.IsOrders}"
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="10"/>
-                </WrapPanel>
+                    </WrapPanel>
 
-                <WrapPanel>
-                    <materialDesign:PackIcon Kind="NoteTextOutline" VerticalAlignment="Center" Width="30" Height="30"/>
-                    <TextBox  Width="220" materialDesign:HintAssist.Hint="Uwagi"
+                    <WrapPanel>
+                        <materialDesign:PackIcon Kind="NoteTextOutline" VerticalAlignment="Center" Width="30" Height="30"/>
+                        <TextBox  Width="220" materialDesign:HintAssist.Hint="Uwagi"
                               Text="{Binding SelectedReceivedPaddle.Comments}"
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"/>
-                </WrapPanel>
+                    </WrapPanel>
 
-                
 
-                <Button x:Name="btnSpendPaddle" Height="25"  Background="#FF0069C0" 
-                             BorderBrush="#FF0069C0"  Width="110" Content="WYDAJ" Margin="10" Command="{Binding SpendPaddleCommand}" Click="btnSpendPaddle_Click" />
+
+                    <Button x:Name="btnSpendPaddle" Height="25"  Background="#FF0069C0" 
+                             BorderBrush="#FF0069C0"  Width="110" Content="WYDAJ" Margin="10" Command="{Binding SpendPaddleCommand}" />
                 </StackPanel>
 
                 <DataGrid ItemsSource="{Binding ReceivedPaddles}" SelectedItem="{Binding SelectedReceivedPaddle}"  Margin="10,10,0,10" Grid.Column="1" Background="White" AutoGenerateColumns="False" IsReadOnly="True" HorizontalAlignment="Left" Width="520">

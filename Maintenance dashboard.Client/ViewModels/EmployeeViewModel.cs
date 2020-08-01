@@ -4,6 +4,9 @@ using MaintenanceDashboard.Library;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Globalization;
+using System.Windows;
+using System.Windows.Data;
 using System.Windows.Input;
 
 namespace MaintenanceDashboard.Client.ViewModels
@@ -17,6 +20,18 @@ namespace MaintenanceDashboard.Client.ViewModels
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string UidCode { get; set; }
+
+        private bool _connectedSuccessfully;
+        public bool ConnectedSuccessfully
+        {
+            get { return _connectedSuccessfully; }
+            set
+            {
+                _connectedSuccessfully = value;
+                NotifyPropertyChanged();
+            }
+        }
+
 
         private Employee _selectedEmployee;
 
@@ -62,19 +77,18 @@ namespace MaintenanceDashboard.Client.ViewModels
         }
 
 
-        public bool IsValidEmployee 
+        public bool IsValidEmployee
         {
             get
             {
                 return SelectedEmployee == null ||
-                (!String.IsNullOrWhiteSpace(SelectedEmployee.FirstName) && 
+                (!String.IsNullOrWhiteSpace(SelectedEmployee.FirstName) &&
                 !String.IsNullOrWhiteSpace(SelectedEmployee.LastName));
             }
         }
 
         private void CreateEmployee(string firstName, string lastName, string uidCodeEmployee)
         {
-
             var employee = new Employee
             {
                 FirstName = firstName,
@@ -83,6 +97,7 @@ namespace MaintenanceDashboard.Client.ViewModels
             };
 
             context.CreateEmployee(employee);
+            ConnectedSuccessfully = true;
         }
 
         public void GetEmployeeList()
@@ -109,5 +124,6 @@ namespace MaintenanceDashboard.Client.ViewModels
                 SelectedEmployee = null;
             }
         }
+
     }
 }

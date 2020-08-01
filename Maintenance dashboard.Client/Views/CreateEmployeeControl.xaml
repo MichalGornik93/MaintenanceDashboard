@@ -6,7 +6,7 @@
              mc:Ignorable="d" 
              xmlns:viewModels="clr-namespace:MaintenanceDashboard.Client.ViewModels" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             d:DataContext="{d:DesignInstance viewModels:RegisterToolViewModel}"
+             d:DataContext="{d:DesignInstance viewModels:EmployeeViewModel}"
              Width="750" Height="550" HorizontalAlignment="Left" VerticalAlignment="Top" >
     <Grid Width="730">
         <Border CornerRadius="20" >
@@ -27,20 +27,14 @@
             </Rectangle.Effect>
         </Rectangle>
 
-        <Grid   Margin="15,85,15, 15"  x:Name="gridInfoAddToDataBase" Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0" Text="Dodano do bazy danych" Foreground="Gray" Margin="10" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <materialDesign:PackIcon Grid.Row="1" Kind="DatabaseAdd" VerticalAlignment="Center" Width="100" Height="100" HorizontalAlignment="Center"  Margin="5" Foreground="Gray"/>
-        </Grid>
+        <ContentControl Style="{StaticResource AddingRecordGridTemplete}"/>
 
         <Grid x:Name="gridPrincipal" Margin="15,85,15, 15" Width="700" Height="410">
             <TextBlock Text="DODAWANIE PRACOWNIKÓW" HorizontalAlignment="Center" VerticalAlignment="Top"  
                            FontSize="18"  Foreground="Gray" />
 
-            <StackPanel  HorizontalAlignment="Center" Margin="25" VerticalAlignment="Center">
+            <StackPanel HorizontalAlignment="Center" Margin="25" VerticalAlignment="Center" Style="{StaticResource AddingRecordDataTemplete}">
+                
                 <WrapPanel>
                     <materialDesign:PackIcon Kind="User" VerticalAlignment="Center" Width="30" Height="30"/>
                     <TextBox  Width="220" materialDesign:HintAssist.Hint="Imie" 
@@ -66,7 +60,7 @@
                 </WrapPanel>
                 <Button  x:Name="btnAddEmployee" Height="25"  Background="#FF0069C0"  
                              BorderBrush="#FF0069C0"  Width="100" Content="DODAJ" Margin="10"  Grid.Column="1"
-                             Command="{Binding CreateEmployeeCommand}" Click="btnAddEmployee_Click"/>
+                             Command="{Binding CreateEmployeeCommand}"/>
 
             </StackPanel>
         </Grid>

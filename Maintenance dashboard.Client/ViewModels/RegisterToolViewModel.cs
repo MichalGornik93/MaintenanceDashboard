@@ -31,6 +31,17 @@ namespace MaintenanceDashboard.Client.ViewModels
             }
         }
 
+        private bool _connectedSuccessfully;
+        public bool ConnectedSuccessfully
+        {
+            get { return _connectedSuccessfully; }
+            set
+            {
+                _connectedSuccessfully = value;
+                NotifyPropertyChanged();
+            }
+        }
+
         public RegisterToolViewModel(IRegisterToolContext context)
         {
             this.context = context;
@@ -83,6 +94,7 @@ namespace MaintenanceDashboard.Client.ViewModels
             };
 
             context.CreateRegisterTool(registerTool);
+            ConnectedSuccessfully = true;
         }
 
         public void GetRegisterToolList()

@@ -10,102 +10,83 @@
              d:DataContext="{d:DesignInstance viewModels:RegisterToolViewModel}"
              Width="750" Height="550" HorizontalAlignment="Left" VerticalAlignment="Top" >
     <Grid >
-        <materialDesign:TransitioningContent x:Name="TrainsitioningContentSlide" 
-                                             OpeningEffect="{materialDesign:TransitionEffect FadeIn}"/>
-        <Grid>
-            <Border Height="auto" Width="auto" CornerRadius="20">
-                <Border.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FF2281D1"/>
-                        <GradientStop Color="#FF34288B" Offset="1"/>
-                        <GradientStop Color="#FF33288B" Offset="1"/>
-                    </LinearGradientBrush>
-                </Border.Background>
-            </Border>
+        <ContentControl Style="{StaticResource RectangleView}"/>
 
-            <Rectangle Fill="White" Margin="15,85,15, 15" RadiusX="15" RadiusY="15" 
-                       RenderTransformOrigin="0.5,0.5" >
-                <Rectangle.Effect>
-                    <DropShadowEffect BlurRadius="10" RenderingBias="Quality" Direction="0" Color="#FFBBBBBB" 
-                                      ShadowDepth="1"/>
-                </Rectangle.Effect>
-            </Rectangle>
-
-            <Grid  Margin="15,80,15, 15" Width="700" Height="500">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="60"/>
-                    <RowDefinition Height="250"/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
+        <Grid  Margin="15,80,15, 15" Width="700" Height="500">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="250"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
 
 
-                <DataGrid ItemsSource="{Binding RegisterTools}" SelectedItem="{Binding SelectedRegisterTool}"  Height="300" IsReadOnly="True"
+            <DataGrid ItemsSource="{Binding RegisterTools}" SelectedItem="{Binding SelectedRegisterTool}"  Height="300" IsReadOnly="True"
                           Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Margin="10" Background="White" AutoGenerateColumns="False">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
-                        <DataGridTextColumn Header="Nazwa" Binding="{Binding ToolName}"/>
-                        <DataGridTextColumn Header="Kod UID" Binding="{Binding UidCode}"/>
-                    </DataGrid.Columns>
-                </DataGrid>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                    <DataGridTextColumn Header="Nazwa" Binding="{Binding ToolName}"/>
+                    <DataGridTextColumn Header="Kod UID" Binding="{Binding UidCode}"/>
+                </DataGrid.Columns>
+            </DataGrid>
 
 
 
-                <TextBlock Text="EDYTOWANIE WYPOSAŻENIA" HorizontalAlignment="Center" VerticalAlignment="Center"  
+            <TextBlock Text="EDYTOWANIE WYPOSAŻENIA" HorizontalAlignment="Center" VerticalAlignment="Center"  
                            FontSize="18" Grid.Column="0" Grid.Row="0" Foreground="Gray" Grid.ColumnSpan="2" Margin="10"/>
 
-                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5" Grid.Column="0" Grid.Row="1">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5" Grid.Column="0" Grid.Row="1">
 
-                    <WrapPanel>
-                        <materialDesign:PackIcon Kind="Identifier" VerticalAlignment="Center" Width="30" Height="30"/>
-                        <TextBox x:Name="txtID" Width="250"  IsEnabled="False"  materialDesign:HintAssist.Hint="Id" 
+                <WrapPanel>
+                    <materialDesign:PackIcon Kind="Identifier" VerticalAlignment="Center" Width="30" Height="30"/>
+                    <TextBox x:Name="txtID" Width="250"  IsEnabled="False"  materialDesign:HintAssist.Hint="Id" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                              Text="{Binding SelectedRegisterTool.Id, 
                              UpdateSourceTrigger=PropertyChanged, 
                              ValidatesOnDataErrors=True}"
                              Margin="10"/>
-                    </WrapPanel>
+                </WrapPanel>
 
-                    <WrapPanel>
-                        <materialDesign:PackIcon Kind="Tools" VerticalAlignment="Center" Width="30" Height="30"/>
-                        <TextBox  Width="250" materialDesign:HintAssist.Hint="Nazwa wyposażenia" 
+                <WrapPanel>
+                    <materialDesign:PackIcon Kind="Tools" VerticalAlignment="Center" Width="30" Height="30"/>
+                    <TextBox  Width="250" materialDesign:HintAssist.Hint="Nazwa wyposażenia" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"  
                              Text="{Binding SelectedRegisterTool.ToolName, 
                              UpdateSourceTrigger=PropertyChanged, 
                              ValidatesOnDataErrors=True}" Margin="10"/>
-                    </WrapPanel>
+                </WrapPanel>
 
-                    <WrapPanel>
-                        <materialDesign:PackIcon Kind="Code" VerticalAlignment="Center" Width="30" Height="30"/>
-                        <TextBox  materialDesign:HintAssist.Hint="Kod UID" Width="250" 
+                <WrapPanel>
+                    <materialDesign:PackIcon Kind="Code" VerticalAlignment="Center" Width="30" Height="30"/>
+                    <TextBox  materialDesign:HintAssist.Hint="Kod UID" Width="250" 
                               materialDesign:HintAssist.HelperText=""  
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"
                               Text="{Binding SelectedRegisterTool.UidCode, 
                               UpdateSourceTrigger=PropertyChanged, 
                               ValidatesOnDataErrors=True}" />
-                    </WrapPanel>
-                </StackPanel>
+                </WrapPanel>
+            </StackPanel>
 
 
-                <Grid Grid.Column="0" Grid.Row="2" VerticalAlignment="Top">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Grid.Row="2" VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
 
 
-                    <Button  Height="25"  Width="100"  Background="#FF0069C0"  BorderBrush="#FF0069C0"  
+                <Button  Height="25"  Width="100"  Background="#FF0069C0"  BorderBrush="#FF0069C0"  
                              Content="ZAPISZ"  Margin="10" Grid.Column="0" 
                              Command="{Binding SaveRegisterToolCommand}"/>
-                    <Button   Height="25"  Width="100"  Background="#FF0069C0"  BorderBrush="#FF0069C0"  
+                <Button   Height="25"  Width="100"  Background="#FF0069C0"  BorderBrush="#FF0069C0"  
                               Content="USUŃ"  Margin="10" Grid.Column="1"
                               Command="{Binding DeleteRegisterToolCommand}"/>
 
-                </Grid>
             </Grid>
         </Grid>
     </Grid>
+
 </UserControl>

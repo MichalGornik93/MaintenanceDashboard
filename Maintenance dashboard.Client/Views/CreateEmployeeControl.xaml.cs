@@ -13,11 +13,5 @@ namespace MaintenanceDashboard.Client.Views
             this.DataContext = _employeeViewModel;
             InitializeComponent();
         }
-
-        private void btnAddEmployee_Click(object sender, RoutedEventArgs e)
-        {
-            gridInfoAddToDataBase.Visibility = Visibility.Visible;
-            gridPrincipal.Visibility = Visibility.Collapsed;
-        }
     }
 }

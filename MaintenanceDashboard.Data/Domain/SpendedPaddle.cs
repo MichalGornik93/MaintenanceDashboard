@@ -8,7 +8,7 @@ namespace MaintenanceDashboard.Data.Domain
         [Key]
         public int Id { get; set; }
 
-        [ForeignKey("Paddle")] [Required]
+        [ForeignKey("Paddle")]
         public int PaddleId { get; set; }
         
         [Required]

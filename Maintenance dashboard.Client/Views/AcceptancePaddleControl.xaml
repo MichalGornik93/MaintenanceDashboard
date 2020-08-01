@@ -9,54 +9,15 @@
              xmlns:viewModels="clr-namespace:MaintenanceDashboard.Client.ViewModels"
              d:DataContext="{d:DesignInstance viewModels:ReceivedPaddleViewModel}" >
     <Grid>
-        <Border CornerRadius="20" >
-            <Border.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF2281D1"/>
-                    <GradientStop Color="#FF34288B" Offset="1"/>
-                    <GradientStop Color="#FF33288B" Offset="1"/>
-                </LinearGradientBrush>
-            </Border.Background>
-        </Border>
+        <ContentControl Style="{StaticResource RectangleView}"/>
 
-
-
-        <Rectangle Fill="White" Margin="15,85,15, 15" RadiusX="15" RadiusY="15" 
-                       RenderTransformOrigin="0.5,0.5">
-            <Rectangle.Effect>
-                <DropShadowEffect BlurRadius="10" RenderingBias="Quality" Direction="0" Color="#FFBBBBBB" 
-                                      ShadowDepth="1"/>
-            </Rectangle.Effect>
-        </Rectangle>
-
-        <Grid  Margin="15,15,15, 15"  x:Name="gridInfoAddToDataBase" Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0" Text="PRZYJĘTO PALETKE" Foreground="Gray" Margin="10" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <materialDesign:PackIcon Grid.Row="1" Kind="DatabaseAdd" VerticalAlignment="Center" Width="100" Height="100" HorizontalAlignment="Center"  Margin="5" Foreground="Gray"/>
-        </Grid>
-
-
+        <ContentControl Style="{StaticResource AddingRecordGridTemplete}"/>
 
         <Grid Margin="15,80,15, 15">
             <TextBlock Text="PRZYJĘCIE PALETKI" HorizontalAlignment="Center" VerticalAlignment="Top"  
                            FontSize="18"  Foreground="Gray" Margin="18"/>
 
-            <Grid x:Name="gridPrincipal" HorizontalAlignment="Center"  VerticalAlignment="Center" >
-
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition Height="80"/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-   
+            <StackPanel HorizontalAlignment="Center"  VerticalAlignment="Center" Style="{StaticResource AddingRecordDataTemplete}">
 
                 <WrapPanel Grid.Column="0" Grid.Row="0">
                     <materialDesign:PackIcon Kind="User" VerticalAlignment="Center" Width="30" Height="30"/>
@@ -127,9 +88,9 @@
                 </WrapPanel>
 
                 <Button  x:Name="btnGetPaddle" Height="25"  Background="#FF0069C0" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2"
-                             BorderBrush="#FF0069C0"  Width="110" Content="POTWIERDŹ" Margin="10" Command="{Binding AcceptancePaddleCommand}" Click="btnGetPaddle_Click"/>
+                             BorderBrush="#FF0069C0"  Width="110" Content="POTWIERDŹ" Margin="10" Command="{Binding AcceptancePaddleCommand}"/>
 
-            </Grid>
+            </StackPanel>
         </Grid>
 
     </Grid>
