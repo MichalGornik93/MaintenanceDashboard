@@ -21,15 +21,8 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
-                <Grid  Grid.Row="0"  x:Name="gridInfoAddToDataBase" Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <TextBlock Grid.Row="0" Text="WYDANO PALETKE" Foreground="Gray" Margin="10" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                    <materialDesign:PackIcon Grid.Row="1" Kind="DatabaseAdd" VerticalAlignment="Center" Width="100" Height="100" HorizontalAlignment="Center"  Margin="5" Foreground="Gray"/>
-                </Grid>
                 <ContentControl Style="{StaticResource AddingRecordGridTemplete}" Grid.Row="0"/>
+
                 <StackPanel Grid.Row="0"  Style="{StaticResource AddingRecordDataTemplete}">
                     <WrapPanel>
                         <materialDesign:PackIcon Kind="User" VerticalAlignment="Center" Width="30" Height="30"/>
@@ -107,20 +100,17 @@
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"/>
                     </WrapPanel>
 
-
-
-                    <Button x:Name="btnSpendPaddle" Height="25"  Background="#FF0069C0" 
+                    <Button Height="25"  Background="#FF0069C0" 
                              BorderBrush="#FF0069C0"  Width="110" Content="WYDAJ" Margin="10" Command="{Binding SpendPaddleCommand}" />
                 </StackPanel>
 
                 <DataGrid ItemsSource="{Binding ReceivedPaddles}" SelectedItem="{Binding SelectedReceivedPaddle}"  Margin="10,10,0,10" Grid.Column="1" Background="White" AutoGenerateColumns="False" IsReadOnly="True" HorizontalAlignment="Left" Width="520">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Numer" Binding="{Binding PaddleNumber}"/>
+                        <DataGridTextColumn Header="Numer" Binding="{Binding Paddle.Number}"/>
                         <DataGridTextColumn Header="Data dodania" Binding="{Binding AddedDate}"/>
                         <DataGridTextColumn Header="Planowana naprawa" Binding="{Binding PlannedRepairDate}"/>
                         <DataGridTextColumn Header="Akcja" Binding="{Binding ActivityPerformed}"/>
-                        <DataGridTextColumn Header="Pracownik" Binding="{Binding ReceivingEmployee}"/>
-
+                        <DataGridTextColumn Header="Przyjmujący pracownik" Binding="{Binding ReceivingEmployee}"/>
                         <DataGridTextColumn Header="Zamówienie" Binding="{Binding IsOrders}"/>
                         <DataGridTextColumn Header="Uwagi" Binding="{Binding Comments}"/>
                     </DataGrid.Columns>

@@ -14,47 +14,45 @@
         <ContentControl Style="{StaticResource AddingRecordGridTemplete}"/>
 
 
-        <Grid x:Name="gridPrincipal" Margin="15,80,15, 15"  Grid.ZIndex="1">
-                <TextBlock Text="DODANIE NOWYCH PALETEK" HorizontalAlignment="Center" VerticalAlignment="Top"  
+        <Grid Margin="15,80,15, 15">
+            <TextBlock Text="DODANIE NOWYCH PALETEK" HorizontalAlignment="Center" VerticalAlignment="Top"  
                            FontSize="18"  Foreground="Gray" Margin="18"/>
 
             <StackPanel HorizontalAlignment="Center"  VerticalAlignment="Center" Style="{StaticResource AddingRecordDataTemplete}">
-
-                    <WrapPanel>
-                        <materialDesign:PackIcon Kind="BarcodeScanner" VerticalAlignment="Center" Width="30" Height="30"/>
+                <WrapPanel>
+                    <materialDesign:PackIcon Kind="BarcodeScanner" VerticalAlignment="Center" Width="30" Height="30"/>
                     <TextBox Width="220" materialDesign:HintAssist.Hint="Numer paletki" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"  
                              Background="White"
                              Text="{Binding Number, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Margin="10"/>
 
-                    </WrapPanel>
+                </WrapPanel>
 
-                    <WrapPanel>
-                        <materialDesign:PackIcon Kind="Car" VerticalAlignment="Center" Width="30" Height="30"/>
+                <WrapPanel>
+                    <materialDesign:PackIcon Kind="Car" VerticalAlignment="Center" Width="30" Height="30"/>
                     <TextBox  materialDesign:HintAssist.Hint="Model" Width="220" IsEnabled="False" 
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"
                                Text="{Binding Model}"/>
-                    </WrapPanel>
+                </WrapPanel>
 
-                    <WrapPanel>
-                        <materialDesign:PackIcon Kind="CalendarAdd" VerticalAlignment="Center" Width="30" Height="30"/>
+                <WrapPanel>
+                    <materialDesign:PackIcon Kind="CalendarAdd" VerticalAlignment="Center" Width="30" Height="30"/>
                     <TextBox  Width="220" materialDesign:HintAssist.Hint="Data dodania" IsEnabled="False"
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding AddedDate}"
                               Margin="10"/>
-                    </WrapPanel>
+                </WrapPanel>
 
-                    <WrapPanel>
-                        <materialDesign:PackIcon Kind="NoteTextOutline" VerticalAlignment="Center" Width="30" Height="30"/>
+                <WrapPanel>
+                    <materialDesign:PackIcon Kind="NoteTextOutline" VerticalAlignment="Center" Width="30" Height="30"/>
                     <TextBox  Width="220" materialDesign:HintAssist.Hint="Uwagi" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"  
                              Text="{Binding Comments}" Margin="10"/>
 
-                    </WrapPanel>
-                    <Button  x:Name="btnAddPaddle" Height="25"  Background="#FF0069C0"  
+                </WrapPanel>
+                <Button Height="25"  Background="#FF0069C0"  
                              BorderBrush="#FF0069C0"  Width="100" Content="DODAJ" Margin="10"  Grid.Column="1"
                              Command="{Binding CreatePaddleCommand}"/>
-
-                </StackPanel>
-            </Grid>
+            </StackPanel>
+        </Grid>
     </Grid>
 </UserControl>

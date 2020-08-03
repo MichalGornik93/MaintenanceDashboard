@@ -14,19 +14,16 @@ namespace MaintenanceDashboard.Client.ViewModels
 
         public ICollection<RegisterTool> RegisterTools { get; private set; }
 
-
         public string ToolName { get; set; }
         public string UidCode { get; set; }
 
-
-        private RegisterTool selectedRegisterTool;
-
+        private RegisterTool _selectedRegisterTool;
         public RegisterTool SelectedRegisterTool
         {
-            get { return selectedRegisterTool; }
+            get { return _selectedRegisterTool; }
             set
             {
-                selectedRegisterTool = value;
+                _selectedRegisterTool = value;
                 NotifyPropertyChanged();
             }
         }
@@ -48,8 +45,6 @@ namespace MaintenanceDashboard.Client.ViewModels
             RegisterTools = new ObservableCollection<RegisterTool>();
         }
 
-
-
         public ActionCommand CreateRegisterToolCommand
         {
             get
@@ -58,6 +53,7 @@ namespace MaintenanceDashboard.Client.ViewModels
                                          p => !String.IsNullOrWhiteSpace(ToolName));
             }
         }
+
         public ActionCommand SaveRegisterToolCommand
         {
             get
@@ -74,7 +70,6 @@ namespace MaintenanceDashboard.Client.ViewModels
                 return new ActionCommand(p => DeleteRegisterTool());
             }
         }
-
 
         public bool IsValidRegisterTool
         {
@@ -123,7 +118,5 @@ namespace MaintenanceDashboard.Client.ViewModels
 
             }
         }
-
-
     }
 }

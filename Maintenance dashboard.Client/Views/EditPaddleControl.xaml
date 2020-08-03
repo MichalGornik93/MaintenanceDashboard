@@ -10,7 +10,6 @@
         <ContentControl Style="{StaticResource RectangleView}"/>
 
         <Grid  Margin="15,80,15, 15" HorizontalAlignment="Center" >
-
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -23,7 +22,6 @@
 
             <TextBlock Text="EDYTOWANIE PALETEK" HorizontalAlignment="Center" VerticalAlignment="Top"  
                            FontSize="18" Grid.Column="0" Grid.Row="0" Foreground="Gray" Grid.ColumnSpan="2" Margin="20"/>
-
 
             <DataGrid ItemsSource="{Binding Paddles}" SelectedItem="{Binding SelectedPaddle}" IsReadOnly="True"
                           Grid.Column="1" Grid.Row="1"  Margin="10,10,0,10" Background="White" AutoGenerateColumns="False" HorizontalAlignment="Left" Width="460">
@@ -38,7 +36,6 @@
             </DataGrid>
 
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5" Grid.Column="0" Grid.Row="1">
-
                 <WrapPanel>
                     <materialDesign:PackIcon Kind="Identifier" VerticalAlignment="Center" Width="30" Height="30"/>
                     <TextBox Width="250"  IsEnabled="False"  materialDesign:HintAssist.Hint="Id" 
@@ -88,24 +85,11 @@
                               UpdateSourceTrigger=PropertyChanged, 
                               ValidatesOnDataErrors=True}" />
                 </WrapPanel>
+
+                <Button HorizontalAlignment="Center"  Height="25"  Width="100" Grid.Column="0" Grid.Row="2" Background="#FF0069C0"  BorderBrush="#FF0069C0"  
+                             Content="ZAPISZ"  Margin="10" Command="{Binding SavePaddleCommand}"/>
             </StackPanel>
 
-
-            <Grid Grid.Column="0" Grid.Row="2" VerticalAlignment="Top">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-
-
-                <Button  Height="25"  Width="100"  Background="#FF0069C0"  BorderBrush="#FF0069C0"  
-                             Content="ZAPISZ"  Margin="10" Grid.Column="0" 
-                             Command="{Binding SavePaddleCommand}"/>
-                <Button   Height="25"  Width="100"  Background="#FF0069C0"  BorderBrush="#FF0069C0"  
-                              Content="USUŃ"  Margin="10" Grid.Column="1"
-                              Command="{Binding DaletePaddleCommand}"/>
-
-            </Grid>
         </Grid>
     </Grid>
 

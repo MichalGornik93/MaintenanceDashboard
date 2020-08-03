@@ -9,10 +9,8 @@
               xmlns:viewModels="clr-namespace:MaintenanceDashboard.Client.ViewModels"
              d:DataContext="{d:DesignInstance viewModels:EmployeeViewModel}"
              Width="750" Height="550" HorizontalAlignment="Left" VerticalAlignment="Top" >
-
     <Grid Width="730">
         <ContentControl Style="{StaticResource RectangleView}"/>
-
         <Grid  Margin="15,80,15, 15" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -24,24 +22,19 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-
             <DataGrid ItemsSource="{Binding Employees}" SelectedItem="{Binding SelectedEmployee}" Height="300" IsReadOnly="True"
                           Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Margin="10" Background="White" AutoGenerateColumns="False">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                     <DataGridTextColumn Header="Imie" Binding="{Binding FirstName}"/>
                     <DataGridTextColumn Header="Nazwisko" Binding="{Binding LastName}"/>
-                    <DataGridTextColumn Header="Kod UID" Binding="{Binding UidCode}"/>
                 </DataGrid.Columns>
             </DataGrid>
-
-
 
             <TextBlock Text="EDYCJA PRACOWNIKÓW" HorizontalAlignment="Center" VerticalAlignment="Center"  
                            FontSize="18" Grid.Column="0" Grid.Row="0" Foreground="Gray" Grid.ColumnSpan="2" Margin="10"/>
 
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5" Grid.Column="0" Grid.Row="1">
-
                 <WrapPanel>
                     <materialDesign:PackIcon Kind="Identifier" VerticalAlignment="Center" Width="30" Height="30"/>
                     <TextBox x:Name="txtID" IsEnabled="False"  materialDesign:HintAssist.Hint="Id" 
@@ -70,24 +63,14 @@
                              ValidatesOnDataErrors=True}" Margin="10"/>
                 </WrapPanel>
 
-                <WrapPanel>
-                    <materialDesign:PackIcon Kind="Code" VerticalAlignment="Center" Width="30" Height="30"/>
-                    <TextBox  materialDesign:HintAssist.Hint="Kod UID" Width="250" 
-                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"
-                              Text="{Binding SelectedEmployee.UidCode, 
-                              UpdateSourceTrigger=PropertyChanged, 
-                              ValidatesOnDataErrors=True}" />
-                </WrapPanel>
-
+                
             </StackPanel>
-
 
             <Grid Grid.Column="0" Grid.Row="2" VerticalAlignment="Top">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-
 
                 <Button  Height="25"  Width="100"  Background="#FF0069C0"  BorderBrush="#FF0069C0"  
                              Content="ZAPISZ"  Margin="10" Grid.Column="0" 

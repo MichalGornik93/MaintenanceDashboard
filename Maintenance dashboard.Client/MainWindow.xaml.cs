@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Automation;
 using System.Windows.Controls;
 using MaintenanceDashboard.Client.Views;
 
@@ -67,13 +68,17 @@ namespace MaintenanceDashboard.Client
                 itemEmployee.IsEnabled = true;
                 btnCloseWindow.IsEnabled = IsEnabled;
             }
+            else
+                MessageBox.Show("Błędne hasło", "Logowanie", MessageBoxButton.OK, MessageBoxImage.Information);
             PasswordBox.Clear();
         }
 
         private void btnLogout_Click(object sender, RoutedEventArgs e)
         {
             itemEmployee.IsEnabled = false;
+            btnCloseWindow.IsEnabled = false;
             GridPrincipal.Children.Clear();
+            GridPrincipal.Children.Add(new HomeControl());
         }
     }
 }

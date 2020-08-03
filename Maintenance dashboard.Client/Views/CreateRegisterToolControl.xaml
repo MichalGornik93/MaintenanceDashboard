@@ -9,11 +9,10 @@
              d:DataContext="{d:DesignInstance viewModels:RegisterToolViewModel}" 
              Width="750" Height="550" HorizontalAlignment="Left" VerticalAlignment="Top" >
     <Grid >
-
         <ContentControl Style="{StaticResource RectangleView}"/>
         <ContentControl Style="{StaticResource AddingRecordGridTemplete}"/>
 
-        <Grid x:Name="gridPrincipal" Margin="15,80,15, 15" Width="700" Height="420">
+        <Grid Margin="15,80,15, 15" Width="700" Height="420">
             <TextBlock Text="DODAWANIE WYPOSAŻENIA" HorizontalAlignment="Center" VerticalAlignment="Top"  
                            FontSize="18"  Foreground="Gray" />
 
@@ -33,13 +32,10 @@
                               Text="{Binding UidCode, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
                 </WrapPanel>
 
-
-                <Button  x:Name="btnAddRegisterTool" Height="25"  Background="#FF0069C0"  
+                <Button Height="25"  Background="#FF0069C0"  
                              BorderBrush="#FF0069C0"  Width="100" Content="DODAJ" Margin="10"  Grid.Column="1"
                              Command="{Binding CreateRegisterToolCommand}"/>
-
             </StackPanel>
-
         </Grid>
     </Grid>
 </UserControl>

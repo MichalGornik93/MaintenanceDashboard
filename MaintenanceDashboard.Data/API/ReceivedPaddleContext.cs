@@ -28,7 +28,7 @@ namespace MaintenanceDashboard.Data.Api
             CheckValue.RequireString(receivedPaddle.PlannedRepairDate);
             CheckValue.RequireString(receivedPaddle.IsOrders);
             CheckValue.RequireString(receivedPaddle.ReceivingEmployee);
-            CheckValue.RequireString(receivedPaddle.PaddleNumber);
+            //CheckValue.RequireString(receivedPaddle.PaddleNumber);
 
             context.ReceivedPaddles.Add(receivedPaddle);
             context.SaveChanges();
@@ -58,13 +58,18 @@ namespace MaintenanceDashboard.Data.Api
             {
                 var t =
                     (from c in context.Paddles
-                     where c.Number == receivedPaddle.PaddleNumber
+                     where c.Id == receivedPaddle.PaddleId
                      select c).First();
                 t.LastPrevention = DateTime.Now.ToString("MM/dd/yyyy");
 
                 context.SaveChanges();
             }
 
+        }
+
+        public int CheckForeignKey(string numer)
+        {
+            return context.Paddles.FirstOrDefault(c => c.Number == numer).Id;
         }
 
         public bool CheckReceivedPaddleExist(string number)
@@ -79,13 +84,14 @@ namespace MaintenanceDashboard.Data.Api
 
         public bool CheckIfIsAccepted(string number)
         {
-            var result = context.ReceivedPaddles.FirstOrDefault(c => c.PaddleNumber == number);
+            var result = context.ReceivedPaddles.FirstOrDefault(c => c.Paddle.Number == number);
 
             if (result != null)
                 return true;
 
             return false;
         }
+        
         public ICollection<ReceivedPaddle> GetReceivedPaddleList()
         {
             return context.ReceivedPaddles.OrderBy(p => p.Id).ToArray();

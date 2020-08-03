@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text.RegularExpressions;
-using System.Linq;
 
 namespace MaintenanceDashboard.Client.ViewModels
 {
@@ -17,8 +16,10 @@ namespace MaintenanceDashboard.Client.ViewModels
 
         public ICollection<ReceivedPaddle> ReceivedPaddles { get; private set; }
 
-        private EmployeeViewModel _EmployeeViewModel;
+        public string PaddleNumber { get; set; }
+        public string DescriptionIntervention { get; set; }
 
+        private EmployeeViewModel _EmployeeViewModel;
         public EmployeeViewModel EmployeeViewModel
         {
             get { return _EmployeeViewModel; }
@@ -77,9 +78,6 @@ namespace MaintenanceDashboard.Client.ViewModels
             set { _activityPerformed = value; }
         }
 
-        public string Number { get; set; }
-
-        public string DescriptionIntervention { get; set; }
 
         private ReceivedPaddle _selectedReceivedPaddle;
         public ReceivedPaddle SelectedReceivedPaddle
@@ -116,28 +114,34 @@ namespace MaintenanceDashboard.Client.ViewModels
             get
             {
                 return new ActionCommand(p => SpendPaddle(),
-                    p => SelectedReceivedPaddle != null &&
-                    !String.IsNullOrWhiteSpace(DescriptionIntervention) &&
-                     EmployeeViewModel.SelectedEmployee != null);
+                    p => IsValidSpendedPaddle());
             }
         }
 
         private bool IsValidReceivedPaddle()
         {
-            if (OnValidate(Number) == null && EmployeeViewModel.SelectedEmployee != null && PlannedRepairDate != null && IsOrder != null && ActivityPerformed != null)
+            if (OnValidate(PaddleNumber) == null && EmployeeViewModel.SelectedEmployee != null && PlannedRepairDate != null && AddedDate !=null && IsOrder != null && ActivityPerformed != null)
                 return true;
             return false;
         }
 
+        private bool IsValidSpendedPaddle()
+        {
+            if (SelectedReceivedPaddle != null && !String.IsNullOrWhiteSpace(DescriptionIntervention) && EmployeeViewModel.SelectedEmployee != null)
+                return true;
+            return false;
+
+        }
+
         protected override string OnValidate(string propertyName)
         {
-            if (String.IsNullOrEmpty(Number))
+            if (String.IsNullOrEmpty(PaddleNumber))
                 return "Pole musi być wypełnione";
-            else if (!Regex.IsMatch(Number, _paddleBarcodePattern))
+            else if (!Regex.IsMatch(PaddleNumber, _paddleBarcodePattern))
                 return "Niepoprawna składnia ciągu {Pal...}";
-            else if (context.CheckReceivedPaddleExist(Number))
+            else if (context.CheckReceivedPaddleExist(PaddleNumber))
                 return "Paletka nie istnieje w bazie danych";
-            else if(context.CheckIfIsAccepted(Number))
+            else if (context.CheckIfIsAccepted(PaddleNumber))
                 return "Paletka jest już przyjęta";
             return base.OnValidate(propertyName);
         }
@@ -147,7 +151,7 @@ namespace MaintenanceDashboard.Client.ViewModels
             var receivedPaddle = new ReceivedPaddle
             {
                 ReceivingEmployee = String.Format("{0} {1}", EmployeeViewModel.SelectedEmployee.FirstName, EmployeeViewModel.SelectedEmployee.LastName),
-                PaddleNumber = Number,
+                PaddleId = context.CheckForeignKey(PaddleNumber),
                 AddedDate = AddedDate,
                 ActivityPerformed = ActivityPerformed,
                 PlannedRepairDate = PlannedRepairDate.ToString("MM/dd/yyyy"),
@@ -162,7 +166,7 @@ namespace MaintenanceDashboard.Client.ViewModels
         {
             var spendedPaddle = new SpendedPaddle
             {
-                PaddleNumber = SelectedReceivedPaddle.PaddleNumber,
+                PaddleId = SelectedReceivedPaddle.PaddleId,
                 AddedDate = SelectedReceivedPaddle.AddedDate,
                 ActivityPerformed = SelectedReceivedPaddle.ActivityPerformed,
                 RepairDate = RepairDate,
@@ -173,7 +177,6 @@ namespace MaintenanceDashboard.Client.ViewModels
                 SpendingEmployee = String.Format("{0} {1}", EmployeeViewModel.SelectedEmployee.FirstName, EmployeeViewModel.SelectedEmployee.LastName)
             };
             context.CreateSpendedPaddle(spendedPaddle);
-
             context.UpdateLastPreventionDate(SelectedReceivedPaddle);
 
             if (SelectedReceivedPaddle != null)
@@ -182,7 +185,6 @@ namespace MaintenanceDashboard.Client.ViewModels
                 ReceivedPaddles.Remove(SelectedReceivedPaddle);
                 SelectedReceivedPaddle = null;
             }
-
             ConnectedSuccessfully = true;
         }
 

@@ -13,5 +13,6 @@ namespace MaintenanceDashboard.Data.Api
         Employee CheckEmployee(Employee employee);
         void UpdateLastPreventionDate(ReceivedPaddle receivedPaddle);
         bool CheckIfIsAccepted(string number);
+        int CheckForeignKey(string numer);
     }
 }

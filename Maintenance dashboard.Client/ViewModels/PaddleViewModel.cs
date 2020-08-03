@@ -16,7 +16,6 @@ namespace MaintenanceDashboard.Client.ViewModels
         public ICollection<Paddle> Paddles { get; private set; }
 
         public string Number { get; set; }
-        
         public string Comments { get; set; }
 
         private string _Model = "VW380 T1/T2 Base/High";
@@ -37,13 +36,13 @@ namespace MaintenanceDashboard.Client.ViewModels
             }
         }
 
-        private Paddle selectedPaddle;
+        private Paddle _selectedPaddle;
         public Paddle SelectedPaddle
         {
-            get { return selectedPaddle; }
+            get { return _selectedPaddle; }
             set
             {
-                selectedPaddle = value;
+                _selectedPaddle = value;
                 NotifyPropertyChanged();
             }
         }
@@ -79,13 +78,6 @@ namespace MaintenanceDashboard.Client.ViewModels
             }
         }
 
-        public ActionCommand DaletePaddleCommand
-        {
-            get
-            {
-                return new ActionCommand(p => DeletePaddle());
-            }
-        }
 
         public bool IsValidPaddle()
         {
@@ -118,13 +110,13 @@ namespace MaintenanceDashboard.Client.ViewModels
             };
 
             context.CreatePaddle(paddle);
-
             ConnectedSuccessfully = true;
         }
 
         public void GetPaddleList()
         {
             Paddles.Clear();
+            SelectedPaddle = null;
 
             foreach (var item in context.GetPaddleList())
                 Paddles.Add(item);
@@ -136,14 +128,5 @@ namespace MaintenanceDashboard.Client.ViewModels
                 context.UpdatePaddle(SelectedPaddle);
         }
 
-        private void DeletePaddle()
-        {
-            if (SelectedPaddle != null)
-            {
-                context.DeletePaddle(SelectedPaddle);
-                Paddles.Remove(SelectedPaddle);
-                SelectedPaddle = null;
-            }
-        }
     }
 }

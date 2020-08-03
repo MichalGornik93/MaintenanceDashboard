@@ -42,17 +42,12 @@
                 <WrapPanel Grid.Row="1" Grid.Column="0">
                     <materialDesign:PackIcon Kind="BarcodeScanner" VerticalAlignment="Center" Width="30" Height="30"/>
                     <TextBox  Width="220" materialDesign:HintAssist.Hint="Numer paletki" 
-                              Text="{Binding Number, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
-                              Margin="10"/>
-
-                </WrapPanel>
-
-                <WrapPanel Grid.Row="2" Grid.Column="0">
-                    <materialDesign:PackIcon Kind="CalendarAdd" VerticalAlignment="Center" Width="30" Height="30"/>
-                    <TextBox  Width="220" materialDesign:HintAssist.Hint="Data dodania" IsEnabled="False"
-                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding AddedDate}"
+                              Text="{Binding PaddleNumber, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                               Margin="10"/>
                 </WrapPanel>
+
+                <DatePicker materialDesign:HintAssist.Hint="Data dodania"   Margin="10" Style="{StaticResource MaterialDesignOutlinedDatePicker}" 
+                            Grid.Row="4" Grid.Column="0"  Width="240" SelectedDate="{Binding AddedDate}" HorizontalAlignment="Center" />
 
 
                 <WrapPanel Grid.Column="0" Grid.Row="3">
@@ -72,9 +67,10 @@
 
                 <WrapPanel Grid.Column="0" Grid.Row="5">
                     <materialDesign:PackIcon Kind="ShoppingCartMinus" VerticalAlignment="Center" Width="30" Height="30"/>
-                    <ComboBox materialDesign:HintAssist.Hint="Zamówienie" MinWidth="200" Grid.Column="1" Grid.Row="5" 
+                    <ComboBox materialDesign:HintAssist.Hint="Zamówienie" MinWidth="220" Grid.Column="1" Grid.Row="5" 
                           Margin="10" SelectedValue="{Binding IsOrder}" SelectedValuePath="Content"
-                               materialDesign:HintAssist.HelperText="Pole musi być wypełnione">
+                               materialDesign:HintAssist.HelperText="Pole musi być wypełnione"
+                              ToolTip="Czy jakieś części do zamówienia?">
                         <ComboBoxItem>Tak</ComboBoxItem>
                         <ComboBoxItem>Nie</ComboBoxItem>
                     </ComboBox>
@@ -87,7 +83,7 @@
                               Text="{Binding Comments}"/>
                 </WrapPanel>
 
-                <Button  x:Name="btnGetPaddle" Height="25"  Background="#FF0069C0" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2"
+                <Button Height="25"  Background="#FF0069C0" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2"
                              BorderBrush="#FF0069C0"  Width="110" Content="POTWIERDŹ" Margin="10" Command="{Binding AcceptancePaddleCommand}"/>
 
             </StackPanel>

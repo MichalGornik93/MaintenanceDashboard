@@ -74,10 +74,12 @@
                                            HorizontalAlignment="Center" Margin="8" Foreground="Gray" Text="Logowanie"/>
                                 <PasswordBox x:Name="PasswordBox" Margin="8" materialDesign:HintAssist.Hint="Hasło"
                                              materialDesign:TextFieldAssist.HasClearButton="True" 
-                                             materialDesign:HintAssist.HelperText="Wpisz hasło"  />
+                                             materialDesign:HintAssist.HelperText="Wpisz hasło"/>
+                                
                                 <Button x:Name="btnSavePassword" Click="btnSavePassword_Click" 
                                         Style="{StaticResource MaterialDesignFlatButton}" Margin="8" FontSize="12" 
                                         ToolTip="MaterialDesignFlatButton" Content="AKCEPTUJ"/>
+                                
                             </StackPanel>
                         </materialDesign:PopupBox>
                         <TextBlock Text="Logowanie" FontSize="8" Foreground="Gray"/>
@@ -90,9 +92,9 @@
                         <TextBlock Text="Wylogowanie" FontSize="8" Foreground="Gray"/>
                     </StackPanel>
 
-                    <Button x:Name="btnCloseWindow" Width="30" Height="30" 
+                    <Button x:Name="btnCloseWindow" Width="30" Height="30" IsEnabled="False"
                             Background="{x:Null}" BorderBrush="{x:Null}" 
-                            Padding="0" Foreground="Gray" Click="btnCloseWindow_Click" >
+                            Padding="0" Foreground="Gray" Click="btnCloseWindow_Click">
                         <materialDesign:PackIcon Kind="Power" Width="22" Height="22"/>
                     </Button>
 
@@ -102,8 +104,7 @@
         </StackPanel>
 
         <Grid Margin="330 20 10 10">
-            <Grid x:Name="GridPrincipal" HorizontalAlignment="Center" 
-                  VerticalAlignment="Center">
+            <Grid x:Name="GridPrincipal" HorizontalAlignment="Center" VerticalAlignment="Center">
 
                 <Image Source="Resources/Zenek.png"/>
 
@@ -130,7 +131,7 @@
                                        VerticalAlignment="Center" Margin="20 0" />
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem x:Name="itemEmployee" Height="60" Foreground="LightGray" IsEnabled="True">
+                    <ListViewItem x:Name="itemEmployee" Height="60" Foreground="LightGray" IsEnabled="False">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="UsersGroupOutline" Width="30" Height="30"
                                                      VerticalAlignment="Center" Margin="5"/>

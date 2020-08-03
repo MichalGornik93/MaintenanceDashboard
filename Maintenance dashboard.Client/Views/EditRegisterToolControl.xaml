@@ -12,7 +12,7 @@
     <Grid >
         <ContentControl Style="{StaticResource RectangleView}"/>
 
-        <Grid  Margin="15,80,15, 15" Width="700" Height="500">
+        <Grid  Margin="15,80,15, 15">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -24,8 +24,8 @@
             </Grid.RowDefinitions>
 
 
-            <DataGrid ItemsSource="{Binding RegisterTools}" SelectedItem="{Binding SelectedRegisterTool}"  Height="300" IsReadOnly="True"
-                          Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Margin="10" Background="White" AutoGenerateColumns="False">
+            <DataGrid ItemsSource="{Binding RegisterTools}" SelectedItem="{Binding SelectedRegisterTool}"  IsReadOnly="True"
+                          Grid.Column="1" Grid.Row="1"  Margin="10,10,10,0" Background="White" AutoGenerateColumns="False" Grid.RowSpan="2" VerticalAlignment="Top">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                     <DataGridTextColumn Header="Nazwa" Binding="{Binding ToolName}"/>
@@ -33,14 +33,11 @@
                 </DataGrid.Columns>
             </DataGrid>
 
-
-
             <TextBlock Text="EDYTOWANIE WYPOSAŻENIA" HorizontalAlignment="Center" VerticalAlignment="Center"  
                            FontSize="18" Grid.Column="0" Grid.Row="0" Foreground="Gray" Grid.ColumnSpan="2" Margin="10"/>
 
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5" Grid.Column="0" Grid.Row="1">
-
-                <WrapPanel>
+               <WrapPanel>
                     <materialDesign:PackIcon Kind="Identifier" VerticalAlignment="Center" Width="30" Height="30"/>
                     <TextBox x:Name="txtID" Width="250"  IsEnabled="False"  materialDesign:HintAssist.Hint="Id" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
@@ -70,21 +67,18 @@
                 </WrapPanel>
             </StackPanel>
 
-
             <Grid Grid.Column="0" Grid.Row="2" VerticalAlignment="Top">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
-
-                <Button  Height="25"  Width="100"  Background="#FF0069C0"  BorderBrush="#FF0069C0"  
+               <Button  Height="25"  Width="100"  Background="#FF0069C0"  BorderBrush="#FF0069C0"  
                              Content="ZAPISZ"  Margin="10" Grid.Column="0" 
                              Command="{Binding SaveRegisterToolCommand}"/>
                 <Button   Height="25"  Width="100"  Background="#FF0069C0"  BorderBrush="#FF0069C0"  
                               Content="USUŃ"  Margin="10" Grid.Column="1"
                               Command="{Binding DeleteRegisterToolCommand}"/>
-
             </Grid>
         </Grid>
     </Grid>
