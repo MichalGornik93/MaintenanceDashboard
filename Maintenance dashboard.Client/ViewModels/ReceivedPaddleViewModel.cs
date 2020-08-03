@@ -146,8 +146,8 @@ namespace MaintenanceDashboard.Client.ViewModels
         {
             var receivedPaddle = new ReceivedPaddle
             {
-                EmployeeId = EmployeeViewModel.SelectedEmployee.Id,
-                PaddleId = context.CheckForeignKey(Number),
+                ReceivingEmployee = String.Format("{0} {1}", EmployeeViewModel.SelectedEmployee.FirstName, EmployeeViewModel.SelectedEmployee.LastName),
+                PaddleNumber = Number,
                 AddedDate = AddedDate,
                 ActivityPerformed = ActivityPerformed,
                 PlannedRepairDate = PlannedRepairDate.ToString("MM/dd/yyyy"),
@@ -162,19 +162,17 @@ namespace MaintenanceDashboard.Client.ViewModels
         {
             var spendedPaddle = new SpendedPaddle
             {
-                PaddleId = SelectedReceivedPaddle.PaddleId,
+                PaddleNumber = SelectedReceivedPaddle.PaddleNumber,
                 AddedDate = SelectedReceivedPaddle.AddedDate,
                 ActivityPerformed = SelectedReceivedPaddle.ActivityPerformed,
                 RepairDate = RepairDate,
                 Comments = SelectedReceivedPaddle.Comments,
                 IsOrders = SelectedReceivedPaddle.IsOrders,
                 DescriptionIntervention = DescriptionIntervention,
-                ReceivingEmployee = SelectedReceivedPaddle.Employee,
-                SpendingEmployee = context.CheckEmployee(EmployeeViewModel.SelectedEmployee)
+                ReceivingEmployee = SelectedReceivedPaddle.ReceivingEmployee,
+                SpendingEmployee = String.Format("{0} {1}", EmployeeViewModel.SelectedEmployee.FirstName, EmployeeViewModel.SelectedEmployee.LastName)
             };
             context.CreateSpendedPaddle(spendedPaddle);
-
-            ConnectedSuccessfully = true;
 
             context.UpdateLastPreventionDate(SelectedReceivedPaddle);
 
@@ -185,7 +183,7 @@ namespace MaintenanceDashboard.Client.ViewModels
                 SelectedReceivedPaddle = null;
             }
 
-            
+            ConnectedSuccessfully = true;
         }
 
         public void GetReceivedPaddleList()

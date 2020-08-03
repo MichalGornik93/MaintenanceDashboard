@@ -5,7 +5,6 @@ namespace MaintenanceDashboard.Data.Api
 {
     public interface IReceivedPaddleContext
     {
-        int CheckForeignKey(string numer);
         bool CheckReceivedPaddleExist(string number);
         void CreateReceivedPaddle(ReceivedPaddle receivedPaddle);
         void CreateSpendedPaddle(SpendedPaddle spendedPaddle);

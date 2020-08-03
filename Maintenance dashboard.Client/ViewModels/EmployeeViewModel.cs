@@ -4,9 +4,6 @@ using MaintenanceDashboard.Library;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Globalization;
-using System.Windows;
-using System.Windows.Data;
 using System.Windows.Input;
 
 namespace MaintenanceDashboard.Client.ViewModels
@@ -32,9 +29,7 @@ namespace MaintenanceDashboard.Client.ViewModels
             }
         }
 
-
         private Employee _selectedEmployee;
-
         public Employee SelectedEmployee
         {
             get { return _selectedEmployee; }
@@ -55,7 +50,7 @@ namespace MaintenanceDashboard.Client.ViewModels
         {
             get
             {
-                return new ActionCommand(p => CreateEmployee(FirstName, LastName, UidCode),
+                return new ActionCommand(p => CreateEmployee(),
                                          p => !String.IsNullOrWhiteSpace(FirstName) && !String.IsNullOrWhiteSpace(LastName));
             }
         }
@@ -87,13 +82,13 @@ namespace MaintenanceDashboard.Client.ViewModels
             }
         }
 
-        private void CreateEmployee(string firstName, string lastName, string uidCodeEmployee)
+        private void CreateEmployee()
         {
             var employee = new Employee
             {
-                FirstName = firstName,
-                LastName = lastName,
-                UidCode = uidCodeEmployee
+                FirstName = FirstName,
+                LastName = LastName,
+                UidCode = UidCode
             };
 
             context.CreateEmployee(employee);

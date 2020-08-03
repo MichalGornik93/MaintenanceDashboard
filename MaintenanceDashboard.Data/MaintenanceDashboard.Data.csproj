@@ -122,6 +122,10 @@
     <Compile Include="Migrations\202007310717520_AddedLastPreventionPropertyToPaddleTable.designer.cs">
       <DependentUpon>202007310717520_AddedLastPreventionPropertyToPaddleTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202008030502543_ChangedForeignKeyPropertyToString.cs" />
+    <Compile Include="Migrations\202008030502543_ChangedForeignKeyPropertyToString.designer.cs">
+      <DependentUpon>202008030502543_ChangedForeignKeyPropertyToString.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -171,6 +175,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202007310717520_AddedLastPreventionPropertyToPaddleTable.resx">
       <DependentUpon>202007310717520_AddedLastPreventionPropertyToPaddleTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008030502543_ChangedForeignKeyPropertyToString.resx">
+      <DependentUpon>202008030502543_ChangedForeignKeyPropertyToString.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

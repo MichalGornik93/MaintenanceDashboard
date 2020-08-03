@@ -7,10 +7,10 @@ namespace MaintenanceDashboard.Data.Domain
     {
         [Key]
         public int Id { get; set; }
-        [ForeignKey("Employee")] [Required]
-        public int EmployeeId { get; set; }
-        [ForeignKey("Paddle")] [Required]
-        public int PaddleId { get; set; }
+        [Required]
+        public string ReceivingEmployee { get; set; }
+        [Required]
+        public string PaddleNumber { get; set; }
         [Required]
         public string AddedDate { get; set; }
         [Required]
@@ -20,8 +20,5 @@ namespace MaintenanceDashboard.Data.Domain
         public string Comments { get; set; }
         [Required]
         public string IsOrders { get; set; }
-        public virtual Employee Employee { get; set; }
-        public virtual Paddle Paddle { get; set; }
-
     }
 }

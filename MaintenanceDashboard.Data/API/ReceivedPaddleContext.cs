@@ -27,8 +27,8 @@ namespace MaintenanceDashboard.Data.Api
             CheckValue.RequireString(receivedPaddle.ActivityPerformed);
             CheckValue.RequireString(receivedPaddle.PlannedRepairDate);
             CheckValue.RequireString(receivedPaddle.IsOrders);
-            CheckValue.RequireForeignKey(receivedPaddle.EmployeeId);
-            CheckValue.RequireForeignKey(receivedPaddle.PaddleId);
+            CheckValue.RequireString(receivedPaddle.ReceivingEmployee);
+            CheckValue.RequireString(receivedPaddle.PaddleNumber);
 
             context.ReceivedPaddles.Add(receivedPaddle);
             context.SaveChanges();
@@ -52,18 +52,13 @@ namespace MaintenanceDashboard.Data.Api
             context.SaveChanges();
         }
 
-        public int CheckForeignKey(string numer)
-        {
-            return context.Paddles.FirstOrDefault(c => c.Number == numer).Id;
-        }
-
         public void UpdateLastPreventionDate(ReceivedPaddle receivedPaddle)
         {
             if (receivedPaddle.ActivityPerformed == "Prewencja")
             {
                 var t =
                     (from c in context.Paddles
-                     where c.Id == receivedPaddle.PaddleId
+                     where c.Number == receivedPaddle.PaddleNumber
                      select c).First();
                 t.LastPrevention = DateTime.Now.ToString("MM/dd/yyyy");
 
@@ -84,7 +79,7 @@ namespace MaintenanceDashboard.Data.Api
 
         public bool CheckIfIsAccepted(string number)
         {
-            var result = context.ReceivedPaddles.FirstOrDefault(c => c.Paddle.Number == number);
+            var result = context.ReceivedPaddles.FirstOrDefault(c => c.PaddleNumber == number);
 
             if (result != null)
                 return true;

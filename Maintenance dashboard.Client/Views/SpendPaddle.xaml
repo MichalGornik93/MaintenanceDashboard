@@ -115,18 +115,12 @@
 
                 <DataGrid ItemsSource="{Binding ReceivedPaddles}" SelectedItem="{Binding SelectedReceivedPaddle}"  Margin="10,10,0,10" Grid.Column="1" Background="White" AutoGenerateColumns="False" IsReadOnly="True" HorizontalAlignment="Left" Width="520">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Numer" Binding="{Binding Paddle.Number}"/>
+                        <DataGridTextColumn Header="Numer" Binding="{Binding PaddleNumber}"/>
                         <DataGridTextColumn Header="Data dodania" Binding="{Binding AddedDate}"/>
-                        <DataGridTextColumn Header="Data planowanej naprawy" Binding="{Binding PlannedRepairDate}"/>
+                        <DataGridTextColumn Header="Planowana naprawa" Binding="{Binding PlannedRepairDate}"/>
                         <DataGridTextColumn Header="Akcja" Binding="{Binding ActivityPerformed}"/>
-                        <DataGridTextColumn Header="Pracownik">
-                            <DataGridTextColumn.Binding>
-                                <MultiBinding StringFormat="{}{0} {1}">
-                                    <Binding Path="Employee.FirstName" />
-                                    <Binding Path="Employee.LastName" />
-                                </MultiBinding>
-                            </DataGridTextColumn.Binding>
-                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="Pracownik" Binding="{Binding ReceivingEmployee}"/>
+
                         <DataGridTextColumn Header="Zamówienie" Binding="{Binding IsOrders}"/>
                         <DataGridTextColumn Header="Uwagi" Binding="{Binding Comments}"/>
                     </DataGrid.Columns>

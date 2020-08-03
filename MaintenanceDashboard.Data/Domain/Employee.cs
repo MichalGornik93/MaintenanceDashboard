@@ -13,13 +13,5 @@ namespace MaintenanceDashboard.Data.Domain
         [Required]
         public string LastName { get; set; }
         public string UidCode { get; set; }
-        
-        public virtual ICollection<ReceivedPaddle> ReceivedPaddles { get; set; }
-
-        [InverseProperty("ReceivingEmployee")]
-        public virtual ICollection<SpendedPaddle> ReceivingPaddles { get; set; }
-
-        [InverseProperty("SpendingEmployee")]
-        public virtual ICollection<SpendedPaddle> SpendingEmployee { get; set; }
     }
 }
