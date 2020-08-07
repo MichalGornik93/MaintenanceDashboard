@@ -14,7 +14,7 @@
             <TextBlock Text="WYDANIE PALETKI" HorizontalAlignment="Center" VerticalAlignment="Top"  
                            FontSize="18"  Foreground="Gray" Margin="18"/>
 
-            <Grid  HorizontalAlignment="Center" VerticalAlignment="Center" Width="800" Height="520">
+            <Grid  HorizontalAlignment="Center" VerticalAlignment="Center" Height="520">
 
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -104,7 +104,8 @@
                              BorderBrush="#FF0069C0"  Width="110" Content="WYDAJ" Margin="10" Command="{Binding SpendPaddleCommand}" />
                 </StackPanel>
 
-                <DataGrid ItemsSource="{Binding ReceivedPaddles}" SelectedItem="{Binding SelectedReceivedPaddle}"  Margin="10,10,0,10" Grid.Column="1" Background="White" AutoGenerateColumns="False" IsReadOnly="True" HorizontalAlignment="Left" Width="520">
+                <DataGrid ItemsSource="{Binding ReceivedPaddles}" SelectedItem="{Binding SelectedReceivedPaddle}"  Margin="10,10,0,10" 
+                          Grid.Column="1" Background="White" AutoGenerateColumns="False" IsReadOnly="True" HorizontalAlignment="Left" Height="500" Width="580" >
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Numer" Binding="{Binding Paddle.Number}"/>
                         <DataGridTextColumn Header="Data dodania" Binding="{Binding AddedDate}"/>

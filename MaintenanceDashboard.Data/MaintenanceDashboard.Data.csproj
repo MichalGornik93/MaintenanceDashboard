@@ -56,7 +56,9 @@
     <Compile Include="API\IPaddleContext.cs" />
     <Compile Include="API\IReceivedPaddleContext.cs" />
     <Compile Include="API\IRegisterToolContext.cs" />
+    <Compile Include="API\ISpendedPaddleContext.cs" />
     <Compile Include="API\ReceivedPaddleContext.cs" />
+    <Compile Include="API\SpendedPaddleContext.cs" />
     <Compile Include="Domain\Employee.cs" />
     <Compile Include="API\EmployeeContext.cs" />
     <Compile Include="Domain\ReceivedPaddle.cs" />

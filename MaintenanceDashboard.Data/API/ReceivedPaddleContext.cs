@@ -41,7 +41,6 @@ namespace MaintenanceDashboard.Data.Api
 
         public void CreateSpendedPaddle(SpendedPaddle spendedPaddle)
         {
-            //TODO: Add Paddle LastPrevention
             context.SpendedPaddles.Add(spendedPaddle);
             context.SaveChanges();
         }

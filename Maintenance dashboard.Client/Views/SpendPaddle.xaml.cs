@@ -20,5 +20,7 @@ namespace MaintenanceDashboard.Client.Views
         {
             _receivedPaddleViewModel.EmployeeViewModel.GetEmployeeList();
         }
+
+
     }
 }

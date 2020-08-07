@@ -42,14 +42,14 @@ namespace MaintenanceDashboard.Client.ViewModels
             }
         }
 
-        private string _addedData = DateTime.Now.ToString("MM/dd/yyyy");
-        public string AddedDate
+        private DateTime _addedData = DateTime.Now;
+        public DateTime AddedDate
         {
             get { return _addedData; }
             set { _addedData = value; }
         }
 
-        private string _repairData = DateTime.Now.ToString("MM/dd/yyyy");
+        private string _repairData = DateTime.Now.ToString("dd/MM/yyyy");
         public string RepairDate
         {
             get { return _repairData; }
@@ -152,9 +152,9 @@ namespace MaintenanceDashboard.Client.ViewModels
             {
                 ReceivingEmployee = String.Format("{0} {1}", EmployeeViewModel.SelectedEmployee.FirstName, EmployeeViewModel.SelectedEmployee.LastName),
                 PaddleId = context.CheckForeignKey(PaddleNumber),
-                AddedDate = AddedDate,
+                AddedDate = AddedDate.ToString("dd/MM/yyyy"),
                 ActivityPerformed = ActivityPerformed,
-                PlannedRepairDate = PlannedRepairDate.ToString("MM/dd/yyyy"),
+                PlannedRepairDate = PlannedRepairDate.ToString("dd/MM/yyyy"),
                 Comments = Comments,
                 IsOrders = IsOrder.ToString()
             };

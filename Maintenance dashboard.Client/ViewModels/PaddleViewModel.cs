@@ -47,7 +47,7 @@ namespace MaintenanceDashboard.Client.ViewModels
             }
         }
 
-        private string _addedData = DateTime.Now.ToString("MM/dd/yyyy");
+        private string _addedData = DateTime.Now.ToString("dd/MM/yyyy");
         public string AddedDate
         {
             get { return _addedData; }
@@ -105,7 +105,7 @@ namespace MaintenanceDashboard.Client.ViewModels
                 Number = Number,
                 Model = Model,
                 AddedDate = AddedDate,
-                LastPrevention = DateTime.Now.ToString("MM/dd/yyyy"),
+                LastPrevention = DateTime.Now.ToString("dd/MM/yyyy"),
                 Comments = Comments
             };
 

@@ -93,6 +93,7 @@
     <Compile Include="ViewModels\EmployeeViewModel.cs" />
     <Compile Include="ViewModels\RegisterToolViewModel.cs" />
     <Compile Include="ViewModels\PaddleViewModel.cs" />
+    <Compile Include="ViewModels\SpendedPaddleViewModel.cs" />
     <Compile Include="Views\CreateEmployeeControl.xaml.cs">
       <DependentUpon>CreateEmployeeControl.xaml</DependentUpon>
     </Compile>
