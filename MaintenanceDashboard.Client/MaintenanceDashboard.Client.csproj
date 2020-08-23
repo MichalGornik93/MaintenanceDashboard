@@ -234,6 +234,10 @@
     <Resource Include="Resources\MarelliLogo.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MaintenanceDashboard.Common\MaintenanceDashboard.Common.csproj">
+      <Project>{b8e90262-e6d0-4b0b-af41-5f83a39894e5}</Project>
+      <Name>MaintenanceDashboard.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MaintenanceDashboard.Data\MaintenanceDashboard.Data.csproj">
       <Project>{8d9815c9-9905-4105-8452-238ad8cd39c5}</Project>
       <Name>MaintenanceDashboard.Data</Name>

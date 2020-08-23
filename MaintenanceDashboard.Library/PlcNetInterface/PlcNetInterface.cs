@@ -5,24 +5,14 @@ namespace MaintenanceDashboard.Library
 {
     public class PlcNetInterface //:IPlcNetLibrariesBaseInterface
     {
-        public string IpAddress { get; set; }
-        public int Rack { get; set; }
-        public int Slot { get; set; }
-        public string PlcLastErrorMessage { get; set; }
-
-
+        private const int _plsTellMeWhatDoesItMean = 2;
+        
         private readonly S7Client _s7Plc;
+        
         private readonly Timer _dataReadTimer;
-        private readonly object _lockObject = new object();
-
-        private byte[] _inBuffer = new byte[2];
-
-        public delegate void ConnectedEventHendler();
-        public event ConnectedEventHendler Connected;
-
-        public delegate void DisconnectEventHendler();
-        public event DisconnectEventHendler Disconected;
-
+        
+        private byte[] _inBuffer = new byte[_plsTellMeWhatDoesItMean];
+        
         public PlcNetInterface(string ipAddress, int rack, int slot)
         {
             IpAddress = ipAddress;
@@ -30,6 +20,21 @@ namespace MaintenanceDashboard.Library
             Slot = slot;
             _s7Plc = new S7Client();
         }
+        
+        public string IpAddress { get; set; }
+        
+        public int Rack { get; set; }
+        
+        public int Slot { get; set; }
+        
+        public string PlcLastErrorMessage { get; set; }
+
+        public delegate void ConnectedEventHendler();
+        public event ConnectedEventHendler Connected;
+
+        public delegate void DisconnectEventHendler();
+        public event DisconnectEventHendler Disconected;
+
 
         public void Connect()
         {
@@ -42,15 +47,8 @@ namespace MaintenanceDashboard.Library
                 OnIsConnected();
         }
 
-        protected virtual void OnIsConnected()
-        {
-            if (Connected != null)
-                Connected();
-        }
-        protected virtual void OnIsDisonnected()
-        {
-            if (Disconected != null)
-                Disconected();
-        }
+        protected virtual void OnIsConnected() => Connected?.Invoke();
+        
+        protected virtual void OnIsDisonnected() => Disconected?.Invoke();
     }
 }

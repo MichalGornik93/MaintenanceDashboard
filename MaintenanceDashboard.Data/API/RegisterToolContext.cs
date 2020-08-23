@@ -2,23 +2,18 @@ using MaintenanceDashboard.Data.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using MaintenanceDashboard.Common;
+using MaintenanceDashboard.Data.Interfaces;
 
 namespace MaintenanceDashboard.Data.Api
 {
-    public sealed class RegisterToolContext : IDisposable, IRegisterToolContext
+    public sealed class RegisterToolContext : IRegisterToolContext
     {
-        private readonly DataContext context;
-
-        private bool disposed;
+        private readonly DataContext _context;
 
         public RegisterToolContext()
         {
-            context = new DataContext();
-        }
-
-        public DataContext DataContext
-        {
-            get { return context; }
+            _context = new DataContext();
         }
 
 
@@ -26,63 +21,30 @@ namespace MaintenanceDashboard.Data.Api
         {
             CheckValue.RequireString(registerTool.ToolName);
 
-            context.RegisterTools.Add(registerTool);
-            context.SaveChanges();
+            _context.RegisterTools.Add(registerTool);
+            _context.SaveChanges();
         }
 
 
         public void UpdateRegisterTool(RegisterTool registerTool)
         {
-            var entity = context.RegisterTools.Find(registerTool.Id);
+            var entity = _context.RegisterTools.Find(registerTool.Id)
+                ?? throw new NotImplementedException(ErrorText.UNHANDLED_BY_API);
 
-            if (entity == null)
-            {
-                throw new NotImplementedException("Handle appropriately for your API design. ");
-            }
+            _context.Entry(entity).CurrentValues.SetValues(registerTool);
 
-            context.Entry(entity).CurrentValues.SetValues(registerTool);
-
-            context.SaveChanges();
+            _context.SaveChanges();
         }
 
         public void DeleteRegisterTool(RegisterTool registerTool)
         {
-            context.RegisterTools.Remove(registerTool);
-            context.SaveChanges();
+            _context.RegisterTools.Remove(registerTool);
+            _context.SaveChanges();
         }
 
         public ICollection<RegisterTool> GetRegisterToolList()
         {
-            return context.RegisterTools.OrderBy(p => p.Id).ToArray();
+            return _context.RegisterTools.OrderBy(p => p.Id).ToArray();
         }
-
-
-        #region IDisposable Members
-        public void Dispose()
-        {
-            //Free all object here            
-            Dispose(true);
-
-            // This object will be cleaned up by the Dispose method.
-            // Therefore, you should call GC.SupressFinalize to
-            // take this object off the finalization queue
-            // and prevent finalization code for this object
-            // from executing a second time.
-            GC.SuppressFinalize(this);
-        }
-
-        private void Dispose(bool disposing)
-        {
-            //Check to see if Dispose has already been called.
-            if (disposed || !disposing)
-                return;
-
-            if (context != null)
-                context.Dispose(); //Free any unmenaged object here
-
-            disposed = true; // Note disposing has been done.
-        }
-
-        #endregion
     }
 }
