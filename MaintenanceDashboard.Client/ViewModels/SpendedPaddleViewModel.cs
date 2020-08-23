@@ -3,6 +3,7 @@ using MaintenanceDashboard.Data.Domain;
 using MaintenanceDashboard.Library;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using MaintenanceDashboard.Data.Interfaces;
 
 namespace MaintenanceDashboard.Client.ViewModels
 {

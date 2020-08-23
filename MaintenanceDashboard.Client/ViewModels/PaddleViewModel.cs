@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text.RegularExpressions;
+using MaintenanceDashboard.Data.Interfaces;
 
 namespace MaintenanceDashboard.Client.ViewModels
 {
@@ -13,16 +14,17 @@ namespace MaintenanceDashboard.Client.ViewModels
         private const string _paddleBarcodePattern = "Pal[0-9]{1,3}$";
         private readonly IPaddleContext context;
 
-        public ICollection<Paddle> Paddles { get; private set; }
+        public ICollection<Paddle> Paddles { get; }
 
         public string Number { get; set; }
         public string Comments { get; set; }
 
         private string _Model = "VW380 T1/T2 Base/High";
+        
         public string Model
         {
-            get { return _Model; }
-            set { _Model = value; }
+            get => _Model; 
+            set => _Model = value; 
         }
 
         private bool _connectedSuccessfully;

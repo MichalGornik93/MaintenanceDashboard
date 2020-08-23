@@ -2,10 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using MaintenanceDashboard.Data.Interfaces;
 
 namespace MaintenanceDashboard.Data.Api
 {
-    public class EmployeeContext : IDisposable, IEmployeeContext
+    public class EmployeeContext : IEmployeeContext
     {
         private readonly DataContext context;
 
@@ -14,11 +15,6 @@ namespace MaintenanceDashboard.Data.Api
         public EmployeeContext()
         {
             context = new DataContext();
-        }
-
-        public DataContext DataContext
-        {
-            get { return context; }
         }
 
         public void CreateEmployee(Employee employee)
@@ -54,32 +50,5 @@ namespace MaintenanceDashboard.Data.Api
         {
             return context.Employees.OrderBy(p => p.Id).ToArray();
         }
-
-        #region IDisposable Members
-        public void Dispose()
-        {
-            //Free all object here            
-            Dispose(true);
-
-            // This object will be cleaned up by the Dispose method.
-            // Therefore, you should call GC.SupressFinalize to
-            // take this object off the finalization queue
-            // and prevent finalization code for this object
-            // from executing a second time.
-            GC.SuppressFinalize(this);
-        }
-
-        private void Dispose(bool disposing)
-        {
-            //Check to see if Dispose has already been called.
-            if (disposed || !disposing)
-                return;
-
-            if (context != null)
-                context.Dispose(); //Free any unmenaged object here
-
-            disposed = true; // Note disposing has been done.
-        }
-        #endregion
     }
 }

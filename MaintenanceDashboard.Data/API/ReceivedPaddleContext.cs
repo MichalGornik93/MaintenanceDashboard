@@ -2,23 +2,18 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using MaintenanceDashboard.Data.Interfaces;
 
 namespace MaintenanceDashboard.Data.Api
 {
 
-    public class ReceivedPaddleContext : IDisposable, IReceivedPaddleContext
+    public class ReceivedPaddleContext : IReceivedPaddleContext
     {
-        private readonly DataContext context;
-        private bool disposed;
+        private readonly DataContext _context;
 
         public ReceivedPaddleContext()
         {
-            context = new DataContext();
-        }
-
-        public DataContext DataContext
-        {
-            get { return context; }
+            _context = new DataContext();
         }
 
         public void CreateReceivedPaddle(ReceivedPaddle receivedPaddle)
@@ -28,27 +23,26 @@ namespace MaintenanceDashboard.Data.Api
             CheckValue.RequireString(receivedPaddle.PlannedRepairDate);
             CheckValue.RequireString(receivedPaddle.IsOrders);
             CheckValue.RequireString(receivedPaddle.ReceivingEmployee);
-            //CheckValue.RequireString(receivedPaddle.PaddleNumber);
 
-            context.ReceivedPaddles.Add(receivedPaddle);
-            context.SaveChanges();
+            _context.ReceivedPaddles.Add(receivedPaddle);
+            _context.SaveChanges();
         }
 
         public Employee CheckEmployee(Employee employee)
         {
-            return context.Employees.FirstOrDefault(c => c.Id == employee.Id);
+            return _context.Employees.FirstOrDefault(c => c.Id == employee.Id);
         }
 
         public void CreateSpendedPaddle(SpendedPaddle spendedPaddle)
         {
-            context.SpendedPaddles.Add(spendedPaddle);
-            context.SaveChanges();
+            _context.SpendedPaddles.Add(spendedPaddle);
+            _context.SaveChanges();
         }
 
         public void DeleteReceivedPaddle(ReceivedPaddle receivedPaddle)
         {
-            context.ReceivedPaddles.Remove(receivedPaddle);
-            context.SaveChanges();
+            _context.ReceivedPaddles.Remove(receivedPaddle);
+            _context.SaveChanges();
         }
 
         public void UpdateLastPreventionDate(ReceivedPaddle receivedPaddle)
@@ -56,71 +50,22 @@ namespace MaintenanceDashboard.Data.Api
             if (receivedPaddle.ActivityPerformed == "Prewencja")
             {
                 var t =
-                    (from c in context.Paddles
+                    (from c in _context.Paddles
                      where c.Id == receivedPaddle.PaddleId
                      select c).First();
                 t.LastPrevention = DateTime.Now.ToString("MM/dd/yyyy");
 
-                context.SaveChanges();
+                _context.SaveChanges();
             }
 
         }
 
-        public int CheckForeignKey(string numer)
-        {
-            return context.Paddles.FirstOrDefault(c => c.Number == numer).Id;
-        }
+        public int CheckForeignKey(string number) => _context.Paddles.FirstOrDefault(c => c.Number == number)?.Id ?? 0;
 
-        public bool CheckReceivedPaddleExist(string number)
-        {
-            var result = context.Paddles.FirstOrDefault(c => c.Number == number);
+        public bool CheckReceivedPaddleExist(string number) => _context.Paddles.FirstOrDefault(c => c.Number == number) == null;
 
-            if (result == null)
-                return true;
-
-            return false;
-        }
-
-        public bool CheckIfIsAccepted(string number)
-        {
-            var result = context.ReceivedPaddles.FirstOrDefault(c => c.Paddle.Number == number);
-
-            if (result != null)
-                return true;
-
-            return false;
-        }
+        public bool CheckIfIsAccepted(string number) => _context.ReceivedPaddles.FirstOrDefault(c => c.Paddle.Number == number) != null;
         
-        public ICollection<ReceivedPaddle> GetReceivedPaddleList()
-        {
-            return context.ReceivedPaddles.OrderBy(p => p.Id).ToArray();
-        }
-
-        #region IDisposable Members
-        public void Dispose()
-        {
-            //Free all object here            
-            Dispose(true);
-
-            // This object will be cleaned up by the Dispose method.
-            // Therefore, you should call GC.SupressFinalize to
-            // take this object off the finalization queue
-            // and prevent finalization code for this object
-            // from executing a second time.
-            GC.SuppressFinalize(this);
-        }
-
-        private void Dispose(bool disposing)
-        {
-            //Check to see if Dispose has already been called.
-            if (disposed || !disposing)
-                return;
-
-            if (context != null)
-                context.Dispose(); //Free any unmenaged object here
-
-            disposed = true; // Note disposing has been done.
-        }
-        #endregion
+        public ICollection<ReceivedPaddle> GetReceivedPaddleList() => _context.ReceivedPaddles.OrderBy(p => p.Id).ToArray();
     }
 }

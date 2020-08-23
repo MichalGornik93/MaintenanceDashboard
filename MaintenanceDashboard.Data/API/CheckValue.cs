@@ -6,19 +6,14 @@ namespace MaintenanceDashboard.Data.Api
     {
         public static void RequireString(string value)
         {
-            //TODO: Add any MassageBox
-            if (value == null)
-                throw new ArgumentNullException();
-            else if (value.Trim().Length == 0)
-                throw new ArgumentException();
+            if (value == null || value.Trim().Length == 0)
+                throw new ArgumentNullException(nameof(value));
         }
 
         public static void RequireForeignKey(int value)
         {
-            if (value == null)
-                throw new ArgumentNullException();
-            else if (value == 0)
-                throw new ArgumentException();
+            if (value == 0)
+                throw new ArgumentNullException(nameof(value));
         }
     }
 }

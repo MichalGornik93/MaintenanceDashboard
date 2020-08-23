@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
+using MaintenanceDashboard.Data.Interfaces;
 
 namespace MaintenanceDashboard.Client.ViewModels
 {
@@ -12,13 +13,14 @@ namespace MaintenanceDashboard.Client.ViewModels
     {
         private readonly IEmployeeContext context;
 
-        public ICollection<Employee> Employees { get; private set; }
+        public ICollection<Employee> Employees { get; }
 
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string UidCode { get; set; }
 
         private bool _connectedSuccessfully;
+        
         public bool ConnectedSuccessfully
         {
             get { return _connectedSuccessfully; }

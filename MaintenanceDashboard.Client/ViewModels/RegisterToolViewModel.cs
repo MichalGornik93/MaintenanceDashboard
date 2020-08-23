@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Windows.Input;
 using MaintenanceDashboard.Data.Api;
 using MaintenanceDashboard.Data.Domain;
+using MaintenanceDashboard.Data.Interfaces;
 using MaintenanceDashboard.Library;
 
 namespace MaintenanceDashboard.Client.ViewModels
@@ -58,7 +59,7 @@ namespace MaintenanceDashboard.Client.ViewModels
         {
             get
             {
-                return new ActionCommand(p => SaveRegisterTool(),
+                return new ActionCommand(p => TrySaveRegisterTool(),
                                          p => IsValidRegisterTool);
             }
         }
@@ -67,18 +68,11 @@ namespace MaintenanceDashboard.Client.ViewModels
         {
             get
             {
-                return new ActionCommand(p => DeleteRegisterTool());
+                return new ActionCommand(p => TryDeleteRegisterTool());
             }
         }
 
-        public bool IsValidRegisterTool
-        {
-            get
-            {
-                return SelectedRegisterTool == null ||
-                !String.IsNullOrWhiteSpace(SelectedRegisterTool.ToolName);
-            }
-        }
+        private bool IsValidRegisterTool => SelectedRegisterTool == null || !string.IsNullOrWhiteSpace(SelectedRegisterTool.ToolName);
 
         private void CreateRegisterTool(string toolName, string uidCode)
         {
@@ -100,7 +94,7 @@ namespace MaintenanceDashboard.Client.ViewModels
                 RegisterTools.Add(item);
         }
 
-        private void SaveRegisterTool()
+        private void TrySaveRegisterTool()
         {
             if (SelectedRegisterTool != null)
             {
@@ -108,14 +102,13 @@ namespace MaintenanceDashboard.Client.ViewModels
             }
         }
 
-        private void DeleteRegisterTool()
+        private void TryDeleteRegisterTool()
         {
             if (SelectedRegisterTool != null)
             {
                 context.DeleteRegisterTool(SelectedRegisterTool);
                 RegisterTools.Remove(SelectedRegisterTool);
                 SelectedRegisterTool = null;
-
             }
         }
     }
