@@ -7,8 +7,8 @@
     <ProjectGuid>{491C2945-9DC9-4B47-BC61-1F913DDBFD85}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MaintenanceDashbord.Library</RootNamespace>
-    <AssemblyName>MaintenanceDashbord.Library</AssemblyName>
+    <RootNamespace>MaintenanceDashboard.Library</RootNamespace>
+    <AssemblyName>MaintenanceDashboard.Library</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
