@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MaintenanceDashboard"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -40,7 +39,7 @@
                                            881766346 <LineBreak/>
                                            michalgornik93@outlook.com <LineBreak/>
                                            MaintenanceDashboard<LineBreak/>
-                                           Vesion 1.0.0 <LineBreak/>
+                                           Vesion 1.0.7 <LineBreak/>
 
                                 </TextBlock>
                             </StackPanel>
@@ -142,32 +141,29 @@
                                        VerticalAlignment="Center" Margin="20 0" />
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem x:Name="itemRegisterTool" Height="60" Foreground="LightGray" IsEnabled="False">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Tools" Width="30" Height="30" 
-                                                     VerticalAlignment="Center" Margin="5"/>
-                            <TextBlock Text="Baza rejestrowanego wyposażenia"  
-                                       VerticalAlignment="Center" Margin="20 0" />
-                        </StackPanel>
-                    </ListViewItem>
-
-
-                    <ListViewItem x:Name="ListaPaletek"  Foreground="LightGray">
+                    
+                    <ListViewItem  Foreground="LightGray">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="ClipboardList" Width="30" 
                                                      Height="35" VerticalAlignment="Top" Margin="5"/>
                             <TextBlock Text="Baza paletek"  
                                        VerticalAlignment="Center" Margin="20 0" />
+                        </StackPanel>
+                    </ListViewItem>
 
-
+                    <ListViewItem Foreground="LightGray">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="CoolantTemperature" Width="30" 
+                                                     Height="35" VerticalAlignment="top" Margin="5"/>
+                            <TextBlock Text="Baza termostatów"  VerticalAlignment="Center" Margin="20 0" />
                         </StackPanel>
                     </ListViewItem>
 
                     <ListViewItem x:Name="ListaTermostatow" Foreground="LightGray">
                         <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="ClipboardList" Width="30" 
+                            <materialDesign:PackIcon Kind="RobotIndustrial" Width="30" 
                                                      Height="35" VerticalAlignment="top" Margin="5"/>
-                            <TextBlock Text="Baza termostatów"  VerticalAlignment="Center" Margin="20 0" />
+                            <TextBlock Text="Baza chwytaków"  VerticalAlignment="Center" Margin="20 0" />
                         </StackPanel>
                     </ListViewItem>
 

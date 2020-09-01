@@ -35,11 +35,11 @@ namespace MaintenanceDashboard.Client
                     break;
                 case 2:
                     GridPrincipal.Children.Clear();
-                    GridPrincipal.Children.Add(new ManagerRegisterToolControl());
+                    GridPrincipal.Children.Add(new ManagerPaddleControl());
                     break;
                 case 3:
                     GridPrincipal.Children.Clear();
-                    GridPrincipal.Children.Add(new ManagerPaddleControl());
+                    GridPrincipal.Children.Add(new BuiltFunctionControl());
                     break;
                 case 4:
                     GridPrincipal.Children.Clear();
@@ -66,7 +66,6 @@ namespace MaintenanceDashboard.Client
             if (DateTimeNow.ToLower() == PasswordBox.Password.ToLower())
             {
                 itemEmployee.IsEnabled = true;
-                itemRegisterTool.IsEnabled = true;
                 btnCloseWindow.IsEnabled = IsEnabled;
             }
             else
@@ -77,9 +76,9 @@ namespace MaintenanceDashboard.Client
         private void btnLogout_Click(object sender, RoutedEventArgs e)
         {
             itemEmployee.IsEnabled = false;
-            itemRegisterTool.IsEnabled = false;
             btnCloseWindow.IsEnabled = false;
             GridPrincipal.Children.Clear();
+            GridCursor.Margin = new Thickness(0, 10, 0, 0);
             GridPrincipal.Children.Add(new HomeControl());
         }
     }

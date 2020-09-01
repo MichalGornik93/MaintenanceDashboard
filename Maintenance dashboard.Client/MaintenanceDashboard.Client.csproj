@@ -91,7 +91,6 @@
     </ApplicationDefinition>
     <Compile Include="ViewModels\ReceivedPaddleViewModel.cs" />
     <Compile Include="ViewModels\EmployeeViewModel.cs" />
-    <Compile Include="ViewModels\RegisterToolViewModel.cs" />
     <Compile Include="ViewModels\PaddleViewModel.cs" />
     <Compile Include="ViewModels\SpendedPaddleViewModel.cs" />
     <Compile Include="Views\CreateEmployeeControl.xaml.cs">
@@ -99,9 +98,6 @@
     </Compile>
     <Compile Include="Views\CreatePaddleControl.xaml.cs">
       <DependentUpon>CreatePaddleControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\CreateRegisterToolControl.xaml.cs">
-      <DependentUpon>CreateRegisterToolControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\BuiltFunctionControl.xaml.cs">
       <DependentUpon>BuiltFunctionControl.xaml</DependentUpon>
@@ -118,14 +114,8 @@
     <Compile Include="Views\ManagerEmployeeControl.xaml.cs">
       <DependentUpon>ManagerEmployeeControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ManagerRegisterToolControl.xaml.cs">
-      <DependentUpon>ManagerRegisterToolControl.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\ManagerPaddleControl.xaml.cs">
       <DependentUpon>ManagerPaddleControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\EditRegisterToolControl.xaml.cs">
-      <DependentUpon>EditRegisterToolControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\HomeControl.xaml.cs">
       <DependentUpon>HomeControl.xaml</DependentUpon>
@@ -138,10 +128,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CreatePaddleControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\CreateRegisterToolControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -165,15 +151,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ManagerRegisterToolControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\ManagerPaddleControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\EditRegisterToolControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
