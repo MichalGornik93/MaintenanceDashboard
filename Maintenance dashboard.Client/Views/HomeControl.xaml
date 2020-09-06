@@ -6,6 +6,6 @@
              mc:Ignorable="d" 
              Height="auto" Width="auto">
     <Grid>
-        <Image Source="/MaintenanceDashboard.Client;component/Resources/Zenek.png"/>
+        <Image Source="/MaintenanceDashboard.Client;component/Image/Zenek.png"/>
     </Grid>
 </UserControl>

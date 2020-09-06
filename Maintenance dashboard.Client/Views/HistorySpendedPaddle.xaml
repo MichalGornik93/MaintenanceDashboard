@@ -16,12 +16,13 @@
                            FontSize="18"  Foreground="Gray" Margin="18"/>
 
             <WrapPanel Margin="10" HorizontalAlignment="Right"  VerticalAlignment="Top">
+                
+                <TextBox Margin="5"  Width="150" Height="35"  Foreground="Gray" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                  materialDesign:HintAssist.Hint="Numer paletki" Text="{Binding PaddleNumber}" />
                 <Button Margin="5, 5, 5, 0" Background="White" BorderBrush="White" Foreground="Gray" Command="{Binding GetFiltredSpendedPaddleListCommand}"
                                  Style="{StaticResource MaterialDesignFlatButton}" HorizontalAlignment="Center">
                     <materialDesign:PackIcon Kind="Search" Height="20" Width="20"/>
                 </Button>
-                <TextBox Margin="5"  Width="150" Height="35"  Foreground="Gray" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                                  materialDesign:HintAssist.Hint="Numer paletki" Text="{Binding PaddleNumber}" />
             </WrapPanel>
 
             <Button Style="{StaticResource MaterialDesignFlatButton}" Height="40" FontSize="14" Margin="10" Width="160" VerticalAlignment="Bottom" 
@@ -39,8 +40,8 @@
                         <DataGridTextColumn Header="Przyjmujący pracownik" Binding="{Binding ReceivingEmployee}"/>
                         <DataGridTextColumn Header="Wydający pracownik" Binding="{Binding SpendingEmployee}"/>
                         <DataGridTextColumn Header="Zamówienie" Binding="{Binding IsOrders}"/>
-                        <DataGridTextColumn Header="Opis interwencji" Binding="{Binding DescriptionIntervention}"/>
-                        <DataGridTextColumn Header="Komentarz" Binding="{Binding Comments}"/>
+                        <DataGridTextColumn Header="Opis interwencji" Binding="{Binding DescriptionIntervention}" Width="250"/>
+                        <DataGridTextColumn Header="Komentarz" Binding="{Binding Comments}" Width="250"/>
                     </DataGrid.Columns>
                 </DataGrid>
 
