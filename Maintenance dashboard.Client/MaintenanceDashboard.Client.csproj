@@ -111,6 +111,9 @@
     <Compile Include="Views\EditPaddleControl.xaml.cs">
       <DependentUpon>EditPaddleControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\HistorySpendedPaddle.xaml.cs">
+      <DependentUpon>HistorySpendedPaddle.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ManagerEmployeeControl.xaml.cs">
       <DependentUpon>ManagerEmployeeControl.xaml</DependentUpon>
     </Compile>
@@ -144,6 +147,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\EditPaddleControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HistorySpendedPaddle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

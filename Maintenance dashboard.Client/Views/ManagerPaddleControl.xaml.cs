@@ -47,7 +47,7 @@ namespace MaintenanceDashboard.Client.Views
         private void btnOpenPerformedActivitiesList_Checked(object sender, RoutedEventArgs e)
         {
             GridPrincipal.Children.Clear();
-            GridPrincipal.Children.Add(new BuiltFunctionControl());
+            GridPrincipal.Children.Add(new HistorySpendedPaddle());
         }
     }
 }

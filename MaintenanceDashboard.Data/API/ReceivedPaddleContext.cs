@@ -27,8 +27,7 @@ namespace MaintenanceDashboard.Data.Api
             CheckValue.RequireString(receivedPaddle.PlannedRepairDate);
             CheckValue.RequireString(receivedPaddle.IsOrders);
             CheckValue.RequireString(receivedPaddle.ReceivingEmployee);
-            //CheckValue.RequireString(receivedPaddle.PaddleNumber);
-
+            
             context.ReceivedPaddles.Add(receivedPaddle);
             context.SaveChanges();
         }
@@ -58,7 +57,7 @@ namespace MaintenanceDashboard.Data.Api
                     (from c in context.Paddles
                      where c.Id == receivedPaddle.PaddleId
                      select c).First();
-                t.LastPrevention = DateTime.Now.ToString("dd/MM/yyyy");
+                t.LastPrevention = DateTime.Now.ToString("yyyy/MM/dd");
 
                 context.SaveChanges();
             }

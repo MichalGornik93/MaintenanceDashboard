@@ -1,10 +1,11 @@
-﻿using MaintenanceDashboard.Data.Api;
-using MaintenanceDashboard.Data.Domain;
-using MaintenanceDashboard.Library;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text.RegularExpressions;
+using MaintenanceDashboard.Data.Api;
+using MaintenanceDashboard.Data.Domain;
+using MaintenanceDashboard.Library;
+
 
 namespace MaintenanceDashboard.Client.ViewModels
 {
@@ -49,7 +50,7 @@ namespace MaintenanceDashboard.Client.ViewModels
             set { _addedData = value; }
         }
 
-        private string _repairData = DateTime.Now.ToString("dd/MM/yyyy");
+        private string _repairData = DateTime.Now.ToString("yyyy/MM/dd");
         public string RepairDate
         {
             get { return _repairData; }
@@ -152,9 +153,9 @@ namespace MaintenanceDashboard.Client.ViewModels
             {
                 ReceivingEmployee = String.Format("{0} {1}", EmployeeViewModel.SelectedEmployee.FirstName, EmployeeViewModel.SelectedEmployee.LastName),
                 PaddleId = context.CheckForeignKey(PaddleNumber),
-                AddedDate = AddedDate.ToString("dd/MM/yyyy"),
+                AddedDate = AddedDate.ToString("yyyy/MM/dd"),
                 ActivityPerformed = ActivityPerformed,
-                PlannedRepairDate = PlannedRepairDate.ToString("dd/MM/yyyy"),
+                PlannedRepairDate = PlannedRepairDate.ToString("yyyy/MM/dd"),
                 Comments = Comments,
                 IsOrders = IsOrder.ToString()
             };
