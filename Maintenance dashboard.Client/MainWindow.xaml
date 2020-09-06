@@ -108,13 +108,13 @@
         <Grid Margin="330 20 10 10">
             <Grid x:Name="GridPrincipal" HorizontalAlignment="Center" VerticalAlignment="Center">
 
-                <Image Source="Resources/Zenek.png"/>
+                <Image Source="Image/Zenek.png"/>
 
             </Grid>
         </Grid>
 
         <StackPanel Width="320" HorizontalAlignment="Left" Background="#ff222222" >
-            <Image Source="Resources/MarelliLogo.jpg" Margin="10"/>
+            <Image Source="Image/MarelliLogo.jpg" Margin="10"/>
             <Grid HorizontalAlignment="Left" Background="#ff222222" VerticalAlignment="Bottom">
                 <materialDesign:TransitioningContent x:Name="TrainsitioningContentSlide" 
                                                      OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.3}">

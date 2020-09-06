@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Windows.Data;
 
-namespace MaintenanceDashboard.Library
+namespace MaintenanceDashboard.Common
 {
     public abstract class ViewModel : ObservableObject, IDataErrorInfo
     {

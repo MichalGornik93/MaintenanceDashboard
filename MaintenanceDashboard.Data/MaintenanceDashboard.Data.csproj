@@ -52,10 +52,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API\CheckValue.cs" />
-    <Compile Include="API\IEmployeeContext.cs" />
-    <Compile Include="API\IPaddleContext.cs" />
-    <Compile Include="API\IReceivedPaddleContext.cs" />
-    <Compile Include="API\ISpendedPaddleContext.cs" />
+    <Compile Include="Interfaces\IEmployeeContext.cs" />
+    <Compile Include="Interfaces\IPaddleContext.cs" />
+    <Compile Include="Interfaces\IReceivedPaddleContext.cs" />
+    <Compile Include="Interfaces\ISpendedPaddleContext.cs" />
     <Compile Include="API\ReceivedPaddleContext.cs" />
     <Compile Include="API\SpendedPaddleContext.cs" />
     <Compile Include="Domain\Employee.cs" />
@@ -192,6 +192,12 @@
     <EmbeddedResource Include="Migrations\202009010936064_DeletedRegisterToolsTable.resx">
       <DependentUpon>202009010936064_DeletedRegisterToolsTable.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MaintenanceDashbord.Common\MaintenanceDashbord.Common.csproj">
+      <Project>{491c2945-9dc9-4b47-bc61-1f913ddbfd85}</Project>
+      <Name>MaintenanceDashbord.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

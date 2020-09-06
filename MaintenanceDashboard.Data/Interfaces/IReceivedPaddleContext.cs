@@ -1,7 +1,7 @@
 ﻿using MaintenanceDashboard.Data.Domain;
 using System.Collections.Generic;
 
-namespace MaintenanceDashboard.Data.Api
+namespace MaintenanceDashboard.Data.Interfaces
 {
     public interface IReceivedPaddleContext
     {

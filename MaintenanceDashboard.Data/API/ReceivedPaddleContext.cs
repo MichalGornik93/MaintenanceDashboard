@@ -1,11 +1,12 @@
 ﻿using MaintenanceDashboard.Data.Domain;
+using MaintenanceDashboard.Data.Interfaces;
+using MaintenanceDashbord.Common.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace MaintenanceDashboard.Data.Api
 {
-
     public class ReceivedPaddleContext : IReceivedPaddleContext
     {
         private readonly DataContext context;
@@ -57,7 +58,7 @@ namespace MaintenanceDashboard.Data.Api
                     (from c in context.Paddles
                      where c.Id == receivedPaddle.PaddleId
                      select c).First();
-                t.LastPrevention = DateTime.Now.ToString("yyyy/MM/dd");
+                t.LastPrevention = DateTime.Now.ToString(Resources.DateTimePattern);
 
                 context.SaveChanges();
             }

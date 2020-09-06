@@ -1,16 +1,16 @@
-﻿using MaintenanceDashboard.Data.Api;
-using MaintenanceDashboard.Data.Domain;
-using MaintenanceDashboard.Library;
+﻿using MaintenanceDashboard.Data.Domain;
+using MaintenanceDashboard.Data.Interfaces;
+using MaintenanceDashboard.Common;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text.RegularExpressions;
+using MaintenanceDashbord.Common.Properties;
 
 namespace MaintenanceDashboard.Client.ViewModels
 {
     public class PaddleViewModel : ViewModel
     {
-        private const string _paddleBarcodePattern = "Pal[0-9]{1,3}$";
         private readonly IPaddleContext context;
 
         public ICollection<Paddle> Paddles { get; private set; }
@@ -18,7 +18,7 @@ namespace MaintenanceDashboard.Client.ViewModels
         public string Number { get; set; }
         public string Comments { get; set; }
 
-        private string _Model = "VW380 T1/T2 Base/High";
+        private string _Model = Resources.PaddleModelPattern;
         public string Model
         {
             get { return _Model; }
@@ -47,7 +47,7 @@ namespace MaintenanceDashboard.Client.ViewModels
             }
         }
 
-        private string _addedData = DateTime.Now.ToString("yyyy/MM/dd");
+        private string _addedData = DateTime.Now.ToString(Resources.DateTimePattern);
         public string AddedDate
         {
             get { return _addedData; }
@@ -90,7 +90,7 @@ namespace MaintenanceDashboard.Client.ViewModels
         {
             if (String.IsNullOrEmpty(Number))
                 return "Pole musi być wypełnione";
-            else if (!Regex.IsMatch(Number, _paddleBarcodePattern))
+            else if (!Regex.IsMatch(Number, Resources.PaddleBarcodePattern))
                 return "Niepoprawna składnia ciągu {Pal...}";
             else if (context.CheckPaddleExist(Number))
                 return "Paletka istnieje już w bazie danych";
@@ -105,7 +105,7 @@ namespace MaintenanceDashboard.Client.ViewModels
                 Number = Number,
                 Model = Model,
                 AddedDate = AddedDate,
-                LastPrevention = DateTime.Now.ToString("yyyy/MM/dd"),
+                LastPrevention = DateTime.Now.ToString(Resources.DateTimePattern),
                 Comments = Comments
             };
 

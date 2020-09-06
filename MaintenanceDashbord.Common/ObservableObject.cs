@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace MaintenanceDashboard.Library
+namespace MaintenanceDashboard.Common
 {
     public class ObservableObject : INotifyPropertyChanged
     {

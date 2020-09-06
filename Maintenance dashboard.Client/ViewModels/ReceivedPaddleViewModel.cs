@@ -4,15 +4,14 @@ using System.Collections.ObjectModel;
 using System.Text.RegularExpressions;
 using MaintenanceDashboard.Data.Api;
 using MaintenanceDashboard.Data.Domain;
-using MaintenanceDashboard.Library;
-
+using MaintenanceDashboard.Data.Interfaces;
+using MaintenanceDashboard.Common;
+using MaintenanceDashbord.Common.Properties;
 
 namespace MaintenanceDashboard.Client.ViewModels
 {
     public class ReceivedPaddleViewModel : ViewModel
     {
-        private const string _paddleBarcodePattern = "Pal[0-9]{1,3}$";
-
         private readonly IReceivedPaddleContext context;
 
         public ICollection<ReceivedPaddle> ReceivedPaddles { get; private set; }
@@ -50,7 +49,7 @@ namespace MaintenanceDashboard.Client.ViewModels
             set { _addedData = value; }
         }
 
-        private string _repairData = DateTime.Now.ToString("yyyy/MM/dd");
+        private string _repairData = DateTime.Now.ToString(Resources.DateTimePattern);
         public string RepairDate
         {
             get { return _repairData; }
@@ -121,7 +120,7 @@ namespace MaintenanceDashboard.Client.ViewModels
 
         private bool IsValidReceivedPaddle()
         {
-            if (OnValidate(PaddleNumber) == null && EmployeeViewModel.SelectedEmployee != null && PlannedRepairDate != null && AddedDate !=null && IsOrder != null && ActivityPerformed != null)
+            if (OnValidate(PaddleNumber) == null && EmployeeViewModel.SelectedEmployee != null && PlannedRepairDate != null && AddedDate != null && IsOrder != null && ActivityPerformed != null)
                 return true;
             return false;
         }
@@ -138,7 +137,7 @@ namespace MaintenanceDashboard.Client.ViewModels
         {
             if (String.IsNullOrEmpty(PaddleNumber))
                 return "Pole musi być wypełnione";
-            else if (!Regex.IsMatch(PaddleNumber, _paddleBarcodePattern))
+            else if (!Regex.IsMatch(PaddleNumber, Resources.PaddleBarcodePattern))
                 return "Niepoprawna składnia ciągu {Pal...}";
             else if (context.CheckReceivedPaddleExist(PaddleNumber))
                 return "Paletka nie istnieje w bazie danych";
@@ -153,9 +152,9 @@ namespace MaintenanceDashboard.Client.ViewModels
             {
                 ReceivingEmployee = String.Format("{0} {1}", EmployeeViewModel.SelectedEmployee.FirstName, EmployeeViewModel.SelectedEmployee.LastName),
                 PaddleId = context.CheckForeignKey(PaddleNumber),
-                AddedDate = AddedDate.ToString("yyyy/MM/dd"),
+                AddedDate = AddedDate.ToString(Resources.DateTimePattern),
                 ActivityPerformed = ActivityPerformed,
-                PlannedRepairDate = PlannedRepairDate.ToString("yyyy/MM/dd"),
+                PlannedRepairDate = PlannedRepairDate.ToString(Resources.DateTimePattern),
                 Comments = Comments,
                 IsOrders = IsOrder.ToString()
             };

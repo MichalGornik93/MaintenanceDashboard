@@ -1,6 +1,6 @@
-﻿using MaintenanceDashboard.Data.API;
-using MaintenanceDashboard.Data.Domain;
-using MaintenanceDashboard.Library;
+﻿using MaintenanceDashboard.Data.Domain;
+using MaintenanceDashboard.Data.Interfaces;
+using MaintenanceDashboard.Common;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
