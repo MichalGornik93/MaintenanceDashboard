@@ -139,7 +139,7 @@ namespace MaintenanceDashboard.Client.ViewModels
                 return "Pole musi być wypełnione";
             else if (!Regex.IsMatch(PaddleNumber, Resources.PaddleBarcodePattern))
                 return "Niepoprawna składnia ciągu {Pal...}";
-            else if (context.CheckReceivedPaddleExist(PaddleNumber))
+            else if (context.CheckIfReceivedPaddleExist(PaddleNumber))
                 return "Paletka nie istnieje w bazie danych";
             else if (context.CheckIfIsAccepted(PaddleNumber))
                 return "Paletka jest już przyjęta";

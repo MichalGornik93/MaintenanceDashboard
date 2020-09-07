@@ -49,12 +49,13 @@
                         <TextBox  Width="220" materialDesign:HintAssist.Hint="Numer paletki" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"  
                               Text="{Binding SelectedReceivedPaddle.Paddle.Number}" 
-                              Margin="10" IsEnabled="False"/>
+                              Margin="10"  IsReadOnly="True" ToolTip="Wybierz paletke z listy"/>
                     </WrapPanel>
 
                     <WrapPanel>
                         <materialDesign:PackIcon Kind="CalendarAdd" VerticalAlignment="Center" Width="30" Height="30"/>
-                        <TextBox  Width="220" materialDesign:HintAssist.Hint="Data dodania" IsEnabled="False"
+                        <TextBox  Width="220" materialDesign:HintAssist.Hint="Data dodania" IsReadOnly="True" 
+                                  ToolTip="Wybierz paletke z listy"
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}"  
                               Text="{Binding SelectedReceivedPaddle.AddedDate}"
                               Margin="10"/>
@@ -63,7 +64,8 @@
 
                     <WrapPanel Grid.Column="0" Grid.Row="3">
                         <materialDesign:PackIcon Kind="LightningBoltOutline" VerticalAlignment="Center" Width="30" Height="30"/>
-                        <TextBox  Width="220" materialDesign:HintAssist.Hint="Akcja" IsEnabled="False"
+                        <TextBox  Width="220" materialDesign:HintAssist.Hint="Akcja" IsReadOnly="True" 
+                                  ToolTip="Wybierz paletke z listy"
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="10"
                               Text="{Binding SelectedReceivedPaddle.ActivityPerformed}"
                                materialDesign:HintAssist.HelperText="Wykonywane czynnosci"/>
@@ -80,7 +82,8 @@
 
                     <WrapPanel>
                         <materialDesign:PackIcon Kind="CalendarAdd" VerticalAlignment="Center" Width="30" Height="30"/>
-                        <TextBox  Width="220" materialDesign:HintAssist.Hint="Data naprawy" IsEnabled="False"
+                        <TextBox  Width="220" materialDesign:HintAssist.Hint="Data naprawy" IsReadOnly="True" 
+                                  ToolTip="Wybierz paletke z listy"
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}"  
                               Text="{Binding RepairDate}"
                               Margin="10"/>
@@ -88,7 +91,7 @@
 
                     <WrapPanel>
                         <materialDesign:PackIcon Kind="ShoppingCartMinus" VerticalAlignment="Center" Width="30" Height="30"/>
-                        <TextBox  Width="220" materialDesign:HintAssist.Hint="Zamówienie" IsEnabled="False"
+                        <TextBox  Width="220" materialDesign:HintAssist.Hint="Zamówienie" IsReadOnly="True" ToolTip="Wybierz paletke z listy"
                               Text="{Binding SelectedReceivedPaddle.IsOrders}"
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="10"/>
                     </WrapPanel>
@@ -105,7 +108,7 @@
                             Margin="10" Command="{Binding SpendPaddleCommand}" />
                 </StackPanel>
 
-                <DataGrid ItemsSource="{Binding ReceivedPaddles}" SelectedItem="{Binding SelectedReceivedPaddle}"  Margin="10,10,0,10" 
+                <DataGrid ItemsSource="{Binding ReceivedPaddles}" SelectedItem="{Binding SelectedReceivedPaddle}"  Margin="10,10,0,10" FontSize="11" 
                           Grid.Column="1" Background="White" AutoGenerateColumns="False" IsReadOnly="True" HorizontalAlignment="Left" Height="500" Width="580" >
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Numer" Binding="{Binding Paddle.Number}"/>

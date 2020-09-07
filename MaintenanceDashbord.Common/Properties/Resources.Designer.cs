@@ -70,6 +70,15 @@ namespace MaintenanceDashbord.Common.Properties {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu (19|20)[0-9]{2}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01]).
+        /// </summary>
+        public static string DateTimeRegexPattern {
+            get {
+                return ResourceManager.GetString("DateTimeRegexPattern", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Pal[0-9]{1,3}$.
         /// </summary>
         public static string PaddleBarcodePattern {

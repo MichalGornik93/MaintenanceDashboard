@@ -24,6 +24,7 @@ namespace MaintenanceDashboard.Data.Api
         {
             CheckValue.RequireString(paddle.Number);
             CheckValue.RequireString(paddle.Model);
+            CheckValue.RequireDateTime(paddle.AddedDate);
 
             context.Paddles.Add(paddle);
             context.SaveChanges();
@@ -36,7 +37,7 @@ namespace MaintenanceDashboard.Data.Api
 
             if (entity == null)
             {
-                throw new NotImplementedException("Handle appropriately for your API design. ");
+                throw new NotImplementedException("Handle appropriately for your API design.");
             }
 
             context.Entry(entity).CurrentValues.SetValues(paddle);
@@ -51,7 +52,7 @@ namespace MaintenanceDashboard.Data.Api
         }
 
 
-        public bool CheckPaddleExist(string number)
+        public bool CheckIfPaddleExist(string number)
         {
             var result = context.Paddles.FirstOrDefault(c => c.Number == number);
             

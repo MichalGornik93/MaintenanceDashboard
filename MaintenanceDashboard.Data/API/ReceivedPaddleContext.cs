@@ -23,11 +23,11 @@ namespace MaintenanceDashboard.Data.Api
 
         public void CreateReceivedPaddle(ReceivedPaddle receivedPaddle)
         {
-            CheckValue.RequireString(receivedPaddle.AddedDate);
-            CheckValue.RequireString(receivedPaddle.ActivityPerformed);
-            CheckValue.RequireString(receivedPaddle.PlannedRepairDate);
-            CheckValue.RequireString(receivedPaddle.IsOrders);
             CheckValue.RequireString(receivedPaddle.ReceivingEmployee);
+            CheckValue.RequireDateTime(receivedPaddle.AddedDate);
+            CheckValue.RequireString(receivedPaddle.ActivityPerformed);
+            CheckValue.RequireDateTime(receivedPaddle.PlannedRepairDate);
+            CheckValue.RequireString(receivedPaddle.IsOrders);
             
             context.ReceivedPaddles.Add(receivedPaddle);
             context.SaveChanges();
@@ -40,6 +40,14 @@ namespace MaintenanceDashboard.Data.Api
 
         public void CreateSpendedPaddle(SpendedPaddle spendedPaddle)
         {
+            CheckValue.RequireDateTime(spendedPaddle.AddedDate);
+            CheckValue.RequireString(spendedPaddle.ActivityPerformed);
+            CheckValue.RequireDateTime(spendedPaddle.RepairDate);
+            CheckValue.RequireString(spendedPaddle.IsOrders);
+            CheckValue.RequireString(spendedPaddle.DescriptionIntervention);
+            CheckValue.RequireString(spendedPaddle.ReceivingEmployee);
+            CheckValue.RequireString(spendedPaddle.SpendingEmployee);
+
             context.SpendedPaddles.Add(spendedPaddle);
             context.SaveChanges();
         }
@@ -62,7 +70,6 @@ namespace MaintenanceDashboard.Data.Api
 
                 context.SaveChanges();
             }
-
         }
 
         public int CheckForeignKey(string numer)
@@ -70,7 +77,7 @@ namespace MaintenanceDashboard.Data.Api
             return context.Paddles.FirstOrDefault(c => c.Number == numer).Id;
         }
 
-        public bool CheckReceivedPaddleExist(string number)
+        public bool CheckIfReceivedPaddleExist(string number)
         {
             var result = context.Paddles.FirstOrDefault(c => c.Number == number);
 

@@ -74,7 +74,6 @@ namespace MaintenanceDashboard.Client.ViewModels
             get
             {
                 return new ActionCommand(p => SavePaddle());
-
             }
         }
 
@@ -92,7 +91,7 @@ namespace MaintenanceDashboard.Client.ViewModels
                 return "Pole musi być wypełnione";
             else if (!Regex.IsMatch(Number, Resources.PaddleBarcodePattern))
                 return "Niepoprawna składnia ciągu {Pal...}";
-            else if (context.CheckPaddleExist(Number))
+            else if (context.CheckIfPaddleExist(Number))
                 return "Paletka istnieje już w bazie danych";
             return base.OnValidate(propertyName);
         }

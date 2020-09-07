@@ -5,7 +5,7 @@ namespace MaintenanceDashboard.Data.Interfaces
 {
     public interface IReceivedPaddleContext
     {
-        bool CheckReceivedPaddleExist(string number);
+        bool CheckIfReceivedPaddleExist(string number);
         void CreateReceivedPaddle(ReceivedPaddle receivedPaddle);
         void CreateSpendedPaddle(SpendedPaddle spendedPaddle);
         void DeleteReceivedPaddle(ReceivedPaddle receivedPaddle);
