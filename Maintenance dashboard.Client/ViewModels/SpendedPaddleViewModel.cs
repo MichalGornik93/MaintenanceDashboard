@@ -1,22 +1,25 @@
 ﻿using MaintenanceDashboard.Data.Domain;
-using MaintenanceDashboard.Data.Interfaces;
 using MaintenanceDashboard.Common;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using MaintenanceDashboard.Data.API;
 
 namespace MaintenanceDashboard.Client.ViewModels
 {
     public class SpendedPaddleViewModel : ViewModel
     {
-        private readonly ISpendedPaddleContext context;
+        private readonly SpendedPaddleContext context;
 
         public ICollection<SpendedPaddle> SpendedPaddles { get; set; }
 
         public string PaddleNumber { get; set; }
         public string ActivitiesPerformed { get; set; }
 
+        public SpendedPaddleViewModel():this(new SpendedPaddleContext())
+        {
+        }
 
-        public SpendedPaddleViewModel(ISpendedPaddleContext context)
+        public SpendedPaddleViewModel(SpendedPaddleContext context)
         {
             this.context = context;
             SpendedPaddles = new ObservableCollection<SpendedPaddle>();

@@ -12,6 +12,5 @@ namespace MaintenanceDashboard.Data.Domain
         public string FirstName { get; set;}
         [Required]
         public string LastName { get; set; }
-        public string UidCode { get; set; }
     }
 }

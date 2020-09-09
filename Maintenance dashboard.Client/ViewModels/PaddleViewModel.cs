@@ -1,17 +1,17 @@
 ﻿using MaintenanceDashboard.Data.Domain;
-using MaintenanceDashboard.Data.Interfaces;
 using MaintenanceDashboard.Common;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text.RegularExpressions;
 using MaintenanceDashbord.Common.Properties;
+using MaintenanceDashboard.Data.Api;
 
 namespace MaintenanceDashboard.Client.ViewModels
 {
     public class PaddleViewModel : ViewModel
     {
-        private readonly IPaddleContext context;
+        private readonly PaddleContext context;
 
         public ICollection<Paddle> Paddles { get; private set; }
 
@@ -54,7 +54,11 @@ namespace MaintenanceDashboard.Client.ViewModels
             set { _addedData = value; }
         }
 
-        public PaddleViewModel(IPaddleContext context)
+        public PaddleViewModel() : this(new PaddleContext())
+        {
+        }
+
+        public PaddleViewModel(PaddleContext context)
         {
             this.context = context;
             Paddles = new ObservableCollection<Paddle>();

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29519.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MaintenanceDashbord.Client", "MaintenanceDashbord.Client", "{242FBF6A-41A8-4290-A412-F01559C0E38F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MaintenanceDashboard.Client", "MaintenanceDashboard.Client", "{242FBF6A-41A8-4290-A412-F01559C0E38F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaintenanceDashboard.Client", "Maintenance dashboard.Client\MaintenanceDashboard.Client.csproj", "{7831659A-CA23-4DD5-92CA-6F3BB8BF583B}"
 EndProject
@@ -11,7 +11,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaintenanceDashboard.Data",
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "MaintenanceDashboard.Setup", "MaintenanceDashboard.Setup\MaintenanceDashboard.Setup.vdproj", "{011789FC-60DA-4904-9128-B6AD248E1C5E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaintenanceDashbord.Common", "MaintenanceDashbord.Common\MaintenanceDashbord.Common.csproj", "{491C2945-9DC9-4B47-BC61-1F913DDBFD85}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaintenanceDashboard.Common", "MaintenanceDashbord.Common\MaintenanceDashboard.Common.csproj", "{491C2945-9DC9-4B47-BC61-1F913DDBFD85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaintenanceDashboard.Common.Tests", "MaintenanceDashboard.Common.Tests\MaintenanceDashboard.Common.Tests.csproj", "{6A83AD11-A783-459B-A5B0-CDA20557451F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MaintenanceDashboard.Tests", "MaintenanceDashboard.Tests", "{0D4778ED-351B-4FF9-A19B-769D18629559}"
+	ProjectSection(SolutionItems) = preProject
+		Maintenance dashboard.Client\App.config = Maintenance dashboard.Client\App.config
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaintenanceDashboard.Data.Tests", "MaintenanceDashboard.Data.Tests\MaintenanceDashboard.Data.Tests.csproj", "{EDDCE4FF-5FC2-4F01-8D1C-0423FAE21C9A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaintenanceDashboard.Client.Tests", "MaintenanceDashboard.Client.Tests\MaintenanceDashboard.Client.Tests.csproj", "{5DE1AE4A-FFDB-47B6-A180-C7F1248D2584}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +44,18 @@ Global
 		{491C2945-9DC9-4B47-BC61-1F913DDBFD85}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{491C2945-9DC9-4B47-BC61-1F913DDBFD85}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{491C2945-9DC9-4B47-BC61-1F913DDBFD85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A83AD11-A783-459B-A5B0-CDA20557451F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A83AD11-A783-459B-A5B0-CDA20557451F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A83AD11-A783-459B-A5B0-CDA20557451F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A83AD11-A783-459B-A5B0-CDA20557451F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDDCE4FF-5FC2-4F01-8D1C-0423FAE21C9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDDCE4FF-5FC2-4F01-8D1C-0423FAE21C9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDDCE4FF-5FC2-4F01-8D1C-0423FAE21C9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDDCE4FF-5FC2-4F01-8D1C-0423FAE21C9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DE1AE4A-FFDB-47B6-A180-C7F1248D2584}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DE1AE4A-FFDB-47B6-A180-C7F1248D2584}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DE1AE4A-FFDB-47B6-A180-C7F1248D2584}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DE1AE4A-FFDB-47B6-A180-C7F1248D2584}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -42,6 +65,9 @@ Global
 		{8D9815C9-9905-4105-8452-238AD8CD39C5} = {242FBF6A-41A8-4290-A412-F01559C0E38F}
 		{011789FC-60DA-4904-9128-B6AD248E1C5E} = {242FBF6A-41A8-4290-A412-F01559C0E38F}
 		{491C2945-9DC9-4B47-BC61-1F913DDBFD85} = {242FBF6A-41A8-4290-A412-F01559C0E38F}
+		{6A83AD11-A783-459B-A5B0-CDA20557451F} = {0D4778ED-351B-4FF9-A19B-769D18629559}
+		{EDDCE4FF-5FC2-4F01-8D1C-0423FAE21C9A} = {0D4778ED-351B-4FF9-A19B-769D18629559}
+		{5DE1AE4A-FFDB-47B6-A180-C7F1248D2584} = {0D4778ED-351B-4FF9-A19B-769D18629559}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {648B8B0B-3C19-4F81-9AFE-263E3E4AF5C5}

@@ -1,6 +1,5 @@
 ﻿using MaintenanceDashboard.Data.Api;
 using MaintenanceDashboard.Data.Domain;
-using MaintenanceDashboard.Data.Interfaces;
 using MaintenanceDashboard.Common;
 using System;
 using System.Collections.Generic;
@@ -11,7 +10,7 @@ namespace MaintenanceDashboard.Client.ViewModels
 {
     public class EmployeeViewModel : ViewModel
     {
-        private readonly IEmployeeContext context;
+        private readonly EmployeeContext context;
 
         public ICollection<Employee> Employees { get; private set; }
 
@@ -41,7 +40,11 @@ namespace MaintenanceDashboard.Client.ViewModels
             }
         }
 
-        public EmployeeViewModel(IEmployeeContext context)
+        public EmployeeViewModel():this(new EmployeeContext())
+        {
+        }
+
+        public EmployeeViewModel(EmployeeContext context)
         {
             this.context = context;
             Employees = new ObservableCollection<Employee>();
@@ -88,8 +91,7 @@ namespace MaintenanceDashboard.Client.ViewModels
             var employee = new Employee
             {
                 FirstName = FirstName,
-                LastName = LastName,
-                UidCode = UidCode
+                LastName = LastName
             };
 
             context.CreateEmployee(employee);
@@ -120,6 +122,5 @@ namespace MaintenanceDashboard.Client.ViewModels
                 SelectedEmployee = null;
             }
         }
-
     }
 }

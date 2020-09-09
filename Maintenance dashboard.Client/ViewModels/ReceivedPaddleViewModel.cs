@@ -4,7 +4,6 @@ using System.Collections.ObjectModel;
 using System.Text.RegularExpressions;
 using MaintenanceDashboard.Data.Api;
 using MaintenanceDashboard.Data.Domain;
-using MaintenanceDashboard.Data.Interfaces;
 using MaintenanceDashboard.Common;
 using MaintenanceDashbord.Common.Properties;
 
@@ -12,7 +11,7 @@ namespace MaintenanceDashboard.Client.ViewModels
 {
     public class ReceivedPaddleViewModel : ViewModel
     {
-        private readonly IReceivedPaddleContext context;
+        private readonly ReceivedPaddleContext context;
 
         public ICollection<ReceivedPaddle> ReceivedPaddles { get; private set; }
 
@@ -90,7 +89,11 @@ namespace MaintenanceDashboard.Client.ViewModels
             }
         }
 
-        public ReceivedPaddleViewModel(IReceivedPaddleContext context)
+        public ReceivedPaddleViewModel():this(new ReceivedPaddleContext())
+        {
+        }
+
+        public ReceivedPaddleViewModel(ReceivedPaddleContext context)
         {
             this.context = context;
 

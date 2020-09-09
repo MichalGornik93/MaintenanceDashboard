@@ -214,9 +214,9 @@
       <Project>{8d9815c9-9905-4105-8452-238ad8cd39c5}</Project>
       <Name>MaintenanceDashboard.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MaintenanceDashbord.Common\MaintenanceDashbord.Common.csproj">
+    <ProjectReference Include="..\MaintenanceDashbord.Common\MaintenanceDashboard.Common.csproj">
       <Project>{491c2945-9dc9-4b47-bc61-1f913ddbfd85}</Project>
-      <Name>MaintenanceDashbord.Common</Name>
+      <Name>MaintenanceDashboard.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

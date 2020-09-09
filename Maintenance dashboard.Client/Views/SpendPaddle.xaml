@@ -49,13 +49,13 @@
                         <TextBox  Width="220" materialDesign:HintAssist.Hint="Numer paletki" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"  
                               Text="{Binding SelectedReceivedPaddle.Paddle.Number}" 
-                              Margin="10"  IsReadOnly="True" ToolTip="Wybierz paletke z listy"/>
+                              Margin="10"  IsReadOnly="True" ToolTip="W celu wypełnienia pola wybierz paletke z listy obok"/>
                     </WrapPanel>
 
                     <WrapPanel>
                         <materialDesign:PackIcon Kind="CalendarAdd" VerticalAlignment="Center" Width="30" Height="30"/>
                         <TextBox  Width="220" materialDesign:HintAssist.Hint="Data dodania" IsReadOnly="True" 
-                                  ToolTip="Wybierz paletke z listy"
+                                  ToolTip="W celu wypełnienia pola wybierz paletke z listy obok"
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}"  
                               Text="{Binding SelectedReceivedPaddle.AddedDate}"
                               Margin="10"/>
@@ -65,7 +65,7 @@
                     <WrapPanel Grid.Column="0" Grid.Row="3">
                         <materialDesign:PackIcon Kind="LightningBoltOutline" VerticalAlignment="Center" Width="30" Height="30"/>
                         <TextBox  Width="220" materialDesign:HintAssist.Hint="Akcja" IsReadOnly="True" 
-                                  ToolTip="Wybierz paletke z listy"
+                                  ToolTip="W celu wypełnienia pola wybierz paletke z listy obok"
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="10"
                               Text="{Binding SelectedReceivedPaddle.ActivityPerformed}"
                                materialDesign:HintAssist.HelperText="Wykonywane czynnosci"/>
@@ -83,7 +83,6 @@
                     <WrapPanel>
                         <materialDesign:PackIcon Kind="CalendarAdd" VerticalAlignment="Center" Width="30" Height="30"/>
                         <TextBox  Width="220" materialDesign:HintAssist.Hint="Data naprawy" IsReadOnly="True" 
-                                  ToolTip="Wybierz paletke z listy"
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}"  
                               Text="{Binding RepairDate}"
                               Margin="10"/>
@@ -91,7 +90,7 @@
 
                     <WrapPanel>
                         <materialDesign:PackIcon Kind="ShoppingCartMinus" VerticalAlignment="Center" Width="30" Height="30"/>
-                        <TextBox  Width="220" materialDesign:HintAssist.Hint="Zamówienie" IsReadOnly="True" ToolTip="Wybierz paletke z listy"
+                        <TextBox  Width="220" materialDesign:HintAssist.Hint="Zamówienie" IsReadOnly="True" ToolTip="W celu wypełnienia pola wybierz paletke z listy obok"
                               Text="{Binding SelectedReceivedPaddle.IsOrders}"
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="10"/>
                     </WrapPanel>

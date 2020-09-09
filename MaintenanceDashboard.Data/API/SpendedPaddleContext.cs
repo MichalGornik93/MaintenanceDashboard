@@ -1,11 +1,10 @@
 ﻿using MaintenanceDashboard.Data.Domain;
-using MaintenanceDashboard.Data.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace MaintenanceDashboard.Data.API
 {
-    public class SpendedPaddleContext : ISpendedPaddleContext
+    public class SpendedPaddleContext 
     {
         private readonly DataContext context;
 

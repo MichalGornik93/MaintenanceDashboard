@@ -66,7 +66,6 @@ namespace MaintenanceDashboard.Client
             if (DateTimeNow.ToLower() == PasswordBox.Password.ToLower())
             {
                 itemEmployee.IsEnabled = true;
-                btnCloseWindow.IsEnabled = IsEnabled;
             }
             else
                 MessageBox.Show("Błędne hasło", "Logowanie", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -76,7 +75,6 @@ namespace MaintenanceDashboard.Client
         private void btnLogout_Click(object sender, RoutedEventArgs e)
         {
             itemEmployee.IsEnabled = false;
-            btnCloseWindow.IsEnabled = false;
             GridPrincipal.Children.Clear();
             GridCursor.Margin = new Thickness(0, 10, 0, 0);
             GridPrincipal.Children.Add(new HomeControl());

@@ -52,10 +52,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API\CheckValue.cs" />
-    <Compile Include="Interfaces\IEmployeeContext.cs" />
-    <Compile Include="Interfaces\IPaddleContext.cs" />
-    <Compile Include="Interfaces\IReceivedPaddleContext.cs" />
-    <Compile Include="Interfaces\ISpendedPaddleContext.cs" />
     <Compile Include="API\ReceivedPaddleContext.cs" />
     <Compile Include="API\SpendedPaddleContext.cs" />
     <Compile Include="Domain\Employee.cs" />
@@ -133,6 +129,10 @@
     <Compile Include="Migrations\202009010936064_DeletedRegisterToolsTable.designer.cs">
       <DependentUpon>202009010936064_DeletedRegisterToolsTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009081040196_DeletedUidPropertyToEmployeeTable.cs" />
+    <Compile Include="Migrations\202009081040196_DeletedUidPropertyToEmployeeTable.designer.cs">
+      <DependentUpon>202009081040196_DeletedUidPropertyToEmployeeTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -192,11 +192,14 @@
     <EmbeddedResource Include="Migrations\202009010936064_DeletedRegisterToolsTable.resx">
       <DependentUpon>202009010936064_DeletedRegisterToolsTable.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009081040196_DeletedUidPropertyToEmployeeTable.resx">
+      <DependentUpon>202009081040196_DeletedUidPropertyToEmployeeTable.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MaintenanceDashbord.Common\MaintenanceDashbord.Common.csproj">
+    <ProjectReference Include="..\MaintenanceDashbord.Common\MaintenanceDashboard.Common.csproj">
       <Project>{491c2945-9dc9-4b47-bc61-1f913ddbfd85}</Project>
-      <Name>MaintenanceDashbord.Common</Name>
+      <Name>MaintenanceDashboard.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

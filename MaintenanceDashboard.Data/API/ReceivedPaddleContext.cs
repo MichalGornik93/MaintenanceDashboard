@@ -1,5 +1,4 @@
 ﻿using MaintenanceDashboard.Data.Domain;
-using MaintenanceDashboard.Data.Interfaces;
 using MaintenanceDashbord.Common.Properties;
 using System;
 using System.Collections.Generic;
@@ -7,7 +6,7 @@ using System.Linq;
 
 namespace MaintenanceDashboard.Data.Api
 {
-    public class ReceivedPaddleContext : IReceivedPaddleContext
+    public class ReceivedPaddleContext 
     {
         private readonly DataContext context;
      
