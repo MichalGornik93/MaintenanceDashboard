@@ -1,0 +1,28 @@
+﻿<UserControl x:Class="MaintenanceDashboard.Client.Views.ManagerThermostatControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"
+             FontFamily="{DynamicResource MaterialDesignFont}"
+             mc:Ignorable="d">
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+ 
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="0" Width="920" >
+            <RadioButton x:Name="btnOpenGetThermostat" Style="{StaticResource MaterialDesignTabRadioButton}" Content="PRZYJECIE TERMOSTATU"  FontSize="12" Checked="btnOpenGetThermostat_Checked"/>
+            <RadioButton x:Name="btnOpenPutThermostat" Style="{StaticResource MaterialDesignTabRadioButton}"  Content="WYDANIE TERMOSTATU" FontSize="12" Checked="btnOpenPutThermostat_Checked"/>
+            <RadioButton x:Name="btnOpenAddThermostat" Style="{StaticResource MaterialDesignTabRadioButton}" Content="DODANIE TERMOSTATÓW" FontSize="12" Checked="btnOpenAddThermostat_Checked"/>
+            <RadioButton x:Name="btnOpenEditThermostat" Style="{StaticResource MaterialDesignTabRadioButton}" Content="EDYCJA TERMOSTATÓW" FontSize="12" Checked="btnOpenEditThermostat_Checked"/>
+            <RadioButton x:Name="btnOpenPerformedThermostatActivitiesList" Style="{StaticResource MaterialDesignTabRadioButton}" Content="PRZEGLĄD WYKONANYCH CZYNNOŚCI " FontSize="12" Checked="btnOpenPerformedThermostatActivitiesList_Checked" />
+        </StackPanel>
+
+        <Grid x:Name="GridPrincipal" Grid.Row="1" Width="920" Height="750" HorizontalAlignment="Center"/>
+    </Grid>
+</UserControl>

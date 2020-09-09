@@ -39,7 +39,7 @@ namespace MaintenanceDashboard.Client
                     break;
                 case 3:
                     GridPrincipal.Children.Clear();
-                    GridPrincipal.Children.Add(new BuiltFunctionControl());
+                    GridPrincipal.Children.Add(new ManagerThermostatControl());
                     break;
                 case 4:
                     GridPrincipal.Children.Clear();

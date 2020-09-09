@@ -123,6 +123,9 @@
     <Compile Include="Views\HomeControl.xaml.cs">
       <DependentUpon>HomeControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ManagerThermostatControl.xaml.cs">
+      <DependentUpon>ManagerThermostatControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SpendPaddle.xaml.cs">
       <DependentUpon>SpendPaddle.xaml</DependentUpon>
     </Compile>
@@ -175,6 +178,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\HomeControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ManagerThermostatControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

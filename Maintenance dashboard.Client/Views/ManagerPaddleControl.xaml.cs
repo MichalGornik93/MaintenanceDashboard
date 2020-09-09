@@ -49,5 +49,15 @@ namespace MaintenanceDashboard.Client.Views
             GridPrincipal.Children.Clear();
             GridPrincipal.Children.Add(new HistorySpendedPaddle());
         }
+
+        private void btnOpenGetPaddle_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnOpenPutPaddle_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
