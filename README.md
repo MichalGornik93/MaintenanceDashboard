@@ -5,7 +5,10 @@
 * [Technologies](#technologies)
 
 ## General info
-The application is designed to assist maintenance staff in managing preventive activities i.e. equipment subject to preventive measures will be added to the MS SQL database and failures, where the history of performed activities will be kept. During the life of the application as far as new conditions will be added on an ongoing basis to generate alarms to automate controls over repeated failures, alarms informing about the need to perform will also be generated preventive actions.	
+CMMS system for managing Maintenance Department activities:
+* Planning inspections and other maintenance activities of the equipment
+* Registration of events related to the maintenance of production equipment
+* Control of planned inspections
 ## Technologies
 Project is created with:
 * NETFramework Version v4.7.2

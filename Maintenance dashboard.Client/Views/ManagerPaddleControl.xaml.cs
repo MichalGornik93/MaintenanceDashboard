@@ -23,7 +23,7 @@ namespace MaintenanceDashboard.Client.Views
             }
         }
 
-        private void btnOpenReleasePaddle_Checked(object sender, RoutedEventArgs e)
+        private void btnOpenSpendPaddle_Checked(object sender, RoutedEventArgs e)
         {
             GridPrincipal.Children.Clear();
             GridPrincipal.Children.Add(new SpendPaddle());

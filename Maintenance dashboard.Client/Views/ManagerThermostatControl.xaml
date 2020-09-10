@@ -16,8 +16,8 @@
         </Grid.RowDefinitions>
  
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="0" Width="920" >
-            <RadioButton x:Name="btnOpenGetThermostat" Style="{StaticResource MaterialDesignTabRadioButton}" Content="PRZYJECIE TERMOSTATU"  FontSize="12" Checked="btnOpenGetThermostat_Checked"/>
-            <RadioButton x:Name="btnOpenPutThermostat" Style="{StaticResource MaterialDesignTabRadioButton}"  Content="WYDANIE TERMOSTATU" FontSize="12" Checked="btnOpenPutThermostat_Checked"/>
+            <RadioButton x:Name="btnOpenAcceptanceThermostat" Style="{StaticResource MaterialDesignTabRadioButton}" Content="PRZYJECIE TERMOSTATU"  FontSize="12" Checked="btnOpenAcceptanceThermostat_Checked"/>
+            <RadioButton x:Name="btnOpenSpendThermostat" Style="{StaticResource MaterialDesignTabRadioButton}"  Content="WYDANIE TERMOSTATU" FontSize="12" Checked="btnOpenSpendThermostat_Checked"/>
             <RadioButton x:Name="btnOpenAddThermostat" Style="{StaticResource MaterialDesignTabRadioButton}" Content="DODANIE TERMOSTATÓW" FontSize="12" Checked="btnOpenAddThermostat_Checked"/>
             <RadioButton x:Name="btnOpenEditThermostat" Style="{StaticResource MaterialDesignTabRadioButton}" Content="EDYCJA TERMOSTATÓW" FontSize="12" Checked="btnOpenEditThermostat_Checked"/>
             <RadioButton x:Name="btnOpenPerformedThermostatActivitiesList" Style="{StaticResource MaterialDesignTabRadioButton}" Content="PRZEGLĄD WYKONANYCH CZYNNOŚCI " FontSize="12" Checked="btnOpenPerformedThermostatActivitiesList_Checked" />

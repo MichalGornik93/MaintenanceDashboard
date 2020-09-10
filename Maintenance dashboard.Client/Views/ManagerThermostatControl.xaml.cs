@@ -25,12 +25,12 @@ namespace MaintenanceDashboard.Client.Views
             InitializeComponent();
         }
 
-        private void btnOpenGetThermostat_Checked(object sender, RoutedEventArgs e)
+        private void btnOpenAcceptanceThermostat_Checked(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void btnOpenPutThermostat_Checked(object sender, RoutedEventArgs e)
+        private void btnOpenSpendThermostat_Checked(object sender, RoutedEventArgs e)
         {
 
         }

@@ -16,8 +16,8 @@
         </Grid.RowDefinitions>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="4" Grid.Row="0" Width="920">
-            <RadioButton x:Name="btnOpenGetPaddle" Style="{StaticResource MaterialDesignTabRadioButton}" Content="  PRZYJECIE PALETKI  " Checked="btnOpenAcceptancePaddle_Checked" FontSize="12"/>
-            <RadioButton x:Name="btnOpenPutPaddle" Style="{StaticResource MaterialDesignTabRadioButton}"  Content="  WYDANIE PALETKI  " Checked="btnOpenReleasePaddle_Checked" FontSize="12"/>
+            <RadioButton x:Name="btnOpenAcceptancePaddle" Style="{StaticResource MaterialDesignTabRadioButton}" Content="  PRZYJECIE PALETKI  " Checked="btnOpenAcceptancePaddle_Checked" FontSize="12"/>
+            <RadioButton x:Name="btnOpenSpendPaddle" Style="{StaticResource MaterialDesignTabRadioButton}"  Content="  WYDANIE PALETKI  " Checked="btnOpenSpendPaddle_Checked" FontSize="12"/>
             <RadioButton x:Name="btnOpenAddPaddle" Style="{StaticResource MaterialDesignTabRadioButton}" Content="  DODANIE PALETEK  " Checked="btnOpenAddPaddle_Checked" FontSize="12"/>
             <RadioButton x:Name="btnOpenEditPaddle" Style="{StaticResource MaterialDesignTabRadioButton}" Content="  EDYCJA PALETEK  " Checked="btnOpenEditPaddle_Checked" FontSize="12"/>
             <RadioButton x:Name="btnOpenPerformedActivitiesList" Style="{StaticResource MaterialDesignTabRadioButton}" Content="  PRZEGLĄD CZYNNOŚCI  " Checked="btnOpenPerformedActivitiesList_Checked" FontSize="12"/>

@@ -51,16 +51,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="API\CheckValue.cs" />
-    <Compile Include="API\ReceivedPaddleContext.cs" />
-    <Compile Include="API\SpendedPaddleContext.cs" />
+    <Compile Include="Api\CheckValue.cs" />
+    <Compile Include="Api\ReceivedPaddleContext.cs" />
+    <Compile Include="Api\SpendedPaddleContext.cs" />
+    <Compile Include="Api\ThermostatContext.cs" />
     <Compile Include="Domain\Employee.cs" />
-    <Compile Include="API\EmployeeContext.cs" />
+    <Compile Include="Api\EmployeeContext.cs" />
     <Compile Include="Domain\ReceivedPaddle.cs" />
     <Compile Include="Domain\Paddle.cs" />
-    <Compile Include="API\PaddleContext.cs" />
+    <Compile Include="Api\PaddleContext.cs" />
     <Compile Include="Domain\DataContext.cs" />
     <Compile Include="Domain\SpendedPaddle.cs" />
+    <Compile Include="Domain\Thermostat.cs" />
     <Compile Include="Migrations\202005281027139_InitialModel.cs" />
     <Compile Include="Migrations\202005281027139_InitialModel.designer.cs">
       <DependentUpon>202005281027139_InitialModel.cs</DependentUpon>
@@ -133,6 +135,14 @@
     <Compile Include="Migrations\202009081040196_DeletedUidPropertyToEmployeeTable.designer.cs">
       <DependentUpon>202009081040196_DeletedUidPropertyToEmployeeTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009090814571_AddedThermostatTable.cs" />
+    <Compile Include="Migrations\202009090814571_AddedThermostatTable.designer.cs">
+      <DependentUpon>202009090814571_AddedThermostatTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009091218378_UpdatedPropertyToThermostatTable.cs" />
+    <Compile Include="Migrations\202009091218378_UpdatedPropertyToThermostatTable.designer.cs">
+      <DependentUpon>202009091218378_UpdatedPropertyToThermostatTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -194,6 +204,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009081040196_DeletedUidPropertyToEmployeeTable.resx">
       <DependentUpon>202009081040196_DeletedUidPropertyToEmployeeTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009090814571_AddedThermostatTable.resx">
+      <DependentUpon>202009090814571_AddedThermostatTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009091218378_UpdatedPropertyToThermostatTable.resx">
+      <DependentUpon>202009091218378_UpdatedPropertyToThermostatTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

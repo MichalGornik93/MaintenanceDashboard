@@ -8,6 +8,7 @@ namespace MaintenanceDashboard.Data.Domain
         public DbSet<Paddle> Paddles { get; set; }
         public DbSet<ReceivedPaddle> ReceivedPaddles { get; set; }
         public DbSet<SpendedPaddle> SpendedPaddles { get; set; }
+        public DbSet<Thermostat> Thermostats { get; set; }
 
         public DataContext()
             :base("name=DataContext")

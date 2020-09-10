@@ -1,11 +1,11 @@
-﻿using MaintenanceDashboard.Data.Domain;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using MaintenanceDashboard.Data.Domain;
 
 namespace MaintenanceDashboard.Data.Api
 {
-    public class PaddleContext 
+    public class PaddleContext
     {
         private readonly DataContext context;
 
@@ -40,28 +40,20 @@ namespace MaintenanceDashboard.Data.Api
             }
 
             context.Entry(entity).CurrentValues.SetValues(paddle);
-
             context.SaveChanges();
         }
-
-        public void DeletePaddle(Paddle paddle)
-        {
-            context.Paddles.Remove(paddle);
-            context.SaveChanges();
-        }
-
 
         public bool CheckIfPaddleExist(string number)
         {
             var result = context.Paddles.FirstOrDefault(c => c.Number == number);
-            
-            if (result !=null) 
+
+            if (result != null)
                 return true;
-            
-            return false; 
+
+            return false;
         }
 
-     
+
         public ICollection<Paddle> GetPaddleList()
         {
             return context.Paddles.OrderBy(p => p.Id).ToArray();

@@ -95,5 +95,23 @@ namespace MaintenanceDashbord.Common.Properties {
                 return ResourceManager.GetString("PaddleModelPattern", resourceCulture);
             }
         }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Term[0-9]{1,3}$.
+        /// </summary>
+        public static string ThermostatBarcodePattern {
+            get {
+                return ResourceManager.GetString("ThermostatBarcodePattern", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Single.
+        /// </summary>
+        public static string ThermostatModelPattern {
+            get {
+                return ResourceManager.GetString("ThermostatModelPattern", resourceCulture);
+            }
+        }
     }
 }
