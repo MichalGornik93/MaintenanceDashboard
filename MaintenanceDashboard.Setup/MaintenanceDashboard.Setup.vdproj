@@ -15,12 +15,6 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_198DA80A6EA241408C773C9FE4B13305"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_BFAB98A52B4C4B7EA7FD8C1CDA91BB03"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -325,7 +319,7 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_198DA80A6EA241408C773C9FE4B13305"
+            "Target" = "8:"
             "Folder" = "8:_7D9092868B2543898D4663D928842383"
             "WorkingFolder" = "8:_7D9092868B2543898D4663D928842383"
             "Icon" = "8:"
@@ -730,34 +724,6 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_198DA80A6EA241408C773C9FE4B13305"
-            {
-            "SourcePath" = "8:..\\Maintenance dashboard.Client\\obj\\Debug\\MaintenanceDashboard.Client.exe"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_7D9092868B2543898D4663D928842383"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            "ProjectOutputGroupRegister" = "3:1"
-            "OutputConfiguration" = "8:"
-            "OutputGroupCanonicalName" = "8:Built"
-            "OutputProjectGuid" = "8:{7831659A-CA23-4DD5-92CA-6F3BB8BF583B}"
-            "ShowKeyOutput" = "11:TRUE"
-                "ExcludeFilters"
-                {
-                }
-            }
         }
     }
 }

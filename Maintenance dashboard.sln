@@ -5,13 +5,13 @@ VisualStudioVersion = 16.0.29519.181
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MaintenanceDashboard.Client", "MaintenanceDashboard.Client", "{242FBF6A-41A8-4290-A412-F01559C0E38F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaintenanceDashboard.Client", "Maintenance dashboard.Client\MaintenanceDashboard.Client.csproj", "{7831659A-CA23-4DD5-92CA-6F3BB8BF583B}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaintenanceDashboard.Data", "MaintenanceDashboard.Data\MaintenanceDashboard.Data.csproj", "{8D9815C9-9905-4105-8452-238AD8CD39C5}"
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "MaintenanceDashboard.Setup", "MaintenanceDashboard.Setup\MaintenanceDashboard.Setup.vdproj", "{011789FC-60DA-4904-9128-B6AD248E1C5E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaintenanceDashboard.Common", "MaintenanceDashbord.Common\MaintenanceDashboard.Common.csproj", "{491C2945-9DC9-4B47-BC61-1F913DDBFD85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaintenanceDashboard.Client", "MaintenanceDashboard.Client\MaintenanceDashboard.Client.csproj", "{7831659A-CA23-4DD5-92CA-6F3BB8BF583B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,10 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7831659A-CA23-4DD5-92CA-6F3BB8BF583B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7831659A-CA23-4DD5-92CA-6F3BB8BF583B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7831659A-CA23-4DD5-92CA-6F3BB8BF583B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7831659A-CA23-4DD5-92CA-6F3BB8BF583B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8D9815C9-9905-4105-8452-238AD8CD39C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8D9815C9-9905-4105-8452-238AD8CD39C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D9815C9-9905-4105-8452-238AD8CD39C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,15 +29,19 @@ Global
 		{491C2945-9DC9-4B47-BC61-1F913DDBFD85}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{491C2945-9DC9-4B47-BC61-1F913DDBFD85}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{491C2945-9DC9-4B47-BC61-1F913DDBFD85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7831659A-CA23-4DD5-92CA-6F3BB8BF583B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7831659A-CA23-4DD5-92CA-6F3BB8BF583B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7831659A-CA23-4DD5-92CA-6F3BB8BF583B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7831659A-CA23-4DD5-92CA-6F3BB8BF583B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{7831659A-CA23-4DD5-92CA-6F3BB8BF583B} = {242FBF6A-41A8-4290-A412-F01559C0E38F}
 		{8D9815C9-9905-4105-8452-238AD8CD39C5} = {242FBF6A-41A8-4290-A412-F01559C0E38F}
 		{011789FC-60DA-4904-9128-B6AD248E1C5E} = {242FBF6A-41A8-4290-A412-F01559C0E38F}
 		{491C2945-9DC9-4B47-BC61-1F913DDBFD85} = {242FBF6A-41A8-4290-A412-F01559C0E38F}
+		{7831659A-CA23-4DD5-92CA-6F3BB8BF583B} = {242FBF6A-41A8-4290-A412-F01559C0E38F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {648B8B0B-3C19-4F81-9AFE-263E3E4AF5C5}
