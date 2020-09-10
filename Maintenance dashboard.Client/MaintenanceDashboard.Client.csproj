@@ -227,7 +227,12 @@
       <Name>MaintenanceDashboard.Common</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Gallery\1.gif" />
+    <Resource Include="Gallery\2.gif" />
+    <Resource Include="Gallery\3.gif" />
+    <Resource Include="Gallery\4.gif" />
+  </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
       <Visible>False</Visible>
