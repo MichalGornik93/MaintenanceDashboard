@@ -103,6 +103,9 @@
     <Compile Include="Views\BuiltFunctionControl.xaml.cs">
       <DependentUpon>BuiltFunctionControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CreateThermostat.xaml.cs">
+      <DependentUpon>CreateThermostat.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\EditEmployeeControl.xaml.cs">
       <DependentUpon>EditEmployeeControl.xaml</DependentUpon>
     </Compile>
@@ -139,6 +142,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\BuiltFunctionControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CreateThermostat.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
