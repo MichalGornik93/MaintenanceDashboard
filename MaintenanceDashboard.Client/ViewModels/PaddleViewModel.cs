@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text.RegularExpressions;
 using MaintenanceDashbord.Common.Properties;
-using MaintenanceDashboard.Data.Api;
+using MaintenanceDashboard.Data.API;
 
 namespace MaintenanceDashboard.Client.ViewModels
 {

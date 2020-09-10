@@ -2,7 +2,7 @@
 using System.Text.RegularExpressions;
 using MaintenanceDashbord.Common.Properties;
 
-namespace MaintenanceDashboard.Data.Api
+namespace MaintenanceDashboard.Data.API
 {
     static class CheckValue
     {

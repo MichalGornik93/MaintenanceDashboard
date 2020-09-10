@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MaintenanceDashboard.Data.Api
+namespace MaintenanceDashboard.Data.API
 {
     public class ReceivedPaddleContext 
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using MaintenanceDashboard.Data.Domain;
 
-namespace MaintenanceDashboard.Data.Api
+namespace MaintenanceDashboard.Data.API
 {
     public class PaddleContext
     {
