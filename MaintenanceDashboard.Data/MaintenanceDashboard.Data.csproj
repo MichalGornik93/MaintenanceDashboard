@@ -51,15 +51,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Api\CheckValue.cs" />
-    <Compile Include="Api\ReceivedPaddleContext.cs" />
-    <Compile Include="Api\SpendedPaddleContext.cs" />
-    <Compile Include="Api\ThermostatContext.cs" />
+    <Compile Include="API\CheckValue.cs" />
+    <Compile Include="API\ReceivedPaddleContext.cs" />
+    <Compile Include="API\SpendedPaddleContext.cs" />
+    <Compile Include="API\ThermostatContext.cs" />
     <Compile Include="Domain\Employee.cs" />
-    <Compile Include="Api\EmployeeContext.cs" />
+    <Compile Include="API\EmployeeContext.cs" />
     <Compile Include="Domain\ReceivedPaddle.cs" />
     <Compile Include="Domain\Paddle.cs" />
-    <Compile Include="Api\PaddleContext.cs" />
+    <Compile Include="API\PaddleContext.cs" />
     <Compile Include="Domain\DataContext.cs" />
     <Compile Include="Domain\SpendedPaddle.cs" />
     <Compile Include="Domain\Thermostat.cs" />
