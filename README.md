@@ -18,10 +18,10 @@ Project is created with:
 ## App presentation
 
 * Logging in, adding and editing authorized users:
-![My image](https://github.com/MichalGornik93/MaintenanceDashboard/blob/master/Maintenance%20dashboard.Client/Gallery/1.gif)
+![My image](https://github.com/MichalGornik93/MaintenanceDashboard/blob/master/MaintenanceDashboard.Client/Gallery/1.gif)
 * Adding equipment to the registry:
-![My image](https://github.com/MichalGornik93/MaintenanceDashboard/blob/master/Maintenance%20dashboard.Client/Gallery/3.gif)
+![My image](https://github.com/MichalGornik93/MaintenanceDashboard/blob/master/MaintenanceDashboard.Client/Gallery/3.gif)
 * Registration of events related to the maintenance of production equipment:
-![My image](https://github.com/MichalGornik93/MaintenanceDashboard/blob/master/Maintenance%20dashboard.Client/Gallery/2.gif)
+![My image](https://github.com/MichalGornik93/MaintenanceDashboard/blob/master/MaintenanceDashboard.Client/Gallery/2.gif)
 * Overview of activities performed:
-![My image](https://github.com/MichalGornik93/MaintenanceDashboard/blob/master/Maintenance%20dashboard.Client/Gallery/4.gif)
+![My image](https://github.com/MichalGornik93/MaintenanceDashboard/blob/master/MaintenanceDashboard.Client/Gallery/4.gif)
