@@ -119,14 +119,21 @@ namespace MaintenanceDashboard.Client.ViewModels
 
         private bool IsValidReceivedPaddle()
         {
-            if (OnValidate(PaddleNumber) == null && EmployeeViewModel.SelectedEmployee != null && PlannedRepairDate != null && AddedDate != null && IsOrder != null && ActivityPerformed != null)
+            if (OnValidate(PaddleNumber) == null 
+                && EmployeeViewModel.SelectedEmployee != null 
+                && PlannedRepairDate != null 
+                && AddedDate != null 
+                && IsOrder != null 
+                && ActivityPerformed != null)
                 return true;
             return false;
         }
 
         private bool IsValidSpendedPaddle()
         {
-            if (SelectedReceivedPaddle != null && !String.IsNullOrWhiteSpace(DescriptionIntervention) && EmployeeViewModel.SelectedEmployee != null)
+            if (SelectedReceivedPaddle != null 
+                && !String.IsNullOrWhiteSpace(DescriptionIntervention) 
+                && EmployeeViewModel.SelectedEmployee != null)
                 return true;
             return false;
 

@@ -85,9 +85,10 @@ namespace MaintenanceDashboard.Client.ViewModels
 
         public bool IsValidThermostat()
         {
-            if (OnValidate(BarcodeNumber) != null && SerialNumber==null)
-                return false;
-            return true;
+            if (OnValidate(BarcodeNumber) == null 
+                && !String.IsNullOrWhiteSpace(SerialNumber))
+                return true;
+            return false;
         }
 
         protected override string OnValidate(string propertyName)
