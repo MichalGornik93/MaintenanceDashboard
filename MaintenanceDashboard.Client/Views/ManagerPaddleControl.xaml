@@ -20,7 +20,7 @@
             <RadioButton x:Name="btnOpenSpendPaddle" Style="{StaticResource MaterialDesignTabRadioButton}"  Content="  WYDANIE PALETKI  " Checked="btnOpenSpendPaddle_Checked" FontSize="12"/>
             <RadioButton x:Name="btnOpenAddPaddle" Style="{StaticResource MaterialDesignTabRadioButton}" Content="  DODANIE PALETEK  " Checked="btnOpenAddPaddle_Checked" FontSize="12"/>
             <RadioButton x:Name="btnOpenEditPaddle" Style="{StaticResource MaterialDesignTabRadioButton}" Content="  EDYCJA PALETEK  " Checked="btnOpenEditPaddle_Checked" FontSize="12"/>
-            <RadioButton x:Name="btnOpenPerformedActivitiesList" Style="{StaticResource MaterialDesignTabRadioButton}" Content="  PRZEGLĄD CZYNNOŚCI  " Checked="btnOpenPerformedActivitiesList_Checked" FontSize="12"/>
+            <RadioButton x:Name="btnOpenPerformedActivitiesList" Style="{StaticResource MaterialDesignTabRadioButton}" Content="  PRZEGLĄD WYKONANYCH CZYNNOŚCI  " Checked="btnOpenPerformedActivitiesList_Checked" FontSize="12"/>
         </StackPanel>
 
         <Grid x:Name="GridPrincipal" Grid.Row="1" Width="920" Height="750" HorizontalAlignment="Center"/>

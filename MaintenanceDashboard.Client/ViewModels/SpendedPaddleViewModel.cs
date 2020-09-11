@@ -15,10 +15,6 @@ namespace MaintenanceDashboard.Client.ViewModels
         public string PaddleNumber { get; set; }
         public string ActivitiesPerformed { get; set; }
 
-        public SpendedPaddleViewModel():this(new SpendedPaddleContext())
-        {
-        }
-
         public SpendedPaddleViewModel(SpendedPaddleContext context)
         {
             this.context = context;

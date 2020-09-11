@@ -41,10 +41,6 @@ namespace MaintenanceDashboard.Client.ViewModels
             }
         }
 
-        public EmployeeViewModel():this(new EmployeeContext())
-        {
-        }
-
         public EmployeeViewModel(EmployeeContext context)
         {
             this.context = context;

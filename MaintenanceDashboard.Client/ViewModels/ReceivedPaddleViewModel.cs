@@ -89,10 +89,6 @@ namespace MaintenanceDashboard.Client.ViewModels
             }
         }
 
-        public ReceivedPaddleViewModel():this(new ReceivedPaddleContext())
-        {
-        }
-
         public ReceivedPaddleViewModel(ReceivedPaddleContext context)
         {
             this.context = context;

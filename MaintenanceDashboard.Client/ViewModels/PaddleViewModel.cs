@@ -54,8 +54,6 @@ namespace MaintenanceDashboard.Client.ViewModels
             set { _addedData = value; }
         }
 
-        public PaddleViewModel() : this(new PaddleContext()) {}
-
         public PaddleViewModel(PaddleContext context)
         {
             this.context = context;

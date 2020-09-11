@@ -37,12 +37,14 @@ namespace MaintenanceDashboard.Client.Views
 
         private void btnOpenAddThermostat_Checked(object sender, RoutedEventArgs e)
         {
-
+            GridPrincipal.Children.Clear();
+            GridPrincipal.Children.Add(new CreateThermostatControl());
         }
 
         private void btnOpenEditThermostat_Checked(object sender, RoutedEventArgs e)
         {
-
+            GridPrincipal.Children.Clear();
+            GridPrincipal.Children.Add(new EditThermostatControl());
         }
 
         private void btnOpenPerformedThermostatActivitiesList_Checked(object sender, RoutedEventArgs e)

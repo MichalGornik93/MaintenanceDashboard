@@ -15,7 +15,6 @@ namespace MaintenanceDashboard.Data.Domain
         public string BarcodeNumber { get; set; }
         [Required]
         public string SerialNumber { get; set; }
-        [Required]
         public string Model { get; set; }
         [Required]
         public string AddedDate { get; set; }

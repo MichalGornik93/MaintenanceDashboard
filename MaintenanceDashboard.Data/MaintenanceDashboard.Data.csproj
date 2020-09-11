@@ -143,6 +143,10 @@
     <Compile Include="Migrations\202009091218378_UpdatedPropertyToThermostatTable.designer.cs">
       <DependentUpon>202009091218378_UpdatedPropertyToThermostatTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009101159351_UpdatedModelPropertyToThermostatTable.cs" />
+    <Compile Include="Migrations\202009101159351_UpdatedModelPropertyToThermostatTable.designer.cs">
+      <DependentUpon>202009101159351_UpdatedModelPropertyToThermostatTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -210,6 +214,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009091218378_UpdatedPropertyToThermostatTable.resx">
       <DependentUpon>202009091218378_UpdatedPropertyToThermostatTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009101159351_UpdatedModelPropertyToThermostatTable.resx">
+      <DependentUpon>202009101159351_UpdatedModelPropertyToThermostatTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
