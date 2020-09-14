@@ -21,7 +21,7 @@ namespace MaintenanceDashboard.Data.API
 
         public void CreatePaddle(Paddle paddle)
         {
-            CheckValue.RequireString(paddle.Number);
+            CheckValue.RequireString(paddle.BarcodeNumber);
             CheckValue.RequireString(paddle.Model);
             CheckValue.RequireDateTime(paddle.AddedDate);
 
@@ -45,7 +45,7 @@ namespace MaintenanceDashboard.Data.API
 
         public bool CheckIfPaddleExist(string number)
         {
-            var result = context.Paddles.FirstOrDefault(c => c.Number == number);
+            var result = context.Paddles.FirstOrDefault(c => c.BarcodeNumber == number);
 
             if (result != null)
                 return true;

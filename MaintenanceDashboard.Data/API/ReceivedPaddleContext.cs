@@ -32,11 +32,6 @@ namespace MaintenanceDashboard.Data.API
             context.SaveChanges();
         }
 
-        public Employee CheckEmployee(Employee employee)
-        {
-            return context.Employees.FirstOrDefault(c => c.Id == employee.Id);
-        }
-
         public void CreateSpendedPaddle(SpendedPaddle spendedPaddle)
         {
             CheckValue.RequireDateTime(spendedPaddle.AddedDate);
@@ -71,14 +66,14 @@ namespace MaintenanceDashboard.Data.API
             }
         }
 
-        public int CheckForeignKey(string numer)
+        public int CheckForeignKey(string number)
         {
-            return context.Paddles.FirstOrDefault(c => c.Number == numer).Id;
+            return context.Paddles.FirstOrDefault(c => c.BarcodeNumber == number).Id;
         }
 
         public bool CheckIfReceivedPaddleExist(string number)
         {
-            var result = context.Paddles.FirstOrDefault(c => c.Number == number);
+            var result = context.Paddles.FirstOrDefault(c => c.BarcodeNumber == number);
 
             if (result == null)
                 return true;
@@ -88,7 +83,7 @@ namespace MaintenanceDashboard.Data.API
 
         public bool CheckIfIsAccepted(string number)
         {
-            var result = context.ReceivedPaddles.FirstOrDefault(c => c.Paddle.Number == number);
+            var result = context.ReceivedPaddles.FirstOrDefault(c => c.Paddle.BarcodeNumber == number);
 
             if (result != null)
                 return true;

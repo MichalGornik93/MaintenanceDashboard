@@ -20,7 +20,7 @@ namespace MaintenanceDashboard.Data.API
 
         public ICollection<SpendedPaddle> GetFiltredSpendedPaddleList(string paddleNumber)
         {
-            return context.SpendedPaddles.Where(c =>c.Paddle.Number == paddleNumber).OrderByDescending(p=>p.RepairDate).ToArray();
+            return context.SpendedPaddles.Where(c =>c.Paddle.BarcodeNumber == paddleNumber).OrderByDescending(p=>p.RepairDate).ToArray();
         }
 
         public ICollection<SpendedPaddle> GetSpendedPaddleList()

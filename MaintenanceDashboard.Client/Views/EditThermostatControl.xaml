@@ -26,13 +26,14 @@
 
             <DataGrid ItemsSource="{Binding Thermostats}" SelectedItem="{Binding SelectedThermostat}" IsReadOnly="True"
                           Grid.Column="1" Grid.Row="1"  Margin="10,10,0,10" Background="White" AutoGenerateColumns="False" 
-                      HorizontalAlignment="Left" Height="400" Width="560">
+                      HorizontalAlignment="Left" Height="500" Width="560" FontSize="11">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Numer" Binding="{Binding BarcodeNumber}"/>
                     <DataGridTextColumn Header="Numer seryjny" Binding="{Binding SerialNumber}"/>
                     <DataGridTextColumn Header="Model" Binding="{Binding Model}"/>
                     <DataGridTextColumn Header="Data dodania" Binding="{Binding AddedDate}"/>
                     <DataGridTextColumn Header="Ostatnia prewencja" Binding="{Binding LastPrevention}"/>
+                    <DataGridTextColumn Header="Ostatnie płukanie" Binding="{Binding LastWashDate}"/>
                     <DataGridTextColumn Header="Uwagi" Binding="{Binding Comments}"/>
                 </DataGrid.Columns>
             </DataGrid>
@@ -81,6 +82,14 @@
                               materialDesign:HintAssist.HelperText=""  IsEnabled="False"
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"
                               Text="{Binding SelectedThermostat.LastPrevention}"/>
+                </WrapPanel>
+
+                <WrapPanel>
+                    <materialDesign:PackIcon Kind="CalendarSync" VerticalAlignment="Center" Width="30" Height="30"/>
+                    <TextBox  materialDesign:HintAssist.Hint="Data ostatniego płukania" Width="220" 
+                              materialDesign:HintAssist.HelperText=""  IsEnabled="False"
+                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"
+                              Text="{Binding SelectedThermostat.LastWashDate}"/>
                 </WrapPanel>
 
                 <WrapPanel>

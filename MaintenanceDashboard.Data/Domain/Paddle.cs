@@ -8,7 +8,7 @@ namespace MaintenanceDashboard.Data.Domain
         [Key]
         public int Id { get; set; }
         [Required]
-        public string Number { get; set; }
+        public string BarcodeNumber { get; set; }
         [Required]
         public string Model { get; set; }
         [Required]

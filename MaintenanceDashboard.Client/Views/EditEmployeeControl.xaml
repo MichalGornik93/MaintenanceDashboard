@@ -23,7 +23,7 @@
             </Grid.RowDefinitions>
 
             <DataGrid ItemsSource="{Binding Employees}" SelectedItem="{Binding SelectedEmployee}" Height="300" IsReadOnly="True"
-                          Grid.Column="1" Grid.Row="1"  Margin="10" Background="White" AutoGenerateColumns="False">
+                          Grid.Column="1" Grid.Row="1"  Margin="10" Background="White" AutoGenerateColumns="False" >
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                     <DataGridTextColumn Header="Imie" Binding="{Binding FirstName}"/>

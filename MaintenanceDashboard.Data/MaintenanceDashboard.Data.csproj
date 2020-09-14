@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="API\CheckValue.cs" />
     <Compile Include="API\ReceivedPaddleContext.cs" />
+    <Compile Include="API\ReceivedThermostatContext.cs" />
     <Compile Include="API\SpendedPaddleContext.cs" />
     <Compile Include="API\ThermostatContext.cs" />
     <Compile Include="Domain\Employee.cs" />
@@ -61,7 +62,9 @@
     <Compile Include="Domain\Paddle.cs" />
     <Compile Include="API\PaddleContext.cs" />
     <Compile Include="Domain\DataContext.cs" />
+    <Compile Include="Domain\ReceivedThermostat.cs" />
     <Compile Include="Domain\SpendedPaddle.cs" />
+    <Compile Include="Domain\SpendedThermostat.cs" />
     <Compile Include="Domain\Thermostat.cs" />
     <Compile Include="Migrations\202005281027139_InitialModel.cs" />
     <Compile Include="Migrations\202005281027139_InitialModel.designer.cs">
@@ -147,6 +150,22 @@
     <Compile Include="Migrations\202009101159351_UpdatedModelPropertyToThermostatTable.designer.cs">
       <DependentUpon>202009101159351_UpdatedModelPropertyToThermostatTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009110815238_AddedLastWashDatePropertyToThermostatTable.cs" />
+    <Compile Include="Migrations\202009110815238_AddedLastWashDatePropertyToThermostatTable.designer.cs">
+      <DependentUpon>202009110815238_AddedLastWashDatePropertyToThermostatTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009110832284_AddedReceivedThermostatTable.cs" />
+    <Compile Include="Migrations\202009110832284_AddedReceivedThermostatTable.designer.cs">
+      <DependentUpon>202009110832284_AddedReceivedThermostatTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009140918372_AddedSpendedThermostatsTable.cs" />
+    <Compile Include="Migrations\202009140918372_AddedSpendedThermostatsTable.designer.cs">
+      <DependentUpon>202009140918372_AddedSpendedThermostatsTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009141046509_RednameNumberToBarcodeNumberInPaddleTable.cs" />
+    <Compile Include="Migrations\202009141046509_RednameNumberToBarcodeNumberInPaddleTable.designer.cs">
+      <DependentUpon>202009141046509_RednameNumberToBarcodeNumberInPaddleTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -217,6 +236,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009101159351_UpdatedModelPropertyToThermostatTable.resx">
       <DependentUpon>202009101159351_UpdatedModelPropertyToThermostatTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009110815238_AddedLastWashDatePropertyToThermostatTable.resx">
+      <DependentUpon>202009110815238_AddedLastWashDatePropertyToThermostatTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009110832284_AddedReceivedThermostatTable.resx">
+      <DependentUpon>202009110832284_AddedReceivedThermostatTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009140918372_AddedSpendedThermostatsTable.resx">
+      <DependentUpon>202009140918372_AddedSpendedThermostatsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009141046509_RednameNumberToBarcodeNumberInPaddleTable.resx">
+      <DependentUpon>202009141046509_RednameNumberToBarcodeNumberInPaddleTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -15,7 +15,7 @@ namespace MaintenanceDashboard.Client.ViewModels
 
         public ICollection<Paddle> Paddles { get; private set; }
 
-        public string Number { get; set; }
+        public string BarcodeNumber { get; set; }
         public string Comments { get; set; }
 
         private string _Model = Resources.PaddleModelPattern;
@@ -80,18 +80,18 @@ namespace MaintenanceDashboard.Client.ViewModels
 
         public bool IsValidPaddle()
         {
-            if (OnValidate(Number) != null)
+            if (OnValidate(BarcodeNumber) != null)
                 return false;
             return true;
         }
 
         protected override string OnValidate(string propertyName)
         {
-            if (String.IsNullOrEmpty(Number))
+            if (String.IsNullOrEmpty(BarcodeNumber))
                 return "Pole musi być wypełnione";
-            else if (!Regex.IsMatch(Number, Resources.PaddleBarcodePattern))
+            else if (!Regex.IsMatch(BarcodeNumber, Resources.PaddleBarcodePattern))
                 return "Niepoprawna składnia ciągu {Pal...}";
-            else if (context.CheckIfPaddleExist(Number))
+            else if (context.CheckIfPaddleExist(BarcodeNumber))
                 return "Paletka istnieje już w bazie danych";
             return base.OnValidate(propertyName);
         }
@@ -101,7 +101,7 @@ namespace MaintenanceDashboard.Client.ViewModels
         {
             var paddle = new Paddle
             {
-                Number = Number,
+                BarcodeNumber = BarcodeNumber,
                 Model = Model,
                 AddedDate = AddedDate,
                 LastPrevention = DateTime.Now.ToString(Resources.DateTimePattern),

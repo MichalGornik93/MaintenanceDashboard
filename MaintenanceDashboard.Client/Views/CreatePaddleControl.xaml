@@ -30,7 +30,7 @@
 
                 <WrapPanel>
                     <materialDesign:PackIcon Kind="Car" VerticalAlignment="Center" Width="30" Height="30"/>
-                    <TextBox  materialDesign:HintAssist.Hint="Model" Width="220" IsEnabled="False" 
+                    <TextBox  materialDesign:HintAssist.Hint="Model" Width="220" 
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"
                                Text="{Binding Model}"/>
                 </WrapPanel>

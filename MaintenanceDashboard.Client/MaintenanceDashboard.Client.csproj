@@ -92,6 +92,7 @@
     <Compile Include="ViewModels\ReceivedPaddleViewModel.cs" />
     <Compile Include="ViewModels\EmployeeViewModel.cs" />
     <Compile Include="ViewModels\PaddleViewModel.cs" />
+    <Compile Include="ViewModels\ReceivedThermostatViewModel.cs" />
     <Compile Include="ViewModels\SpendedPaddleViewModel.cs" />
     <Compile Include="ViewModels\ThermostatViewModel.cs" />
     <Compile Include="Views\CreateEmployeeControl.xaml.cs">
