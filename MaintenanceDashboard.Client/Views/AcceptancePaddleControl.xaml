@@ -42,12 +42,12 @@
                 <WrapPanel Grid.Row="1" Grid.Column="0">
                     <materialDesign:PackIcon Kind="BarcodeScanner" VerticalAlignment="Center" Width="30" Height="30"/>
                     <TextBox  Width="220" materialDesign:HintAssist.Hint="Numer paletki" 
-                              Text="{Binding PaddleNumber, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                              Text="{Binding BarcodeNumber, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                               Margin="10"/>
                 </WrapPanel>
 
                 <DatePicker materialDesign:HintAssist.Hint="Data dodania"   Margin="10" Style="{StaticResource MaterialDesignOutlinedDatePicker}" 
-                            Grid.Row="4" Grid.Column="0"  Width="240" SelectedDate="{Binding AddedDate}" HorizontalAlignment="Center" SelectedDateFormat="Long"/>
+                            Grid.Row="4" Grid.Column="0"  Width="240" SelectedDate="{Binding ReceivedDate}" HorizontalAlignment="Center" SelectedDateFormat="Long"/>
 
 
                 <WrapPanel Grid.Column="0" Grid.Row="3">

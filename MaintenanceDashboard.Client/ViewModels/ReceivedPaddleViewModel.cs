@@ -15,7 +15,7 @@ namespace MaintenanceDashboard.Client.ViewModels
 
         public ICollection<ReceivedPaddle> ReceivedPaddles { get; private set; }
 
-        public string PaddleNumber { get; set; }
+        public string BarcodeNumber { get; set; }
         public string DescriptionIntervention { get; set; }
 
         private EmployeeViewModel _EmployeeViewModel;
@@ -41,11 +41,11 @@ namespace MaintenanceDashboard.Client.ViewModels
             }
         }
 
-        private DateTime _addedData = DateTime.Now;
-        public DateTime AddedDate
+        private DateTime _receivedDate = DateTime.Now;
+        public DateTime ReceivedDate
         {
-            get { return _addedData; }
-            set { _addedData = value; }
+            get { return _receivedDate; }
+            set { _receivedDate = value; }
         }
 
         private string _repairData = DateTime.Now.ToString(Resources.DateTimePattern);
@@ -119,10 +119,10 @@ namespace MaintenanceDashboard.Client.ViewModels
 
         private bool IsValidReceivedPaddle()
         {
-            if (OnValidate(PaddleNumber) == null 
+            if (OnValidate(BarcodeNumber) == null 
                 && EmployeeViewModel.SelectedEmployee != null 
                 && PlannedRepairDate != null 
-                && AddedDate != null 
+                && ReceivedDate != null 
                 && IsOrder != null 
                 && ActivityPerformed != null)
                 return true;
@@ -141,13 +141,13 @@ namespace MaintenanceDashboard.Client.ViewModels
 
         protected override string OnValidate(string propertyName)
         {
-            if (String.IsNullOrEmpty(PaddleNumber))
+            if (String.IsNullOrEmpty(BarcodeNumber))
                 return "Pole musi być wypełnione";
-            else if (!Regex.IsMatch(PaddleNumber, Resources.PaddleBarcodePattern))
+            else if (!Regex.IsMatch(BarcodeNumber, Resources.PaddleBarcodePattern))
                 return "Niepoprawna składnia ciągu {Pal...}";
-            else if (context.CheckIfReceivedPaddleExist(PaddleNumber))
+            else if (context.CheckIfReceivedPaddleExist(BarcodeNumber))
                 return "Paletka nie istnieje w bazie danych";
-            else if (context.CheckIfIsAccepted(PaddleNumber))
+            else if (context.CheckIfIsAccepted(BarcodeNumber))
                 return "Paletka jest już przyjęta";
             return base.OnValidate(propertyName);
         }
@@ -157,8 +157,8 @@ namespace MaintenanceDashboard.Client.ViewModels
             var receivedPaddle = new ReceivedPaddle
             {
                 ReceivingEmployee = String.Format("{0} {1}", EmployeeViewModel.SelectedEmployee.FirstName, EmployeeViewModel.SelectedEmployee.LastName),
-                PaddleId = context.CheckForeignKey(PaddleNumber),
-                AddedDate = AddedDate.ToString(Resources.DateTimePattern),
+                PaddleId = context.CheckForeignKey(BarcodeNumber),
+                ReceivedDate = ReceivedDate.ToString(Resources.DateTimePattern),
                 ActivityPerformed = ActivityPerformed,
                 PlannedRepairDate = PlannedRepairDate.ToString(Resources.DateTimePattern),
                 Comments = Comments,
@@ -173,7 +173,7 @@ namespace MaintenanceDashboard.Client.ViewModels
             var spendedPaddle = new SpendedPaddle
             {
                 PaddleId = SelectedReceivedPaddle.PaddleId,
-                AddedDate = SelectedReceivedPaddle.AddedDate,
+                ReceivedDate = SelectedReceivedPaddle.ReceivedDate,
                 ActivityPerformed = SelectedReceivedPaddle.ActivityPerformed,
                 RepairDate = RepairDate,
                 Comments = SelectedReceivedPaddle.Comments,

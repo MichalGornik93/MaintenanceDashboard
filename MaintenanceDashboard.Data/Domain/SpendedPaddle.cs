@@ -10,7 +10,7 @@ namespace MaintenanceDashboard.Data.Domain
         [ForeignKey("Paddle")]
         public int PaddleId { get; set; }
         [Required]
-        public string AddedDate { get; set; }
+        public string ReceivedDate { get; set; }
         [Required]
         public string ActivityPerformed { get; set; }
         [Required]

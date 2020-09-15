@@ -166,6 +166,14 @@
     <Compile Include="Migrations\202009141046509_RednameNumberToBarcodeNumberInPaddleTable.designer.cs">
       <DependentUpon>202009141046509_RednameNumberToBarcodeNumberInPaddleTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009141147429_RednameAddedDateToReceivedDateInReceivedPaddleTableAndSpendedPaddleTable.cs" />
+    <Compile Include="Migrations\202009141147429_RednameAddedDateToReceivedDateInReceivedPaddleTableAndSpendedPaddleTable.designer.cs">
+      <DependentUpon>202009141147429_RednameAddedDateToReceivedDateInReceivedPaddleTableAndSpendedPaddleTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009141152532_RednameAddedDateToReceivedDateInReceivedThermostatTableAndSpendedThermostatTable.cs" />
+    <Compile Include="Migrations\202009141152532_RednameAddedDateToReceivedDateInReceivedThermostatTableAndSpendedThermostatTable.designer.cs">
+      <DependentUpon>202009141152532_RednameAddedDateToReceivedDateInReceivedThermostatTableAndSpendedThermostatTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -248,6 +256,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009141046509_RednameNumberToBarcodeNumberInPaddleTable.resx">
       <DependentUpon>202009141046509_RednameNumberToBarcodeNumberInPaddleTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009141147429_RednameAddedDateToReceivedDateInReceivedPaddleTableAndSpendedPaddleTable.resx">
+      <DependentUpon>202009141147429_RednameAddedDateToReceivedDateInReceivedPaddleTableAndSpendedPaddleTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009141152532_RednameAddedDateToReceivedDateInReceivedThermostatTableAndSpendedThermostatTable.resx">
+      <DependentUpon>202009141152532_RednameAddedDateToReceivedDateInReceivedThermostatTableAndSpendedThermostatTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

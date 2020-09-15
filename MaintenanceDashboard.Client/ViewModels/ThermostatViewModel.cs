@@ -96,7 +96,7 @@ namespace MaintenanceDashboard.Client.ViewModels
             if (String.IsNullOrEmpty(BarcodeNumber))
                 return "Pole musi być wypełnione";
             else if (!Regex.IsMatch(BarcodeNumber, Resources.ThermostatBarcodePattern))
-                return "Niepoprawna składnia ciągu {Term...}";
+                return "Niepoprawna składnia ciągu {Ter...}";
             else if (context.CheckIfThermostatExist(BarcodeNumber))
                 return "Termostat istnieje już w bazie danych";
             return base.OnValidate(propertyName);

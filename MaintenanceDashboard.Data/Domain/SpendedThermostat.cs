@@ -15,7 +15,7 @@ namespace MaintenanceDashboard.Data.Domain
         [ForeignKey("Thermostat")]
         public int ThermostatId { get; set; }
         [Required]
-        public string AddedDate { get; set; }
+        public string ReceivedDate { get; set; }
         [Required]
         public string ActivityPerformed { get; set; }
         [Required]

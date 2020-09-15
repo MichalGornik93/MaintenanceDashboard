@@ -27,7 +27,7 @@
                           Grid.Column="1" Grid.Row="1"  Margin="10,10,0,10" Background="White" AutoGenerateColumns="False" 
                       HorizontalAlignment="Left" Height="400" Width="560" FontSize="11">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Numer" Binding="{Binding Number}"/>
+                    <DataGridTextColumn Header="Numer" Binding="{Binding BarcodeNumber}"/>
                     <DataGridTextColumn Header="Model" Binding="{Binding Model}"/>
                     <DataGridTextColumn Header="Data dodania" Binding="{Binding AddedDate}"/>
                     <DataGridTextColumn Header="Ostatnia prewencja" Binding="{Binding LastPrevention}"/>
@@ -50,7 +50,7 @@
                     <materialDesign:PackIcon Kind="BarcodeScanner" VerticalAlignment="Center" Width="30" Height="30"/>
                     <TextBox  materialDesign:HintAssist.Hint="Numer paletki" Width="220" IsEnabled="False"
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"
-                              Text="{Binding SelectedPaddle.Number}" />
+                              Text="{Binding SelectedPaddle.BarcodeNumber}" />
                 </WrapPanel>
 
                 <WrapPanel>

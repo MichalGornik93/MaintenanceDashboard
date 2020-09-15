@@ -97,7 +97,7 @@ namespace MaintenanceDashbord.Common.Properties {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Term[0-9]{1,3}$.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Ter[0-9]{1,3}$.
         /// </summary>
         public static string ThermostatBarcodePattern {
             get {

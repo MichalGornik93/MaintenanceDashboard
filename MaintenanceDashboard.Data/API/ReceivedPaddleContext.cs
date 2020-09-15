@@ -23,7 +23,7 @@ namespace MaintenanceDashboard.Data.API
         public void CreateReceivedPaddle(ReceivedPaddle receivedPaddle)
         {
             CheckValue.RequireString(receivedPaddle.ReceivingEmployee);
-            CheckValue.RequireDateTime(receivedPaddle.AddedDate);
+            CheckValue.RequireDateTime(receivedPaddle.ReceivedDate);
             CheckValue.RequireString(receivedPaddle.ActivityPerformed);
             CheckValue.RequireDateTime(receivedPaddle.PlannedRepairDate);
             CheckValue.RequireString(receivedPaddle.IsOrders);
@@ -34,7 +34,7 @@ namespace MaintenanceDashboard.Data.API
 
         public void CreateSpendedPaddle(SpendedPaddle spendedPaddle)
         {
-            CheckValue.RequireDateTime(spendedPaddle.AddedDate);
+            CheckValue.RequireDateTime(spendedPaddle.ReceivedDate);
             CheckValue.RequireString(spendedPaddle.ActivityPerformed);
             CheckValue.RequireDateTime(spendedPaddle.RepairDate);
             CheckValue.RequireString(spendedPaddle.IsOrders);

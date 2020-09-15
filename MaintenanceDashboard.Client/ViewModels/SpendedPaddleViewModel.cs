@@ -12,7 +12,7 @@ namespace MaintenanceDashboard.Client.ViewModels
 
         public ICollection<SpendedPaddle> SpendedPaddles { get; set; }
 
-        public string PaddleNumber { get; set; }
+        public string BarcodeNumber { get; set; }
         public string ActivitiesPerformed { get; set; }
 
         public SpendedPaddleViewModel(SpendedPaddleContext context)
@@ -41,7 +41,7 @@ namespace MaintenanceDashboard.Client.ViewModels
         {
             SpendedPaddles.Clear();
 
-            foreach (var item in context.GetFiltredSpendedPaddleList(PaddleNumber))
+            foreach (var item in context.GetFiltredSpendedPaddleList(BarcodeNumber))
                 SpendedPaddles.Add(item);
         }
 

@@ -117,22 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="DateTimePattern" xml:space="preserve">
-    <value>yyyy/MM/dd</value>
+  <data name="Target" xml:space="preserve">
+    <value>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</value>
   </data>
-  <data name="DateTimeRegexPattern" xml:space="preserve">
-    <value>(19|20)[0-9]{2}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])</value>
-  </data>
-  <data name="PaddleBarcodePattern" xml:space="preserve">
-    <value>Pal[0-9]{1,3}$</value>
-  </data>
-  <data name="PaddleModelPattern" xml:space="preserve">
-    <value>VW380 T1/T2 Base/High</value>
-  </data>
-  <data name="ThermostatBarcodePattern" xml:space="preserve">
-    <value>Ter[0-9]{1,3}$</value>
-  </data>
-  <data name="ThermostatModelPattern" xml:space="preserve">
-    <value>Single</value>
+  <data name="DefaultSchema" xml:space="preserve">
+    <value>dbo</value>
   </data>
 </root>

@@ -18,7 +18,7 @@
             <WrapPanel Margin="10" HorizontalAlignment="Right"  VerticalAlignment="Top">
                 
                 <TextBox Margin="5"  Width="150" Height="35"  Foreground="Gray" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                                  materialDesign:HintAssist.Hint="Numer paletki" Text="{Binding PaddleNumber}" />
+                                  materialDesign:HintAssist.Hint="Numer paletki" Text="{Binding BarcodeNumber}" />
                 <Button Margin="5, 5, 5, 0" Background="White" BorderBrush="White" Foreground="Gray" Command="{Binding GetFiltredSpendedPaddleListCommand}"
                                  Style="{StaticResource MaterialDesignFlatButton}" HorizontalAlignment="Center">
                     <materialDesign:PackIcon Kind="Search" Height="20" Width="20"/>
@@ -33,8 +33,8 @@
                 <DataGrid Margin="10" Background="White" ItemsSource="{Binding SpendedPaddles}" 
                           AutoGenerateColumns="False" IsReadOnly="True" Height="500" Width="840" FontSize="11">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Numer" Binding="{Binding Paddle.Number}"/>
-                        <DataGridTextColumn Header="Data przyjecia" Binding="{Binding AddedDate}" />
+                        <DataGridTextColumn Header="Numer" Binding="{Binding Paddle.BarcodeNumber}"/>
+                        <DataGridTextColumn Header="Data przyjecia" Binding="{Binding ReceivedDate}" />
                         <DataGridTextColumn Header="Data naprawy" Binding="{Binding RepairDate}"/>
                         <DataGridTextColumn Header="Akcja" Binding="{Binding ActivityPerformed}" />
                         <DataGridTextColumn Header="Przyjmujący pracownik" Binding="{Binding ReceivingEmployee}"/>
