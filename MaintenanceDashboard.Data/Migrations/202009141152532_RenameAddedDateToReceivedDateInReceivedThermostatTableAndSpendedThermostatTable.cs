@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
 
-    public partial class RednameAddedDateToReceivedDateInReceivedThermostatTableAndSpendedThermostatTable : DbMigration
+    public partial class RenameAddedDateToReceivedDateInReceivedThermostatTableAndSpendedThermostatTable : DbMigration
     {
         public override void Up()
         {

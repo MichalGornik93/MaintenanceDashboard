@@ -6,7 +6,7 @@ namespace MaintenanceDashboard.Client.Views
 {
     public partial class HistorySpendedPaddle : UserControl
     {
-        private SpendedPaddleViewModel _spendedPaddleViewModel;
+        private readonly SpendedPaddleViewModel _spendedPaddleViewModel;
         
         public HistorySpendedPaddle()
         {

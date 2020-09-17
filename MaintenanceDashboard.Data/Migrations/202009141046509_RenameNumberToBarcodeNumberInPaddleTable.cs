@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class RednameNumberToBarcodeNumberInPaddleTable : DbMigration
+    public partial class RenameNumberToBarcodeNumberInPaddleTable : DbMigration
     {
         public override void Up()
         {

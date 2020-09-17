@@ -5,10 +5,10 @@ using System.Windows;
 
 namespace MaintenanceDashboard.Client.Views
 {
-    public partial class SpendPaddle : UserControl
+    public partial class SpendPaddleControl : UserControl
     {
         private ReceivedPaddleViewModel _receivedPaddleViewModel;
-        public SpendPaddle()
+        public SpendPaddleControl()
         {
             _receivedPaddleViewModel = new ReceivedPaddleViewModel(new ReceivedPaddleContext());
             this.DataContext = _receivedPaddleViewModel;

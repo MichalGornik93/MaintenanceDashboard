@@ -20,7 +20,7 @@ namespace MaintenanceDashboard.Data.Domain
         public string AddedDate { get; set; }
         public string Comments { get; set; }
         public string LastPrevention { get; set; }
-        public bool IsInWorkshop { get; set; }
+        public string CurrentLocation { get; set; }
         public string LastWashDate { get; set; }
         public virtual ICollection<ReceivedThermostat> ReceivedThermostats { get; set; }
         public virtual ICollection<SpendedThermostat> SpendedThermostats { get; set; }

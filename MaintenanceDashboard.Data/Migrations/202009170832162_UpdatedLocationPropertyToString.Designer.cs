@@ -7,13 +7,13 @@ namespace MaintenanceDashboard.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class RednameAddedDateToReceivedDateInReceivedPaddleTableAndSpendedPaddleTable : IMigrationMetadata
+    public sealed partial class UpdatedLocationPropertyToString : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(RednameAddedDateToReceivedDateInReceivedPaddleTableAndSpendedPaddleTable));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdatedLocationPropertyToString));
         
         string IMigrationMetadata.Id
         {
-            get { return "202009141147429_RednameAddedDateToReceivedDateInReceivedPaddleTableAndSpendedPaddleTable"; }
+            get { return "202009170832162_UpdatedLocationPropertyToString"; }
         }
         
         string IMigrationMetadata.Source

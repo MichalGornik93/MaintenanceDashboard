@@ -38,7 +38,7 @@
                                            Development by Michał Górnik <LineBreak/>
                                            michalgornik93@outlook.com <LineBreak/>
                                            MaintenanceDashboard<LineBreak/>
-                                           Vesion 1.0.9 <LineBreak/>
+                                           Vesion 2.0.0 <LineBreak/>
 
                                 </TextBlock>
                             </StackPanel>
@@ -112,8 +112,11 @@
             </Grid>
         </Grid>
 
-        <StackPanel Width="320" HorizontalAlignment="Left" Background="#ff222222" >
-            <Image Source="Image/MarelliLogo.jpg" Margin="10"/>
+        <StackPanel Width="320" HorizontalAlignment="Left" Background="#ff222222">
+            <Grid Background="White" Margin="10">
+                <Image Source="Image/MarelliLogo.jpg"/>
+            </Grid>
+            
             <Grid HorizontalAlignment="Left" Background="#ff222222" VerticalAlignment="Bottom">
                 <materialDesign:TransitioningContent x:Name="TrainsitioningContentSlide" 
                                                      OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.3}">

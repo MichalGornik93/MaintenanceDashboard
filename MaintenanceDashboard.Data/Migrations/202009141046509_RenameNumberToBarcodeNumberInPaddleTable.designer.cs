@@ -7,9 +7,9 @@ namespace MaintenanceDashboard.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class RednameNumberToBarcodeNumberInPaddleTable : IMigrationMetadata
+    public sealed partial class RenameNumberToBarcodeNumberInPaddleTable : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(RednameNumberToBarcodeNumberInPaddleTable));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(RenameNumberToBarcodeNumberInPaddleTable));
         
         string IMigrationMetadata.Id
         {

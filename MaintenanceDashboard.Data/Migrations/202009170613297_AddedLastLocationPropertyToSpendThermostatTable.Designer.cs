@@ -7,13 +7,13 @@ namespace MaintenanceDashboard.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class RednameAddedDateToReceivedDateInReceivedThermostatTableAndSpendedThermostatTable : IMigrationMetadata
+    public sealed partial class AddedLastLocationPropertyToSpendThermostatTable : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(RednameAddedDateToReceivedDateInReceivedThermostatTableAndSpendedThermostatTable));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddedLastLocationPropertyToSpendThermostatTable));
         
         string IMigrationMetadata.Id
         {
-            get { return "202009141152532_RednameAddedDateToReceivedDateInReceivedThermostatTableAndSpendedThermostatTable"; }
+            get { return "202009170613297_AddedLastLocationPropertyToSpendThermostatTable"; }
         }
         
         string IMigrationMetadata.Source

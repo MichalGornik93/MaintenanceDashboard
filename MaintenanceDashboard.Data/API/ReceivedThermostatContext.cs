@@ -60,7 +60,31 @@ namespace MaintenanceDashboard.Data.API
             }
         }
 
-        //TODO: UpdateLastWashDate
+        public void UpdateLastWashDate(ReceivedThermostat receivedThermostat)
+        {
+            if (receivedThermostat.ActivityPerformed == "Plukanie termostatu")
+            {
+                var t =
+                    (from c in context.Thermostats
+                     where c.Id == receivedThermostat.ThermostatId
+                     select c).First();
+                t.LastWashDate = DateTime.Now.ToString(Resources.DateTimePattern);
+
+                context.SaveChanges();
+            }
+        }
+
+        public void UpdateCurrentLocation(ReceivedThermostat receivedThermostat, string currentLocation)
+        {
+            var t =
+                   (from c in context.Thermostats
+                    where c.Id == receivedThermostat.ThermostatId
+                    select c).First();
+            t.CurrentLocation=currentLocation;
+
+            context.SaveChanges();
+        }
+
 
         public int CheckForeignKey(string number)
         {
@@ -75,6 +99,11 @@ namespace MaintenanceDashboard.Data.API
                 return true;
 
             return false;
+        }
+
+        public string CheckLastLocation(string number)
+        {
+            return context.Thermostats.FirstOrDefault(c => c.BarcodeNumber == number).CurrentLocation;
         }
 
         public bool CheckIfIsAccepted(string number)

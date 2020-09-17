@@ -55,17 +55,22 @@
     <Compile Include="API\ReceivedPaddleContext.cs" />
     <Compile Include="API\ReceivedThermostatContext.cs" />
     <Compile Include="API\SpendedPaddleContext.cs" />
+    <Compile Include="API\SpendedThermostatContext.cs" />
     <Compile Include="API\ThermostatContext.cs" />
-    <Compile Include="Domain\Employee.cs" />
+    <Compile Include="Migrations\202009170832162_UpdatedLocationPropertyToString.cs" />
+    <Compile Include="Migrations\202009170832162_UpdatedLocationPropertyToString.designer.cs">
+      <DependentUpon>202009170832162_UpdatedLocationPropertyToString.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Employee.cs" />
     <Compile Include="API\EmployeeContext.cs" />
-    <Compile Include="Domain\ReceivedPaddle.cs" />
-    <Compile Include="Domain\Paddle.cs" />
+    <Compile Include="Models\ReceivedPaddle.cs" />
+    <Compile Include="Models\Paddle.cs" />
     <Compile Include="API\PaddleContext.cs" />
-    <Compile Include="Domain\DataContext.cs" />
-    <Compile Include="Domain\ReceivedThermostat.cs" />
-    <Compile Include="Domain\SpendedPaddle.cs" />
-    <Compile Include="Domain\SpendedThermostat.cs" />
-    <Compile Include="Domain\Thermostat.cs" />
+    <Compile Include="Models\DataContext.cs" />
+    <Compile Include="Models\ReceivedThermostat.cs" />
+    <Compile Include="Models\SpendedPaddle.cs" />
+    <Compile Include="Models\SpendedThermostat.cs" />
+    <Compile Include="Models\Thermostat.cs" />
     <Compile Include="Migrations\202005281027139_InitialModel.cs" />
     <Compile Include="Migrations\202005281027139_InitialModel.designer.cs">
       <DependentUpon>202005281027139_InitialModel.cs</DependentUpon>
@@ -162,17 +167,29 @@
     <Compile Include="Migrations\202009140918372_AddedSpendedThermostatsTable.designer.cs">
       <DependentUpon>202009140918372_AddedSpendedThermostatsTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202009141046509_RednameNumberToBarcodeNumberInPaddleTable.cs" />
-    <Compile Include="Migrations\202009141046509_RednameNumberToBarcodeNumberInPaddleTable.designer.cs">
-      <DependentUpon>202009141046509_RednameNumberToBarcodeNumberInPaddleTable.cs</DependentUpon>
+    <Compile Include="Migrations\202009141046509_RenameNumberToBarcodeNumberInPaddleTable.cs" />
+    <Compile Include="Migrations\202009141046509_RenameNumberToBarcodeNumberInPaddleTable.designer.cs">
+      <DependentUpon>202009141046509_RenameNumberToBarcodeNumberInPaddleTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202009141147429_RednameAddedDateToReceivedDateInReceivedPaddleTableAndSpendedPaddleTable.cs" />
-    <Compile Include="Migrations\202009141147429_RednameAddedDateToReceivedDateInReceivedPaddleTableAndSpendedPaddleTable.designer.cs">
-      <DependentUpon>202009141147429_RednameAddedDateToReceivedDateInReceivedPaddleTableAndSpendedPaddleTable.cs</DependentUpon>
+    <Compile Include="Migrations\202009141147429_RenameAddedDateToReceivedDateInReceivedPaddleTableAndSpendedPaddleTable.cs" />
+    <Compile Include="Migrations\202009141147429_RenameAddedDateToReceivedDateInReceivedPaddleTableAndSpendedPaddleTable.designer.cs">
+      <DependentUpon>202009141147429_RenameAddedDateToReceivedDateInReceivedPaddleTableAndSpendedPaddleTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202009141152532_RednameAddedDateToReceivedDateInReceivedThermostatTableAndSpendedThermostatTable.cs" />
-    <Compile Include="Migrations\202009141152532_RednameAddedDateToReceivedDateInReceivedThermostatTableAndSpendedThermostatTable.designer.cs">
-      <DependentUpon>202009141152532_RednameAddedDateToReceivedDateInReceivedThermostatTableAndSpendedThermostatTable.cs</DependentUpon>
+    <Compile Include="Migrations\202009141152532_RenameAddedDateToReceivedDateInReceivedThermostatTableAndSpendedThermostatTable.cs" />
+    <Compile Include="Migrations\202009141152532_RenameAddedDateToReceivedDateInReceivedThermostatTableAndSpendedThermostatTable.designer.cs">
+      <DependentUpon>202009141152532_RenameAddedDateToReceivedDateInReceivedThermostatTableAndSpendedThermostatTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009170610432_RenameIsWorkshopToCurrentLocationInThermostatTable.cs" />
+    <Compile Include="Migrations\202009170610432_RenameIsWorkshopToCurrentLocationInThermostatTable.designer.cs">
+      <DependentUpon>202009170610432_RenameIsWorkshopToCurrentLocationInThermostatTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009170612252_AddedLastLocationPropertyToReceivedThermostatTable.cs" />
+    <Compile Include="Migrations\202009170612252_AddedLastLocationPropertyToReceivedThermostatTable.designer.cs">
+      <DependentUpon>202009170612252_AddedLastLocationPropertyToReceivedThermostatTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009170613297_AddedLastLocationPropertyToSpendThermostatTable.cs" />
+    <Compile Include="Migrations\202009170613297_AddedLastLocationPropertyToSpendThermostatTable.designer.cs">
+      <DependentUpon>202009170613297_AddedLastLocationPropertyToSpendThermostatTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -254,14 +271,26 @@
     <EmbeddedResource Include="Migrations\202009140918372_AddedSpendedThermostatsTable.resx">
       <DependentUpon>202009140918372_AddedSpendedThermostatsTable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009141046509_RednameNumberToBarcodeNumberInPaddleTable.resx">
-      <DependentUpon>202009141046509_RednameNumberToBarcodeNumberInPaddleTable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202009141046509_RenameNumberToBarcodeNumberInPaddleTable.resx">
+      <DependentUpon>202009141046509_RenameNumberToBarcodeNumberInPaddleTable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009141147429_RednameAddedDateToReceivedDateInReceivedPaddleTableAndSpendedPaddleTable.resx">
-      <DependentUpon>202009141147429_RednameAddedDateToReceivedDateInReceivedPaddleTableAndSpendedPaddleTable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202009141147429_RenameAddedDateToReceivedDateInReceivedPaddleTableAndSpendedPaddleTable.resx">
+      <DependentUpon>202009141147429_RenameAddedDateToReceivedDateInReceivedPaddleTableAndSpendedPaddleTable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009141152532_RednameAddedDateToReceivedDateInReceivedThermostatTableAndSpendedThermostatTable.resx">
-      <DependentUpon>202009141152532_RednameAddedDateToReceivedDateInReceivedThermostatTableAndSpendedThermostatTable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202009141152532_RenameAddedDateToReceivedDateInReceivedThermostatTableAndSpendedThermostatTable.resx">
+      <DependentUpon>202009141152532_RenameAddedDateToReceivedDateInReceivedThermostatTableAndSpendedThermostatTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009170610432_RenameIsWorkshopToCurrentLocationInThermostatTable.resx">
+      <DependentUpon>202009170610432_RenameIsWorkshopToCurrentLocationInThermostatTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009170612252_AddedLastLocationPropertyToReceivedThermostatTable.resx">
+      <DependentUpon>202009170612252_AddedLastLocationPropertyToReceivedThermostatTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009170613297_AddedLastLocationPropertyToSpendThermostatTable.resx">
+      <DependentUpon>202009170613297_AddedLastLocationPropertyToSpendThermostatTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009170832162_UpdatedLocationPropertyToString.resx">
+      <DependentUpon>202009170832162_UpdatedLocationPropertyToString.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

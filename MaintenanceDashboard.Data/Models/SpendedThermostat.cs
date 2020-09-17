@@ -29,6 +29,7 @@ namespace MaintenanceDashboard.Data.Domain
         public string ReceivingEmployee { get; set; }
         [Required]
         public string SpendingEmployee { get; set; }
+        public string LastLocation { get; set; }
         public virtual Thermostat Thermostat { get; set; }
     }
 }

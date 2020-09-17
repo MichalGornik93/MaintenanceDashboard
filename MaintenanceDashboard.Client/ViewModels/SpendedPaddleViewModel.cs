@@ -13,7 +13,6 @@ namespace MaintenanceDashboard.Client.ViewModels
         public ICollection<SpendedPaddle> SpendedPaddles { get; set; }
 
         public string BarcodeNumber { get; set; }
-        public string ActivitiesPerformed { get; set; }
 
         public SpendedPaddleViewModel(SpendedPaddleContext context)
         {

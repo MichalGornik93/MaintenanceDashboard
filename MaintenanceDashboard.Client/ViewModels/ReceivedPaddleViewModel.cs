@@ -17,18 +17,8 @@ namespace MaintenanceDashboard.Client.ViewModels
 
         public string BarcodeNumber { get; set; }
         public string DescriptionIntervention { get; set; }
-
-        private EmployeeViewModel _EmployeeViewModel;
-        public EmployeeViewModel EmployeeViewModel
-        {
-            get { return _EmployeeViewModel; }
-        }
-
-        private PaddleViewModel _PaddleViewModel;
-        public PaddleViewModel PaddleViewModel
-        {
-            get { return _PaddleViewModel; }
-        }
+        public EmployeeViewModel EmployeeViewModel { get; }
+        public PaddleViewModel PaddleViewModel { get; }
 
         private bool _connectedSuccessfully;
         public bool ConnectedSuccessfully
@@ -95,8 +85,8 @@ namespace MaintenanceDashboard.Client.ViewModels
 
             ReceivedPaddles = new ObservableCollection<ReceivedPaddle>();
 
-            _EmployeeViewModel = new EmployeeViewModel(new EmployeeContext());
-            _PaddleViewModel = new PaddleViewModel(new PaddleContext());
+            EmployeeViewModel = new EmployeeViewModel(new EmployeeContext());
+            PaddleViewModel = new PaddleViewModel(new PaddleContext());
         }
 
         public ActionCommand AcceptancePaddleCommand

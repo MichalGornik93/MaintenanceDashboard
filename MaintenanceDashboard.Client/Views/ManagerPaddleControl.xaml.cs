@@ -26,7 +26,7 @@ namespace MaintenanceDashboard.Client.Views
         private void btnOpenSpendPaddle_Checked(object sender, RoutedEventArgs e)
         {
             GridPrincipal.Children.Clear();
-            GridPrincipal.Children.Add(new SpendPaddle());
+            GridPrincipal.Children.Add(new SpendPaddleControl());
         }
 
         private void btnOpenAddPaddle_Checked(object sender, RoutedEventArgs e)

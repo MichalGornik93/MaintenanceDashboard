@@ -8,7 +8,7 @@ namespace MaintenanceDashboard.Client.Views
 
     public partial class AcceptancePaddleControl : UserControl
     {
-        private ReceivedPaddleViewModel _receivedPaddleViewModel;
+        private readonly ReceivedPaddleViewModel _receivedPaddleViewModel;
         public AcceptancePaddleControl()
         {
             _receivedPaddleViewModel = new ReceivedPaddleViewModel(new ReceivedPaddleContext());

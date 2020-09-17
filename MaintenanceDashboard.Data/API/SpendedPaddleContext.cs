@@ -18,9 +18,9 @@ namespace MaintenanceDashboard.Data.API
             get { return context; }
         }
 
-        public ICollection<SpendedPaddle> GetFiltredSpendedPaddleList(string paddleNumber)
+        public ICollection<SpendedPaddle> GetFiltredSpendedPaddleList(string barcodeNumber)
         {
-            return context.SpendedPaddles.Where(c =>c.Paddle.BarcodeNumber == paddleNumber).OrderByDescending(p=>p.RepairDate).ToArray();
+            return context.SpendedPaddles.Where(c =>c.Paddle.BarcodeNumber == barcodeNumber).OrderByDescending(p=>p.RepairDate).ToArray();
         }
 
         public ICollection<SpendedPaddle> GetSpendedPaddleList()
