@@ -12,13 +12,17 @@ namespace MaintenanceDashboard.Client.ViewModels
     public class ReceivedPaddleViewModel : ViewModel
     {
         private readonly ReceivedPaddleContext context;
-
         public ICollection<ReceivedPaddle> ReceivedPaddles { get; private set; }
-
         public string BarcodeNumber { get; set; }
         public string DescriptionIntervention { get; set; }
         public EmployeeViewModel EmployeeViewModel { get; }
         public PaddleViewModel PaddleViewModel { get; }
+        public string Comments { get; set; }
+        public string IsOrder { get; set; }
+        public DateTime ReceivedDate { get; set; } = DateTime.Now;
+        public string RepairDate { get; set; } = DateTime.Now.ToString(Resources.DateTimePattern);
+        public DateTime PlannedRepairDate { get; set; } = DateTime.Now.AddDays(2);
+        public string ActivityPerformed { get; set; }
 
         private bool _connectedSuccessfully;
         public bool ConnectedSuccessfully
@@ -30,43 +34,6 @@ namespace MaintenanceDashboard.Client.ViewModels
                 NotifyPropertyChanged();
             }
         }
-
-        private DateTime _receivedDate = DateTime.Now;
-        public DateTime ReceivedDate
-        {
-            get { return _receivedDate; }
-            set { _receivedDate = value; }
-        }
-
-        private string _repairData = DateTime.Now.ToString(Resources.DateTimePattern);
-        public string RepairDate
-        {
-            get { return _repairData; }
-            set { _repairData = value; }
-        }
-
-        private DateTime _plannedRepairDate = DateTime.Now.AddDays(2);
-        public DateTime PlannedRepairDate
-        {
-            get { return _plannedRepairDate; }
-            set { _plannedRepairDate = value; }
-        }
-        public string Comments { get; set; }
-
-        private string _isOrder;
-        public string IsOrder
-        {
-            get { return _isOrder; }
-            set { _isOrder = value; }
-        }
-
-        private string _activityPerformed;
-        public string ActivityPerformed
-        {
-            get { return _activityPerformed; }
-            set { _activityPerformed = value; }
-        }
-
 
         private ReceivedPaddle _selectedReceivedPaddle;
         public ReceivedPaddle SelectedReceivedPaddle
@@ -106,28 +73,6 @@ namespace MaintenanceDashboard.Client.ViewModels
                 return new ActionCommand(p => SpendPaddle(),
                     p => IsValidSpendedPaddle());
             }
-        }
-
-        private bool IsValidReceivedPaddle()
-        {
-            if (OnValidate(BarcodeNumber) == null 
-                && EmployeeViewModel.SelectedEmployee != null 
-                && PlannedRepairDate != null 
-                && ReceivedDate != null 
-                && IsOrder != null 
-                && ActivityPerformed != null)
-                return true;
-            return false;
-        }
-
-        private bool IsValidSpendedPaddle()
-        {
-            if (SelectedReceivedPaddle != null 
-                && !String.IsNullOrWhiteSpace(DescriptionIntervention) 
-                && EmployeeViewModel.SelectedEmployee != null)
-                return true;
-            return false;
-
         }
 
         protected override string OnValidate(string propertyName)
@@ -191,6 +136,28 @@ namespace MaintenanceDashboard.Client.ViewModels
 
             foreach (var item in context.GetReceivedPaddleList())
                 ReceivedPaddles.Add(item);
+        }
+
+        private bool IsValidReceivedPaddle()
+        {
+            if (OnValidate(BarcodeNumber) == null
+                && EmployeeViewModel.SelectedEmployee != null
+                && PlannedRepairDate != null
+                && ReceivedDate != null
+                && IsOrder != null
+                && ActivityPerformed != null)
+                return true;
+            return false;
+        }
+
+        private bool IsValidSpendedPaddle()
+        {
+            if (SelectedReceivedPaddle != null
+                && !String.IsNullOrWhiteSpace(DescriptionIntervention)
+                && EmployeeViewModel.SelectedEmployee != null)
+                return true;
+            return false;
+
         }
     }
 }

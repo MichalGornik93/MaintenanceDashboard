@@ -7,8 +7,7 @@ namespace MaintenanceDashboard.Data.API
     static class CheckValue
     {
         public static void RequireString(string value)
-        {
-            //TODO: Add any MassageBox
+        { 
             if (value == null)
                 throw new ArgumentNullException();
             else if (value.Trim().Length == 0)
@@ -17,9 +16,7 @@ namespace MaintenanceDashboard.Data.API
 
         public static void RequireForeignKey(int value)
         {
-            if (value == null)
-                throw new ArgumentNullException();
-            else if (value == 0)
+            if (value == 0)
                 throw new ArgumentException();
         }
 
@@ -28,7 +25,7 @@ namespace MaintenanceDashboard.Data.API
             if (value == null)
                 throw new ArgumentNullException();
             else if (!Regex.IsMatch(value, Resources.DateTimeRegexPattern))
-                throw new ArgumentException("Incompatible date format");
+                throw new ArgumentException("Niepoprawny format daty");
         }
     }
 }

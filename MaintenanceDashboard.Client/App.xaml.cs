@@ -18,7 +18,7 @@ namespace MaintenanceDashboard
 
         void OnDispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
         {
-            var errorMessage = string.Format("An exception occurred: {0}", e.Exception.Message);
+            var errorMessage = string.Format("Wystąpił wyjątek: {0}", e.Exception.Message);
             MessageBox.Show(errorMessage, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             //Write log containing our exception information
             File.WriteAllText(AppDomain.CurrentDomain.BaseDirectory + "\\log.txt", e.Exception.StackTrace);

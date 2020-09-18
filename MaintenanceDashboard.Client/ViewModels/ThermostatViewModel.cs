@@ -15,19 +15,12 @@ namespace MaintenanceDashboard.Client.ViewModels
     public class ThermostatViewModel : ViewModel
     {
         private readonly ThermostatContext context;
-
         public ICollection<Thermostat> Thermostats { get; private set; }
-
         public string SerialNumber { get; set; }
         public string BarcodeNumber { get; set; }
         public string Comments { get; set; }
-
-        private string _Model = Resources.ThermostatModelPattern;
-        public string Model
-        {
-            get { return _Model; }
-            set { _Model = value; }
-        }
+        public string AddedDate { get; set; } = DateTime.Now.ToString(Resources.DateTimePattern);
+        public string Model { get; set; } = Resources.ThermostatModelPattern;
 
         private bool _connectedSuccessfully;
         public bool ConnectedSuccessfully
@@ -51,15 +44,6 @@ namespace MaintenanceDashboard.Client.ViewModels
             }
         }
 
-        private string _addedData = DateTime.Now.ToString(Resources.DateTimePattern);
-        public string AddedDate
-        {
-            get { return _addedData; }
-            set { _addedData = value; }
-        }
-
-        public ThermostatViewModel(): this(new ThermostatContext()) {}
-
         public ThermostatViewModel(ThermostatContext context)
         {
             this.context = context;
@@ -82,25 +66,6 @@ namespace MaintenanceDashboard.Client.ViewModels
             {
                 return new ActionCommand(p => SaveThermostat());
             }
-        }
-
-        public bool IsValidThermostat()
-        {
-            if (OnValidate(BarcodeNumber) == null 
-                && !String.IsNullOrWhiteSpace(SerialNumber))
-                return true;
-            return false;
-        }
-
-        protected override string OnValidate(string propertyName)
-        {
-            if (String.IsNullOrEmpty(BarcodeNumber))
-                return "Pole musi być wypełnione";
-            else if (!Regex.IsMatch(BarcodeNumber, Resources.ThermostatBarcodePattern))
-                return "Niepoprawna składnia ciągu {Ter...}";
-            else if (context.CheckIfThermostatExist(BarcodeNumber))
-                return "Termostat istnieje już w bazie danych";
-            return base.OnValidate(propertyName);
         }
 
         public void CreateThermostat()
@@ -133,6 +98,25 @@ namespace MaintenanceDashboard.Client.ViewModels
         {
             if (SelectedThermostat != null)
                 context.UpdateThermostat(SelectedThermostat);
+        }
+
+        public bool IsValidThermostat()
+        {
+            if (OnValidate(BarcodeNumber) == null
+                && !String.IsNullOrWhiteSpace(SerialNumber))
+                return true;
+            return false;
+        }
+
+        protected override string OnValidate(string propertyName)
+        {
+            if (String.IsNullOrEmpty(BarcodeNumber))
+                return "Pole musi być wypełnione";
+            else if (!Regex.IsMatch(BarcodeNumber, Resources.ThermostatBarcodePattern))
+                return "Niepoprawna składnia ciągu {Ter...}";
+            else if (context.CheckIfThermostatExist(BarcodeNumber))
+                return "Termostat istnieje już w bazie danych";
+            return base.OnValidate(propertyName);
         }
     }
 }

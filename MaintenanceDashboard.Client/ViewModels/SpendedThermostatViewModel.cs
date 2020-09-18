@@ -10,12 +10,10 @@ using System.Threading.Tasks;
 
 namespace MaintenanceDashboard.Client.ViewModels
 {
-    public class SpendedThermostatViewModel: ViewModel
+    public class SpendedThermostatViewModel : ViewModel
     {
         private readonly SpendedThermostatContext context;
-
         public ICollection<SpendedThermostat> SpendedThermostats { get; set; }
-
         public string BarcodeNumber { get; set; }
 
         public SpendedThermostatViewModel(SpendedThermostatContext context)

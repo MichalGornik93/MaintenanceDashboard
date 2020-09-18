@@ -9,9 +9,7 @@ namespace MaintenanceDashboard.Client.ViewModels
     public class SpendedPaddleViewModel : ViewModel
     {
         private readonly SpendedPaddleContext context;
-
         public ICollection<SpendedPaddle> SpendedPaddles { get; set; }
-
         public string BarcodeNumber { get; set; }
 
         public SpendedPaddleViewModel(SpendedPaddleContext context)

@@ -12,18 +12,11 @@ namespace MaintenanceDashboard.Client.ViewModels
     public class PaddleViewModel : ViewModel
     {
         private readonly PaddleContext context;
-
         public ICollection<Paddle> Paddles { get; private set; }
-
         public string BarcodeNumber { get; set; }
         public string Comments { get; set; }
-
-        private string _Model = Resources.PaddleModelPattern;
-        public string Model
-        {
-            get { return _Model; }
-            set { _Model = value; }
-        }
+        public string Model { get; set; } = Resources.PaddleModelPattern;
+        public string AddedDate { get; set; } = DateTime.Now.ToString(Resources.DateTimePattern);
 
         private bool _connectedSuccessfully;
         public bool ConnectedSuccessfully
@@ -45,13 +38,6 @@ namespace MaintenanceDashboard.Client.ViewModels
                 _selectedPaddle = value;
                 NotifyPropertyChanged();
             }
-        }
-
-        private string _addedData = DateTime.Now.ToString(Resources.DateTimePattern);
-        public string AddedDate
-        {
-            get { return _addedData; }
-            set { _addedData = value; }
         }
 
         public PaddleViewModel(PaddleContext context)
@@ -78,26 +64,6 @@ namespace MaintenanceDashboard.Client.ViewModels
                 return new ActionCommand(p => SavePaddle());
             }
         }
-
-
-        public bool IsValidPaddle()
-        {
-            if (OnValidate(BarcodeNumber) != null)
-                return false;
-            return true;
-        }
-
-        protected override string OnValidate(string propertyName)
-        {
-            if (String.IsNullOrEmpty(BarcodeNumber))
-                return "Pole musi być wypełnione";
-            else if (!Regex.IsMatch(BarcodeNumber, Resources.PaddleBarcodePattern))
-                return "Niepoprawna składnia ciągu {Pal...}";
-            else if (context.CheckIfPaddleExist(BarcodeNumber))
-                return "Paletka istnieje już w bazie danych";
-            return base.OnValidate(propertyName);
-        }
-
 
         private void CreatePaddle()
         {
@@ -127,6 +93,24 @@ namespace MaintenanceDashboard.Client.ViewModels
         {
             if (SelectedPaddle != null)
                 context.UpdatePaddle(SelectedPaddle);
+        }
+
+        public bool IsValidPaddle()
+        {
+            if (OnValidate(BarcodeNumber) != null)
+                return false;
+            return true;
+        }
+
+        protected override string OnValidate(string propertyName)
+        {
+            if (String.IsNullOrEmpty(BarcodeNumber))
+                return "Pole musi być wypełnione";
+            else if (!Regex.IsMatch(BarcodeNumber, Resources.PaddleBarcodePattern))
+                return "Niepoprawna składnia ciągu {Pal...}";
+            else if (context.CheckIfPaddleExist(BarcodeNumber))
+                return "Paletka istnieje już w bazie danych";
+            return base.OnValidate(propertyName);
         }
 
     }

@@ -28,6 +28,8 @@ namespace MaintenanceDashboard.Data.API
             CheckValue.RequireString(thermostat.SerialNumber);
             CheckValue.RequireString(thermostat.Model);
             CheckValue.RequireDateTime(thermostat.AddedDate);
+            CheckValue.RequireDateTime(thermostat.LastPrevention);
+            CheckValue.RequireDateTime(thermostat.LastWashDate);
 
             context.Thermostats.Add(thermostat);
             context.SaveChanges();

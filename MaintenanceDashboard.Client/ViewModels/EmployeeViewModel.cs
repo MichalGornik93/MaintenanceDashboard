@@ -12,9 +12,7 @@ namespace MaintenanceDashboard.Client.ViewModels
     public class EmployeeViewModel : ViewModel
     {
         private readonly EmployeeContext context;
-
         public ICollection<Employee> Employees { get; private set; }
-
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string UidCode { get; set; }
@@ -65,22 +63,11 @@ namespace MaintenanceDashboard.Client.ViewModels
             }
         }
 
-        public ICommand DeleteEmployeeCommand
+        public ActionCommand DeleteEmployeeCommand
         {
             get
             {
                 return new ActionCommand(p => DeleteEmployee());
-            }
-        }
-
-
-        public bool IsValidEmployee
-        {
-            get
-            {
-                return SelectedEmployee == null ||
-                (!String.IsNullOrWhiteSpace(SelectedEmployee.FirstName) &&
-                !String.IsNullOrWhiteSpace(SelectedEmployee.LastName));
             }
         }
 
@@ -118,6 +105,16 @@ namespace MaintenanceDashboard.Client.ViewModels
                 context.DeleteEmployee(SelectedEmployee);
                 Employees.Remove(SelectedEmployee);
                 SelectedEmployee = null;
+            }
+        }
+
+        public bool IsValidEmployee
+        {
+            get
+            {
+                return SelectedEmployee == null ||
+                (!String.IsNullOrWhiteSpace(SelectedEmployee.FirstName) &&
+                !String.IsNullOrWhiteSpace(SelectedEmployee.LastName));
             }
         }
     }
