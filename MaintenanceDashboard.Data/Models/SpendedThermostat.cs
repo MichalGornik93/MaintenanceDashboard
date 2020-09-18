@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MaintenanceDashboard.Data.Domain
+namespace MaintenanceDashboard.Data.Models
 {
     public class SpendedThermostat
     {

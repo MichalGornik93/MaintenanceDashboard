@@ -9,9 +9,7 @@ namespace MaintenanceDashboard.Client.Views
         public EditThermostatControl()
         {
             InitializeComponent();
-            var _thermostatViewModel = new ThermostatViewModel(new ThermostatContext());
-            this.DataContext = _thermostatViewModel;
-            _thermostatViewModel.GetThermostatList();
+            this.DataContext = new ThermostatViewModel(new ThermostatContext());
         }
     }
 }

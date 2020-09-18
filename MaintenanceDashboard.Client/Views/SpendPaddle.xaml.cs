@@ -7,20 +7,10 @@ namespace MaintenanceDashboard.Client.Views
 {
     public partial class SpendPaddleControl : UserControl
     {
-        private ReceivedPaddleViewModel _receivedPaddleViewModel;
         public SpendPaddleControl()
         {
-            _receivedPaddleViewModel = new ReceivedPaddleViewModel(new ReceivedPaddleContext());
-            this.DataContext = _receivedPaddleViewModel;
-            _receivedPaddleViewModel.GetReceivedPaddleList();
+            this.DataContext = new ReceivedPaddleViewModel(new ReceivedPaddleContext());
             InitializeComponent();
         }
-
-        private void employeeComboBox_GotMouseCapture(object sender, System.Windows.Input.MouseEventArgs e)
-        {
-            _receivedPaddleViewModel.EmployeeViewModel.GetEmployeeList();
-        }
-
-
     }
 }

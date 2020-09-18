@@ -38,7 +38,7 @@
                                            Development by Michał Górnik <LineBreak/>
                                            michalgornik93@outlook.com <LineBreak/>
                                            MaintenanceDashboard<LineBreak/>
-                                           Vesion 2.0.0 <LineBreak/>
+                                           Vesion 2.0.1 <LineBreak/>
 
                                 </TextBlock>
                             </StackPanel>
@@ -114,7 +114,7 @@
 
         <StackPanel Width="320" HorizontalAlignment="Left" Background="#ff222222">
             <Grid Background="White" Margin="10">
-                <Image Source="Image/MarelliLogo.jpg"/>
+                <Image Source="Image/Logo.png"/>
             </Grid>
             
             <Grid HorizontalAlignment="Left" Background="#ff222222" VerticalAlignment="Bottom">
@@ -165,7 +165,7 @@
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="RobotIndustrial" Width="30" 
                                                      Height="35" VerticalAlignment="top" Margin="5"/>
-                            <TextBlock Text="Baza chwytaków"  VerticalAlignment="Center" Margin="20 0" />
+                            <TextBlock Text="Baza narzędzi robotów"  VerticalAlignment="Center" Margin="20 0" />
                         </StackPanel>
                     </ListViewItem>
 

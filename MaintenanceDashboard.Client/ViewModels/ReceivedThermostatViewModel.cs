@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using MaintenanceDashboard.Common;
 using MaintenanceDashboard.Data.API;
-using MaintenanceDashboard.Data.Domain;
+using MaintenanceDashboard.Data.Models;
 using MaintenanceDashbord.Common.Properties;
 
 namespace MaintenanceDashboard.Client.ViewModels
@@ -89,6 +89,8 @@ namespace MaintenanceDashboard.Client.ViewModels
             ReceivedThermostats = new ObservableCollection<ReceivedThermostat>();
             EmployeeViewModel = new EmployeeViewModel(new EmployeeContext());
             ThermostatViewModel = new ThermostatViewModel(new ThermostatContext());
+            EmployeeViewModel.GetEmployeeList();
+            GetReceivedThermostatList();
         }
 
 
@@ -166,7 +168,7 @@ namespace MaintenanceDashboard.Client.ViewModels
             ConnectedSuccessfully = true;
         }
 
-        public void SpendThermostat()
+        private void SpendThermostat()
         {
             var spendedThermostat = new SpendedThermostat
             {
@@ -196,7 +198,7 @@ namespace MaintenanceDashboard.Client.ViewModels
             ConnectedSuccessfully = true;
         }
 
-        public void GetReceivedThermostatList()
+        private void GetReceivedThermostatList()
         {
             ReceivedThermostats.Clear();
 

@@ -1,5 +1,5 @@
 ﻿using MaintenanceDashboard.Client;
-using MaintenanceDashboard.Data.Domain;
+using MaintenanceDashboard.Data.Models;
 using System;
 using System.Data.Entity.Infrastructure;
 using System.Runtime.Remoting.Contexts;

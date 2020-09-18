@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using MaintenanceDashboard.Common;
 using MaintenanceDashboard.Data.API;
-using MaintenanceDashboard.Data.Domain;
+using MaintenanceDashboard.Data.Models;
 using MaintenanceDashbord.Common.Properties;
 
 namespace MaintenanceDashboard.Client.ViewModels
@@ -64,6 +64,7 @@ namespace MaintenanceDashboard.Client.ViewModels
         {
             this.context = context;
             Thermostats = new ObservableCollection<Thermostat>();
+            GetThermostatList();
         }
 
         public ActionCommand CreateThermostatCommand
@@ -111,6 +112,7 @@ namespace MaintenanceDashboard.Client.ViewModels
                 Model = Model,
                 AddedDate = AddedDate,
                 LastPrevention = DateTime.Now.ToString(Resources.DateTimePattern),
+                LastWashDate = DateTime.Now.ToString(Resources.DateTimePattern),
                 Comments = Comments
             };
 

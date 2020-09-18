@@ -27,8 +27,8 @@
                     <WrapPanel>
                         <materialDesign:PackIcon Kind="User" VerticalAlignment="Center" Width="30" Height="30"/>
                         <ComboBox Width="220"  DataContext="{Binding EmployeeViewModel}" materialDesign:HintAssist.Hint="Wydający pracownik" 
-                           Margin="10" SelectedItem="{Binding SelectedEmployee}" ItemsSource="{Binding Path=Employees}" x:Name="employeeComboBox"
-                              materialDesign:HintAssist.HelperText="Pole musi być wypełnione" GotMouseCapture="employeeComboBox_GotMouseCapture">
+                           Margin="10" SelectedItem="{Binding SelectedEmployee}" ItemsSource="{Binding Path=Employees}"
+                              materialDesign:HintAssist.HelperText="Pole musi być wypełnione">
                             <ComboBox.ItemTemplate >
                                 <DataTemplate>
                                     <TextBlock>
@@ -108,7 +108,7 @@
                 </StackPanel>
 
                 <DataGrid ItemsSource="{Binding ReceivedPaddles}" SelectedItem="{Binding SelectedReceivedPaddle}"  Margin="10,10,0,10" FontSize="11" 
-                          Grid.Column="1" Background="White" AutoGenerateColumns="False" IsReadOnly="True" HorizontalAlignment="Left" Height="500" Width="580" >
+                          Grid.Column="1" Background="White" AutoGenerateColumns="False" IsReadOnly="True" HorizontalAlignment="Left" Height="500" Width="580">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Numer" Binding="{Binding Paddle.BarcodeNumber}"/>
                         <DataGridTextColumn Header="Data dodania" Binding="{Binding ReceivedDate}"/>

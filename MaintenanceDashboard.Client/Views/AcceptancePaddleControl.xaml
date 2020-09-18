@@ -21,9 +21,9 @@
 
                 <WrapPanel Grid.Column="0" Grid.Row="0">
                     <materialDesign:PackIcon Kind="User" VerticalAlignment="Center" Width="30" Height="30"/>
-                    <ComboBox x:Name="employeeComboBox" Width="220"  DataContext="{Binding EmployeeViewModel}" materialDesign:HintAssist.Hint="Przyjmujący pracownik" 
+                    <ComboBox Width="220"  DataContext="{Binding EmployeeViewModel}" materialDesign:HintAssist.Hint="Przyjmujący pracownik" 
                            Margin="10" SelectedItem="{Binding SelectedEmployee}" ItemsSource="{Binding Path=Employees}" 
-                              materialDesign:HintAssist.HelperText="Pole musi być wypełnione" GotMouseCapture="employeeComboBox_GotMouseCapture" >
+                              materialDesign:HintAssist.HelperText="Pole musi być wypełnione">
                         <ComboBox.ItemTemplate >
                             <DataTemplate>
                                 <TextBlock>

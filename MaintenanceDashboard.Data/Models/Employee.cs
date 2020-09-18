@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace MaintenanceDashboard.Data.Domain
+namespace MaintenanceDashboard.Data.Models
 {
     public class Employee
     {

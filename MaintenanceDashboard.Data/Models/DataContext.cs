@@ -1,6 +1,6 @@
 ﻿using System.Data.Entity;
 
-namespace MaintenanceDashboard.Data.Domain
+namespace MaintenanceDashboard.Data.Models
 {
     public class DataContext:DbContext
     {

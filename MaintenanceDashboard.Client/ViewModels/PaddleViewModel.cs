@@ -1,4 +1,4 @@
-﻿using MaintenanceDashboard.Data.Domain;
+﻿using MaintenanceDashboard.Data.Models;
 using MaintenanceDashboard.Common;
 using System;
 using System.Collections.Generic;
@@ -58,6 +58,8 @@ namespace MaintenanceDashboard.Client.ViewModels
         {
             this.context = context;
             Paddles = new ObservableCollection<Paddle>();
+            GetPaddleList();
+
         }
 
         public ActionCommand CreatePaddleCommand

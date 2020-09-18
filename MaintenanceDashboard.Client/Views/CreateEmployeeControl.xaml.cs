@@ -9,8 +9,7 @@ namespace MaintenanceDashboard.Client.Views
     {
         public CreateEmployeeControl()
         {
-            var _employeeViewModel = new EmployeeViewModel(new EmployeeContext());
-            this.DataContext = _employeeViewModel;
+            this.DataContext = new EmployeeViewModel(new EmployeeContext());
             InitializeComponent();
         }
     }

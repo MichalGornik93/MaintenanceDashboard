@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace MaintenanceDashboard.Data.Domain
+namespace MaintenanceDashboard.Data.Models
 {
     public class Paddle
     {

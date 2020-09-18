@@ -1,6 +1,6 @@
 ﻿using MaintenanceDashboard.Client.ViewModels;
 using MaintenanceDashboard.Data.API;
-using MaintenanceDashboard.Data.Domain;
+using MaintenanceDashboard.Data.Models;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -10,7 +10,6 @@ namespace MaintenanceDashboard.Client.Views
     {
         public ManagerPaddleControl()
         {
-            
             InitializeComponent();
         }
 
@@ -50,14 +49,5 @@ namespace MaintenanceDashboard.Client.Views
             GridPrincipal.Children.Add(new HistorySpendedPaddle());
         }
 
-        private void btnOpenGetPaddle_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnOpenPutPaddle_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

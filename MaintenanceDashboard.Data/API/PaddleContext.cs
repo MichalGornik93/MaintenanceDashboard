@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using MaintenanceDashboard.Data.Domain;
+using MaintenanceDashboard.Data.Models;
 
 namespace MaintenanceDashboard.Data.API
 {

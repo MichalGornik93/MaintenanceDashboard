@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text.RegularExpressions;
 using MaintenanceDashboard.Data.API;
-using MaintenanceDashboard.Data.Domain;
+using MaintenanceDashboard.Data.Models;
 using MaintenanceDashboard.Common;
 using MaintenanceDashbord.Common.Properties;
 
@@ -82,11 +82,12 @@ namespace MaintenanceDashboard.Client.ViewModels
         public ReceivedPaddleViewModel(ReceivedPaddleContext context)
         {
             this.context = context;
-
             ReceivedPaddles = new ObservableCollection<ReceivedPaddle>();
 
             EmployeeViewModel = new EmployeeViewModel(new EmployeeContext());
             PaddleViewModel = new PaddleViewModel(new PaddleContext());
+            EmployeeViewModel.GetEmployeeList();
+            GetReceivedPaddleList();
         }
 
         public ActionCommand AcceptancePaddleCommand

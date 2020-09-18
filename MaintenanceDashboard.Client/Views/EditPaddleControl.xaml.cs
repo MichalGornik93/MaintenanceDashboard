@@ -9,9 +9,7 @@ namespace MaintenanceDashboard.Client.Views
         public EditPaddleControl()
         {
             InitializeComponent();
-            var _paddleViewModel = new PaddleViewModel(new PaddleContext());
-            this.DataContext = _paddleViewModel;
-            _paddleViewModel.GetPaddleList();
+            this.DataContext = new PaddleViewModel(new PaddleContext());
         }
     }
 }

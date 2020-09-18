@@ -11,10 +11,7 @@ namespace MaintenanceDashboard.Client.Views
         public EditEmployeeControl()
         {
             InitializeComponent();
-
-            var _employeeViewModel = new EmployeeViewModel(new EmployeeContext());
-           this.DataContext = _employeeViewModel;
-            _employeeViewModel.GetEmployeeList();
+           this.DataContext = new EmployeeViewModel(new EmployeeContext());
         }
     }
 }

@@ -6,11 +6,9 @@ namespace MaintenanceDashboard.Client.Views
 {
     public partial class HistorySpendedThermostat : UserControl
     {
-        private readonly SpendedThermostatViewModel _spendedThermostatViewModel;
         public HistorySpendedThermostat()
         {
-            _spendedThermostatViewModel = new SpendedThermostatViewModel(new SpendedThermostatContext());
-            this.DataContext = _spendedThermostatViewModel;
+            this.DataContext = new SpendedThermostatViewModel(new SpendedThermostatContext());
             InitializeComponent();
         }
     }

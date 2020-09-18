@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using MaintenanceDashboard.Data.API;
-using MaintenanceDashboard.Data.Domain;
+using MaintenanceDashboard.Data.Models;
 using MaintenanceDashboard.Common;
 
 
@@ -45,6 +45,7 @@ namespace MaintenanceDashboard.Client.ViewModels
         {
             this.context = context;
             Employees = new ObservableCollection<Employee>();
+            GetEmployeeList();
         }
 
         public ActionCommand CreateEmployeeCommand

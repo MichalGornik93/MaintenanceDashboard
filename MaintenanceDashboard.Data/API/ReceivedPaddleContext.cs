@@ -1,4 +1,4 @@
-﻿using MaintenanceDashboard.Data.Domain;
+﻿using MaintenanceDashboard.Data.Models;
 using MaintenanceDashbord.Common.Properties;
 using System;
 using System.Collections.Generic;
