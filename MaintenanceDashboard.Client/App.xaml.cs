@@ -2,6 +2,7 @@
 using MaintenanceDashboard.Data.Models;
 using System;
 using System.Data.Entity.Infrastructure;
+using System.IO;
 using System.Runtime.Remoting.Contexts;
 using System.Windows;
 
@@ -10,28 +11,18 @@ namespace MaintenanceDashboard
 
     public partial class App : Application
     {
-
-        protected override void OnStartup(StartupEventArgs e)
+        public App()
         {
-            using (DataContext context = new DataContext())
-            {
+            Dispatcher.UnhandledException += OnDispatcherUnhandledException;
+        }
 
-                try
-                {
-                    context.Database.Connection.Open();
-                    context.Database.Connection.Close();
-                }
-                catch (Exception a)
-                {
-                    MessageBox.Show("Brak połączenia z MS SQL Server","Alarm", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-
-            }
-
-            base.OnStartup(e);
-
-            var window = new MainWindow();
-            window.Show();
+        void OnDispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
+        {
+            var errorMessage = string.Format("An exception occurred: {0}", e.Exception.Message);
+            MessageBox.Show(errorMessage, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            //Write log containing our exception information
+            File.WriteAllText(AppDomain.CurrentDomain.BaseDirectory + "\\log.txt", e.Exception.StackTrace);
+            e.Handled = true;
         }
     }
 }
