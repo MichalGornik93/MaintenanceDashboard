@@ -6,10 +6,11 @@ using System.Collections.ObjectModel;
 using System.Text.RegularExpressions;
 using MaintenanceDashbord.Common.Properties;
 using MaintenanceDashboard.Data.API;
+using MaintenanceDashboard.Client.Interfaces;
 
 namespace MaintenanceDashboard.Client.ViewModels
 {
-    public class PaddleViewModel : ViewModel
+    public class PaddleViewModel : ViewModel, IRegisterCompontent
     {
         private readonly PaddleContext context;
         public ICollection<Paddle> Paddles { get; private set; }
@@ -44,7 +45,7 @@ namespace MaintenanceDashboard.Client.ViewModels
         {
             this.context = context;
             Paddles = new ObservableCollection<Paddle>();
-            GetPaddleList();
+            GetList();
 
         }
 
@@ -52,20 +53,20 @@ namespace MaintenanceDashboard.Client.ViewModels
         {
             get
             {
-                return new ActionCommand(p => CreatePaddle(),
+                return new ActionCommand(p => Create(),
                     p => IsValidPaddle());
             }
         }
 
-        public ActionCommand SavePaddleCommand
+        public ActionCommand UpdatePaddleCommand
         {
             get
             {
-                return new ActionCommand(p => SavePaddle());
+                return new ActionCommand(p => Update());
             }
         }
 
-        private void CreatePaddle()
+        public void Create()
         {
             var paddle = new Paddle
             {
@@ -80,19 +81,19 @@ namespace MaintenanceDashboard.Client.ViewModels
             ConnectedSuccessfully = true;
         }
 
-        public void GetPaddleList()
+        public void Update()
+        {
+            if (SelectedPaddle != null)
+                context.UpdatePaddle(SelectedPaddle);
+        }
+
+        public void GetList()
         {
             Paddles.Clear();
             SelectedPaddle = null;
 
             foreach (var item in context.GetPaddleList())
                 Paddles.Add(item);
-        }
-
-        private void SavePaddle()
-        {
-            if (SelectedPaddle != null)
-                context.UpdatePaddle(SelectedPaddle);
         }
 
         public bool IsValidPaddle()
@@ -112,6 +113,5 @@ namespace MaintenanceDashboard.Client.ViewModels
                 return "Paletka istnieje już w bazie danych";
             return base.OnValidate(propertyName);
         }
-
     }
 }

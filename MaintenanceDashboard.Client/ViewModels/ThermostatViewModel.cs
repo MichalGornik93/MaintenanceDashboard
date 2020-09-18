@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using MaintenanceDashboard.Client.Interfaces;
 using MaintenanceDashboard.Common;
 using MaintenanceDashboard.Data.API;
 using MaintenanceDashboard.Data.Models;
@@ -12,7 +13,7 @@ using MaintenanceDashbord.Common.Properties;
 
 namespace MaintenanceDashboard.Client.ViewModels
 {
-    public class ThermostatViewModel : ViewModel
+    public class ThermostatViewModel : ViewModel, IRegisterCompontent
     {
         private readonly ThermostatContext context;
         public ICollection<Thermostat> Thermostats { get; private set; }
@@ -48,27 +49,27 @@ namespace MaintenanceDashboard.Client.ViewModels
         {
             this.context = context;
             Thermostats = new ObservableCollection<Thermostat>();
-            GetThermostatList();
+            GetList();
         }
 
         public ActionCommand CreateThermostatCommand
         {
             get
             {
-                return new ActionCommand(p => CreateThermostat(),
+                return new ActionCommand(p => Create(),
                     p => IsValidThermostat());
             }
         }
 
-        public ActionCommand SaveThermostatCommand
+        public ActionCommand UpdateThermostatCommand
         {
             get
             {
-                return new ActionCommand(p => SaveThermostat());
+                return new ActionCommand(p => Update());
             }
         }
 
-        public void CreateThermostat()
+        public void Create()
         {
             var thermostat = new Thermostat
             {
@@ -85,19 +86,19 @@ namespace MaintenanceDashboard.Client.ViewModels
             ConnectedSuccessfully = true;
         }
 
-        public void GetThermostatList()
+        public void Update()
+        {
+            if (SelectedThermostat != null)
+                context.UpdateThermostat(SelectedThermostat);
+        }
+
+        public void GetList()
         {
             Thermostats.Clear();
             SelectedThermostat = null;
 
             foreach (var item in context.GetThermostatList())
                 Thermostats.Add(item);
-        }
-
-        private void SaveThermostat()
-        {
-            if (SelectedThermostat != null)
-                context.UpdateThermostat(SelectedThermostat);
         }
 
         public bool IsValidThermostat()

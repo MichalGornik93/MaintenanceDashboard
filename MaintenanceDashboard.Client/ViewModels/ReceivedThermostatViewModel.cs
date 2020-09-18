@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using MaintenanceDashboard.Client.Interfaces;
 using MaintenanceDashboard.Common;
 using MaintenanceDashboard.Data.API;
 using MaintenanceDashboard.Data.Models;
@@ -12,15 +13,16 @@ using MaintenanceDashbord.Common.Properties;
 
 namespace MaintenanceDashboard.Client.ViewModels
 {
-    public class ReceivedThermostatViewModel : ViewModel
+    public class ReceivedThermostatViewModel : ViewModel, IReceivedComponent
     {
         private readonly ReceivedThermostatContext context;
         public ICollection<ReceivedThermostat> ReceivedThermostats { get; private set; }
-        public string BarcodeNumber { get; set; }
-        public string DescriptionIntervention { get; set; }
         public EmployeeViewModel EmployeeViewModel { get; }
         public ThermostatViewModel ThermostatViewModel { get; set; }
         public string CurrentLocation { get; set; }
+
+        public string BarcodeNumber { get; set; }
+        public string DescriptionIntervention { get; set; }
         public DateTime ReceivedDate { get; set; } = DateTime.Now;
         public string RepairDate { get; set; } = DateTime.Now.ToString(Resources.DateTimePattern);
         public DateTime PlannedRepairDate { get; set; } = DateTime.Now.AddDays(2);
@@ -58,15 +60,14 @@ namespace MaintenanceDashboard.Client.ViewModels
             EmployeeViewModel = new EmployeeViewModel(new EmployeeContext());
             ThermostatViewModel = new ThermostatViewModel(new ThermostatContext());
             EmployeeViewModel.GetEmployeeList();
-            GetReceivedThermostatList();
+            GetList();
         }
-
 
         public ActionCommand AcceptanceThermostatCommand
         {
             get
             {
-                return new ActionCommand(p => AcceptanceThermostat(),
+                return new ActionCommand(p => Acceptance(),
                     p => IsValidReceivedThermostat());
             }
         }
@@ -75,12 +76,12 @@ namespace MaintenanceDashboard.Client.ViewModels
         {
             get
             {
-                return new ActionCommand(p => SpendThermostat(),
+                return new ActionCommand(p => Spend(),
                     p => IsValidSpendedThermostat());
             }
         }
 
-        private void AcceptanceThermostat()
+        public void Acceptance()
         {
             var receivedThermostat = new ReceivedThermostat
             {
@@ -100,7 +101,7 @@ namespace MaintenanceDashboard.Client.ViewModels
             ConnectedSuccessfully = true;
         }
 
-        private void SpendThermostat()
+        public void Spend()
         {
             var spendedThermostat = new SpendedThermostat
             {
@@ -130,7 +131,7 @@ namespace MaintenanceDashboard.Client.ViewModels
             ConnectedSuccessfully = true;
         }
 
-        private void GetReceivedThermostatList()
+        public void GetList()
         {
             ReceivedThermostats.Clear();
 
@@ -173,5 +174,7 @@ namespace MaintenanceDashboard.Client.ViewModels
                 return "Termostat jest już przyjęty";
             return base.OnValidate(propertyName);
         }
+
+
     }
 }

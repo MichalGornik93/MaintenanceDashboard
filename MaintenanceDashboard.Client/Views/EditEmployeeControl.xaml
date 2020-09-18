@@ -71,10 +71,10 @@
 
                     <Button  Height="25"  Width="100"  Background="#FF0069C0"  BorderBrush="#FF0069C0"  
                              Content="ZAPISZ"  Margin="10" Grid.Column="0" 
-                             Command="{Binding SaveEmployeeCommand}"/>
+                             Command="{Binding UpdateEmployeeCommand}"/>
                     <Button   Height="25"  Width="100"  Background="#FF0069C0"  BorderBrush="#FF0069C0"  
                               Content="USUŃ"  Margin="10" Grid.Column="1"
-                              Command="{Binding DeleteEmployeeCommand}"/>
+                              Command="{Binding RemoveEmployeeCommand}"/>
                 </Grid>
 
             </StackPanel>

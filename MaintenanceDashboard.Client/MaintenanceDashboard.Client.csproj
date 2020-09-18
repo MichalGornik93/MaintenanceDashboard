@@ -89,6 +89,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Interfaces\IRegisterCompontent.cs" />
+    <Compile Include="Interfaces\IReceivedComponent.cs" />
+    <Compile Include="Interfaces\ISpendedComponent.cs" />
     <Compile Include="ViewModels\ReceivedPaddleViewModel.cs" />
     <Compile Include="ViewModels\EmployeeViewModel.cs" />
     <Compile Include="ViewModels\PaddleViewModel.cs" />

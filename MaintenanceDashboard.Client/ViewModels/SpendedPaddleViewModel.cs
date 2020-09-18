@@ -3,10 +3,11 @@ using MaintenanceDashboard.Common;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using MaintenanceDashboard.Data.API;
+using MaintenanceDashboard.Client.Interfaces;
 
 namespace MaintenanceDashboard.Client.ViewModels
 {
-    public class SpendedPaddleViewModel : ViewModel
+    public class SpendedPaddleViewModel : ViewModel, ISpendedComponent
     {
         private readonly SpendedPaddleContext context;
         public ICollection<SpendedPaddle> SpendedPaddles { get; set; }
@@ -22,7 +23,7 @@ namespace MaintenanceDashboard.Client.ViewModels
         {
             get
             {
-                return new ActionCommand(p => GetFiltredSpendedPaddleList());
+                return new ActionCommand(p => GetFiltredSpendedList());
             }
         }
 
@@ -30,11 +31,11 @@ namespace MaintenanceDashboard.Client.ViewModels
         {
             get
             {
-                return new ActionCommand(p => GetSpendedPaddleList());
+                return new ActionCommand(p => GetSpendedList());
             }
         }
 
-        private void GetFiltredSpendedPaddleList()
+        public void GetFiltredSpendedList()
         {
             SpendedPaddles.Clear();
 
@@ -42,7 +43,7 @@ namespace MaintenanceDashboard.Client.ViewModels
                 SpendedPaddles.Add(item);
         }
 
-        public void GetSpendedPaddleList()
+        public void GetSpendedList()
         {
             SpendedPaddles.Clear();
 

@@ -54,20 +54,20 @@ namespace MaintenanceDashboard.Client.ViewModels
                                          p => !String.IsNullOrWhiteSpace(FirstName) && !String.IsNullOrWhiteSpace(LastName));
             }
         }
-        public ActionCommand SaveEmployeeCommand
+        public ActionCommand UpdateEmployeeCommand
         {
             get
             {
-                return new ActionCommand(p => SaveEmployee(),
+                return new ActionCommand(p => UpdateEmployee(),
                                          p => IsValidEmployee);
             }
         }
 
-        public ActionCommand DeleteEmployeeCommand
+        public ActionCommand RemoveEmployeeCommand
         {
             get
             {
-                return new ActionCommand(p => DeleteEmployee());
+                return new ActionCommand(p => RemoveEmployee());
             }
         }
 
@@ -92,13 +92,13 @@ namespace MaintenanceDashboard.Client.ViewModels
                 Employees.Add(item);
         }
 
-        private void SaveEmployee()
+        private void UpdateEmployee()
         {
             if (SelectedEmployee != null)
                 context.UpdateEmployee(SelectedEmployee);
         }
 
-        private void DeleteEmployee()
+        private void RemoveEmployee()
         {
             if (SelectedEmployee != null)
             {

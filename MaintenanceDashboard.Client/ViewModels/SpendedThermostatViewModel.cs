@@ -1,4 +1,5 @@
-﻿using MaintenanceDashboard.Common;
+﻿using MaintenanceDashboard.Client.Interfaces;
+using MaintenanceDashboard.Common;
 using MaintenanceDashboard.Data.API;
 using MaintenanceDashboard.Data.Models;
 using System;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace MaintenanceDashboard.Client.ViewModels
 {
-    public class SpendedThermostatViewModel : ViewModel
+    public class SpendedThermostatViewModel : ViewModel, ISpendedComponent
     {
         private readonly SpendedThermostatContext context;
         public ICollection<SpendedThermostat> SpendedThermostats { get; set; }
@@ -26,7 +27,7 @@ namespace MaintenanceDashboard.Client.ViewModels
         {
             get
             {
-                return new ActionCommand(p => GetFiltredSpendedThermostatList());
+                return new ActionCommand(p => GetFiltredSpendedList());
             }
         }
 
@@ -34,11 +35,11 @@ namespace MaintenanceDashboard.Client.ViewModels
         {
             get
             {
-                return new ActionCommand(p => GetSpendedThermostatList());
+                return new ActionCommand(p => GetSpendedList());
             }
         }
 
-        private void GetFiltredSpendedThermostatList()
+        public void GetFiltredSpendedList()
         {
             SpendedThermostats.Clear();
 
@@ -46,7 +47,7 @@ namespace MaintenanceDashboard.Client.ViewModels
                 SpendedThermostats.Add(item);
         }
 
-        public void GetSpendedThermostatList()
+        public void GetSpendedList()
         {
             SpendedThermostats.Clear();
 

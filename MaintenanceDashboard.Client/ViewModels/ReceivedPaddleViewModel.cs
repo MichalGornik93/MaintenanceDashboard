@@ -6,23 +6,25 @@ using MaintenanceDashboard.Data.API;
 using MaintenanceDashboard.Data.Models;
 using MaintenanceDashboard.Common;
 using MaintenanceDashbord.Common.Properties;
+using MaintenanceDashboard.Client.Interfaces;
 
 namespace MaintenanceDashboard.Client.ViewModels
 {
-    public class ReceivedPaddleViewModel : ViewModel
+    public class ReceivedPaddleViewModel : ViewModel, IReceivedComponent
     {
         private readonly ReceivedPaddleContext context;
         public ICollection<ReceivedPaddle> ReceivedPaddles { get; private set; }
-        public string BarcodeNumber { get; set; }
-        public string DescriptionIntervention { get; set; }
         public EmployeeViewModel EmployeeViewModel { get; }
         public PaddleViewModel PaddleViewModel { get; }
+        public string BarcodeNumber { get;set; }
+        public string DescriptionIntervention { get; set; }
         public string Comments { get; set; }
         public string IsOrder { get; set; }
-        public DateTime ReceivedDate { get; set; } = DateTime.Now;
         public string RepairDate { get; set; } = DateTime.Now.ToString(Resources.DateTimePattern);
-        public DateTime PlannedRepairDate { get; set; } = DateTime.Now.AddDays(2);
         public string ActivityPerformed { get; set; }
+
+        public DateTime ReceivedDate { get; set; } = DateTime.Now;
+        public DateTime PlannedRepairDate { get; set; } = DateTime.Now.AddDays(2);
 
         private bool _connectedSuccessfully;
         public bool ConnectedSuccessfully
@@ -54,14 +56,14 @@ namespace MaintenanceDashboard.Client.ViewModels
             EmployeeViewModel = new EmployeeViewModel(new EmployeeContext());
             PaddleViewModel = new PaddleViewModel(new PaddleContext());
             EmployeeViewModel.GetEmployeeList();
-            GetReceivedPaddleList();
+            GetList();
         }
 
         public ActionCommand AcceptancePaddleCommand
         {
             get
             {
-                return new ActionCommand(p => AcceptancePaddle(),
+                return new ActionCommand(p => Acceptance(),
                     p => IsValidReceivedPaddle());
             }
         }
@@ -70,25 +72,12 @@ namespace MaintenanceDashboard.Client.ViewModels
         {
             get
             {
-                return new ActionCommand(p => SpendPaddle(),
+                return new ActionCommand(p => Spend(),
                     p => IsValidSpendedPaddle());
             }
         }
 
-        protected override string OnValidate(string propertyName)
-        {
-            if (String.IsNullOrEmpty(BarcodeNumber))
-                return "Pole musi być wypełnione";
-            else if (!Regex.IsMatch(BarcodeNumber, Resources.PaddleBarcodePattern))
-                return "Niepoprawna składnia ciągu {Pal...}";
-            else if (context.CheckIfReceivedPaddleExist(BarcodeNumber))
-                return "Paletka nie istnieje w bazie danych";
-            else if (context.CheckIfIsAccepted(BarcodeNumber))
-                return "Paletka jest już przyjęta";
-            return base.OnValidate(propertyName);
-        }
-
-        private void AcceptancePaddle()
+        public void Acceptance()
         {
             var receivedPaddle = new ReceivedPaddle
             {
@@ -104,7 +93,7 @@ namespace MaintenanceDashboard.Client.ViewModels
             ConnectedSuccessfully = true;
         }
 
-        public void SpendPaddle()
+        public void Spend()
         {
             var spendedPaddle = new SpendedPaddle
             {
@@ -130,13 +119,27 @@ namespace MaintenanceDashboard.Client.ViewModels
             ConnectedSuccessfully = true;
         }
 
-        public void GetReceivedPaddleList()
+        public void GetList()
         {
             ReceivedPaddles.Clear();
 
             foreach (var item in context.GetReceivedPaddleList())
                 ReceivedPaddles.Add(item);
         }
+
+        protected override string OnValidate(string propertyName)
+        {
+            if (String.IsNullOrEmpty(BarcodeNumber))
+                return "Pole musi być wypełnione";
+            else if (!Regex.IsMatch(BarcodeNumber, Resources.PaddleBarcodePattern))
+                return "Niepoprawna składnia ciągu {Pal...}";
+            else if (context.CheckIfReceivedPaddleExist(BarcodeNumber))
+                return "Paletka nie istnieje w bazie danych";
+            else if (context.CheckIfIsAccepted(BarcodeNumber))
+                return "Paletka jest już przyjęta";
+            return base.OnValidate(propertyName);
+        }
+
 
         private bool IsValidReceivedPaddle()
         {
@@ -159,5 +162,6 @@ namespace MaintenanceDashboard.Client.ViewModels
             return false;
 
         }
+
     }
 }

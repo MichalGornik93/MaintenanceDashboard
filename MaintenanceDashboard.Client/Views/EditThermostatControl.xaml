@@ -110,7 +110,7 @@
                 </WrapPanel>
 
                 <Button HorizontalAlignment="Center"  Height="25"  Width="100" Grid.Column="0" Grid.Row="2" Background="#FF0069C0"  BorderBrush="#FF0069C0"  
-                             Content="ZAPISZ"  Margin="10" Command="{Binding SaveThermostatCommand}"/>
+                             Content="ZAPISZ"  Margin="10" Command="{Binding UpdateThermostatCommand}"/>
             </StackPanel>
 
         </Grid>
