@@ -20,7 +20,7 @@ namespace MaintenanceDashboard.Data.API
             get { return context; }
         }
 
-        public void CreateReceivedPaddle(ReceivedPaddle receivedPaddle)
+        public void Receive(ReceivedPaddle receivedPaddle)
         {
             CheckValue.RequireString(receivedPaddle.ReceivingEmployee);
             CheckValue.RequireDateTime(receivedPaddle.ReceivedDate);
@@ -32,7 +32,7 @@ namespace MaintenanceDashboard.Data.API
             context.SaveChanges();
         }
 
-        public void CreateSpendedPaddle(SpendedPaddle spendedPaddle)
+        public void Spend(SpendedPaddle spendedPaddle)
         {
             CheckValue.RequireDateTime(spendedPaddle.ReceivedDate);
             CheckValue.RequireString(spendedPaddle.ActivityPerformed);
@@ -46,13 +46,13 @@ namespace MaintenanceDashboard.Data.API
             context.SaveChanges();
         }
 
-        public void DeleteReceivedPaddle(ReceivedPaddle receivedPaddle)
+        public void Remove(ReceivedPaddle receivedPaddle)
         {
             context.ReceivedPaddles.Remove(receivedPaddle);
             context.SaveChanges();
         }
 
-        public void UpdateLastPreventionDate(ReceivedPaddle receivedPaddle)
+        public void SetLastPreventionDate(ReceivedPaddle receivedPaddle)
         {
             if (receivedPaddle.ActivityPerformed == "Prewencja")
             {
@@ -66,14 +66,17 @@ namespace MaintenanceDashboard.Data.API
             }
         }
 
-        public int CheckForeignKey(string number)
+        public int GetId(string number)
         {
-            return context.Paddles.FirstOrDefault(c => c.BarcodeNumber == number).Id;
+            return context.Paddles
+                .FirstOrDefault(c => c.BarcodeNumber == number)
+                .Id;
         }
 
-        public bool CheckIfReceivedPaddleExist(string number)
+        public bool IsExistInDb(string number)
         {
-            var result = context.Paddles.FirstOrDefault(c => c.BarcodeNumber == number);
+            var result = context.Paddles
+                .FirstOrDefault(c => c.BarcodeNumber == number);
 
             if (result == null)
                 return true;
@@ -81,9 +84,10 @@ namespace MaintenanceDashboard.Data.API
             return false;
         }
 
-        public bool CheckIfIsAccepted(string number)
+        public bool IsAccepted(string number)
         {
-            var result = context.ReceivedPaddles.FirstOrDefault(c => c.Paddle.BarcodeNumber == number);
+            var result = context.ReceivedPaddles
+                .FirstOrDefault(c => c.Paddle.BarcodeNumber == number);
 
             if (result != null)
                 return true;
@@ -91,9 +95,11 @@ namespace MaintenanceDashboard.Data.API
             return false;
         }
         
-        public ICollection<ReceivedPaddle> GetReceivedPaddleList()
+        public ICollection<ReceivedPaddle> GetAll()
         {
-            return context.ReceivedPaddles.OrderBy(p => p.Id).ToArray();
+            return context.ReceivedPaddles
+                .OrderBy(p => p.Id)
+                .ToArray();
         }
 
     }

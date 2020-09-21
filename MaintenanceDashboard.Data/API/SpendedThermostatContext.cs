@@ -21,14 +21,19 @@ namespace MaintenanceDashboard.Data.API
             get { return context; }
         }
 
-        public ICollection<SpendedThermostat> GetFiltredSpendedThermostatList(string barcodeNumber)
+        public ICollection<SpendedThermostat> GetFiltredList(string number)
         {
-            return context.SpendedThermostats.Where(c => c.Thermostat.BarcodeNumber == barcodeNumber).OrderByDescending(p => p.RepairDate).ToArray();
+            return context.SpendedThermostats
+                .Where(c => c.Thermostat.BarcodeNumber == number)
+                .OrderByDescending(p => p.RepairDate)
+                .ToArray();
         }
 
-        public ICollection<SpendedThermostat> GetSpendedThermostatList()
+        public ICollection<SpendedThermostat> GetAll()
         {
-            return context.SpendedThermostats.OrderByDescending(p => p.RepairDate).ToArray();
+            return context.SpendedThermostats
+                .OrderByDescending(p => p.RepairDate)
+                .ToArray();
         }
     }
 }

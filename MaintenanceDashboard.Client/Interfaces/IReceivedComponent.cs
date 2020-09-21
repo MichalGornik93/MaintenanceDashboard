@@ -18,8 +18,8 @@ namespace MaintenanceDashboard.Client.Interfaces
         DateTime PlannedRepairDate { get; set; }
         bool ConnectedSuccessfully { get; set; }
 
-        void Acceptance();
+        void Receive();
         void Spend();
-        void GetList();
+        void GetAll();
     }
 }

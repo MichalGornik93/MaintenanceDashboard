@@ -18,7 +18,7 @@ namespace MaintenanceDashboard.Client.Views
             if (GridPrincipal != null)
             {
                 GridPrincipal.Children.Clear();
-                GridPrincipal.Children.Add(new AcceptancePaddleControl());
+                GridPrincipal.Children.Add(new ReceivePaddleControl());
             }
         }
 

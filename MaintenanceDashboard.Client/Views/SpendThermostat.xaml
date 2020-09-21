@@ -137,7 +137,7 @@
 
                     <Button Height="25"  Background="#FF0069C0" 
                              BorderBrush="#FF0069C0"  Width="110" Content="WYDAJ" 
-                            Margin="10" Command="{Binding SpendThermostatCommand}" />
+                            Margin="10" Command="{Binding SpendCommand}" />
                 </StackPanel>
 
                 <DataGrid ItemsSource="{Binding ReceivedThermostats}" SelectedItem="{Binding SelectedReceivedThermostat}"  Margin="10,10,0,10" FontSize="11" 

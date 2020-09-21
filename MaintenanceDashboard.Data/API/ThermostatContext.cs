@@ -22,7 +22,7 @@ namespace MaintenanceDashboard.Data.API
             get { return context; }
         }
 
-        public void CreateThermostat(Thermostat thermostat)
+        public void Create(Thermostat thermostat)
         {
             CheckValue.RequireString(thermostat.BarcodeNumber);
             CheckValue.RequireString(thermostat.SerialNumber);
@@ -35,9 +35,10 @@ namespace MaintenanceDashboard.Data.API
             context.SaveChanges();
         }
 
-        public void UpdateThermostat(Thermostat thermostat)
+        public void Update(Thermostat thermostat)
         {
-            var entity = context.Thermostats.Find(thermostat.Id);
+            var entity = context.Thermostats
+                .Find(thermostat.Id);
 
             if (entity == null)
             {
@@ -48,9 +49,10 @@ namespace MaintenanceDashboard.Data.API
             context.SaveChanges();
         }
 
-        public bool CheckIfThermostatExist(string number)
+        public bool IsExistInDb(string number)
         {
-            var result = context.Thermostats.FirstOrDefault(c => c.BarcodeNumber == number);
+            var result = context.Thermostats
+                .FirstOrDefault(c => c.BarcodeNumber == number);
 
             if (result != null)
                 return true;
@@ -58,9 +60,11 @@ namespace MaintenanceDashboard.Data.API
             return false;
         }
 
-        public ICollection<Thermostat> GetThermostatList()
+        public ICollection<Thermostat> GetAll()
         {
-            return context.Thermostats.OrderBy(p => p.Id).ToArray();
+            return context.Thermostats
+                .OrderBy(p => p.Id)
+                .ToArray();
         }
     }
 }

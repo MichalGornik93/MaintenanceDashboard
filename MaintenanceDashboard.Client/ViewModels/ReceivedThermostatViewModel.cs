@@ -59,20 +59,20 @@ namespace MaintenanceDashboard.Client.ViewModels
             ReceivedThermostats = new ObservableCollection<ReceivedThermostat>();
             EmployeeViewModel = new EmployeeViewModel(new EmployeeContext());
             ThermostatViewModel = new ThermostatViewModel(new ThermostatContext());
-            EmployeeViewModel.GetEmployeeList();
-            GetList();
+            EmployeeViewModel.GetAll();
+            GetAll();
         }
 
-        public ActionCommand AcceptanceThermostatCommand
+        public ActionCommand ReceiveCommand
         {
             get
             {
-                return new ActionCommand(p => Acceptance(),
+                return new ActionCommand(p => Receive(),
                     p => IsValidReceivedThermostat());
             }
         }
 
-        public ActionCommand SpendThermostatCommand
+        public ActionCommand SpendCommand
         {
             get
             {
@@ -81,22 +81,22 @@ namespace MaintenanceDashboard.Client.ViewModels
             }
         }
 
-        public void Acceptance()
+        public void Receive()
         {
             var receivedThermostat = new ReceivedThermostat
             {
                 ReceivingEmployee = String.Format("{0} {1}", EmployeeViewModel.SelectedEmployee.FirstName, EmployeeViewModel.SelectedEmployee.LastName),
-                ThermostatId = context.CheckForeignKey(BarcodeNumber),
+                ThermostatId = context.GetId(BarcodeNumber),
                 ReceivedDate = ReceivedDate.ToString(Resources.DateTimePattern),
                 ActivityPerformed = ActivityPerformed,
                 PlannedRepairDate = PlannedRepairDate.ToString(Resources.DateTimePattern),
                 Comments = Comments,
                 IsOrders = IsOrder.ToString(),
-                LastLocation = context.CheckLastLocation(BarcodeNumber)
+                LastLocation = context.FindLastLocation(BarcodeNumber)
             };
 
-            context.UpdateCurrentLocation(receivedThermostat, "Warsztat");
-            context.CreateReceivedThermostat(receivedThermostat);
+            context.SetCurrentLocation(receivedThermostat, "Warsztat");
+            context.Receive(receivedThermostat);
 
             ConnectedSuccessfully = true;
         }
@@ -116,26 +116,26 @@ namespace MaintenanceDashboard.Client.ViewModels
                 ReceivingEmployee = SelectedReceivedThermostat.ReceivingEmployee,
                 SpendingEmployee = String.Format("{0} {1}", EmployeeViewModel.SelectedEmployee.FirstName, EmployeeViewModel.SelectedEmployee.LastName)
             };
-            context.CreateSpendedThermostat(spendedThermostat);
+            context.Spend(spendedThermostat);
 
-            context.UpdateLastPreventionDate(SelectedReceivedThermostat);
-            context.UpdateLastWashDate(SelectedReceivedThermostat);
-            context.UpdateCurrentLocation(SelectedReceivedThermostat, CurrentLocation);
+            context.SetLastPreventionDate(SelectedReceivedThermostat);
+            context.SetLastWashDate(SelectedReceivedThermostat);
+            context.SetCurrentLocation(SelectedReceivedThermostat, CurrentLocation);
 
             if (SelectedReceivedThermostat != null)
             {
-                context.DeleteReceivedThermostat(SelectedReceivedThermostat);
+                context.Remove(SelectedReceivedThermostat);
                 ReceivedThermostats.Remove(SelectedReceivedThermostat);
                 SelectedReceivedThermostat = null;
             }
             ConnectedSuccessfully = true;
         }
 
-        public void GetList()
+        public void GetAll()
         {
             ReceivedThermostats.Clear();
 
-            foreach (var item in context.GetReceivedThermostatsList())
+            foreach (var item in context.GetAll())
                 ReceivedThermostats.Add(item);
         }
 
@@ -168,9 +168,9 @@ namespace MaintenanceDashboard.Client.ViewModels
                 return "Pole musi być wypełnione";
             else if (!Regex.IsMatch(BarcodeNumber, Resources.ThermostatBarcodePattern))
                 return "Niepoprawna składnia ciągu {Ter...}";
-            else if (context.CheckIfReceivedThermostatExist(BarcodeNumber))
+            else if (context.IsExistInDb(BarcodeNumber))
                 return "Termostat nie istnieje w bazie danych";
-            else if (context.CheckIfIsAccepted(BarcodeNumber))
+            else if (context.IsAccepted(BarcodeNumber))
                 return "Termostat jest już przyjęty";
             return base.OnValidate(propertyName);
         }

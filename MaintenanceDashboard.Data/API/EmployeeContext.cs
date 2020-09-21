@@ -19,7 +19,7 @@ namespace MaintenanceDashboard.Data.API
             get { return context; }
         }
 
-        public void CreateEmployee(Employee employee)
+        public void Create(Employee employee)
         {
             CheckValue.RequireString(employee.FirstName);
             CheckValue.RequireString(employee.LastName);
@@ -28,7 +28,7 @@ namespace MaintenanceDashboard.Data.API
             context.SaveChanges();
         }
 
-        public void UpdateEmployee(Employee employee)
+        public void Update(Employee employee)
         {
             var entity = context.Employees.Find(employee.Id);
 
@@ -42,13 +42,13 @@ namespace MaintenanceDashboard.Data.API
             context.SaveChanges();
         }
 
-        public void DeleteEmployee(Employee employee)
+        public void Remove(Employee employee)
         {
             context.Employees.Remove(employee);
             context.SaveChanges();
         }
 
-        public ICollection<Employee> GetEmployeeList()
+        public ICollection<Employee> GetAll()
         {
             return context.Employees.OrderBy(p => p.Id).ToArray();
         }

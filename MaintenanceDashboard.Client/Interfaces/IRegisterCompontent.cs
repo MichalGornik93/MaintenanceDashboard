@@ -16,6 +16,6 @@ namespace MaintenanceDashboard.Client.Interfaces
 
         void Create();
         void Update();
-        void GetList();
+        void GetAll();
     }
 }

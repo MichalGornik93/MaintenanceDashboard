@@ -19,35 +19,35 @@ namespace MaintenanceDashboard.Client.ViewModels
             SpendedPaddles = new ObservableCollection<SpendedPaddle>();
         }
 
-        public ActionCommand GetFiltredSpendedPaddleListCommand
+        public ActionCommand GetFiltredListCommand
         {
             get
             {
-                return new ActionCommand(p => GetFiltredSpendedList());
+                return new ActionCommand(p => GetFiltredList());
             }
         }
 
-        public ActionCommand GetSpendedPaddleListCommand
+        public ActionCommand GetAllCommand
         {
             get
             {
-                return new ActionCommand(p => GetSpendedList());
+                return new ActionCommand(p => GetAll());
             }
         }
 
-        public void GetFiltredSpendedList()
+        public void GetFiltredList()
         {
             SpendedPaddles.Clear();
 
-            foreach (var item in context.GetFiltredSpendedPaddleList(BarcodeNumber))
+            foreach (var item in context.GetFiltredList(BarcodeNumber))
                 SpendedPaddles.Add(item);
         }
 
-        public void GetSpendedList()
+        public void GetAll()
         {
             SpendedPaddles.Clear();
 
-            foreach (var item in context.GetSpendedPaddleList())
+            foreach (var item in context.GetAll())
                 SpendedPaddles.Add(item);
         }
     }

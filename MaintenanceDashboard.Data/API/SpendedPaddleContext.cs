@@ -18,14 +18,19 @@ namespace MaintenanceDashboard.Data.API
             get { return context; }
         }
 
-        public ICollection<SpendedPaddle> GetFiltredSpendedPaddleList(string barcodeNumber)
+        public ICollection<SpendedPaddle> GetFiltredList(string number)
         {
-            return context.SpendedPaddles.Where(c =>c.Paddle.BarcodeNumber == barcodeNumber).OrderByDescending(p=>p.RepairDate).ToArray();
+            return context.SpendedPaddles
+                .Where(c =>c.Paddle.BarcodeNumber == number)
+                .OrderByDescending(p=>p.RepairDate)
+                .ToArray();
         }
 
-        public ICollection<SpendedPaddle> GetSpendedPaddleList()
+        public ICollection<SpendedPaddle> GetAll()
         {
-            return context.SpendedPaddles.OrderByDescending(p => p.RepairDate).ToArray();
+            return context.SpendedPaddles
+                .OrderByDescending(p => p.RepairDate)
+                .ToArray();
         }
 
     }

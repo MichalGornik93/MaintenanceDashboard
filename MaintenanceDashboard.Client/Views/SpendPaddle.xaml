@@ -104,7 +104,7 @@
 
                     <Button Height="25"  Background="#FF0069C0" 
                              BorderBrush="#FF0069C0"  Width="110" Content="WYDAJ" 
-                            Margin="10" Command="{Binding SpendPaddleCommand}" />
+                            Margin="10" Command="{Binding SpendCommand}" />
                 </StackPanel>
 
                 <DataGrid ItemsSource="{Binding ReceivedPaddles}" SelectedItem="{Binding SelectedReceivedPaddle}"  Margin="10,10,0,10" FontSize="11" 

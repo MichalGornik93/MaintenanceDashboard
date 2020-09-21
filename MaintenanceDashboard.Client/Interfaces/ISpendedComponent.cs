@@ -9,7 +9,7 @@ namespace MaintenanceDashboard.Client.Interfaces
     interface ISpendedComponent
     {
         string BarcodeNumber { get; set; }
-        void GetFiltredSpendedList();
-        void GetSpendedList();
+        void GetFiltredList();
+        void GetAll();
     }
 }

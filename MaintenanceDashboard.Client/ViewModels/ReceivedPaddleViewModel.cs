@@ -16,13 +16,13 @@ namespace MaintenanceDashboard.Client.ViewModels
         public ICollection<ReceivedPaddle> ReceivedPaddles { get; private set; }
         public EmployeeViewModel EmployeeViewModel { get; }
         public PaddleViewModel PaddleViewModel { get; }
-        public string BarcodeNumber { get;set; }
+        
+        public string BarcodeNumber { get; set; }
         public string DescriptionIntervention { get; set; }
         public string Comments { get; set; }
         public string IsOrder { get; set; }
         public string RepairDate { get; set; } = DateTime.Now.ToString(Resources.DateTimePattern);
         public string ActivityPerformed { get; set; }
-
         public DateTime ReceivedDate { get; set; } = DateTime.Now;
         public DateTime PlannedRepairDate { get; set; } = DateTime.Now.AddDays(2);
 
@@ -55,20 +55,21 @@ namespace MaintenanceDashboard.Client.ViewModels
 
             EmployeeViewModel = new EmployeeViewModel(new EmployeeContext());
             PaddleViewModel = new PaddleViewModel(new PaddleContext());
-            EmployeeViewModel.GetEmployeeList();
-            GetList();
+            
+            EmployeeViewModel.GetAll();
+            GetAll();
         }
 
-        public ActionCommand AcceptancePaddleCommand
+        public ActionCommand ReceiveCommand
         {
             get
             {
-                return new ActionCommand(p => Acceptance(),
+                return new ActionCommand(p => Receive(),
                     p => IsValidReceivedPaddle());
             }
         }
 
-        public ActionCommand SpendPaddleCommand
+        public ActionCommand SpendCommand
         {
             get
             {
@@ -77,19 +78,19 @@ namespace MaintenanceDashboard.Client.ViewModels
             }
         }
 
-        public void Acceptance()
+        public void Receive()
         {
             var receivedPaddle = new ReceivedPaddle
             {
                 ReceivingEmployee = String.Format("{0} {1}", EmployeeViewModel.SelectedEmployee.FirstName, EmployeeViewModel.SelectedEmployee.LastName),
-                PaddleId = context.CheckForeignKey(BarcodeNumber),
+                PaddleId = context.GetId(BarcodeNumber),
                 ReceivedDate = ReceivedDate.ToString(Resources.DateTimePattern),
                 ActivityPerformed = ActivityPerformed,
                 PlannedRepairDate = PlannedRepairDate.ToString(Resources.DateTimePattern),
                 Comments = Comments,
                 IsOrders = IsOrder.ToString()
             };
-            context.CreateReceivedPaddle(receivedPaddle);
+            context.Receive(receivedPaddle);
             ConnectedSuccessfully = true;
         }
 
@@ -107,23 +108,23 @@ namespace MaintenanceDashboard.Client.ViewModels
                 ReceivingEmployee = SelectedReceivedPaddle.ReceivingEmployee,
                 SpendingEmployee = String.Format("{0} {1}", EmployeeViewModel.SelectedEmployee.FirstName, EmployeeViewModel.SelectedEmployee.LastName)
             };
-            context.CreateSpendedPaddle(spendedPaddle);
-            context.UpdateLastPreventionDate(SelectedReceivedPaddle);
+            context.Spend(spendedPaddle);
+            context.SetLastPreventionDate(SelectedReceivedPaddle);
 
             if (SelectedReceivedPaddle != null)
             {
-                context.DeleteReceivedPaddle(SelectedReceivedPaddle);
+                context.Remove(SelectedReceivedPaddle);
                 ReceivedPaddles.Remove(SelectedReceivedPaddle);
                 SelectedReceivedPaddle = null;
             }
             ConnectedSuccessfully = true;
         }
 
-        public void GetList()
+        public void GetAll()
         {
             ReceivedPaddles.Clear();
 
-            foreach (var item in context.GetReceivedPaddleList())
+            foreach (var item in context.GetAll())
                 ReceivedPaddles.Add(item);
         }
 
@@ -133,9 +134,9 @@ namespace MaintenanceDashboard.Client.ViewModels
                 return "Pole musi być wypełnione";
             else if (!Regex.IsMatch(BarcodeNumber, Resources.PaddleBarcodePattern))
                 return "Niepoprawna składnia ciągu {Pal...}";
-            else if (context.CheckIfReceivedPaddleExist(BarcodeNumber))
+            else if (context.IsExistInDb(BarcodeNumber))
                 return "Paletka nie istnieje w bazie danych";
-            else if (context.CheckIfIsAccepted(BarcodeNumber))
+            else if (context.IsAccepted(BarcodeNumber))
                 return "Paletka jest już przyjęta";
             return base.OnValidate(propertyName);
         }

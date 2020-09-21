@@ -14,6 +14,7 @@ namespace MaintenanceDashboard.Client.ViewModels
     {
         private readonly PaddleContext context;
         public ICollection<Paddle> Paddles { get; private set; }
+        
         public string BarcodeNumber { get; set; }
         public string Comments { get; set; }
         public string Model { get; set; } = Resources.PaddleModelPattern;
@@ -45,11 +46,11 @@ namespace MaintenanceDashboard.Client.ViewModels
         {
             this.context = context;
             Paddles = new ObservableCollection<Paddle>();
-            GetList();
+            GetAll();
 
         }
 
-        public ActionCommand CreatePaddleCommand
+        public ActionCommand CreateCommand
         {
             get
             {
@@ -58,7 +59,7 @@ namespace MaintenanceDashboard.Client.ViewModels
             }
         }
 
-        public ActionCommand UpdatePaddleCommand
+        public ActionCommand UpdateCommand
         {
             get
             {
@@ -77,22 +78,22 @@ namespace MaintenanceDashboard.Client.ViewModels
                 Comments = Comments
             };
 
-            context.CreatePaddle(paddle);
+            context.Create(paddle);
             ConnectedSuccessfully = true;
         }
 
         public void Update()
         {
             if (SelectedPaddle != null)
-                context.UpdatePaddle(SelectedPaddle);
+                context.Update(SelectedPaddle);
         }
 
-        public void GetList()
+        public void GetAll()
         {
             Paddles.Clear();
             SelectedPaddle = null;
 
-            foreach (var item in context.GetPaddleList())
+            foreach (var item in context.GetAll())
                 Paddles.Add(item);
         }
 
@@ -109,7 +110,7 @@ namespace MaintenanceDashboard.Client.ViewModels
                 return "Pole musi być wypełnione";
             else if (!Regex.IsMatch(BarcodeNumber, Resources.PaddleBarcodePattern))
                 return "Niepoprawna składnia ciągu {Pal...}";
-            else if (context.CheckIfPaddleExist(BarcodeNumber))
+            else if (context.CheckIfExistInDb(BarcodeNumber))
                 return "Paletka istnieje już w bazie danych";
             return base.OnValidate(propertyName);
         }

@@ -99,8 +99,8 @@
     <Compile Include="ViewModels\SpendedPaddleViewModel.cs" />
     <Compile Include="ViewModels\SpendedThermostatViewModel.cs" />
     <Compile Include="ViewModels\ThermostatViewModel.cs" />
-    <Compile Include="Views\AcceptanceThermostatControl.xaml.cs">
-      <DependentUpon>AcceptanceThermostatControl.xaml</DependentUpon>
+    <Compile Include="Views\ReceiveThermostatControl.xaml.cs">
+      <DependentUpon>ReceiveThermostatControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CreateEmployeeControl.xaml.cs">
       <DependentUpon>CreateEmployeeControl.xaml</DependentUpon>
@@ -117,8 +117,8 @@
     <Compile Include="Views\EditEmployeeControl.xaml.cs">
       <DependentUpon>EditEmployeeControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\AcceptancePaddleControl.xaml.cs">
-      <DependentUpon>AcceptancePaddleControl.xaml</DependentUpon>
+    <Compile Include="Views\ReceivePaddleControl.xaml.cs">
+      <DependentUpon>ReceivePaddleControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\EditPaddleControl.xaml.cs">
       <DependentUpon>EditPaddleControl.xaml</DependentUpon>
@@ -150,7 +150,7 @@
     <Compile Include="Views\SpendThermostat.xaml.cs">
       <DependentUpon>SpendThermostat.xaml</DependentUpon>
     </Compile>
-    <Page Include="Views\AcceptanceThermostatControl.xaml">
+    <Page Include="Views\ReceiveThermostatControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -174,7 +174,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\AcceptancePaddleControl.xaml">
+    <Page Include="Views\ReceivePaddleControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -17,6 +17,7 @@ namespace MaintenanceDashboard.Client.ViewModels
     {
         private readonly ThermostatContext context;
         public ICollection<Thermostat> Thermostats { get; private set; }
+        
         public string SerialNumber { get; set; }
         public string BarcodeNumber { get; set; }
         public string Comments { get; set; }
@@ -49,10 +50,10 @@ namespace MaintenanceDashboard.Client.ViewModels
         {
             this.context = context;
             Thermostats = new ObservableCollection<Thermostat>();
-            GetList();
+            GetAll();
         }
 
-        public ActionCommand CreateThermostatCommand
+        public ActionCommand CreateCommand
         {
             get
             {
@@ -61,7 +62,7 @@ namespace MaintenanceDashboard.Client.ViewModels
             }
         }
 
-        public ActionCommand UpdateThermostatCommand
+        public ActionCommand UpdateCommand
         {
             get
             {
@@ -82,22 +83,22 @@ namespace MaintenanceDashboard.Client.ViewModels
                 Comments = Comments
             };
 
-            context.CreateThermostat(thermostat);
+            context.Create(thermostat);
             ConnectedSuccessfully = true;
         }
 
         public void Update()
         {
             if (SelectedThermostat != null)
-                context.UpdateThermostat(SelectedThermostat);
+                context.Update(SelectedThermostat);
         }
 
-        public void GetList()
+        public void GetAll()
         {
             Thermostats.Clear();
             SelectedThermostat = null;
 
-            foreach (var item in context.GetThermostatList())
+            foreach (var item in context.GetAll())
                 Thermostats.Add(item);
         }
 
@@ -115,7 +116,7 @@ namespace MaintenanceDashboard.Client.ViewModels
                 return "Pole musi być wypełnione";
             else if (!Regex.IsMatch(BarcodeNumber, Resources.ThermostatBarcodePattern))
                 return "Niepoprawna składnia ciągu {Ter...}";
-            else if (context.CheckIfThermostatExist(BarcodeNumber))
+            else if (context.IsExistInDb(BarcodeNumber))
                 return "Termostat istnieje już w bazie danych";
             return base.OnValidate(propertyName);
         }

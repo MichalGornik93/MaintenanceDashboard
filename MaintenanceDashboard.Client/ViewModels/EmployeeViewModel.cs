@@ -43,35 +43,35 @@ namespace MaintenanceDashboard.Client.ViewModels
         {
             this.context = context;
             Employees = new ObservableCollection<Employee>();
-            GetEmployeeList();
+            GetAll();
         }
 
-        public ActionCommand CreateEmployeeCommand
+        public ActionCommand CreateCommand
         {
             get
             {
-                return new ActionCommand(p => CreateEmployee(),
+                return new ActionCommand(p => Create(),
                                          p => !String.IsNullOrWhiteSpace(FirstName) && !String.IsNullOrWhiteSpace(LastName));
             }
         }
-        public ActionCommand UpdateEmployeeCommand
+        public ActionCommand UpdateCommand
         {
             get
             {
-                return new ActionCommand(p => UpdateEmployee(),
+                return new ActionCommand(p => Update(),
                                          p => IsValidEmployee);
             }
         }
 
-        public ActionCommand RemoveEmployeeCommand
+        public ActionCommand RemoveCommand
         {
             get
             {
-                return new ActionCommand(p => RemoveEmployee());
+                return new ActionCommand(p => Remove());
             }
         }
 
-        private void CreateEmployee()
+        private void Create()
         {
             var employee = new Employee
             {
@@ -79,33 +79,34 @@ namespace MaintenanceDashboard.Client.ViewModels
                 LastName = LastName
             };
 
-            context.CreateEmployee(employee);
+            context.Create(employee);
             ConnectedSuccessfully = true;
         }
 
-        public void GetEmployeeList()
+     
+        private void Update()
+        {
+            if (SelectedEmployee != null)
+                context.Update(SelectedEmployee);
+        }
+
+        private void Remove()
+        {
+            if (SelectedEmployee != null)
+            {
+                context.Remove(SelectedEmployee);
+                Employees.Remove(SelectedEmployee);
+                SelectedEmployee = null;
+            }
+        }
+
+        public void GetAll()
         {
             Employees.Clear();
             SelectedEmployee = null;
 
-            foreach (var item in context.GetEmployeeList())
+            foreach (var item in context.GetAll())
                 Employees.Add(item);
-        }
-
-        private void UpdateEmployee()
-        {
-            if (SelectedEmployee != null)
-                context.UpdateEmployee(SelectedEmployee);
-        }
-
-        private void RemoveEmployee()
-        {
-            if (SelectedEmployee != null)
-            {
-                context.DeleteEmployee(SelectedEmployee);
-                Employees.Remove(SelectedEmployee);
-                SelectedEmployee = null;
-            }
         }
 
         public bool IsValidEmployee

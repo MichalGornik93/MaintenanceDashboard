@@ -14,12 +14,6 @@ namespace MaintenanceDashboard.Data.API
                 throw new ArgumentException();
         }
 
-        public static void RequireForeignKey(int value)
-        {
-            if (value == 0)
-                throw new ArgumentException();
-        }
-
         public static void RequireDateTime(string value)
         {
             if (value == null)

@@ -22,31 +22,38 @@ namespace MaintenanceDashboard.Data.API
             get { return context; }
         }
 
-        public void CreateReceivedThermostat(ReceivedThermostat receivedThermostat)
+        public void Receive(ReceivedThermostat receivedThermostat)
         {
-            //TODO: Data validation
-
+            CheckValue.RequireString(receivedThermostat.ReceivingEmployee);
+            CheckValue.RequireDateTime(receivedThermostat.ReceivedDate);
+            CheckValue.RequireString(receivedThermostat.ActivityPerformed);
+            CheckValue.RequireDateTime(receivedThermostat.PlannedRepairDate);
+            CheckValue.RequireString(receivedThermostat.IsOrders);
 
             context.ReceivedThermostats.Add(receivedThermostat);
             context.SaveChanges();
         }
 
-        public void CreateSpendedThermostat(SpendedThermostat spendedThermostat)
+        public void Spend(SpendedThermostat spendedThermostat)
         {
-            //TODO: Data validation
-
+            CheckValue.RequireString(spendedThermostat.ReceivingEmployee);
+            CheckValue.RequireString(spendedThermostat.DescriptionIntervention);
+            CheckValue.RequireString(spendedThermostat.SpendingEmployee);
+            CheckValue.RequireString(spendedThermostat.ActivityPerformed);
+            CheckValue.RequireDateTime(spendedThermostat.ReceivedDate);
+            CheckValue.RequireDateTime(spendedThermostat.RepairDate);
 
             context.SpendedThermostats.Add(spendedThermostat);
             context.SaveChanges();
         }
 
-        public void DeleteReceivedThermostat(ReceivedThermostat receivedThermostat)
+        public void Remove(ReceivedThermostat receivedThermostat)
         {
             context.ReceivedThermostats.Remove(receivedThermostat);
             context.SaveChanges();
         }
 
-        public void UpdateLastPreventionDate(ReceivedThermostat receivedThermostat)
+        public void SetLastPreventionDate(ReceivedThermostat receivedThermostat)
         {
             if (receivedThermostat.ActivityPerformed == "Prewencja")
             {
@@ -60,7 +67,7 @@ namespace MaintenanceDashboard.Data.API
             }
         }
 
-        public void UpdateLastWashDate(ReceivedThermostat receivedThermostat)
+        public void SetLastWashDate(ReceivedThermostat receivedThermostat)
         {
             if (receivedThermostat.ActivityPerformed == "Plukanie termostatu")
             {
@@ -74,7 +81,7 @@ namespace MaintenanceDashboard.Data.API
             }
         }
 
-        public void UpdateCurrentLocation(ReceivedThermostat receivedThermostat, string currentLocation)
+        public void SetCurrentLocation(ReceivedThermostat receivedThermostat, string currentLocation)
         {
             var t =
                    (from c in context.Thermostats
@@ -86,12 +93,12 @@ namespace MaintenanceDashboard.Data.API
         }
 
 
-        public int CheckForeignKey(string number)
+        public int GetId(string number)
         {
             return context.Thermostats.FirstOrDefault(c => c.BarcodeNumber == number).Id;
         }
 
-        public bool CheckIfReceivedThermostatExist(string number)
+        public bool IsExistInDb(string number)
         {
             var result = context.Thermostats.FirstOrDefault(c => c.BarcodeNumber == number);
 
@@ -101,14 +108,17 @@ namespace MaintenanceDashboard.Data.API
             return false;
         }
 
-        public string CheckLastLocation(string number)
+        public string FindLastLocation(string number)
         {
-            return context.Thermostats.FirstOrDefault(c => c.BarcodeNumber == number).CurrentLocation;
+            return context.Thermostats
+                .FirstOrDefault(c => c.BarcodeNumber == number)
+                .CurrentLocation;
         }
 
-        public bool CheckIfIsAccepted(string number)
+        public bool IsAccepted(string number)
         {
-            var result = context.ReceivedThermostats.FirstOrDefault(c => c.Thermostat.BarcodeNumber == number);
+            var result = context.ReceivedThermostats
+                .FirstOrDefault(c => c.Thermostat.BarcodeNumber == number);
 
             if (result != null)
                 return true;
@@ -116,9 +126,11 @@ namespace MaintenanceDashboard.Data.API
             return false;
         }
 
-        public ICollection<ReceivedThermostat> GetReceivedThermostatsList()
+        public ICollection<ReceivedThermostat> GetAll()
         {
-            return context.ReceivedThermostats.OrderBy(p => p.Id).ToArray();
+            return context.ReceivedThermostats
+                .OrderBy(p => p.Id)
+                .ToArray();
         }
     }
 }

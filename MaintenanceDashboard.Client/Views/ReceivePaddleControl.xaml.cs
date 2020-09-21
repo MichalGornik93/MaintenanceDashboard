@@ -5,9 +5,9 @@ using System.Windows;
 
 namespace MaintenanceDashboard.Client.Views
 {
-    public partial class AcceptancePaddleControl : UserControl
+    public partial class ReceivePaddleControl : UserControl
     {
-        public AcceptancePaddleControl()
+        public ReceivePaddleControl()
         {
             this.DataContext = new ReceivedPaddleViewModel(new ReceivedPaddleContext());
             InitializeComponent();

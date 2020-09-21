@@ -19,7 +19,7 @@ namespace MaintenanceDashboard.Data.API
             get { return context; }
         }
 
-        public void CreatePaddle(Paddle paddle)
+        public void Create(Paddle paddle)
         {
             CheckValue.RequireString(paddle.BarcodeNumber);
             CheckValue.RequireString(paddle.Model);
@@ -30,7 +30,7 @@ namespace MaintenanceDashboard.Data.API
         }
 
 
-        public void UpdatePaddle(Paddle paddle)
+        public void Update(Paddle paddle)
         {
             var entity = context.Paddles.Find(paddle.Id);
 
@@ -43,9 +43,10 @@ namespace MaintenanceDashboard.Data.API
             context.SaveChanges();
         }
 
-        public bool CheckIfPaddleExist(string number)
+        public bool CheckIfExistInDb(string number)
         {
-            var result = context.Paddles.FirstOrDefault(c => c.BarcodeNumber == number);
+            var result = context.Paddles
+                .FirstOrDefault(c => c.BarcodeNumber == number);
 
             if (result != null)
                 return true;
@@ -54,9 +55,11 @@ namespace MaintenanceDashboard.Data.API
         }
 
 
-        public ICollection<Paddle> GetPaddleList()
+        public ICollection<Paddle> GetAll()
         {
-            return context.Paddles.OrderBy(p => p.Id).ToArray();
+            return context.Paddles
+                .OrderBy(p => p.Id)
+                .ToArray();
         }
 
     }
