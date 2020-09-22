@@ -24,11 +24,11 @@ namespace MaintenanceDashboard.Data.API
 
         public void Receive(ReceivedThermostat receivedThermostat)
         {
-            CheckValue.RequireString(receivedThermostat.ReceivingEmployee);
-            CheckValue.RequireDateTime(receivedThermostat.ReceivedDate);
-            CheckValue.RequireString(receivedThermostat.ActivityPerformed);
-            CheckValue.RequireDateTime(receivedThermostat.PlannedRepairDate);
-            CheckValue.RequireString(receivedThermostat.IsOrders);
+            Validator.RequireString(receivedThermostat.ReceivingEmployee);
+            Validator.RequireDateTime(receivedThermostat.ReceivedDate);
+            Validator.RequireString(receivedThermostat.ActivityPerformed);
+            Validator.RequireDateTime(receivedThermostat.PlannedRepairDate);
+            Validator.RequireString(receivedThermostat.IsOrders);
 
             context.ReceivedThermostats.Add(receivedThermostat);
             context.SaveChanges();
@@ -36,12 +36,12 @@ namespace MaintenanceDashboard.Data.API
 
         public void Spend(SpendedThermostat spendedThermostat)
         {
-            CheckValue.RequireString(spendedThermostat.ReceivingEmployee);
-            CheckValue.RequireString(spendedThermostat.DescriptionIntervention);
-            CheckValue.RequireString(spendedThermostat.SpendingEmployee);
-            CheckValue.RequireString(spendedThermostat.ActivityPerformed);
-            CheckValue.RequireDateTime(spendedThermostat.ReceivedDate);
-            CheckValue.RequireDateTime(spendedThermostat.RepairDate);
+            Validator.RequireString(spendedThermostat.ReceivingEmployee);
+            Validator.RequireString(spendedThermostat.DescriptionIntervention);
+            Validator.RequireString(spendedThermostat.SpendingEmployee);
+            Validator.RequireString(spendedThermostat.ActivityPerformed);
+            Validator.RequireDateTime(spendedThermostat.ReceivedDate);
+            Validator.RequireDateTime(spendedThermostat.RepairDate);
 
             context.SpendedThermostats.Add(spendedThermostat);
             context.SaveChanges();
@@ -95,24 +95,20 @@ namespace MaintenanceDashboard.Data.API
 
         public int GetId(string number)
         {
-            return context.Thermostats.FirstOrDefault(c => c.BarcodeNumber == number).Id;
+            return context.Thermostats
+                .FirstOrDefault(c => c.BarcodeNumber == number)
+                .Id;
         }
 
         public bool IsExistInDb(string number)
         {
-            var result = context.Thermostats.FirstOrDefault(c => c.BarcodeNumber == number);
+            var result = context.Thermostats
+                .FirstOrDefault(c => c.BarcodeNumber == number);
 
             if (result == null)
                 return true;
 
             return false;
-        }
-
-        public string FindLastLocation(string number)
-        {
-            return context.Thermostats
-                .FirstOrDefault(c => c.BarcodeNumber == number)
-                .CurrentLocation;
         }
 
         public bool IsAccepted(string number)

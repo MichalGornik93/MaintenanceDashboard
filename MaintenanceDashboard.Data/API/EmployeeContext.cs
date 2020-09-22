@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using MaintenanceDashboard.Common;
 
 namespace MaintenanceDashboard.Data.API
 {
@@ -21,8 +22,8 @@ namespace MaintenanceDashboard.Data.API
 
         public void Create(Employee employee)
         {
-            CheckValue.RequireString(employee.FirstName);
-            CheckValue.RequireString(employee.LastName);
+            Validator.RequireString(employee.FirstName);
+            Validator.RequireString(employee.LastName);
 
             context.Employees.Add(employee);
             context.SaveChanges();

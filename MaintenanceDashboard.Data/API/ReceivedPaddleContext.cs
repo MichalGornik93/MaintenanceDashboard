@@ -22,11 +22,11 @@ namespace MaintenanceDashboard.Data.API
 
         public void Receive(ReceivedPaddle receivedPaddle)
         {
-            CheckValue.RequireString(receivedPaddle.ReceivingEmployee);
-            CheckValue.RequireDateTime(receivedPaddle.ReceivedDate);
-            CheckValue.RequireString(receivedPaddle.ActivityPerformed);
-            CheckValue.RequireDateTime(receivedPaddle.PlannedRepairDate);
-            CheckValue.RequireString(receivedPaddle.IsOrders);
+            Validator.RequireString(receivedPaddle.ReceivingEmployee);
+            Validator.RequireDateTime(receivedPaddle.ReceivedDate);
+            Validator.RequireString(receivedPaddle.ActivityPerformed);
+            Validator.RequireDateTime(receivedPaddle.PlannedRepairDate);
+            Validator.RequireString(receivedPaddle.IsOrders);
             
             context.ReceivedPaddles.Add(receivedPaddle);
             context.SaveChanges();
@@ -34,13 +34,13 @@ namespace MaintenanceDashboard.Data.API
 
         public void Spend(SpendedPaddle spendedPaddle)
         {
-            CheckValue.RequireDateTime(spendedPaddle.ReceivedDate);
-            CheckValue.RequireString(spendedPaddle.ActivityPerformed);
-            CheckValue.RequireDateTime(spendedPaddle.RepairDate);
-            CheckValue.RequireString(spendedPaddle.IsOrders);
-            CheckValue.RequireString(spendedPaddle.DescriptionIntervention);
-            CheckValue.RequireString(spendedPaddle.ReceivingEmployee);
-            CheckValue.RequireString(spendedPaddle.SpendingEmployee);
+            Validator.RequireDateTime(spendedPaddle.ReceivedDate);
+            Validator.RequireString(spendedPaddle.ActivityPerformed);
+            Validator.RequireDateTime(spendedPaddle.RepairDate);
+            Validator.RequireString(spendedPaddle.IsOrders);
+            Validator.RequireString(spendedPaddle.DescriptionIntervention);
+            Validator.RequireString(spendedPaddle.ReceivingEmployee);
+            Validator.RequireString(spendedPaddle.SpendingEmployee);
 
             context.SpendedPaddles.Add(spendedPaddle);
             context.SaveChanges();

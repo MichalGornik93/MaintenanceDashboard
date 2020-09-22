@@ -21,9 +21,9 @@ namespace MaintenanceDashboard.Data.API
 
         public void Create(Paddle paddle)
         {
-            CheckValue.RequireString(paddle.BarcodeNumber);
-            CheckValue.RequireString(paddle.Model);
-            CheckValue.RequireDateTime(paddle.AddedDate);
+            Validator.RequireString(paddle.BarcodeNumber);
+            Validator.RequireString(paddle.Model);
+            Validator.RequireDateTime(paddle.AddedDate);
 
             context.Paddles.Add(paddle);
             context.SaveChanges();
@@ -62,5 +62,19 @@ namespace MaintenanceDashboard.Data.API
                 .ToArray();
         }
 
+        public string FindLastBarcodeNumber()
+        {
+            return context.Paddles
+                .OrderByDescending(p => p.Id)
+                .Select(r => r.BarcodeNumber)
+                .First().ToString();
+        }
+
+        public string GetFirstFreeBarcodeNumber()
+        {
+            return String.Format("Pal" + BarcodeNumber.ParseBarcodeNumberToInt(FindLastBarcodeNumber()));
+        }     
     }
+
 }
+

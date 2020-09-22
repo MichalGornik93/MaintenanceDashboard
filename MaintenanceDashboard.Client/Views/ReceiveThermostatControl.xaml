@@ -20,7 +20,7 @@
 
             <StackPanel HorizontalAlignment="Center"  VerticalAlignment="Center" Style="{StaticResource AddingRecordDataTemplete}">
 
-                <WrapPanel Grid.Column="0" Grid.Row="0">
+                <WrapPanel>
                     <materialDesign:PackIcon Kind="User" VerticalAlignment="Center" Width="30" Height="30"/>
                     <ComboBox  Width="220"  DataContext="{Binding EmployeeViewModel}" materialDesign:HintAssist.Hint="Przyjmujący pracownik" 
                            Margin="10" SelectedItem="{Binding SelectedEmployee}" ItemsSource="{Binding Path=Employees}" 
@@ -40,18 +40,45 @@
                     </ComboBox>
                 </WrapPanel>
 
-                <WrapPanel Grid.Row="1" Grid.Column="0">
+                <WrapPanel >
                     <materialDesign:PackIcon Kind="BarcodeScanner" VerticalAlignment="Center" Width="30" Height="30"/>
                     <TextBox  Width="220" materialDesign:HintAssist.Hint="Numer termostatu" 
                               Text="{Binding BarcodeNumber, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                               Margin="10"/>
                 </WrapPanel>
 
+                <WrapPanel >
+                    <materialDesign:PackIcon Kind="MapMarkerOutline" VerticalAlignment="Center" Width="30" Height="30"/>
+                    <ComboBox materialDesign:HintAssist.Hint="Lokalizacja" MinWidth="220" 
+                          Margin="10" SelectedValue="{Binding LastLocation}" SelectedValuePath="Content"
+                               materialDesign:HintAssist.HelperText="Pole musi być wypełnione"
+                              ToolTip="Z jakiej maszyny?">
+                        <ComboBoxItem>1B</ComboBoxItem>
+                        <ComboBoxItem>2B</ComboBoxItem>
+                        <ComboBoxItem>3B</ComboBoxItem>
+                        <ComboBoxItem>4B</ComboBoxItem>
+                        <ComboBoxItem>5B</ComboBoxItem>
+                        <ComboBoxItem>6B</ComboBoxItem>
+                        <ComboBoxItem>7B</ComboBoxItem>
+                        <ComboBoxItem>8B</ComboBoxItem>
+                        <ComboBoxItem>9B</ComboBoxItem>
+                        <ComboBoxItem>10B</ComboBoxItem>
+                        <ComboBoxItem>11B</ComboBoxItem>
+                        <ComboBoxItem>12B</ComboBoxItem>
+                        <ComboBoxItem>13B</ComboBoxItem>
+                        <ComboBoxItem>14B</ComboBoxItem>
+                        <ComboBoxItem>15B</ComboBoxItem>
+                        <ComboBoxItem>16B</ComboBoxItem>
+                        <ComboBoxItem>Warsztat</ComboBoxItem>
+                        <ComboBoxItem>Przyjęcie zewnetrzne</ComboBoxItem>
+                    </ComboBox>
+                </WrapPanel>
+
                 <DatePicker materialDesign:HintAssist.Hint="Data dodania"   Margin="10" Style="{StaticResource MaterialDesignOutlinedDatePicker}" 
-                            Grid.Row="4" Grid.Column="0"  Width="240" SelectedDate="{Binding ReceivedDate}" HorizontalAlignment="Center" SelectedDateFormat="Long"/>
+                              Width="240" SelectedDate="{Binding ReceivedDate}" HorizontalAlignment="Center" SelectedDateFormat="Long"/>
 
 
-                <WrapPanel Grid.Column="0" Grid.Row="3">
+                <WrapPanel>
                     <materialDesign:PackIcon Kind="LightningBoltOutline" VerticalAlignment="Center" Width="30" Height="30"/>
                     <ComboBox materialDesign:HintAssist.Hint="Akcja" MinWidth="72" Grid.Column="0" Grid.Row="3" 
                           Margin="10" Width="220" HorizontalAlignment="Left" SelectedValue="{Binding ActivityPerformed}" SelectedValuePath="Content"
@@ -65,9 +92,9 @@
 
 
                 <DatePicker materialDesign:HintAssist.Hint="Data planowanej naprawy"   Margin="10" Style="{StaticResource MaterialDesignOutlinedDatePicker}" 
-                            Grid.Row="4" Grid.Column="0"  Width="240" SelectedDate="{Binding PlannedRepairDate}" HorizontalAlignment="Center" SelectedDateFormat="Long"/>
+                            Width="240" SelectedDate="{Binding PlannedRepairDate}" HorizontalAlignment="Center" SelectedDateFormat="Long"/>
 
-                <WrapPanel Grid.Column="0" Grid.Row="5">
+                <WrapPanel>
                     <materialDesign:PackIcon Kind="ShoppingCartMinus" VerticalAlignment="Center" Width="30" Height="30"/>
                     <ComboBox materialDesign:HintAssist.Hint="Zamówienie" MinWidth="220" Grid.Column="1" Grid.Row="5" 
                           Margin="10" SelectedValue="{Binding IsOrder}" SelectedValuePath="Content"
@@ -78,14 +105,14 @@
                     </ComboBox>
                 </WrapPanel>
 
-                <WrapPanel Grid.Row="6" Grid.Column="0">
+                <WrapPanel>
                     <materialDesign:PackIcon Kind="NoteTextOutline" VerticalAlignment="Center" Width="30" Height="30"/>
                     <TextBox  Width="220" materialDesign:HintAssist.Hint="Uwagi" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"
                               Text="{Binding Comments}"/>
                 </WrapPanel>
 
-                <Button Height="25"  Background="#FF0069C0" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2"
+                <Button Height="25"  Background="#FF0069C0" 
                              BorderBrush="#FF0069C0"  Width="110" Content="POTWIERDŹ" Margin="10" Command="{Binding ReceiveCommand}"/>
 
             </StackPanel>

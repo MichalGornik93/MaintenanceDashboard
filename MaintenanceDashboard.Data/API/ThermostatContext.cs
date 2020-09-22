@@ -24,12 +24,12 @@ namespace MaintenanceDashboard.Data.API
 
         public void Create(Thermostat thermostat)
         {
-            CheckValue.RequireString(thermostat.BarcodeNumber);
-            CheckValue.RequireString(thermostat.SerialNumber);
-            CheckValue.RequireString(thermostat.Model);
-            CheckValue.RequireDateTime(thermostat.AddedDate);
-            CheckValue.RequireDateTime(thermostat.LastPrevention);
-            CheckValue.RequireDateTime(thermostat.LastWashDate);
+            Validator.RequireString(thermostat.BarcodeNumber);
+            Validator.RequireString(thermostat.SerialNumber);
+            Validator.RequireString(thermostat.Model);
+            Validator.RequireDateTime(thermostat.AddedDate);
+            Validator.RequireDateTime(thermostat.LastPrevention);
+            Validator.RequireDateTime(thermostat.LastWashDate);
 
             context.Thermostats.Add(thermostat);
             context.SaveChanges();
@@ -60,11 +60,26 @@ namespace MaintenanceDashboard.Data.API
             return false;
         }
 
+        public string GetFirstFreeBarcodeNumber()
+        {
+            return String.Format("Ter" + BarcodeNumber.ParseBarcodeNumberToInt(FindLastBarcodeNumber()));
+
+        }
+
         public ICollection<Thermostat> GetAll()
         {
             return context.Thermostats
                 .OrderBy(p => p.Id)
                 .ToArray();
         }
+
+        public string FindLastBarcodeNumber()
+        {
+            return context.Thermostats
+                .OrderByDescending(p => p.Id)
+                .Select(r => r.BarcodeNumber)
+                .First().ToString();
+        }
+
     }
 }

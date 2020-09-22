@@ -51,7 +51,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="API\CheckValue.cs" />
     <Compile Include="API\ReceivedPaddleContext.cs" />
     <Compile Include="API\ReceivedThermostatContext.cs" />
     <Compile Include="API\SpendedPaddleContext.cs" />

@@ -50,6 +50,7 @@ namespace MaintenanceDashboard.Client.ViewModels
         {
             this.context = context;
             Thermostats = new ObservableCollection<Thermostat>();
+            BarcodeNumber = context.GetFirstFreeBarcodeNumber();
             GetAll();
         }
 

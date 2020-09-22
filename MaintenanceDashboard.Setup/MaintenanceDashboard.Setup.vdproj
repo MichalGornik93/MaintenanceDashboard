@@ -5285,9 +5285,9 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:MaintenanceDashboardV2.0.2"
+        "ProductName" = "8:MaintenanceDashboardV2.1.0"
         "ProductCode" = "8:{FD6E4DDA-BFC2-421F-BD1F-1CC823BEB6B8}"
-        "PackageCode" = "8:{C7A346C1-5C0B-420C-B136-89286C487D96}"
+        "PackageCode" = "8:{E0DAC2DC-A06C-455F-8E0F-8FEC33C50B8B}"
         "UpgradeCode" = "8:{6ED766CC-F6E7-4636-9FE3-36D0F64442E9}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

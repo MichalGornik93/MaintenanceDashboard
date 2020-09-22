@@ -21,7 +21,7 @@ namespace MaintenanceDashboard.Client.ViewModels
         public ThermostatViewModel ThermostatViewModel { get; set; }
         public string CurrentLocation { get; set; }
 
-        public string BarcodeNumber { get; set; }
+        public string BarcodeNumber { get; set; } 
         public string DescriptionIntervention { get; set; }
         public DateTime ReceivedDate { get; set; } = DateTime.Now;
         public string RepairDate { get; set; } = DateTime.Now.ToString(Resources.DateTimePattern);
@@ -29,6 +29,7 @@ namespace MaintenanceDashboard.Client.ViewModels
         public string Comments { get; set; }
         public string IsOrder { get; set; }
         public string ActivityPerformed { get; set; }
+        public string LastLocation { get; set; }
 
         private bool _connectedSuccessfully;
         public bool ConnectedSuccessfully
@@ -92,7 +93,7 @@ namespace MaintenanceDashboard.Client.ViewModels
                 PlannedRepairDate = PlannedRepairDate.ToString(Resources.DateTimePattern),
                 Comments = Comments,
                 IsOrders = IsOrder.ToString(),
-                LastLocation = context.FindLastLocation(BarcodeNumber)
+                LastLocation = LastLocation
             };
 
             context.SetCurrentLocation(receivedThermostat, "Warsztat");
@@ -146,7 +147,8 @@ namespace MaintenanceDashboard.Client.ViewModels
                 && PlannedRepairDate != null
                 && ReceivedDate != null
                 && IsOrder != null
-                && ActivityPerformed != null)
+                && ActivityPerformed != null
+                && !String.IsNullOrWhiteSpace(LastLocation))
                 return true;
             return false;
         }

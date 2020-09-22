@@ -149,7 +149,8 @@
                         <DataGridTextColumn Header="Akcja" Binding="{Binding ActivityPerformed}"/>
                         <DataGridTextColumn Header="Przyjmujący pracownik" Binding="{Binding ReceivingEmployee}"/>
                         <DataGridTextColumn Header="Zamówienie" Binding="{Binding IsOrders}"/>
-                        <DataGridTextColumn Header="Lokalizacja" Binding="{Binding Thermostat.CurrentLocation}"/>
+                        <DataGridTextColumn Header="Aktualna lokalizacja" Binding="{Binding Thermostat.CurrentLocation}"/>
+                        <DataGridTextColumn Header="Ostatnia lokalizacja" Binding="{Binding LastLocation}"/>
                         <DataGridTextColumn Header="Uwagi" Binding="{Binding Comments}"/>
                     </DataGrid.Columns>
                 </DataGrid>

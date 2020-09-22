@@ -46,6 +46,7 @@ namespace MaintenanceDashboard.Client.ViewModels
         {
             this.context = context;
             Paddles = new ObservableCollection<Paddle>();
+            BarcodeNumber = context.GetFirstFreeBarcodeNumber();
             GetAll();
 
         }

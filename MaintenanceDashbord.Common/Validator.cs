@@ -4,7 +4,7 @@ using MaintenanceDashbord.Common.Properties;
 
 namespace MaintenanceDashboard.Data.API
 {
-    static class CheckValue
+    public static class Validator
     {
         public static void RequireString(string value)
         { 
