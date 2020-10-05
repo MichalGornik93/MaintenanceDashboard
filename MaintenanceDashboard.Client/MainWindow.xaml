@@ -12,7 +12,7 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Width="Auto" Height="Auto" WindowState="Maximized" WindowStyle="None">
+         WindowState="Maximized" WindowStyle="None">
     <Grid Background="#FFFFFFFF">
         <StackPanel>
             <Grid Background="#FF0069C0" Height="10"/>
@@ -46,20 +46,6 @@
                         <TextBlock Text="Informacje" FontSize="8" Foreground="Gray"/>
                     </StackPanel>
 
-                    <StackPanel VerticalAlignment="Center" Margin="7">
-                        <materialDesign:PopupBox StaysOpen="True" HorizontalAlignment="Center">
-                            <materialDesign:PopupBox.ToggleContent>
-                                <materialDesign:PackIcon Kind="BellOutline" Foreground="#F44336"/>
-                            </materialDesign:PopupBox.ToggleContent>
-                            <StackPanel Width="300" Margin="8">
-                                <TextBlock Style="{StaticResource MaterialDesignHeadline6TextBlock}" 
-                                           HorizontalAlignment="Center" Margin="8" Foreground="Gray" Text="Alarmy" FontSize="14" />
-                            </StackPanel>
-                        </materialDesign:PopupBox>
-                        <TextBlock Text="Alarmy" FontSize="8" Foreground="#F44336"/>
-                    </StackPanel>
-
-
 
                     <StackPanel VerticalAlignment="Center" Margin="7">
                         <materialDesign:PopupBox StaysOpen="True" HorizontalAlignment="Center">
@@ -76,7 +62,7 @@
 
                                 <Button x:Name="btnSavePassword" Click="btnSavePassword_Click" 
                                         Style="{StaticResource MaterialDesignFlatButton}" Margin="8" FontSize="12" 
-                                        ToolTip="MaterialDesignFlatButton" Content="AKCEPTUJ"/>
+                                        Content="AKCEPTUJ"/>
 
                             </StackPanel>
                         </materialDesign:PopupBox>
@@ -116,7 +102,7 @@
             <Grid Background="White" Margin="10">
                 <Image Source="Image/Logo.png"/>
             </Grid>
-            
+
             <Grid HorizontalAlignment="Left" Background="#ff222222" VerticalAlignment="Bottom">
                 <materialDesign:TransitioningContent x:Name="TrainsitioningContentSlide" 
                                                      OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.3}">
@@ -135,6 +121,7 @@
                                        VerticalAlignment="Center" Margin="20 0" />
                         </StackPanel>
                     </ListViewItem>
+                    
                     <ListViewItem x:Name="itemEmployee" Height="60" Foreground="LightGray" IsEnabled="False">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="UsersGroupOutline" Width="30" Height="30"
@@ -143,8 +130,8 @@
                                        VerticalAlignment="Center" Margin="20 0" />
                         </StackPanel>
                     </ListViewItem>
-                    
-                    <ListViewItem  Foreground="LightGray">
+
+                    <ListViewItem  Foreground="LightGray" Height="60">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="ClipboardList" Width="30" 
                                                      Height="35" VerticalAlignment="Top" Margin="5"/>
@@ -153,7 +140,7 @@
                         </StackPanel>
                     </ListViewItem>
 
-                    <ListViewItem Foreground="LightGray">
+                    <ListViewItem Foreground="LightGray" Height="60">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="CoolantTemperature" Width="30" 
                                                      Height="35" VerticalAlignment="top" Margin="5"/>
@@ -161,7 +148,7 @@
                         </StackPanel>
                     </ListViewItem>
 
-                    <ListViewItem x:Name="ListaTermostatow" Foreground="LightGray">
+                    <ListViewItem x:Name="ListaTermostatow" Foreground="LightGray" Height="60">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="RobotIndustrial" Width="30" 
                                                      Height="35" VerticalAlignment="top" Margin="5"/>
@@ -174,6 +161,18 @@
                             <materialDesign:PackIcon Kind="ViewList" Width="30" Height="30"  
                                                      VerticalAlignment="Center" Margin="5"/>
                             <TextBlock Text="Rejestr pobrań wyposażenia" 
+                                       VerticalAlignment="Center" Margin="20 0" />
+                        </StackPanel>
+                    </ListViewItem>
+
+                    <ListViewItem Height="60" Foreground="LightGray" Style="{StaticResource BlinkingStackPanel}" >
+
+
+                        <StackPanel Orientation="Horizontal" >
+                            
+                            <materialDesign:PackIcon Kind="BellOutline" Width="30" Height="30"  
+                                                     VerticalAlignment="Center" Margin="5"/>
+                            <TextBlock Text="Alarmy" 
                                        VerticalAlignment="Center" Margin="20 0" />
                         </StackPanel>
                     </ListViewItem>

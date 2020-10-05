@@ -1,9 +1,5 @@
-﻿using MaintenanceDashboard.Client;
-using MaintenanceDashboard.Data.Models;
-using System;
-using System.Data.Entity.Infrastructure;
+﻿using System;
 using System.IO;
-using System.Runtime.Remoting.Contexts;
 using System.Windows;
 
 namespace MaintenanceDashboard

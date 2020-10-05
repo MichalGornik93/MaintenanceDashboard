@@ -92,6 +92,7 @@
     <Compile Include="Interfaces\IRegisterCompontent.cs" />
     <Compile Include="Interfaces\IReceivedComponent.cs" />
     <Compile Include="Interfaces\ISpendedComponent.cs" />
+    <Compile Include="ViewModels\AlarmsViewModel.cs" />
     <Compile Include="ViewModels\ReceivedPaddleViewModel.cs" />
     <Compile Include="ViewModels\EmployeeViewModel.cs" />
     <Compile Include="ViewModels\PaddleViewModel.cs" />
@@ -99,6 +100,9 @@
     <Compile Include="ViewModels\SpendedPaddleViewModel.cs" />
     <Compile Include="ViewModels\SpendedThermostatViewModel.cs" />
     <Compile Include="ViewModels\ThermostatViewModel.cs" />
+    <Compile Include="Views\AlarmsControl.xaml.cs">
+      <DependentUpon>AlarmsControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ReceiveThermostatControl.xaml.cs">
       <DependentUpon>ReceiveThermostatControl.xaml</DependentUpon>
     </Compile>
@@ -150,6 +154,10 @@
     <Compile Include="Views\SpendThermostat.xaml.cs">
       <DependentUpon>SpendThermostat.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\AlarmsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ReceiveThermostatControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

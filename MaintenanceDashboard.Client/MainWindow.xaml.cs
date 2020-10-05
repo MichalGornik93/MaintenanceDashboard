@@ -2,7 +2,9 @@
 using System.Windows;
 using System.Windows.Automation;
 using System.Windows.Controls;
+using MaintenanceDashboard.Client.ViewModels;
 using MaintenanceDashboard.Client.Views;
+using MaintenanceDashboard.Data.API;
 
 namespace MaintenanceDashboard.Client
 {
@@ -11,6 +13,7 @@ namespace MaintenanceDashboard.Client
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext= new AlarmsViewModel(new AlarmsContext());
         }
 
         private void btnCloseWindow_Click(object sender, RoutedEventArgs e)
@@ -20,8 +23,7 @@ namespace MaintenanceDashboard.Client
 
         private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            int index = ListViewMenu.SelectedIndex;
-            MoveCursorMenu(index);
+            MoveCursorMenu(ListViewMenu.SelectedIndex);
 
             switch (ListViewMenu.SelectedIndex)
             {
@@ -49,6 +51,10 @@ namespace MaintenanceDashboard.Client
                     GridPrincipal.Children.Clear();
                     GridPrincipal.Children.Add(new BuiltFunctionControl());
                     break;
+                case 6:
+                    GridPrincipal.Children.Clear();
+                    GridPrincipal.Children.Add(new AlarmsControl());
+                    break;
                 default:
                     break;
             }
@@ -57,7 +63,7 @@ namespace MaintenanceDashboard.Client
         private void MoveCursorMenu(int index)
         {
             TrainsitioningContentSlide.OnApplyTemplate();
-            GridCursor.Margin = new Thickness(0, (10 +(60* index)), 0, 0);
+            GridCursor.Margin = new Thickness(0, (10 + (60*index)), 0, 0);
         }
 
         private void btnSavePassword_Click(object sender, RoutedEventArgs e)

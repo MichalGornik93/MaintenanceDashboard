@@ -16,7 +16,7 @@ namespace MaintenanceDashboard.Client.ViewModels
         public ICollection<ReceivedPaddle> ReceivedPaddles { get; private set; }
         public EmployeeViewModel EmployeeViewModel { get; }
         public PaddleViewModel PaddleViewModel { get; }
-        
+
         public string BarcodeNumber { get; set; }
         public string DescriptionIntervention { get; set; }
         public string Comments { get; set; }
