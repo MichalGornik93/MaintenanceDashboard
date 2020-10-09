@@ -100,8 +100,8 @@
     <Compile Include="ViewModels\SpendedPaddleViewModel.cs" />
     <Compile Include="ViewModels\SpendedThermostatViewModel.cs" />
     <Compile Include="ViewModels\ThermostatViewModel.cs" />
-    <Compile Include="Views\AlarmsControl.xaml.cs">
-      <DependentUpon>AlarmsControl.xaml</DependentUpon>
+    <Compile Include="Views\PreventionControl.xaml.cs">
+      <DependentUpon>PreventionControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ReceiveThermostatControl.xaml.cs">
       <DependentUpon>ReceiveThermostatControl.xaml</DependentUpon>
@@ -154,7 +154,7 @@
     <Compile Include="Views\SpendThermostat.xaml.cs">
       <DependentUpon>SpendThermostat.xaml</DependentUpon>
     </Compile>
-    <Page Include="Views\AlarmsControl.xaml">
+    <Page Include="Views\PreventionControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

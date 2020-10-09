@@ -2,14 +2,11 @@
 using System.Globalization;
 using System.Linq;
 using System.Windows;
-using System.Windows.Automation;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Threading;
-using MaintenanceDashboard.Client.ViewModels;
 using MaintenanceDashboard.Client.Views;
-using MaintenanceDashboard.Data.API;
 using MaintenanceDashboard.Data.Models;
 
 namespace MaintenanceDashboard.Client
@@ -29,6 +26,7 @@ namespace MaintenanceDashboard.Client
         {
             using (var context = new DataContext())
             {
+
                 var IsSomePaddleToReview = context.Paddles
                     .ToList()
                     .Where(c => (DateTime.Now - DateTime.ParseExact(c.LastPrevention, "yyyy-MM-dd", CultureInfo.InvariantCulture)).TotalDays > 60)

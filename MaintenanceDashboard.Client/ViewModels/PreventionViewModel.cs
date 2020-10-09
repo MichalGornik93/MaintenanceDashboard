@@ -8,29 +8,53 @@ namespace MaintenanceDashboard.Client.ViewModels
     public class PreventionViewModel : ViewModel
     {
         private readonly PreventionContext context;
-        public ObservableCollection<string> Alarms { get; set; }
+        public ObservableCollection<PreventionPattern> Preventions { get; set; }
            
         public PreventionViewModel(PreventionContext context)
         {
             this.context = context;
-            Alarms = new ObservableCollection<string>();
+            Preventions = new ObservableCollection<PreventionPattern>();
             GetReviewPaddles();
         }
 
         private void GetReviewPaddles()
         {
-            Alarms.Clear();
+            Preventions.Clear();
 
             foreach (var item in context.GetReviewPaddles())
             {
-                Alarms.Add("Wykonać przegląd: "+item.BarcodeNumber);
+                Preventions.Add(new PreventionPattern()
+                {
+                    BarcodeNumber = item.BarcodeNumber,
+                    LastPrevention = item.LastPrevention,
+                    Model = item.Model,
+                    PreventionDescription = "Przegląd paletki"
+                });
+                    
             }
 
             foreach (var item in context.GetToWashThermostat())
             {
-                Alarms.Add("Wykonać płukanie: " + item.BarcodeNumber);
+                Preventions.Add(new PreventionPattern()
+                {
+                    BarcodeNumber = item.BarcodeNumber,
+                    LastPrevention = item.LastWashDate,
+                    SerialNumber =item.SerialNumber,
+                    Model = item.Model,
+                    PreventionDescription = "Płukanie termostatu"
+                });
+
             }
 
         }
+    }
+
+    public class PreventionPattern
+    {
+        public string BarcodeNumber { get; set; }
+        public string SerialNumber { get; set; }
+        public string PreventionDescription { get; set; }
+        public string LastPrevention { get; set; }
+        public string Model { get; set; }
     }
 }
