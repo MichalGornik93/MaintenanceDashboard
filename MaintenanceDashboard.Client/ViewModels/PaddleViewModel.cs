@@ -48,7 +48,6 @@ namespace MaintenanceDashboard.Client.ViewModels
             Paddles = new ObservableCollection<Paddle>();
             BarcodeNumber = context.GetFirstFreeBarcodeNumber();
             GetAll();
-
         }
 
         public ActionCommand CreateCommand

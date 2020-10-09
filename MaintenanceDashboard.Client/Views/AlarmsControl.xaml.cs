@@ -4,12 +4,12 @@ using System.Windows.Controls;
 
 namespace MaintenanceDashboard.Client.Views
 {
-    public partial class AlarmsControl : UserControl
+    public partial class PreventionControl : UserControl
     {
-        public AlarmsControl()
+        public PreventionControl()
         {
             InitializeComponent();
-            this.DataContext = new AlarmsViewModel(new AlarmsContext());
+            this.DataContext = new PreventionViewModel(new PreventionContext());
         }
     }
 }

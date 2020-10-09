@@ -47,6 +47,7 @@
                 </Style.Triggers>
             </Style>
 
+
             <Style x:Key="RectangleView" TargetType="ContentControl">
                 <Setter Property="Template">
                     <Setter.Value>
@@ -72,27 +73,6 @@
                     </Setter.Value>
                 </Setter>
             </Style>
-
-
-            <Style x:Key="BlinkingStackPanel" TargetType="ListViewItem" >
-                <Style.Setters>
-                    <Setter Property="Background" Value="Red" />
-                </Style.Setters>
-                <Style.Triggers>
-                    <Trigger Property="Visibility" Value="Visible">
-                        <Trigger.EnterActions>
-                            <BeginStoryboard>
-                                <Storyboard >
-                                    <ColorAnimation Storyboard.TargetProperty="Background.Color"
-                                              Duration="0:0:0.6" From="Transparent" To="Red" RepeatBehavior="Forever" AutoReverse="True"/>
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </Trigger.EnterActions>
-                    </Trigger>
-                </Style.Triggers>
-            </Style>
-
-
 
         </ResourceDictionary>
     

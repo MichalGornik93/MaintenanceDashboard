@@ -1,15 +1,16 @@
 ﻿using MaintenanceDashboard.Common;
 using MaintenanceDashboard.Data.API;
 using System.Collections.ObjectModel;
+using System.Runtime.InteropServices;
 
 namespace MaintenanceDashboard.Client.ViewModels
 {
-    public class AlarmsViewModel : ViewModel
+    public class PreventionViewModel : ViewModel
     {
-        private readonly AlarmsContext context;
+        private readonly PreventionContext context;
         public ObservableCollection<string> Alarms { get; set; }
            
-        public AlarmsViewModel(AlarmsContext context)
+        public PreventionViewModel(PreventionContext context)
         {
             this.context = context;
             Alarms = new ObservableCollection<string>();
@@ -23,6 +24,11 @@ namespace MaintenanceDashboard.Client.ViewModels
             foreach (var item in context.GetReviewPaddles())
             {
                 Alarms.Add("Wykonać przegląd: "+item.BarcodeNumber);
+            }
+
+            foreach (var item in context.GetToWashThermostat())
+            {
+                Alarms.Add("Wykonać płukanie: " + item.BarcodeNumber);
             }
 
         }

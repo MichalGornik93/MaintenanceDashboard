@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace MaintenanceDashboard.Data.API
 {
-    public class AlarmsContext
+    public class PreventionContext
     {
         private readonly DataContext context;
 
-        public AlarmsContext()
+        public PreventionContext()
         {
             context = new DataContext();
         }
@@ -29,6 +29,15 @@ namespace MaintenanceDashboard.Data.API
                 .ToList()
                 .Where(c => (DateTime.Now - DateTime.ParseExact(c.LastPrevention, "yyyy-MM-dd", CultureInfo.InvariantCulture)).TotalDays>60)
                 .ToList();
+        }
+
+
+        public List<Thermostat> GetToWashThermostat()
+        {
+            return context.Thermostats
+                        .ToList()
+                        .Where(c => (DateTime.Now - DateTime.ParseExact(c.LastWashDate, "yyyy-MM-dd", CultureInfo.InvariantCulture)).TotalDays > 30)
+                        .ToList();
         }
     }
 }
