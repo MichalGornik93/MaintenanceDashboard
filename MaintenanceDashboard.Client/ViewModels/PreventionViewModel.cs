@@ -28,7 +28,7 @@ namespace MaintenanceDashboard.Client.ViewModels
                     BarcodeNumber = item.BarcodeNumber,
                     LastPrevention = item.LastPrevention,
                     Model = item.Model,
-                    PreventionDescription = "Przegląd paletki"
+                    PreventionDescription = "Wykonać przegląd paletki"
                 });
                     
             }
@@ -41,7 +41,7 @@ namespace MaintenanceDashboard.Client.ViewModels
                     LastPrevention = item.LastWashDate,
                     SerialNumber =item.SerialNumber,
                     Model = item.Model,
-                    PreventionDescription = "Płukanie termostatu"
+                    PreventionDescription = "Wykonać płukanie termostatu"
                 });
 
             }

@@ -92,6 +92,7 @@
     <Compile Include="Interfaces\IRegisterCompontent.cs" />
     <Compile Include="Interfaces\IReceivedComponent.cs" />
     <Compile Include="Interfaces\ISpendedComponent.cs" />
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\PreventionViewModel.cs" />
     <Compile Include="ViewModels\ReceivedPaddleViewModel.cs" />
     <Compile Include="ViewModels\EmployeeViewModel.cs" />

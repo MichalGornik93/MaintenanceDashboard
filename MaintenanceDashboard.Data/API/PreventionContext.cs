@@ -27,7 +27,7 @@ namespace MaintenanceDashboard.Data.API
         {
             return context.Paddles
                 .ToList()
-                .Where(c => (DateTime.Now - DateTime.ParseExact(c.LastPrevention, "yyyy-MM-dd", CultureInfo.InvariantCulture)).TotalDays>60)
+                .Where(c => (DateTime.Now - DateTime.ParseExact(c.LastPrevention, "yyyy-MM-dd", CultureInfo.InvariantCulture)).TotalDays > 60)
                 .ToList();
         }
 
@@ -35,9 +35,10 @@ namespace MaintenanceDashboard.Data.API
         public List<Thermostat> GetToWashThermostat()
         {
             return context.Thermostats
-                        .ToList()
-                        .Where(c => (DateTime.Now - DateTime.ParseExact(c.LastWashDate, "yyyy-MM-dd", CultureInfo.InvariantCulture)).TotalDays > 30)
-                        .ToList();
+                .Where(d => d.CurrentLocation == "Warsztat")
+                .ToList()
+                .Where(c => (DateTime.Now - DateTime.ParseExact(c.LastWashDate, "yyyy-MM-dd", CultureInfo.InvariantCulture)).TotalDays > 30)
+                .ToList();
         }
     }
 }

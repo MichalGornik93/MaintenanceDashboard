@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Globalization;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Threading;
+using MaintenanceDashboard.Client.ViewModels;
 using MaintenanceDashboard.Client.Views;
-using MaintenanceDashboard.Data.Models;
 
 namespace MaintenanceDashboard.Client
 {
@@ -16,49 +11,10 @@ namespace MaintenanceDashboard.Client
         public MainWindow()
         {
             InitializeComponent();
-            DispatcherTimer timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromSeconds(5);
-            timer.Tick += timer_Tick;
-            timer.Start();
+            this.DataContext = new MainWindowViewModel();
         }
 
-        void timer_Tick(object sender, EventArgs e)
-        {
-            using (var context = new DataContext())
-            {
-
-                var IsSomePaddleToReview = context.Paddles
-                    .ToList()
-                    .Where(c => (DateTime.Now - DateTime.ParseExact(c.LastPrevention, "yyyy-MM-dd", CultureInfo.InvariantCulture)).TotalDays > 60)
-                    .Any();
-
-                var IsSomeThermostatToWash = context.Thermostats
-                    .ToList()
-                    .Where(c => (DateTime.Now - DateTime.ParseExact(c.LastWashDate, "yyyy-MM-dd", CultureInfo.InvariantCulture)).TotalDays > 30)
-                    .Any();
-
-                if (IsSomePaddleToReview || IsSomeThermostatToWash)
-                {
-                    DisplayAlarm();
-                }
-                else
-                    PreventionListViewItem.Background = new SolidColorBrush(Colors.Transparent);
-            }
-        }
-
-        private void DisplayAlarm()
-        {
-            ColorAnimation animation;
-            animation = new ColorAnimation();
-            animation.From = Colors.Red;
-            animation.To = Colors.Transparent;
-            animation.AutoReverse = true;
-            animation.Duration = new Duration(TimeSpan.FromSeconds(1));
-            this.PreventionListViewItem.Background = new SolidColorBrush(Colors.Transparent);
-            this.PreventionListViewItem.Background.BeginAnimation(SolidColorBrush.ColorProperty, animation);
-        }
-
-
+       
         private void btnCloseWindow_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();

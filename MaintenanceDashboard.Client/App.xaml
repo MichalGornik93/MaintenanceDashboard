@@ -10,7 +10,7 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
             </ResourceDictionary.MergedDictionaries>
-            
+
             <Style x:Key="AddingRecordGridTemplete" TargetType="{x:Type ContentControl}">
                 <Setter Property="Template">
                     <Setter.Value>
@@ -74,8 +74,33 @@
                 </Setter>
             </Style>
 
+            <Style x:Key="BlinkingListViewItem" TargetType="ListViewItem" >
+
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding BlinkingPreventionControlItem , UpdateSourceTrigger=PropertyChanged}" Value="true">
+                        <DataTrigger.EnterActions>
+                            <BeginStoryboard>
+                                <Storyboard >
+                                    <ColorAnimation Storyboard.TargetProperty="Background.Color"
+                                              Duration="0:0:0.5" From="Transparent" To="Red" RepeatBehavior="Forever" AutoReverse="True"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </DataTrigger.EnterActions>
+
+                        <DataTrigger.ExitActions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation Storyboard.TargetProperty="Background.Color" To="Transparent" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </DataTrigger.ExitActions>
+
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+
         </ResourceDictionary>
-    
+
     </Application.Resources>
-        
+
 </Application>

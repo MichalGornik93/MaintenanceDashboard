@@ -12,8 +12,10 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        WindowState="Maximized" WindowStyle="None">
-    
+        WindowState="Maximized" WindowStyle="None"
+        xmlns:viewModels="clr-namespace:MaintenanceDashboard.Client.ViewModels"
+        d:DataContext="{d:DesignInstance viewModels:MainWindowViewModel}">
+
     <Grid Background="#FFFFFFFF">
         <StackPanel>
             <Grid Background="#FF0069C0" Height="10"/>
@@ -39,7 +41,7 @@
                                            Development by Michał Górnik <LineBreak/>
                                            michalgornik93@outlook.com <LineBreak/>
                                            MaintenanceDashboard<LineBreak/>
-                                           Vesion 2.2.1 <LineBreak/>
+                                           Vesion 2.2.2 <LineBreak/>
 
                                 </TextBlock>
                             </StackPanel>
@@ -166,11 +168,11 @@
                         </StackPanel>
                     </ListViewItem>
 
-                    <ListViewItem x:Name="PreventionListViewItem" Height="60" Foreground="LightGray"  >
+                    <ListViewItem x:Name="PreventionListViewItem" Height="60" Foreground="LightGray" Style="{StaticResource BlinkingListViewItem}" >
                         <StackPanel Orientation="Horizontal" >
                             <materialDesign:PackIcon Kind="BellOutline" Width="30" Height="30"  
                                                      VerticalAlignment="Center" Margin="5"/>
-                            <TextBlock Text="Prewencje" 
+                            <TextBlock Text="Prewencje do wykonania" 
                                        VerticalAlignment="Center" Margin="20 0" />
                         </StackPanel>
                     </ListViewItem>
