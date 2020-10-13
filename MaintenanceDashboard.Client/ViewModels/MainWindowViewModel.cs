@@ -7,20 +7,18 @@ using System.Windows.Threading;
 
 namespace MaintenanceDashboard.Client.ViewModels
 {
-    class MainWindowViewModel:ViewModel
+    class MainWindowViewModel : ViewModel
     {
-
         private bool blinkingPreventionControlItem;
         public bool BlinkingPreventionControlItem
         {
             get { return blinkingPreventionControlItem; }
-            set 
-            { 
+            set
+            {
                 blinkingPreventionControlItem = value;
                 NotifyPropertyChanged();
             }
         }
-
 
         public MainWindowViewModel()
         {
@@ -41,15 +39,36 @@ namespace MaintenanceDashboard.Client.ViewModels
             using (var context = new DataContext())
             {
                 var IsSomePaddleToReview = context.Paddles
-                    .ToList()
-                    .Where(c => (DateTime.Now - DateTime.ParseExact(c.LastPrevention, "yyyy-MM-dd", CultureInfo.InvariantCulture)).TotalDays > 60)
-                    .Any();
+                 .ToList()
+                 .Where(c =>
+                 {
+                     try
+                     {
+                         return (DateTime.Now - DateTime.ParseExact(c.LastPrevention, "yyyy-MM-dd", CultureInfo.InvariantCulture)).TotalDays > 60;
+                     }
+                     catch
+                     {
+                         throw new ArgumentException("Bład rzutowania string na typ Date Time dbo.Paddle, LastPrevention");
+                     }
+                 })
+                 .Any();
 
                 var IsSomeThermostatToWash = context.Thermostats
-                    .Where(d=>d.CurrentLocation == "Warsztat")
+                    .Where(d => d.CurrentLocation == "Warsztat")
                     .ToList()
-                    .Where(c => (DateTime.Now - DateTime.ParseExact(c.LastWashDate, "yyyy-MM-dd", CultureInfo.InvariantCulture)).TotalDays > 30)
-                    .Any();
+                    .Where(c =>
+                    {
+
+                    try
+                    {
+                        return (DateTime.Now - DateTime.ParseExact(c.LastWashDate, "yyyy-MM-dd", CultureInfo.InvariantCulture)).TotalDays > 30;
+                    }
+                    catch
+                    {
+                        throw new ArgumentException("Bład rzutowania string na typ Date Time dbo.Thermostat, LastWashDate");
+                    }
+                    })
+                   .Any();
 
                 if (IsSomePaddleToReview || IsSomeThermostatToWash)
                 {

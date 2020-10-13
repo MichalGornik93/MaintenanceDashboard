@@ -10,11 +10,11 @@ namespace MaintenanceDashboard.Client
     {
         public MainWindow()
         {
-            InitializeComponent();
-            this.DataContext = new MainWindowViewModel();
+                InitializeComponent();
+                this.DataContext = new MainWindowViewModel();
         }
 
-       
+
         private void btnCloseWindow_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
@@ -31,7 +31,7 @@ namespace MaintenanceDashboard.Client
                     GridPrincipal.Children.Add(new HomeControl());
                     break;
                 case 1:
-                    GridPrincipal.Children.Clear();   
+                    GridPrincipal.Children.Clear();
                     GridPrincipal.Children.Add(new ManagerEmployeeControl());
                     break;
                 case 2:
@@ -62,7 +62,7 @@ namespace MaintenanceDashboard.Client
         private void MoveCursorMenu(int index)
         {
             TrainsitioningContentSlide.OnApplyTemplate();
-            GridCursor.Margin = new Thickness(0, (10 + (60*index)), 0, 0);
+            GridCursor.Margin = new Thickness(0, (10 + (60 * index)), 0, 0);
         }
 
         private void btnSavePassword_Click(object sender, RoutedEventArgs e)

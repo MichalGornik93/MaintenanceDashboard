@@ -20,5 +20,6 @@ namespace MaintenanceDashboard
             File.WriteAllText(AppDomain.CurrentDomain.BaseDirectory + "\\log.txt", e.Exception.StackTrace);
             e.Handled = true;
         }
+        
     }
 }
