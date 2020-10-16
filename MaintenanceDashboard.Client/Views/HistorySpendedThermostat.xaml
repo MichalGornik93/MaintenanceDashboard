@@ -27,12 +27,11 @@
                 </Button>
             </WrapPanel>
 
-            <Button Style="{StaticResource MaterialDesignFlatButton}" Height="40" FontSize="14" Margin="10" Width="160" VerticalAlignment="Bottom" 
-                    Foreground="Gray" HorizontalAlignment="Right" Content="POKAŻ WSZYSTKIE" Command="{Binding GetAllCommand}"/>
+           
 
 
             <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="520">
-                <DataGrid Margin="10" Background="White" ItemsSource="{Binding SpendedThermostats}" 
+                <DataGrid Margin="10" Background="White" ItemsSource="{Binding SpendedThermostats}" SelectedItem="{Binding SelectedSpendedThermostat}"
                           AutoGenerateColumns="False" IsReadOnly="True" Height="500" Width="840" FontSize="11">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Numer" Binding="{Binding Thermostat.BarcodeNumber}"/>
@@ -48,8 +47,15 @@
                         <DataGridTextColumn Header="Komentarz" Binding="{Binding Comments}" Width="250"/>
                     </DataGrid.Columns>
                 </DataGrid>
-
+                
             </Grid>
+            
+            <WrapPanel VerticalAlignment="Bottom" HorizontalAlignment="Right">
+                <Button Style="{StaticResource MaterialDesignFlatButton}" Height="40" FontSize="14" Margin="10" Width="160" 
+                    Foreground="Gray"  Content="GENERUJ RAPORT" Command="{Binding ShowDetailsCommand}"/>
+                <Button Style="{StaticResource MaterialDesignFlatButton}" Height="40" FontSize="14" Margin="10" Width="160" VerticalAlignment="Bottom" 
+                    Foreground="Gray" HorizontalAlignment="Right" Content="POKAŻ WSZYSTKIE" Command="{Binding GetAllCommand}"/>
+            </WrapPanel>
         </Grid>
     </Grid>
 </UserControl>

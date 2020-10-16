@@ -16,7 +16,7 @@
                            FontSize="18"  Foreground="Gray" Margin="18"/>
 
             <WrapPanel Margin="10" HorizontalAlignment="Right"  VerticalAlignment="Top">
-                
+
                 <TextBox Margin="5"  Width="150" Height="35"  Foreground="Gray" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                   materialDesign:HintAssist.Hint="Numer paletki" Text="{Binding BarcodeNumber}" />
                 <Button Margin="5, 5, 5, 0" Background="White" BorderBrush="White" Foreground="Gray" Command="{Binding GetFiltredListCommand}"
@@ -25,12 +25,8 @@
                 </Button>
             </WrapPanel>
 
-            <Button Style="{StaticResource MaterialDesignFlatButton}" Height="40" FontSize="14" Margin="10" Width="160" VerticalAlignment="Bottom" 
-                    Foreground="Gray" HorizontalAlignment="Right" Content="POKAŻ WSZYSTKIE" Command="{Binding GetAllCommand}"/>
-
-
             <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="520">
-                <DataGrid Margin="10" Background="White" ItemsSource="{Binding SpendedPaddles}" 
+                <DataGrid Margin="10" Background="White" ItemsSource="{Binding SpendedPaddles}" SelectedItem="{Binding SelectedSpendedPaddle}"
                           AutoGenerateColumns="False" IsReadOnly="True" Height="500" Width="840" FontSize="11">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Numer" Binding="{Binding Paddle.BarcodeNumber}"/>
@@ -44,8 +40,14 @@
                         <DataGridTextColumn Header="Komentarz" Binding="{Binding Comments}" Width="250"/>
                     </DataGrid.Columns>
                 </DataGrid>
-
             </Grid>
+            <WrapPanel VerticalAlignment="Bottom" HorizontalAlignment="Right">
+                <Button Style="{StaticResource MaterialDesignFlatButton}" Height="40" FontSize="14" Margin="10" Width="160" 
+                    Foreground="Gray"  Content="GENERUJ RAPORT" Command="{Binding ShowDetailsCommand}"/>
+
+                <Button Style="{StaticResource MaterialDesignFlatButton}" Height="40" FontSize="14" Margin="10" Width="160" 
+                    Foreground="Gray"  Content="POKAŻ WSZYSTKIE" Command="{Binding GetAllCommand}"/>
+            </WrapPanel>
         </Grid>
     </Grid>
 </UserControl>

@@ -11,5 +11,6 @@ namespace MaintenanceDashboard.Client.Interfaces
         string BarcodeNumber { get; set; }
         void GetFiltredList();
         void GetAll();
+        void ShowDetails();
     }
 }

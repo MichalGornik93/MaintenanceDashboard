@@ -6,6 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using MaintenanceDashboard.Client.Interfaces;
+using MaintenanceDashboard.Client.Views;
 using MaintenanceDashboard.Common;
 using MaintenanceDashboard.Data.API;
 using MaintenanceDashboard.Data.Models;
@@ -30,6 +31,7 @@ namespace MaintenanceDashboard.Client.ViewModels
         public string IsOrder { get; set; }
         public string ActivityPerformed { get; set; }
         public string LastLocation { get; set; }
+        private ComponentFormInfoViewModel childViewModel;
 
         private bool _connectedSuccessfully;
         public bool ConnectedSuccessfully
@@ -60,8 +62,11 @@ namespace MaintenanceDashboard.Client.ViewModels
             ReceivedThermostats = new ObservableCollection<ReceivedThermostat>();
             EmployeeViewModel = new EmployeeViewModel(new EmployeeContext());
             ThermostatViewModel = new ThermostatViewModel(new ThermostatContext());
+            
             EmployeeViewModel.GetAll();
             GetAll();
+
+            childViewModel = new ComponentFormInfoViewModel();
         }
 
         public ActionCommand ReceiveCommand
@@ -79,6 +84,15 @@ namespace MaintenanceDashboard.Client.ViewModels
             {
                 return new ActionCommand(p => Spend(),
                     p => IsValidSpendedThermostat());
+            }
+        }
+
+        public ActionCommand ShowDetailsCommand
+        {
+            get
+            {
+                return new ActionCommand(p => ShowDetails(),
+                                         p => SelectedReceivedThermostat != null);
             }
         }
 
@@ -151,6 +165,27 @@ namespace MaintenanceDashboard.Client.ViewModels
                 && !String.IsNullOrWhiteSpace(LastLocation))
                 return true;
             return false;
+        }
+
+        public void ShowDetails()
+        {
+            ComponentFormInfoControl componentFormInfoControl = new ComponentFormInfoControl()
+            {
+                DataContext = childViewModel
+            };
+
+            childViewModel.SelectedComponent.BarcodeNumber = SelectedReceivedThermostat.Thermostat.BarcodeNumber;
+            childViewModel.SelectedComponent.ActivityPerformed = SelectedReceivedThermostat.ActivityPerformed;
+            childViewModel.SelectedComponent.Comments = SelectedReceivedThermostat.Comments;
+            childViewModel.SelectedComponent.ReceivedDate = SelectedReceivedThermostat.ReceivedDate;
+            childViewModel.SelectedComponent.DescriptionIntervention = DescriptionIntervention;
+            childViewModel.SelectedComponent.ReceivingEmployee = SelectedReceivedThermostat.ReceivingEmployee;
+            childViewModel.SelectedComponent.LastLocation = SelectedReceivedThermostat.LastLocation;
+            childViewModel.SelectedComponent.SerialNumber = SelectedReceivedThermostat.Thermostat.SerialNumber;
+            childViewModel.SelectedComponent.SpendingEmployee = "----";
+            childViewModel.SelectedComponent.RepairDate = "-----";
+
+            componentFormInfoControl.Show();
         }
 
         private bool IsValidSpendedThermostat()

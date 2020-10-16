@@ -7,6 +7,7 @@ using MaintenanceDashboard.Data.Models;
 using MaintenanceDashboard.Common;
 using MaintenanceDashbord.Common.Properties;
 using MaintenanceDashboard.Client.Interfaces;
+using MaintenanceDashboard.Client.Views;
 
 namespace MaintenanceDashboard.Client.ViewModels
 {
@@ -25,6 +26,7 @@ namespace MaintenanceDashboard.Client.ViewModels
         public string ActivityPerformed { get; set; }
         public DateTime ReceivedDate { get; set; } = DateTime.Now;
         public DateTime PlannedRepairDate { get; set; } = DateTime.Now.AddDays(2);
+        private ComponentFormInfoViewModel childViewModel;
 
         private bool _connectedSuccessfully;
         public bool ConnectedSuccessfully
@@ -58,6 +60,8 @@ namespace MaintenanceDashboard.Client.ViewModels
             
             EmployeeViewModel.GetAll();
             GetAll();
+
+            childViewModel = new ComponentFormInfoViewModel();
         }
 
         public ActionCommand ReceiveCommand
@@ -75,6 +79,15 @@ namespace MaintenanceDashboard.Client.ViewModels
             {
                 return new ActionCommand(p => Spend(),
                     p => IsValidSpendedPaddle());
+            }
+        }
+
+        public ActionCommand ShowDetailsCommand
+        {
+            get
+            {
+                return new ActionCommand(p => ShowDetails(),
+                                         p => SelectedReceivedPaddle != null);
             }
         }
 
@@ -126,6 +139,27 @@ namespace MaintenanceDashboard.Client.ViewModels
 
             foreach (var item in context.GetAll())
                 ReceivedPaddles.Add(item);
+        }
+
+        public void ShowDetails()
+        {
+            ComponentFormInfoControl componentFormInfoControl = new ComponentFormInfoControl()
+            {
+                DataContext = childViewModel
+            };
+
+            childViewModel.SelectedComponent.BarcodeNumber = SelectedReceivedPaddle.Paddle.BarcodeNumber;
+            childViewModel.SelectedComponent.ActivityPerformed = SelectedReceivedPaddle.ActivityPerformed;
+            childViewModel.SelectedComponent.Comments = SelectedReceivedPaddle.Comments;
+            childViewModel.SelectedComponent.ReceivedDate = SelectedReceivedPaddle.ReceivedDate;
+            childViewModel.SelectedComponent.DescriptionIntervention = DescriptionIntervention;
+            childViewModel.SelectedComponent.ReceivingEmployee = SelectedReceivedPaddle.ReceivingEmployee;
+            childViewModel.SelectedComponent.LastLocation = "-----";
+            childViewModel.SelectedComponent.SerialNumber = "----";
+            childViewModel.SelectedComponent.SpendingEmployee = "----";
+            childViewModel.SelectedComponent.RepairDate = "-----";
+
+            componentFormInfoControl.Show();
         }
 
         protected override string OnValidate(string propertyName)

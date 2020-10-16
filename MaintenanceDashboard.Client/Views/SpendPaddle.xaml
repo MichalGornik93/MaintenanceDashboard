@@ -102,9 +102,12 @@
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"/>
                     </WrapPanel>
 
-                    <Button Height="25"  Background="#FF0069C0" 
-                             BorderBrush="#FF0069C0"  Width="110" Content="WYDAJ" 
-                            Margin="10" Command="{Binding SpendCommand}" />
+                    <WrapPanel VerticalAlignment="Bottom" HorizontalAlignment="Center">
+                    <Button Height="25"  Background="#FF0069C0" BorderBrush="#FF0069C0"  Width="110" Content="WYDAJ" 
+                            Margin="5" Command="{Binding SpendCommand}" />
+                        <Button Height="25" FontSize="12" Margin="5" Width="147" 
+                      Background="#FF0069C0" BorderBrush="#FF0069C0" Content="GENERUJ RAPORT" Command="{Binding ShowDetailsCommand}"/>
+                    </WrapPanel>
                 </StackPanel>
 
                 <DataGrid ItemsSource="{Binding ReceivedPaddles}" SelectedItem="{Binding SelectedReceivedPaddle}"  Margin="10,10,0,10" FontSize="11" 

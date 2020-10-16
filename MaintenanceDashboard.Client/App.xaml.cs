@@ -1,5 +1,10 @@
-﻿using System;
+﻿using MaintenanceDashboard.Client;
+using MaintenanceDashboard.Client.Views;
+using MaterialDesignThemes.Wpf;
+using System;
 using System.IO;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 
 namespace MaintenanceDashboard
@@ -7,6 +12,14 @@ namespace MaintenanceDashboard
 
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+            MainWindow window = new MainWindow();
+            window.Show();
+        }
+
+
         public App()
         {
             Dispatcher.UnhandledException += OnDispatcherUnhandledException;

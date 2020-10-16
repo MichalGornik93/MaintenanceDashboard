@@ -68,6 +68,7 @@
     <Compile Include="API\PaddleContext.cs" />
     <Compile Include="Models\DataContext.cs" />
     <Compile Include="Models\ReceivedThermostat.cs" />
+    <Compile Include="Models\SelectedComponent.cs" />
     <Compile Include="Models\SpendedPaddle.cs" />
     <Compile Include="Models\SpendedThermostat.cs" />
     <Compile Include="Models\Thermostat.cs" />

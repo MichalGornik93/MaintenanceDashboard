@@ -1,4 +1,5 @@
 ﻿using MaintenanceDashboard.Client.Interfaces;
+using MaintenanceDashboard.Client.Views;
 using MaintenanceDashboard.Common;
 using MaintenanceDashboard.Data.API;
 using MaintenanceDashboard.Data.Models;
@@ -14,13 +15,23 @@ namespace MaintenanceDashboard.Client.ViewModels
     public class SpendedThermostatViewModel : ViewModel, ISpendedComponent
     {
         private readonly SpendedThermostatContext context;
+        private ComponentFormInfoViewModel childViewModel;
         public ICollection<SpendedThermostat> SpendedThermostats { get; set; }
         public string BarcodeNumber { get; set; }
+
+        private SpendedThermostat selectedSpendedThermostat;
+        public SpendedThermostat SelectedSpendedThermostat
+        {
+            get { return selectedSpendedThermostat; }
+            set { selectedSpendedThermostat = value; }
+        }
+
 
         public SpendedThermostatViewModel(SpendedThermostatContext context)
         {
             this.context = context;
             SpendedThermostats = new ObservableCollection<SpendedThermostat>();
+            childViewModel = new ComponentFormInfoViewModel();
         }
 
         public ActionCommand GetFiltredListCommand
@@ -38,6 +49,14 @@ namespace MaintenanceDashboard.Client.ViewModels
                 return new ActionCommand(p => GetAll());
             }
         }
+        public ActionCommand ShowDetailsCommand
+        {
+            get
+            {
+                return new ActionCommand(p => ShowDetails(),
+                                         p => SelectedSpendedThermostat != null);
+            }
+        }
 
         public void GetFiltredList()
         {
@@ -53,6 +72,27 @@ namespace MaintenanceDashboard.Client.ViewModels
 
             foreach (var item in context.GetAll())
                 SpendedThermostats.Add(item);
+        }
+
+        public void ShowDetails()
+        {
+            ComponentFormInfoControl componentFormInfoControl = new ComponentFormInfoControl()
+            {
+                DataContext = childViewModel
+            };
+            childViewModel.SelectedComponent.BarcodeNumber = SelectedSpendedThermostat.Thermostat.BarcodeNumber;
+            childViewModel.SelectedComponent.ActivityPerformed = SelectedSpendedThermostat.ActivityPerformed;
+            childViewModel.SelectedComponent.Comments = SelectedSpendedThermostat.Comments;
+            childViewModel.SelectedComponent.RepairDate = SelectedSpendedThermostat.RepairDate;
+            childViewModel.SelectedComponent.ReceivedDate = SelectedSpendedThermostat.ReceivedDate;
+            childViewModel.SelectedComponent.DescriptionIntervention = SelectedSpendedThermostat.DescriptionIntervention;
+            childViewModel.SelectedComponent.ReceivingEmployee = SelectedSpendedThermostat.ReceivingEmployee;
+            childViewModel.SelectedComponent.SpendingEmployee = SelectedSpendedThermostat.SpendingEmployee;
+            childViewModel.SelectedComponent.DescriptionIntervention = SelectedSpendedThermostat.DescriptionIntervention;
+            childViewModel.SelectedComponent.SerialNumber = SelectedSpendedThermostat.Thermostat.SerialNumber;
+            childViewModel.SelectedComponent.LastLocation = SelectedSpendedThermostat.LastLocation;
+
+            componentFormInfoControl.Show();
         }
     }
 }

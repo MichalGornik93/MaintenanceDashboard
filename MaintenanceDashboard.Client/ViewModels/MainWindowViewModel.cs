@@ -22,7 +22,6 @@ namespace MaintenanceDashboard.Client.ViewModels
 
         public MainWindowViewModel()
         {
-            IsAnyPreventionToDo();
             DispatcherTimer timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(30);
             timer.Tick += timer_Tick;
