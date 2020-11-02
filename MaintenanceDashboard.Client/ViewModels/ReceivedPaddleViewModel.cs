@@ -26,7 +26,7 @@ namespace MaintenanceDashboard.Client.ViewModels
         public string ActivityPerformed { get; set; }
         public DateTime ReceivedDate { get; set; } = DateTime.Now;
         public DateTime PlannedRepairDate { get; set; } = DateTime.Now.AddDays(2);
-        private ComponentFormInfoViewModel childViewModel;
+        private ComponentDetailsViewModel childViewModel;
 
         private bool _connectedSuccessfully;
         public bool ConnectedSuccessfully
@@ -61,7 +61,7 @@ namespace MaintenanceDashboard.Client.ViewModels
             EmployeeViewModel.GetAll();
             GetAll();
 
-            childViewModel = new ComponentFormInfoViewModel();
+            childViewModel = new ComponentDetailsViewModel();
         }
 
         public ActionCommand ReceiveCommand
@@ -143,7 +143,7 @@ namespace MaintenanceDashboard.Client.ViewModels
 
         public void ShowDetails()
         {
-            ComponentFormInfoControl componentFormInfoControl = new ComponentFormInfoControl()
+            ComponentDetailsWindow componentFormInfoControl = new ComponentDetailsWindow()
             {
                 DataContext = childViewModel
             };

@@ -53,6 +53,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Common.Logging, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.3.4.1\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.Core.3.4.1\lib\net40\Common.Logging.Core.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -92,7 +98,7 @@
     <Compile Include="Interfaces\IRegisterCompontent.cs" />
     <Compile Include="Interfaces\IReceivedComponent.cs" />
     <Compile Include="Interfaces\ISpendedComponent.cs" />
-    <Compile Include="ViewModels\ComponentFormInfoViewModel.cs" />
+    <Compile Include="ViewModels\ComponentDetailsViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\PreventionViewModel.cs" />
     <Compile Include="ViewModels\ReceivedPaddleViewModel.cs" />
@@ -102,8 +108,8 @@
     <Compile Include="ViewModels\SpendedPaddleViewModel.cs" />
     <Compile Include="ViewModels\SpendedThermostatViewModel.cs" />
     <Compile Include="ViewModels\ThermostatViewModel.cs" />
-    <Compile Include="Views\ComponentFormInfoControl.xaml.cs">
-      <DependentUpon>ComponentFormInfoControl.xaml</DependentUpon>
+    <Compile Include="Views\ComponentDetailsWindow.xaml.cs">
+      <DependentUpon>ComponentDetailsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PreventionControl.xaml.cs">
       <DependentUpon>PreventionControl.xaml</DependentUpon>
@@ -159,7 +165,7 @@
     <Compile Include="Views\SpendThermostat.xaml.cs">
       <DependentUpon>SpendThermostat.xaml</DependentUpon>
     </Compile>
-    <Page Include="Views\ComponentFormInfoControl.xaml">
+    <Page Include="Views\ComponentDetailsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

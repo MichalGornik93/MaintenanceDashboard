@@ -31,7 +31,7 @@ namespace MaintenanceDashboard.Client.ViewModels
         public string IsOrder { get; set; }
         public string ActivityPerformed { get; set; }
         public string LastLocation { get; set; }
-        private ComponentFormInfoViewModel childViewModel;
+        private ComponentDetailsViewModel childViewModel;
 
         private bool _connectedSuccessfully;
         public bool ConnectedSuccessfully
@@ -66,7 +66,7 @@ namespace MaintenanceDashboard.Client.ViewModels
             EmployeeViewModel.GetAll();
             GetAll();
 
-            childViewModel = new ComponentFormInfoViewModel();
+            childViewModel = new ComponentDetailsViewModel();
         }
 
         public ActionCommand ReceiveCommand
@@ -169,7 +169,7 @@ namespace MaintenanceDashboard.Client.ViewModels
 
         public void ShowDetails()
         {
-            ComponentFormInfoControl componentFormInfoControl = new ComponentFormInfoControl()
+            ComponentDetailsWindow componentFormInfoControl = new ComponentDetailsWindow()
             {
                 DataContext = childViewModel
             };

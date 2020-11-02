@@ -4,17 +4,16 @@ using System;
 
 namespace MaintenanceDashboard.Client.ViewModels
 {
-    public class ComponentFormInfoViewModel:ViewModel
+    public class ComponentDetailsViewModel:ViewModel
     {
         public SelectedComponent SelectedComponent { get; set; }
 
         public string Date { get; set; } = DateTime.Now.ToString();
 
-        public ComponentFormInfoViewModel()
+        public ComponentDetailsViewModel()
         {
             SelectedComponent = new SelectedComponent();
         }
-
 
     }
 }

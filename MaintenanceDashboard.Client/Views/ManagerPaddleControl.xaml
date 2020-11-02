@@ -22,7 +22,6 @@
             <RadioButton x:Name="btnOpenEditPaddle" Style="{StaticResource MaterialDesignTabRadioButton}" Content="  EDYCJA PALETEK  " Checked="btnOpenEditPaddle_Checked" FontSize="12"/>
             <RadioButton x:Name="btnOpenPerformedActivitiesList" Style="{StaticResource MaterialDesignTabRadioButton}" Content="  PRZEGLĄD WYKONANYCH CZYNNOŚCI  " Checked="btnOpenPerformedActivitiesList_Checked" FontSize="12"/>
         </StackPanel>
-
         <Grid x:Name="GridPrincipal" Grid.Row="1" Width="920" Height="750" HorizontalAlignment="Center"/>
     </Grid>
 </UserControl>

@@ -3,9 +3,9 @@ using System.Windows.Controls;
 
 namespace MaintenanceDashboard.Client.Views
 {
-    public partial class ComponentFormInfoControl : Window
+    public partial class ComponentDetailsWindow : Window
     {
-        public ComponentFormInfoControl()
+        public ComponentDetailsWindow()
         {
             InitializeComponent();
         }

@@ -12,7 +12,7 @@ namespace MaintenanceDashboard.Client.ViewModels
     public class SpendedPaddleViewModel : ViewModel, ISpendedComponent
     {
         private readonly SpendedPaddleContext context;
-        private ComponentFormInfoViewModel childViewModel;
+        private ComponentDetailsViewModel childViewModel;
         public ICollection<SpendedPaddle> SpendedPaddles { get; set; }
         public string BarcodeNumber { get; set; }
 
@@ -33,7 +33,7 @@ namespace MaintenanceDashboard.Client.ViewModels
         {
             this.context = context;
             SpendedPaddles = new ObservableCollection<SpendedPaddle>();
-            childViewModel = new ComponentFormInfoViewModel();
+            childViewModel = new ComponentDetailsViewModel();
         }
 
         public ActionCommand GetFiltredListCommand
@@ -79,7 +79,7 @@ namespace MaintenanceDashboard.Client.ViewModels
 
         public void ShowDetails()
         {
-            ComponentFormInfoControl componentFormInfoControl = new ComponentFormInfoControl()
+            ComponentDetailsWindow componentFormInfoControl = new ComponentDetailsWindow()
             {
                 DataContext =childViewModel
             };

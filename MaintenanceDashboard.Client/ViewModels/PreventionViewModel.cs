@@ -1,7 +1,9 @@
-﻿using MaintenanceDashboard.Common;
+﻿using MaintenanceDashboard.Client.Views;
+using MaintenanceDashboard.Common;
 using MaintenanceDashboard.Data.API;
+using MaintenanceDashboard.Data.Models;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Runtime.InteropServices;
 
 namespace MaintenanceDashboard.Client.ViewModels
 {
@@ -9,17 +11,39 @@ namespace MaintenanceDashboard.Client.ViewModels
     {
         private readonly PreventionContext context;
         public ObservableCollection<PreventionPattern> Preventions { get; set; }
-           
+        public List<Paddle> ReviewPaddles { get; set; }
+
         public PreventionViewModel(PreventionContext context)
         {
             this.context = context;
             Preventions = new ObservableCollection<PreventionPattern>();
+            ReviewPaddles = new List<Paddle>();
             GetReviewPaddles();
+        }
+
+        public ActionCommand GetReviewPaddlesDetailsCommand
+        {
+            get
+            {
+                return new ActionCommand(p => GetReviewPaddlesDetails());
+            }
         }
 
         private void GetReviewPaddles()
         {
             Preventions.Clear();
+
+            foreach (var item in context.GetToWashThermostat())
+            {
+                Preventions.Add(new PreventionPattern()
+                {
+                    BarcodeNumber = item.BarcodeNumber,
+                    LastPrevention = item.LastWashDate,
+                    SerialNumber = item.SerialNumber,
+                    Model = item.Model,
+                    PreventionDescription = "Wykonać płukanie termostatu"
+                });
+            }
 
             foreach (var item in context.GetReviewPaddles())
             {
@@ -30,22 +54,11 @@ namespace MaintenanceDashboard.Client.ViewModels
                     Model = item.Model,
                     PreventionDescription = "Wykonać przegląd paletki"
                 });
-                    
             }
+        }
 
-            foreach (var item in context.GetToWashThermostat())
-            {
-                Preventions.Add(new PreventionPattern()
-                {
-                    BarcodeNumber = item.BarcodeNumber,
-                    LastPrevention = item.LastWashDate,
-                    SerialNumber =item.SerialNumber,
-                    Model = item.Model,
-                    PreventionDescription = "Wykonać płukanie termostatu"
-                });
-
-            }
-
+        private void GetReviewPaddlesDetails()
+        {
         }
     }
 

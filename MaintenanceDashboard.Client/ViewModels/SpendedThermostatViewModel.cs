@@ -15,7 +15,7 @@ namespace MaintenanceDashboard.Client.ViewModels
     public class SpendedThermostatViewModel : ViewModel, ISpendedComponent
     {
         private readonly SpendedThermostatContext context;
-        private ComponentFormInfoViewModel childViewModel;
+        private ComponentDetailsViewModel childViewModel;
         public ICollection<SpendedThermostat> SpendedThermostats { get; set; }
         public string BarcodeNumber { get; set; }
 
@@ -31,7 +31,7 @@ namespace MaintenanceDashboard.Client.ViewModels
         {
             this.context = context;
             SpendedThermostats = new ObservableCollection<SpendedThermostat>();
-            childViewModel = new ComponentFormInfoViewModel();
+            childViewModel = new ComponentDetailsViewModel();
         }
 
         public ActionCommand GetFiltredListCommand
@@ -76,7 +76,7 @@ namespace MaintenanceDashboard.Client.ViewModels
 
         public void ShowDetails()
         {
-            ComponentFormInfoControl componentFormInfoControl = new ComponentFormInfoControl()
+            ComponentDetailsWindow componentFormInfoControl = new ComponentDetailsWindow()
             {
                 DataContext = childViewModel
             };

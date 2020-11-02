@@ -42,7 +42,6 @@
                                            michalgornik93@outlook.com <LineBreak/>
                                            MaintenanceDashboard<LineBreak/>
                                            Vesion 2.2.3 <LineBreak/>
-
                                 </TextBlock>
                             </StackPanel>
                         </materialDesign:PopupBox>
@@ -66,7 +65,6 @@
                                 <Button x:Name="btnSavePassword" Click="btnSavePassword_Click" 
                                         Style="{StaticResource MaterialDesignFlatButton}" Margin="8" FontSize="12" 
                                         Content="AKCEPTUJ"/>
-
                             </StackPanel>
                         </materialDesign:PopupBox>
                         <TextBlock Text="Logowanie" FontSize="8" Foreground="Gray"/>
@@ -87,17 +85,13 @@
                         </Button>
                         <TextBlock Text="Zamknij" FontSize="8" Foreground="Gray"/>
                     </StackPanel>
-
                 </StackPanel>
             </Grid>
-
         </StackPanel>
 
         <Grid Margin="330 20 10 10">
             <Grid x:Name="GridPrincipal" HorizontalAlignment="Center" VerticalAlignment="Center">
-
                 <Image Source="Image/Zenek.png"/>
-
             </Grid>
         </Grid>
 
@@ -177,12 +171,7 @@
                         </StackPanel>
                     </ListViewItem>
                 </ListView>
-
-
-
             </Grid>
-
         </StackPanel>
-
     </Grid>
 </Window>
