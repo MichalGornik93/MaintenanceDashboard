@@ -94,16 +94,6 @@
                 <DatePicker materialDesign:HintAssist.Hint="Data planowanej naprawy"   Margin="10" Style="{StaticResource MaterialDesignOutlinedDatePicker}" 
                             Width="240" SelectedDate="{Binding PlannedRepairDate}" HorizontalAlignment="Center" SelectedDateFormat="Long"/>
 
-                <WrapPanel>
-                    <materialDesign:PackIcon Kind="ShoppingCartMinus" VerticalAlignment="Center" Width="30" Height="30"/>
-                    <ComboBox materialDesign:HintAssist.Hint="Zamówienie" MinWidth="220" Grid.Column="1" Grid.Row="5" 
-                          Margin="10" SelectedValue="{Binding IsOrder}" SelectedValuePath="Content"
-                               materialDesign:HintAssist.HelperText="Pole musi być wypełnione"
-                              ToolTip="Czy jakieś części do zamówienia?">
-                        <ComboBoxItem>Tak</ComboBoxItem>
-                        <ComboBoxItem>Nie</ComboBoxItem>
-                    </ComboBox>
-                </WrapPanel>
 
                 <WrapPanel>
                     <materialDesign:PackIcon Kind="NoteTextOutline" VerticalAlignment="Center" Width="30" Height="30"/>

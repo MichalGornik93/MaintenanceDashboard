@@ -28,7 +28,6 @@ namespace MaintenanceDashboard.Client.ViewModels
         public string RepairDate { get; set; } = DateTime.Now.ToString(Resources.DateTimePattern);
         public DateTime PlannedRepairDate { get; set; } = DateTime.Now.AddDays(2);
         public string Comments { get; set; }
-        public string IsOrder { get; set; }
         public string ActivityPerformed { get; set; }
         public string LastLocation { get; set; }
         private ComponentDetailsViewModel childViewModel;
@@ -106,7 +105,6 @@ namespace MaintenanceDashboard.Client.ViewModels
                 ActivityPerformed = ActivityPerformed,
                 PlannedRepairDate = PlannedRepairDate.ToString(Resources.DateTimePattern),
                 Comments = Comments,
-                IsOrders = IsOrder.ToString(),
                 LastLocation = LastLocation
             };
 
@@ -125,7 +123,6 @@ namespace MaintenanceDashboard.Client.ViewModels
                 ActivityPerformed = SelectedReceivedThermostat.ActivityPerformed,
                 RepairDate = RepairDate,
                 Comments = SelectedReceivedThermostat.Comments,
-                IsOrders = SelectedReceivedThermostat.IsOrders,
                 DescriptionIntervention = DescriptionIntervention,
                 LastLocation = SelectedReceivedThermostat.LastLocation,
                 ReceivingEmployee = SelectedReceivedThermostat.ReceivingEmployee,
@@ -160,7 +157,6 @@ namespace MaintenanceDashboard.Client.ViewModels
                 && EmployeeViewModel.SelectedEmployee != null
                 && PlannedRepairDate != null
                 && ReceivedDate != null
-                && IsOrder != null
                 && ActivityPerformed != null
                 && !String.IsNullOrWhiteSpace(LastLocation))
                 return true;

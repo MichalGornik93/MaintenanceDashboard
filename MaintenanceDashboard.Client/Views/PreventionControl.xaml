@@ -27,10 +27,6 @@
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>
-            
-            <Button VerticalAlignment="Bottom" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignFlatButton}" 
-                    Height="40" FontSize="14" Margin="10"  Foreground="Gray"  Content="GENERUJ LISTE PALETEK DO PRZEGLĄDU" 
-                    Command="{Binding GetReviewPaddlesDetailsCommand}"/>
         </Grid>
     </Grid>
 </UserControl>

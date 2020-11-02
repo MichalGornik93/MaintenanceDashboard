@@ -11,7 +11,6 @@ namespace MaintenanceDashboard.Client.Interfaces
         string BarcodeNumber { get; set; }
         string DescriptionIntervention { get; set; }
         string Comments { get; set; }
-        string IsOrder { get; set; }
         string RepairDate { get; set; }
         string ActivityPerformed { get; set; }
         DateTime ReceivedDate { get; set; }

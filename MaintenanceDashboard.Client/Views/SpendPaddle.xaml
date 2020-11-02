@@ -88,12 +88,6 @@
                               Margin="10"/>
                     </WrapPanel>
 
-                    <WrapPanel>
-                        <materialDesign:PackIcon Kind="ShoppingCartMinus" VerticalAlignment="Center" Width="30" Height="30"/>
-                        <TextBox  Width="220" materialDesign:HintAssist.Hint="Zamówienie" IsReadOnly="True" ToolTip="W celu wypełnienia pola wybierz paletke z listy obok"
-                              Text="{Binding SelectedReceivedPaddle.IsOrders}"
-                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="10"/>
-                    </WrapPanel>
 
                     <WrapPanel>
                         <materialDesign:PackIcon Kind="NoteTextOutline" VerticalAlignment="Center" Width="30" Height="30"/>
@@ -118,7 +112,6 @@
                         <DataGridTextColumn Header="Planowana naprawa" Binding="{Binding PlannedRepairDate}"/>
                         <DataGridTextColumn Header="Akcja" Binding="{Binding ActivityPerformed}"/>
                         <DataGridTextColumn Header="Przyjmujący pracownik" Binding="{Binding ReceivingEmployee}"/>
-                        <DataGridTextColumn Header="Zamówienie" Binding="{Binding IsOrders}"/>
                         <DataGridTextColumn Header="Uwagi" Binding="{Binding Comments}"/>
                     </DataGrid.Columns>
                 </DataGrid>

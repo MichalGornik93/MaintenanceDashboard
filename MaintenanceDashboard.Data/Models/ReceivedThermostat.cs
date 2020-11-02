@@ -23,8 +23,6 @@ namespace MaintenanceDashboard.Data.Models
         [Required]
         public string PlannedRepairDate { get; set; }
         public string Comments { get; set; }
-        [Required]
-        public string IsOrders { get; set; }
         public string LastLocation { get; set; }
         public virtual Thermostat Thermostat { get; set; }
     }

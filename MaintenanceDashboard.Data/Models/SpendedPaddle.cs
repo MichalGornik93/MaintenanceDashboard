@@ -16,8 +16,7 @@ namespace MaintenanceDashboard.Data.Models
         [Required]
         public string RepairDate { get; set; }
         public string Comments { get; set; }
-        [Required]
-        public string IsOrders { get; set; }
+
         [Required]
         public string DescriptionIntervention { get; set; }
         [Required]

@@ -47,7 +47,7 @@ namespace MaintenanceDashboard.Data.API
         public IEnumerable<Thermostat> GetToWashThermostat()
         {
             return context.Thermostats
-                .Where(d => d.CurrentLocation == "Warsztat")
+                .Where(d => d.CurrentLocation == "Warsztat" )
                 .ToList()
                 .Where(c =>
                 {

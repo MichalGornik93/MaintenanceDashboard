@@ -35,7 +35,6 @@
                         <DataGridTextColumn Header="Akcja" Binding="{Binding ActivityPerformed}" />
                         <DataGridTextColumn Header="Przyjmujący pracownik" Binding="{Binding ReceivingEmployee}"/>
                         <DataGridTextColumn Header="Wydający pracownik" Binding="{Binding SpendingEmployee}"/>
-                        <DataGridTextColumn Header="Zamówienie" Binding="{Binding IsOrders}"/>
                         <DataGridTextColumn Header="Opis interwencji" Binding="{Binding DescriptionIntervention}" Width="250"/>
                         <DataGridTextColumn Header="Komentarz" Binding="{Binding Comments}" Width="250"/>
                     </DataGrid.Columns>

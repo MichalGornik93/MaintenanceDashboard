@@ -26,7 +26,6 @@ namespace MaintenanceDashboard.Data.API
             Validator.RequireDateTime(receivedPaddle.ReceivedDate);
             Validator.RequireString(receivedPaddle.ActivityPerformed);
             Validator.RequireDateTime(receivedPaddle.PlannedRepairDate);
-            Validator.RequireString(receivedPaddle.IsOrders);
             
             context.ReceivedPaddles.Add(receivedPaddle);
             context.SaveChanges();
@@ -37,7 +36,6 @@ namespace MaintenanceDashboard.Data.API
             Validator.RequireDateTime(spendedPaddle.ReceivedDate);
             Validator.RequireString(spendedPaddle.ActivityPerformed);
             Validator.RequireDateTime(spendedPaddle.RepairDate);
-            Validator.RequireString(spendedPaddle.IsOrders);
             Validator.RequireString(spendedPaddle.DescriptionIntervention);
             Validator.RequireString(spendedPaddle.ReceivingEmployee);
             Validator.RequireString(spendedPaddle.SpendingEmployee);

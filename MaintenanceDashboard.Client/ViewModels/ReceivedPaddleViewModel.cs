@@ -21,7 +21,6 @@ namespace MaintenanceDashboard.Client.ViewModels
         public string BarcodeNumber { get; set; }
         public string DescriptionIntervention { get; set; }
         public string Comments { get; set; }
-        public string IsOrder { get; set; }
         public string RepairDate { get; set; } = DateTime.Now.ToString(Resources.DateTimePattern);
         public string ActivityPerformed { get; set; }
         public DateTime ReceivedDate { get; set; } = DateTime.Now;
@@ -100,8 +99,7 @@ namespace MaintenanceDashboard.Client.ViewModels
                 ReceivedDate = ReceivedDate.ToString(Resources.DateTimePattern),
                 ActivityPerformed = ActivityPerformed,
                 PlannedRepairDate = PlannedRepairDate.ToString(Resources.DateTimePattern),
-                Comments = Comments,
-                IsOrders = IsOrder.ToString()
+                Comments = Comments
             };
             context.Receive(receivedPaddle);
             ConnectedSuccessfully = true;
@@ -116,7 +114,6 @@ namespace MaintenanceDashboard.Client.ViewModels
                 ActivityPerformed = SelectedReceivedPaddle.ActivityPerformed,
                 RepairDate = RepairDate,
                 Comments = SelectedReceivedPaddle.Comments,
-                IsOrders = SelectedReceivedPaddle.IsOrders,
                 DescriptionIntervention = DescriptionIntervention,
                 ReceivingEmployee = SelectedReceivedPaddle.ReceivingEmployee,
                 SpendingEmployee = String.Format("{0} {1}", EmployeeViewModel.SelectedEmployee.FirstName, EmployeeViewModel.SelectedEmployee.LastName)
@@ -182,7 +179,6 @@ namespace MaintenanceDashboard.Client.ViewModels
                 && EmployeeViewModel.SelectedEmployee != null
                 && PlannedRepairDate != null
                 && ReceivedDate != null
-                && IsOrder != null
                 && ActivityPerformed != null)
                 return true;
             return false;

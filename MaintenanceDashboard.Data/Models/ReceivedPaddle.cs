@@ -18,8 +18,6 @@ namespace MaintenanceDashboard.Data.Models
         [Required]
         public string PlannedRepairDate { get; set; }
         public string Comments { get; set; }
-        [Required]
-        public string IsOrders { get; set; }
         public virtual Paddle Paddle { get; set; }
     }
 }

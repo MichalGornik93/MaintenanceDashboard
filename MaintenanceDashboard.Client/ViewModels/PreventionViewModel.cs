@@ -21,14 +21,6 @@ namespace MaintenanceDashboard.Client.ViewModels
             GetReviewPaddles();
         }
 
-        public ActionCommand GetReviewPaddlesDetailsCommand
-        {
-            get
-            {
-                return new ActionCommand(p => GetReviewPaddlesDetails());
-            }
-        }
-
         private void GetReviewPaddles()
         {
             Preventions.Clear();
@@ -57,9 +49,6 @@ namespace MaintenanceDashboard.Client.ViewModels
             }
         }
 
-        private void GetReviewPaddlesDetails()
-        {
-        }
     }
 
     public class PreventionPattern

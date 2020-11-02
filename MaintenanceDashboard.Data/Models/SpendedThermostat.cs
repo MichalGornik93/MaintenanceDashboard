@@ -22,8 +22,6 @@ namespace MaintenanceDashboard.Data.Models
         public string RepairDate { get; set; }
         public string Comments { get; set; }
         [Required]
-        public string IsOrders { get; set; }
-        [Required]
         public string DescriptionIntervention { get; set; }
         [Required]
         public string ReceivingEmployee { get; set; }

@@ -61,6 +61,10 @@
     <Compile Include="Migrations\202009170832162_UpdatedLocationPropertyToString.designer.cs">
       <DependentUpon>202009170832162_UpdatedLocationPropertyToString.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011020840129_DeletedIsOrderProperty.cs" />
+    <Compile Include="Migrations\202011020840129_DeletedIsOrderProperty.designer.cs">
+      <DependentUpon>202011020840129_DeletedIsOrderProperty.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Employee.cs" />
     <Compile Include="API\EmployeeContext.cs" />
     <Compile Include="Models\ReceivedPaddle.cs" />
@@ -292,6 +296,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009170832162_UpdatedLocationPropertyToString.resx">
       <DependentUpon>202009170832162_UpdatedLocationPropertyToString.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011020840129_DeletedIsOrderProperty.resx">
+      <DependentUpon>202011020840129_DeletedIsOrderProperty.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

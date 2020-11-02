@@ -28,7 +28,6 @@ namespace MaintenanceDashboard.Data.API
             Validator.RequireDateTime(receivedThermostat.ReceivedDate);
             Validator.RequireString(receivedThermostat.ActivityPerformed);
             Validator.RequireDateTime(receivedThermostat.PlannedRepairDate);
-            Validator.RequireString(receivedThermostat.IsOrders);
 
             context.ReceivedThermostats.Add(receivedThermostat);
             context.SaveChanges();
