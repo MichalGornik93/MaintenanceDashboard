@@ -60,7 +60,7 @@ namespace MaintenanceDashboard.Data.API
                     (from c in context.Thermostats
                      where c.Id == receivedThermostat.ThermostatId
                      select c).First();
-                t.LastPrevention = DateTime.Now.ToString(Resources.DateTimePattern);
+                t.LastPreventionDate = DateTime.Now.ToString(Resources.DateTimePattern);
 
                 context.SaveChanges();
             }

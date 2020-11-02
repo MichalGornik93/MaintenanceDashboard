@@ -13,8 +13,8 @@ namespace MaintenanceDashboard.Data.Models
         public string Model { get; set; }
         [Required]
         public string AddedDate { get; set; }
+        public string LastPreventionDate { get; set; }
         public string Comments { get; set; }
-        public string LastPrevention { get; set; }
         public virtual ICollection<ReceivedPaddle> ReceivedPaddles { get; set; }
         public virtual ICollection<SpendedPaddle> SpendedPaddles { get; set; }
     }

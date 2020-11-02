@@ -43,7 +43,7 @@ namespace MaintenanceDashboard.Client.ViewModels
                  {
                      try
                      {
-                         return (DateTime.Now - DateTime.ParseExact(c.LastPrevention, "yyyy-MM-dd", CultureInfo.InvariantCulture)).TotalDays > 60;
+                         return (DateTime.Now - DateTime.ParseExact(c.LastPreventionDate, "yyyy-MM-dd", CultureInfo.InvariantCulture)).TotalDays > 60;
                      }
                      catch
                      {

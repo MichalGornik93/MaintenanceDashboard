@@ -65,6 +65,10 @@
     <Compile Include="Migrations\202011020840129_DeletedIsOrderProperty.designer.cs">
       <DependentUpon>202011020840129_DeletedIsOrderProperty.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011020919184_RenameLastPreventionProperty.cs" />
+    <Compile Include="Migrations\202011020919184_RenameLastPreventionProperty.designer.cs">
+      <DependentUpon>202011020919184_RenameLastPreventionProperty.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Employee.cs" />
     <Compile Include="API\EmployeeContext.cs" />
     <Compile Include="Models\ReceivedPaddle.cs" />
@@ -299,6 +303,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011020840129_DeletedIsOrderProperty.resx">
       <DependentUpon>202011020840129_DeletedIsOrderProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011020919184_RenameLastPreventionProperty.resx">
+      <DependentUpon>202011020919184_RenameLastPreventionProperty.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

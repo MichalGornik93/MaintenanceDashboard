@@ -42,7 +42,7 @@ namespace MaintenanceDashboard.Client.ViewModels
                 Preventions.Add(new PreventionPattern()
                 {
                     BarcodeNumber = item.BarcodeNumber,
-                    LastPrevention = item.LastPrevention,
+                    LastPrevention = item.LastPreventionDate,
                     Model = item.Model,
                     PreventionDescription = "Wykonać przegląd paletki"
                 });

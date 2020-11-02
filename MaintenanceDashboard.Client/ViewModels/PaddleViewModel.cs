@@ -74,7 +74,7 @@ namespace MaintenanceDashboard.Client.ViewModels
                 BarcodeNumber = BarcodeNumber,
                 Model = Model,
                 AddedDate = AddedDate,
-                LastPrevention = DateTime.Now.ToString(Resources.DateTimePattern),
+                LastPreventionDate = DateTime.Now.ToString(Resources.DateTimePattern),
                 Comments = Comments
             };
 

@@ -28,7 +28,7 @@ namespace MaintenanceDashboard.Data.API
             Validator.RequireString(thermostat.SerialNumber);
             Validator.RequireString(thermostat.Model);
             Validator.RequireDateTime(thermostat.AddedDate);
-            Validator.RequireDateTime(thermostat.LastPrevention);
+            Validator.RequireDateTime(thermostat.LastPreventionDate);
             Validator.RequireDateTime(thermostat.LastWashDate);
 
             context.Thermostats.Add(thermostat);

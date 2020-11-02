@@ -58,7 +58,7 @@ namespace MaintenanceDashboard.Data.API
                     (from c in context.Paddles
                      where c.Id == receivedPaddle.PaddleId
                      select c).First();
-                t.LastPrevention = DateTime.Now.ToString(Resources.DateTimePattern);
+                t.LastPreventionDate = DateTime.Now.ToString(Resources.DateTimePattern);
 
                 context.SaveChanges();
             }

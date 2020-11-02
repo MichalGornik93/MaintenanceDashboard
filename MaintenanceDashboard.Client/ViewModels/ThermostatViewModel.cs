@@ -79,7 +79,7 @@ namespace MaintenanceDashboard.Client.ViewModels
                 SerialNumber = SerialNumber,
                 Model = Model,
                 AddedDate = AddedDate,
-                LastPrevention = DateTime.Now.ToString(Resources.DateTimePattern),
+                LastPreventionDate = DateTime.Now.ToString(Resources.DateTimePattern),
                 LastWashDate = DateTime.Now.ToString(Resources.DateTimePattern),
                 Comments = Comments
             };

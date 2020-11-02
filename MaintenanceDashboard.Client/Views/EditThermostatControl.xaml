@@ -2,10 +2,10 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:MaintenanceDashboard.Client.Views"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d" Width="920" Height="750"
-             xmlns:viewModels="clr-namespace:MaintenanceDashboard.Client.ViewModels" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:viewModels="clr-namespace:MaintenanceDashboard.Client.ViewModels" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              d:DataContext="{d:DesignInstance viewModels:ThermostatViewModel}">
     <Grid >
         <ContentControl Style="{StaticResource RectangleView}"/>
@@ -32,7 +32,7 @@
                     <DataGridTextColumn Header="Numer seryjny" Binding="{Binding SerialNumber}"/>
                     <DataGridTextColumn Header="Model" Binding="{Binding Model}"/>
                     <DataGridTextColumn Header="Data dodania" Binding="{Binding AddedDate}"/>
-                    <DataGridTextColumn Header="Ostatnia prewencja" Binding="{Binding LastPrevention}"/>
+                    <DataGridTextColumn Header="Ostatnia prewencja" Binding="{Binding LastPreventionDate}"/>
                     <DataGridTextColumn Header="Ostatnie płukanie" Binding="{Binding LastWashDate}"/>
                     <DataGridTextColumn Header="Lokalizacja" Binding="{Binding CurrentLocation}"/>
                     <DataGridTextColumn Header="Uwagi" Binding="{Binding Comments}"/>
@@ -82,7 +82,7 @@
                     <TextBox  materialDesign:HintAssist.Hint="Data ostatniej prewencji" Width="220" 
                               materialDesign:HintAssist.HelperText=""  IsEnabled="False"
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"
-                              Text="{Binding SelectedThermostat.LastPrevention}"/>
+                              Text="{Binding SelectedThermostat.LastPreventionDate}"/>
                 </WrapPanel>
 
                 <WrapPanel>
