@@ -47,11 +47,10 @@ namespace MaintenanceDashboard.Data.API
         public IEnumerable<Thermostat> GetToWashThermostat()
         {
             return context.Thermostats
-                .Where(d => d.CurrentLocation == "Warsztat" )
+                .Where(d => d.CurrentLocation == "Warsztat" && d.CurrentStatus !="Awaria")
                 .ToList()
                 .Where(c =>
                 {
-                    
                     try
                     {
                         return (DateTime.Now - DateTime.ParseExact(c.LastWashDate, "yyyy-MM-dd", CultureInfo.InvariantCulture)).TotalDays > 30;

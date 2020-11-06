@@ -82,8 +82,7 @@ namespace MaintenanceDashboard.Data.API
 
         public void SetCurrentLocation(ReceivedThermostat receivedThermostat, string currentLocation)
         {
-            var t =
-                   (from c in context.Thermostats
+            var t = (from c in context.Thermostats
                     where c.Id == receivedThermostat.ThermostatId
                     select c).First();
             t.CurrentLocation=currentLocation;
@@ -91,6 +90,15 @@ namespace MaintenanceDashboard.Data.API
             context.SaveChanges();
         }
 
+        public void SetCurrentStatus(ReceivedThermostat receivedThermostat, string currentStatus)
+        {
+            var t = (from c in context.Thermostats
+                     where c.Id == receivedThermostat.ThermostatId
+                     select c).First();
+            t.CurrentStatus = currentStatus;
+
+            context.SaveChanges();
+        }
 
         public int GetId(string number)
         {

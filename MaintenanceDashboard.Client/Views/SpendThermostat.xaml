@@ -27,9 +27,9 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
-                <ContentControl Style="{StaticResource AddingRecordGridTemplete}" Grid.Row="0"/>
+                <ContentControl Style="{StaticResource AddingRecordGridTemplete}" Grid.Row="0" Height="500"/>
 
-                <StackPanel Grid.Row="0"  Style="{StaticResource AddingRecordDataTemplete}">
+                <StackPanel Grid.Row="0"  Style="{StaticResource AddingRecordDataTemplete}" VerticalAlignment="Center">
                     <WrapPanel>
                         <materialDesign:PackIcon Kind="User" VerticalAlignment="Center" Width="30" Height="30"/>
                         <ComboBox Width="220"  DataContext="{Binding EmployeeViewModel}" materialDesign:HintAssist.Hint="Wydający pracownik" 
@@ -135,6 +135,7 @@
                         <Button Height="25" FontSize="12" Margin="5" Width="147" 
                       Background="#FF0069C0" BorderBrush="#FF0069C0" Content="GENERUJ RAPORT" Command="{Binding ShowDetailsCommand}"/>
                     </WrapPanel>
+                  
                 </StackPanel>
 
                 <DataGrid ItemsSource="{Binding ReceivedThermostats}" SelectedItem="{Binding SelectedReceivedThermostat}"  Margin="10,10,0,10" FontSize="11" 

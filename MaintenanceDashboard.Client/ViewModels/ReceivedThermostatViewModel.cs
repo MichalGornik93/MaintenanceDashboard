@@ -109,6 +109,12 @@ namespace MaintenanceDashboard.Client.ViewModels
             };
 
             context.SetCurrentLocation(receivedThermostat, "Warsztat");
+            
+            if(receivedThermostat.ActivityPerformed == "Awaria")
+            {
+                context.SetCurrentStatus(receivedThermostat, "Awaria");
+            }
+            
             context.Receive(receivedThermostat);
 
             ConnectedSuccessfully = true;
@@ -133,6 +139,7 @@ namespace MaintenanceDashboard.Client.ViewModels
             context.SetLastPreventionDate(SelectedReceivedThermostat);
             context.SetLastWashDate(SelectedReceivedThermostat);
             context.SetCurrentLocation(SelectedReceivedThermostat, CurrentLocation);
+            context.SetCurrentStatus(SelectedReceivedThermostat, "Sprawny");
 
             if (SelectedReceivedThermostat != null)
             {
@@ -140,6 +147,7 @@ namespace MaintenanceDashboard.Client.ViewModels
                 ReceivedThermostats.Remove(SelectedReceivedThermostat);
                 SelectedReceivedThermostat = null;
             }
+
             ConnectedSuccessfully = true;
         }
 

@@ -53,7 +53,7 @@ namespace MaintenanceDashboard.Client.ViewModels
                  .Any();
 
                 var IsSomeThermostatToWash = context.Thermostats
-                    .Where(d => d.CurrentLocation == "Warsztat")
+                    .Where(d => d.CurrentLocation == "Warsztat" && d.CurrentStatus != "Awaria")
                     .ToList()
                     .Where(c =>
                     {

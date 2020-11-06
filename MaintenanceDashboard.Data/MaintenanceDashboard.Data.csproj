@@ -69,6 +69,10 @@
     <Compile Include="Migrations\202011020919184_RenameLastPreventionProperty.designer.cs">
       <DependentUpon>202011020919184_RenameLastPreventionProperty.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011021020286_AddedCurrentStatusPropertyToThermostatTable.cs" />
+    <Compile Include="Migrations\202011021020286_AddedCurrentStatusPropertyToThermostatTable.designer.cs">
+      <DependentUpon>202011021020286_AddedCurrentStatusPropertyToThermostatTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Employee.cs" />
     <Compile Include="API\EmployeeContext.cs" />
     <Compile Include="Models\ReceivedPaddle.cs" />
@@ -306,6 +310,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011020919184_RenameLastPreventionProperty.resx">
       <DependentUpon>202011020919184_RenameLastPreventionProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011021020286_AddedCurrentStatusPropertyToThermostatTable.resx">
+      <DependentUpon>202011021020286_AddedCurrentStatusPropertyToThermostatTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

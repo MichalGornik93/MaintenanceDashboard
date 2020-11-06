@@ -23,7 +23,7 @@
 
                 <ContentControl Style="{StaticResource AddingRecordGridTemplete}" Grid.Row="0"/>
 
-                <StackPanel Grid.Row="0"  Style="{StaticResource AddingRecordDataTemplete}">
+                <StackPanel Grid.Row="0"  Style="{StaticResource AddingRecordDataTemplete}" VerticalAlignment="Center">
                     <WrapPanel>
                         <materialDesign:PackIcon Kind="User" VerticalAlignment="Center" Width="30" Height="30"/>
                         <ComboBox Width="220"  DataContext="{Binding EmployeeViewModel}" materialDesign:HintAssist.Hint="Wydający pracownik" 

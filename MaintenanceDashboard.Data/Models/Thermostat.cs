@@ -16,6 +16,7 @@ namespace MaintenanceDashboard.Data.Models
         public string AddedDate { get; set; }
         public string LastPreventionDate { get; set; }
         public string CurrentLocation { get; set; }
+        public string CurrentStatus { get; set; }
         public string LastWashDate { get; set; }
         public string Comments { get; set; }
         public virtual ICollection<ReceivedThermostat> ReceivedThermostats { get; set; }
