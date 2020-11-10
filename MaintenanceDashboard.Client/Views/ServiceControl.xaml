@@ -3,10 +3,42 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             mc:Ignorable="d" Width="1020" Height="750">
-    <Grid>
-        <Label x:Name="label" Content="IP Address" HorizontalAlignment="Left" Margin="10,52,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="37" Margin="118,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="20" Text="192.168.1.1"/>
-        <Button x:Name="button" Content="Print" HorizontalAlignment="Left" Margin="10,94,0,0" VerticalAlignment="Top" Width="150" Click="button_Click" FontSize="20" Height="39"/>
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:viewModels="clr-namespace:MaintenanceDashboard.Client.ViewModels" 
+             d:DataContext="{d:DesignInstance viewModels:ServiceControlViewModel}"
+             mc:Ignorable="d" Width="1020" Height="750" FontSize="20">
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="500"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+
+        <Grid Grid.Column="0"  Margin="10">
+            <Rectangle Width="450" Height="730" VerticalAlignment="Bottom"  RadiusY="10" RadiusX="10" Fill="White">
+                <Rectangle.Effect>
+                    <DropShadowEffect BlurRadius="15" Direction="0" RenderingBias="Quality" ShadowDepth="1" Color="#FFBBBBBB"/>
+                </Rectangle.Effect>
+            </Rectangle>
+            <TextBlock Text="Panel drukarki Zebra" HorizontalAlignment="Center" VerticalAlignment="Top"  
+                           FontSize="18"  Foreground="Gray" Margin="20"/>
+            <StackPanel HorizontalAlignment="Center" Margin="25" VerticalAlignment="Center">
+                <TextBox  Text="{Binding IpAddress}" Margin="15" materialDesign:HintAssist.HelperText="IP Address"/>
+                <TextBox  Text="{Binding BarcodeDescription}" Margin="15" materialDesign:HintAssist.HelperText="Opis"/>
+                <TextBox  Text="{Binding BarcodeNumber}" Margin="15" materialDesign:HintAssist.HelperText="Kod kreskowy"/>
+                <Button  Content="Print" Width="150" Command="{Binding PrintLabelCommand}" FontSize="15" Height="30" Margin="15" 
+                         Background="#FF0069C0" BorderBrush="#FF0069C0"/>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Column="1" Margin="10">
+            <Rectangle Width="450" Height="730" VerticalAlignment="Bottom"  RadiusY="10" RadiusX="10" Fill="White">
+                <Rectangle.Effect>
+                    <DropShadowEffect BlurRadius="15" Direction="0" RenderingBias="Quality" ShadowDepth="1" Color="#FFBBBBBB"/>
+                </Rectangle.Effect>
+            </Rectangle>
+            <TextBlock Text="Panel sterownika PLC" HorizontalAlignment="Center" VerticalAlignment="Top"  
+                           FontSize="18"  Foreground="Gray" Margin="20"/>
+          
+        </Grid>
     </Grid>
 </UserControl>

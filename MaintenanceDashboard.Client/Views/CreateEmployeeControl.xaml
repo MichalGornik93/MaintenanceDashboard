@@ -34,8 +34,7 @@
                              Text="{Binding LastName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Margin="10"/>
                 </WrapPanel>
 
-                <Button Height="25"  Background="#FF0069C0"  
-                             BorderBrush="#FF0069C0"  Width="100" Content="DODAJ" Margin="10"  Grid.Column="1"
+                <Button Height="25"  Background="#FF0069C0"  BorderBrush="#FF0069C0"  Width="100" Content="DODAJ" Margin="10"  Grid.Column="1"
                              Command="{Binding CreateCommand}"/>
             </StackPanel>
         </Grid>

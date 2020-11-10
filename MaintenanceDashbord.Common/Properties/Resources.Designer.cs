@@ -79,6 +79,15 @@ namespace MaintenanceDashbord.Common.Properties {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu ^XA^FO50,40^GFA,1937,1937,13,,:::::0018Q06,001EP01E,001F8O02E,0013CO0DE,001EFN037E,001FFCM0DDE,001FFEL01E76,001D6F8K07DFE,001FBBEJ01FE7C,001D7F78I03F7BE,001F4DB4I0FFEFE,001FD6FF003979FE,001F6F7EC0F27DFE,001FE79FD1CFF8FE,001FE3FDE1FDF0FE,001FE0FF8077C0FE,001FE02F001D00FE,001FE008I0E00FE,001FEO0FE,001FAO0FE,001FEO0FE,001FEO0DE,001FEO0FE,001F6O0EE,001F8O03A,001BP01E,001CQ0E,001R02,,:::::0018E1C3F1F98102,001CE1C319818102,001DE36309818102,0017636319F98102,00136373F1818102,001067F331818102,0010641311F9F9F2,00106C [obcięto pozostałą część ciągu]&quot;;.
+        /// </summary>
+        public static string HeadBarcode {
+            get {
+                return ResourceManager.GetString("HeadBarcode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Pal[0-9]{1,3}$.
         /// </summary>
         public static string PaddleBarcodePattern {

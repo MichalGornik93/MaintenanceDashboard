@@ -69,14 +69,14 @@ namespace MaintenanceDashbord.Common
         }
 
 
-        public static bool CheckStatus(ZebraPrinter printer) //Zwraca flage 
+        public static bool CheckStatus(ZebraPrinter printer) 
         {
             PrinterStatus printerStatus = null;
             try
             {
-                VerifyConnection(printer); //Sprawdz czy nie utraciłeś połaczenia
+                VerifyConnection(printer); 
 
-                printerStatus = printer.GetCurrentStatus(); //Jesli nie utraciłeś połaczenia zwróć status drukarki
+                printerStatus = printer.GetCurrentStatus(); 
             }
             catch (ConnectionException e)
             {
@@ -87,7 +87,7 @@ namespace MaintenanceDashbord.Common
             {
                 throw new NotSupportedException($"Unable to get status.");
             }
-            else if (printerStatus.isReadyToPrint) //Jesli gotowy do druku zwróć true
+            else if (printerStatus.isReadyToPrint) 
             {
                 Console.WriteLine($"Ready To Print");
                 return true;
@@ -108,7 +108,7 @@ namespace MaintenanceDashbord.Common
             {
                 throw new NotSupportedException($"Cannot Print.");
             }
-            return false; //Jesli niegotowy do druku zwróć false
+            return false; 
         }
 
 
@@ -133,7 +133,7 @@ namespace MaintenanceDashbord.Common
         }
 
 
-        public static ZebraPrinter Connect(Connection connection, PrinterLanguage language) //Zwraca objekt połączenia
+        public static ZebraPrinter Connect(Connection connection, PrinterLanguage language) 
         {
             ZebraPrinter printer = null;
 
