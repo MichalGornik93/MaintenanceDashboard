@@ -54,6 +54,10 @@ namespace MaintenanceDashboard.Client
                     GridPrincipal.Children.Clear();
                     GridPrincipal.Children.Add(new PreventionControl());
                     break;
+                case 7:
+                    GridPrincipal.Children.Clear();
+                    GridPrincipal.Children.Add(new ServiceControl());
+                    break;
                 default:
                     break;
             }
