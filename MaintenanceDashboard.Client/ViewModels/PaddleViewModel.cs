@@ -7,6 +7,9 @@ using System.Text.RegularExpressions;
 using MaintenanceDashbord.Common.Properties;
 using MaintenanceDashboard.Data.API;
 using MaintenanceDashboard.Client.Interfaces;
+using Zebra.Sdk.Printer;
+using MaintenanceDashbord.Common;
+using Zebra.Sdk.Comm;
 
 namespace MaintenanceDashboard.Client.ViewModels
 {
@@ -80,6 +83,7 @@ namespace MaintenanceDashboard.Client.ViewModels
 
             context.Create(paddle);
             ConnectedSuccessfully = true;
+            PrintLabel("192.168.1.1");
         }
 
         public void Update()
@@ -95,6 +99,25 @@ namespace MaintenanceDashboard.Client.ViewModels
 
             foreach (var item in context.GetAll())
                 Paddles.Add(item);
+        }
+
+        public void PrintLabel(string theIpAddress)
+        {
+            string ZPL_STRING = Resources.HeadBarcode + "^FS^FO250,50^A0,25,25^FD" + "Baza paletek" + "^FS^FO230,90^BCN,100,Y,N,N^FD" + BarcodeNumber + "^FS^XZ";
+
+            ZebraPrinter zebraPrinter = ZebraPrintHelper.Connect(new TcpConnection(theIpAddress, TcpConnection.DEFAULT_ZPL_TCP_PORT), PrinterLanguage.ZPL);
+
+            if (ZebraPrintHelper.CheckStatus(zebraPrinter))
+            {
+                ZebraPrintHelper.Print(zebraPrinter, ZPL_STRING);
+
+                if (ZebraPrintHelper.CheckStatusAfter(zebraPrinter))
+                {
+                    Console.WriteLine($"Label Printed");
+                }
+            }
+            zebraPrinter = ZebraPrintHelper.Disconnect(zebraPrinter);
+
         }
 
         public bool IsValidPaddle()

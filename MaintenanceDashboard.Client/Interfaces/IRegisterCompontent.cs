@@ -17,5 +17,6 @@ namespace MaintenanceDashboard.Client.Interfaces
         void Create();
         void Update();
         void GetAll();
+        void PrintLabel(string theIpAddress);
     }
 }

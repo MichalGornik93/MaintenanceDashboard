@@ -11,7 +11,9 @@
     <Grid Width="730">
         <ContentControl Style="{StaticResource RectangleView}"/>
 
-        <ContentControl Style="{StaticResource AddingRecordGridTemplete}"/>
+        <ContentControl Style="{StaticResource AddingRecordGridTemplete}">
+            
+        </ContentControl>
 
         <Grid Margin="15,85,15, 15" Width="700" Height="410">
             <TextBlock Text="DODAWANIE PRACOWNIKÓW" HorizontalAlignment="Center" VerticalAlignment="Top"  

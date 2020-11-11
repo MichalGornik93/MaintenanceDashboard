@@ -1,6 +1,7 @@
-﻿using System.Data.Entity;
+﻿using MaintenanceDashboard.Data.Models;
+using System.Data.Entity;
 
-namespace MaintenanceDashboard.Data.Models
+namespace MaintenanceDashboard.Data
 {
     public class DataContext:DbContext
     {

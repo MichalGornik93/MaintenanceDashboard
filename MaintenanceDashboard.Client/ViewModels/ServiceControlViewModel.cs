@@ -66,8 +66,7 @@ namespace MaintenanceDashboard.Client.ViewModels
                     Console.WriteLine($"Label Printed");
                 }
             }
-            zebraPrinter = ZebraPrintHelper.Disconnect(zebraPrinter);  
-
+            zebraPrinter = ZebraPrintHelper.Disconnect(zebraPrinter);
         }
     }
 }

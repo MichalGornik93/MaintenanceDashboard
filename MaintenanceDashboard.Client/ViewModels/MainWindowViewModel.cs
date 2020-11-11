@@ -1,6 +1,5 @@
 ﻿using MaintenanceDashboard.Common;
-using MaintenanceDashboard.Data.Models;
-using MaintenanceDashbord.Common.Properties;
+using MaintenanceDashboard.Data;
 using System;
 using System.Globalization;
 using System.Linq;
