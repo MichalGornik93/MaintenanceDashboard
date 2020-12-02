@@ -17,7 +17,7 @@ namespace MaintenanceDashboard.Data.Models
         public string ActivityPerformed { get; set; }
         [Required]
         public string PlannedRepairDate { get; set; }
-        public string Comments { get; set; }
+        public string DescriptionIntervention { get; set; }
         public virtual Paddle Paddle { get; set; }
     }
 }

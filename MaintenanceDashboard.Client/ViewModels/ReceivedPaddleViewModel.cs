@@ -20,12 +20,10 @@ namespace MaintenanceDashboard.Client.ViewModels
 
         public string BarcodeNumber { get; set; }
         public string DescriptionIntervention { get; set; }
-        public string Comments { get; set; }
         public string RepairDate { get; set; } = DateTime.Now.ToString(Resources.DateTimePattern);
         public string ActivityPerformed { get; set; }
         public DateTime ReceivedDate { get; set; } = DateTime.Now;
         public DateTime PlannedRepairDate { get; set; } = DateTime.Now.AddDays(2);
-        private ComponentDetailsViewModel childViewModel;
 
         private bool _connectedSuccessfully;
         public bool ConnectedSuccessfully
@@ -60,7 +58,6 @@ namespace MaintenanceDashboard.Client.ViewModels
             EmployeeViewModel.GetAll();
             GetAll();
 
-            childViewModel = new ComponentDetailsViewModel();
         }
 
         public ActionCommand ReceiveCommand
@@ -81,15 +78,7 @@ namespace MaintenanceDashboard.Client.ViewModels
             }
         }
 
-        public ActionCommand ShowDetailsCommand
-        {
-            get
-            {
-                return new ActionCommand(p => ShowDetails(),
-                                         p => SelectedReceivedPaddle != null);
-            }
-        }
-
+      
         public void Receive()
         {
             var receivedPaddle = new ReceivedPaddle
@@ -99,7 +88,7 @@ namespace MaintenanceDashboard.Client.ViewModels
                 ReceivedDate = ReceivedDate.ToString(Resources.DateTimePattern),
                 ActivityPerformed = ActivityPerformed,
                 PlannedRepairDate = PlannedRepairDate.ToString(Resources.DateTimePattern),
-                Comments = Comments
+                DescriptionIntervention = DescriptionIntervention
             };
             context.Receive(receivedPaddle);
             ConnectedSuccessfully = true;
@@ -113,8 +102,7 @@ namespace MaintenanceDashboard.Client.ViewModels
                 ReceivedDate = SelectedReceivedPaddle.ReceivedDate,
                 ActivityPerformed = SelectedReceivedPaddle.ActivityPerformed,
                 RepairDate = RepairDate,
-                Comments = SelectedReceivedPaddle.Comments,
-                DescriptionIntervention = DescriptionIntervention,
+                DescriptionIntervention = SelectedReceivedPaddle.DescriptionIntervention,
                 ReceivingEmployee = SelectedReceivedPaddle.ReceivingEmployee,
                 SpendingEmployee = String.Format("{0} {1}", EmployeeViewModel.SelectedEmployee.FirstName, EmployeeViewModel.SelectedEmployee.LastName)
             };
@@ -138,26 +126,6 @@ namespace MaintenanceDashboard.Client.ViewModels
                 ReceivedPaddles.Add(item);
         }
 
-        public void ShowDetails()
-        {
-            ComponentDetailsWindow componentFormInfoControl = new ComponentDetailsWindow()
-            {
-                DataContext = childViewModel
-            };
-
-            childViewModel.SelectedComponent.BarcodeNumber = SelectedReceivedPaddle.Paddle.BarcodeNumber;
-            childViewModel.SelectedComponent.ActivityPerformed = SelectedReceivedPaddle.ActivityPerformed;
-            childViewModel.SelectedComponent.Comments = SelectedReceivedPaddle.Comments;
-            childViewModel.SelectedComponent.ReceivedDate = SelectedReceivedPaddle.ReceivedDate;
-            childViewModel.SelectedComponent.DescriptionIntervention = DescriptionIntervention;
-            childViewModel.SelectedComponent.ReceivingEmployee = SelectedReceivedPaddle.ReceivingEmployee;
-            childViewModel.SelectedComponent.LastLocation = "-----";
-            childViewModel.SelectedComponent.SerialNumber = "----";
-            childViewModel.SelectedComponent.SpendingEmployee = "----";
-            childViewModel.SelectedComponent.RepairDate = "-----";
-
-            componentFormInfoControl.Show();
-        }
 
         protected override string OnValidate(string propertyName)
         {
@@ -187,8 +155,8 @@ namespace MaintenanceDashboard.Client.ViewModels
         private bool IsValidSpendedPaddle()
         {
             if (SelectedReceivedPaddle != null
-                && !String.IsNullOrWhiteSpace(DescriptionIntervention)
-                && EmployeeViewModel.SelectedEmployee != null)
+                && EmployeeViewModel.SelectedEmployee != null
+                && !String.IsNullOrWhiteSpace(SelectedReceivedPaddle.DescriptionIntervention))
                 return true;
             return false;
 

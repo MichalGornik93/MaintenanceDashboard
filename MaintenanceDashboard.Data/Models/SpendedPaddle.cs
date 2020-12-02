@@ -15,8 +15,6 @@ namespace MaintenanceDashboard.Data.Models
         public string ActivityPerformed { get; set; }
         [Required]
         public string RepairDate { get; set; }
-        public string Comments { get; set; }
-
         [Required]
         public string DescriptionIntervention { get; set; }
         [Required]

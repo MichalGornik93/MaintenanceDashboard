@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MaintenanceDashboard.Data.Models
 {
@@ -22,7 +17,7 @@ namespace MaintenanceDashboard.Data.Models
         public string ActivityPerformed { get; set; }
         [Required]
         public string PlannedRepairDate { get; set; }
-        public string Comments { get; set; }
+        public string DescriptionIntervention { get; set; }
         public string LastLocation { get; set; }
         public virtual Thermostat Thermostat { get; set; }
     }

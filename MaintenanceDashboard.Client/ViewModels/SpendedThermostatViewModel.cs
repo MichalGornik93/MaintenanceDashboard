@@ -82,7 +82,6 @@ namespace MaintenanceDashboard.Client.ViewModels
             };
             childViewModel.SelectedComponent.BarcodeNumber = SelectedSpendedThermostat.Thermostat.BarcodeNumber;
             childViewModel.SelectedComponent.ActivityPerformed = SelectedSpendedThermostat.ActivityPerformed;
-            childViewModel.SelectedComponent.Comments = SelectedSpendedThermostat.Comments;
             childViewModel.SelectedComponent.RepairDate = SelectedSpendedThermostat.RepairDate;
             childViewModel.SelectedComponent.ReceivedDate = SelectedSpendedThermostat.ReceivedDate;
             childViewModel.SelectedComponent.DescriptionIntervention = SelectedSpendedThermostat.DescriptionIntervention;

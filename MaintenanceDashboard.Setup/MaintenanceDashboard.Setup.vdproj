@@ -184,13 +184,13 @@
         "Entry"
         {
         "MsmKey" = "8:_1B688C5DDEF5444F69159385999208B9"
-        "OwnerKey" = "8:_8B944CFCE3DDE8696084B8481E51BEED"
+        "OwnerKey" = "8:_F509AEA57B434A6CAE45CAF2DA2E19D4"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_1B688C5DDEF5444F69159385999208B9"
-        "OwnerKey" = "8:_F509AEA57B434A6CAE45CAF2DA2E19D4"
+        "OwnerKey" = "8:_8B944CFCE3DDE8696084B8481E51BEED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -1726,6 +1726,12 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_1B688C5DDEF5444F69159385999208B9"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_F509AEA57B434A6CAE45CAF2DA2E19D4"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -1739,12 +1745,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_8B944CFCE3DDE8696084B8481E51BEED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_1B688C5DDEF5444F69159385999208B9"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -6788,9 +6788,9 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:MaintenanceDashboardV3.0.0"
+        "ProductName" = "8:MaintenanceDashboardV3.1.1"
         "ProductCode" = "8:{FD6E4DDA-BFC2-421F-BD1F-1CC823BEB6B8}"
-        "PackageCode" = "8:{436EF740-F9CB-40CC-B514-B499946762DA}"
+        "PackageCode" = "8:{F2701E6C-7F80-4A1C-B831-EAD36F3E90F9}"
         "UpgradeCode" = "8:{6ED766CC-F6E7-4636-9FE3-36D0F64442E9}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

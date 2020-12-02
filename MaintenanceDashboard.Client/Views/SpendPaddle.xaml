@@ -23,7 +23,7 @@
 
                 <ContentControl Style="{StaticResource AddingRecordGridTemplete}" Grid.Row="0"/>
 
-                <StackPanel Grid.Row="0"  Style="{StaticResource AddingRecordDataTemplete}" VerticalAlignment="Center">
+                <StackPanel Grid.Row="0"  Style="{StaticResource AddingRecordDataTemplete}" VerticalAlignment="Top" Margin="0 50">
                     <WrapPanel>
                         <materialDesign:PackIcon Kind="User" VerticalAlignment="Center" Width="30" Height="30"/>
                         <ComboBox Width="220"  DataContext="{Binding EmployeeViewModel}" materialDesign:HintAssist.Hint="Wydający pracownik" 
@@ -76,7 +76,7 @@
                         <TextBox  Width="220" materialDesign:HintAssist.Hint="Opis interwencji"
                               materialDesign:HintAssist.HelperText="Pole musi być wypełnione"
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"
-                              Text="{Binding DescriptionIntervention, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+                              Text="{Binding SelectedReceivedPaddle.DescriptionIntervention, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
                     </WrapPanel>
 
 
@@ -88,33 +88,29 @@
                               Margin="10"/>
                     </WrapPanel>
 
-
-                    <WrapPanel>
-                        <materialDesign:PackIcon Kind="NoteTextOutline" VerticalAlignment="Center" Width="30" Height="30"/>
-                        <TextBox  Width="220" materialDesign:HintAssist.Hint="Uwagi"
-                              Text="{Binding SelectedReceivedPaddle.Comments}"
-                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"/>
-                    </WrapPanel>
-
                     <WrapPanel VerticalAlignment="Bottom" HorizontalAlignment="Center">
                     <Button Height="25"  Background="#FF0069C0" BorderBrush="#FF0069C0"  Width="110" Content="WYDAJ" 
                             Margin="5" Command="{Binding SpendCommand}" />
-                        <Button Height="25" FontSize="12" Margin="5" Width="147" 
-                      Background="#FF0069C0" BorderBrush="#FF0069C0" Content="GENERUJ RAPORT" Command="{Binding ShowDetailsCommand}"/>
+                   
                     </WrapPanel>
                 </StackPanel>
 
-                <DataGrid ItemsSource="{Binding ReceivedPaddles}" SelectedItem="{Binding SelectedReceivedPaddle}"  Margin="10,10,0,10" FontSize="11" 
+                <StackPanel Height="500" Width="580" HorizontalAlignment="Left"  Margin="10,10,0,10"  Grid.Column="1">
+                    <TextBlock Text="Paletki na warsztacie" HorizontalAlignment="Center" VerticalAlignment="Top"
+                           FontSize="16"  Foreground="Gray" />
+
+                    <DataGrid ItemsSource="{Binding ReceivedPaddles}" SelectedItem="{Binding SelectedReceivedPaddle}"  Margin="10,10,0,10" FontSize="11" 
                           Grid.Column="1" Background="White" AutoGenerateColumns="False" IsReadOnly="True" HorizontalAlignment="Left" Height="500" Width="580">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Numer" Binding="{Binding Paddle.BarcodeNumber}"/>
-                        <DataGridTextColumn Header="Data dodania" Binding="{Binding ReceivedDate}"/>
-                        <DataGridTextColumn Header="Planowana naprawa" Binding="{Binding PlannedRepairDate}"/>
-                        <DataGridTextColumn Header="Akcja" Binding="{Binding ActivityPerformed}"/>
-                        <DataGridTextColumn Header="Przyjmujący pracownik" Binding="{Binding ReceivingEmployee}"/>
-                        <DataGridTextColumn Header="Uwagi" Binding="{Binding Comments}"/>
-                    </DataGrid.Columns>
-                </DataGrid>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Numer" Binding="{Binding Paddle.BarcodeNumber}"/>
+                            <DataGridTextColumn Header="Data dodania" Binding="{Binding ReceivedDate}"/>
+                            <DataGridTextColumn Header="Planowana naprawa" Binding="{Binding PlannedRepairDate}"/>
+                            <DataGridTextColumn Header="Akcja" Binding="{Binding ActivityPerformed}"/>
+                            <DataGridTextColumn Header="Przyjmujący pracownik" Binding="{Binding ReceivingEmployee}"/>
+                            <DataGridTextColumn Header="Opis interwencji" Binding="{Binding DescriptionIntervention}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </StackPanel>
             </Grid>
         </Grid>
     </Grid>

@@ -67,9 +67,9 @@
 
                 <WrapPanel Grid.Row="6" Grid.Column="0">
                     <materialDesign:PackIcon Kind="NoteTextOutline" VerticalAlignment="Center" Width="30" Height="30"/>
-                    <TextBox  Width="220" materialDesign:HintAssist.Hint="Uwagi" 
+                    <TextBox  Width="220" materialDesign:HintAssist.Hint="Opis interwencji" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"
-                              Text="{Binding Comments}"/>
+                              Text="{Binding DescriptionIntervention}"/>
                 </WrapPanel>
 
                 <Button Height="25"  Background="#FF0069C0" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2"

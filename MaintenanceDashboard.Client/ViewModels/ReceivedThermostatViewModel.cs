@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using MaintenanceDashboard.Client.Interfaces;
-using MaintenanceDashboard.Client.Views;
 using MaintenanceDashboard.Common;
 using MaintenanceDashboard.Data.API;
 using MaintenanceDashboard.Data.Models;
@@ -22,15 +18,13 @@ namespace MaintenanceDashboard.Client.ViewModels
         public ThermostatViewModel ThermostatViewModel { get; set; }
         public string CurrentLocation { get; set; }
 
-        public string BarcodeNumber { get; set; } 
+        public string BarcodeNumber { get; set; }
         public string DescriptionIntervention { get; set; }
         public DateTime ReceivedDate { get; set; } = DateTime.Now;
         public string RepairDate { get; set; } = DateTime.Now.ToString(Resources.DateTimePattern);
         public DateTime PlannedRepairDate { get; set; } = DateTime.Now.AddDays(2);
-        public string Comments { get; set; }
         public string ActivityPerformed { get; set; }
         public string LastLocation { get; set; }
-        private ComponentDetailsViewModel childViewModel;
 
         private bool _connectedSuccessfully;
         public bool ConnectedSuccessfully
@@ -61,11 +55,10 @@ namespace MaintenanceDashboard.Client.ViewModels
             ReceivedThermostats = new ObservableCollection<ReceivedThermostat>();
             EmployeeViewModel = new EmployeeViewModel(new EmployeeContext());
             ThermostatViewModel = new ThermostatViewModel(new ThermostatContext());
-            
+
             EmployeeViewModel.GetAll();
             GetAll();
 
-            childViewModel = new ComponentDetailsViewModel();
         }
 
         public ActionCommand ReceiveCommand
@@ -86,14 +79,6 @@ namespace MaintenanceDashboard.Client.ViewModels
             }
         }
 
-        public ActionCommand ShowDetailsCommand
-        {
-            get
-            {
-                return new ActionCommand(p => ShowDetails(),
-                                         p => SelectedReceivedThermostat != null);
-            }
-        }
 
         public void Receive()
         {
@@ -104,17 +89,19 @@ namespace MaintenanceDashboard.Client.ViewModels
                 ReceivedDate = ReceivedDate.ToString(Resources.DateTimePattern),
                 ActivityPerformed = ActivityPerformed,
                 PlannedRepairDate = PlannedRepairDate.ToString(Resources.DateTimePattern),
-                Comments = Comments,
+                DescriptionIntervention = DescriptionIntervention,
                 LastLocation = LastLocation
             };
 
             context.SetCurrentLocation(receivedThermostat, "Warsztat");
             
-            if(receivedThermostat.ActivityPerformed == "Awaria")
+            if (receivedThermostat.ActivityPerformed == "Awaria")
             {
                 context.SetCurrentStatus(receivedThermostat, "Awaria");
             }
-            
+            else
+                context.SetCurrentStatus(receivedThermostat, "W czasie: "+ receivedThermostat.ActivityPerformed.ToString());
+
             context.Receive(receivedThermostat);
 
             ConnectedSuccessfully = true;
@@ -128,26 +115,36 @@ namespace MaintenanceDashboard.Client.ViewModels
                 ReceivedDate = SelectedReceivedThermostat.ReceivedDate,
                 ActivityPerformed = SelectedReceivedThermostat.ActivityPerformed,
                 RepairDate = RepairDate,
-                Comments = SelectedReceivedThermostat.Comments,
-                DescriptionIntervention = DescriptionIntervention,
+                DescriptionIntervention = SelectedReceivedThermostat.DescriptionIntervention,
                 LastLocation = SelectedReceivedThermostat.LastLocation,
                 ReceivingEmployee = SelectedReceivedThermostat.ReceivingEmployee,
                 SpendingEmployee = String.Format("{0} {1}", EmployeeViewModel.SelectedEmployee.FirstName, EmployeeViewModel.SelectedEmployee.LastName)
             };
-            context.Spend(spendedThermostat);
-
-            context.SetLastPreventionDate(SelectedReceivedThermostat);
-            context.SetLastWashDate(SelectedReceivedThermostat);
-            context.SetCurrentLocation(SelectedReceivedThermostat, CurrentLocation);
-            context.SetCurrentStatus(SelectedReceivedThermostat, "Sprawny");
-
-            if (SelectedReceivedThermostat != null)
+            
+            if (CurrentLocation != "Warsztat") //If the release on the machine it seems
             {
-                context.Remove(SelectedReceivedThermostat);
-                ReceivedThermostats.Remove(SelectedReceivedThermostat);
-                SelectedReceivedThermostat = null;
-            }
+                context.Spend(spendedThermostat);
+                context.SetLastPreventionDate(SelectedReceivedThermostat);
+                context.SetLastWashDate(SelectedReceivedThermostat);
+                context.SetCurrentLocation(SelectedReceivedThermostat, CurrentLocation);
+                context.SetCurrentStatus(SelectedReceivedThermostat, "Sprawny");
 
+                if (SelectedReceivedThermostat != null)
+                {
+                    context.Remove(SelectedReceivedThermostat);
+                    ReceivedThermostats.Remove(SelectedReceivedThermostat);
+                    SelectedReceivedThermostat = null;
+                }
+            }
+            else  //If the relese for the workshop take back
+            {
+                context.Update(SelectedReceivedThermostat);
+                
+                context.SetLastPreventionDate(SelectedReceivedThermostat);
+                context.SetLastWashDate(SelectedReceivedThermostat);
+                context.SetCurrentLocation(SelectedReceivedThermostat, CurrentLocation);
+                context.SetCurrentStatus(SelectedReceivedThermostat, "Sprawny");
+            }
             ConnectedSuccessfully = true;
         }
 
@@ -171,31 +168,11 @@ namespace MaintenanceDashboard.Client.ViewModels
             return false;
         }
 
-        public void ShowDetails()
-        {
-            ComponentDetailsWindow componentFormInfoControl = new ComponentDetailsWindow()
-            {
-                DataContext = childViewModel
-            };
-
-            childViewModel.SelectedComponent.BarcodeNumber = SelectedReceivedThermostat.Thermostat.BarcodeNumber;
-            childViewModel.SelectedComponent.ActivityPerformed = SelectedReceivedThermostat.ActivityPerformed;
-            childViewModel.SelectedComponent.Comments = SelectedReceivedThermostat.Comments;
-            childViewModel.SelectedComponent.ReceivedDate = SelectedReceivedThermostat.ReceivedDate;
-            childViewModel.SelectedComponent.DescriptionIntervention = DescriptionIntervention;
-            childViewModel.SelectedComponent.ReceivingEmployee = SelectedReceivedThermostat.ReceivingEmployee;
-            childViewModel.SelectedComponent.LastLocation = SelectedReceivedThermostat.LastLocation;
-            childViewModel.SelectedComponent.SerialNumber = SelectedReceivedThermostat.Thermostat.SerialNumber;
-            childViewModel.SelectedComponent.SpendingEmployee = "----";
-            childViewModel.SelectedComponent.RepairDate = "-----";
-
-            componentFormInfoControl.Show();
-        }
 
         private bool IsValidSpendedThermostat()
         {
             if (SelectedReceivedThermostat != null
-                && !String.IsNullOrWhiteSpace(DescriptionIntervention)
+                && !String.IsNullOrWhiteSpace(SelectedReceivedThermostat.DescriptionIntervention)
                 && EmployeeViewModel.SelectedEmployee != null
                 && !String.IsNullOrWhiteSpace(CurrentLocation))
                 return true;

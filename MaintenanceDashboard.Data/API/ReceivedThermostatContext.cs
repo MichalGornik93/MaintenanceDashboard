@@ -46,6 +46,20 @@ namespace MaintenanceDashboard.Data.API
             context.SaveChanges();
         }
 
+        public void Update(ReceivedThermostat receivedThermostat)
+        {
+            var entity = context.ReceivedThermostats
+                .Find(receivedThermostat.Id);
+
+            if (entity == null)
+            {
+                throw new NotImplementedException("Handle appropriately for your API design.");
+            }
+
+            context.Entry(entity).CurrentValues.SetValues(receivedThermostat);
+            context.SaveChanges();
+        }
+
         public void Remove(ReceivedThermostat receivedThermostat)
         {
             context.ReceivedThermostats.Remove(receivedThermostat);
@@ -68,7 +82,7 @@ namespace MaintenanceDashboard.Data.API
 
         public void SetLastWashDate(ReceivedThermostat receivedThermostat)
         {
-            if (receivedThermostat.ActivityPerformed == "Plukanie termostatu")
+            if (receivedThermostat.ActivityPerformed == "Plukanie termostatu" || receivedThermostat.ActivityPerformed == "Awaria")
             {
                 var t =
                     (from c in context.Thermostats

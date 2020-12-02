@@ -73,6 +73,10 @@
     <Compile Include="Migrations\202011021020286_AddedCurrentStatusPropertyToThermostatTable.designer.cs">
       <DependentUpon>202011021020286_AddedCurrentStatusPropertyToThermostatTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202012021111297_UpdatedDecriptionInterventionProperty.cs" />
+    <Compile Include="Migrations\202012021111297_UpdatedDecriptionInterventionProperty.designer.cs">
+      <DependentUpon>202012021111297_UpdatedDecriptionInterventionProperty.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Employee.cs" />
     <Compile Include="API\EmployeeContext.cs" />
     <Compile Include="Models\ReceivedPaddle.cs" />
@@ -313,6 +317,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011021020286_AddedCurrentStatusPropertyToThermostatTable.resx">
       <DependentUpon>202011021020286_AddedCurrentStatusPropertyToThermostatTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012021111297_UpdatedDecriptionInterventionProperty.resx">
+      <DependentUpon>202012021111297_UpdatedDecriptionInterventionProperty.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

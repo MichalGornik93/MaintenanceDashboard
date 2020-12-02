@@ -43,7 +43,6 @@
                         <DataGridTextColumn Header="Wydający pracownik" Binding="{Binding SpendingEmployee}"/>
                         <DataGridTextColumn Header="Lokalizacja" Binding="{Binding LastLocation}"/>
                         <DataGridTextColumn Header="Opis interwencji" Binding="{Binding DescriptionIntervention}" Width="250"/>
-                        <DataGridTextColumn Header="Komentarz" Binding="{Binding Comments}" Width="250"/>
                     </DataGrid.Columns>
                 </DataGrid>
                 

@@ -85,10 +85,8 @@ namespace MaintenanceDashboard.Client.ViewModels
             };
             childViewModel.SelectedComponent.BarcodeNumber = SelectedSpendedPaddle.Paddle.BarcodeNumber;
             childViewModel.SelectedComponent.ActivityPerformed = SelectedSpendedPaddle.ActivityPerformed;
-            childViewModel.SelectedComponent.Comments = SelectedSpendedPaddle.Comments;
             childViewModel.SelectedComponent.RepairDate = SelectedSpendedPaddle.RepairDate;
             childViewModel.SelectedComponent.ReceivedDate = SelectedSpendedPaddle.ReceivedDate;
-            childViewModel.SelectedComponent.DescriptionIntervention = SelectedSpendedPaddle.DescriptionIntervention;
             childViewModel.SelectedComponent.ReceivingEmployee = SelectedSpendedPaddle.ReceivingEmployee;
             childViewModel.SelectedComponent.SpendingEmployee = SelectedSpendedPaddle.SpendingEmployee;
             childViewModel.SelectedComponent.DescriptionIntervention = SelectedSpendedPaddle.DescriptionIntervention;
