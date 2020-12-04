@@ -93,17 +93,25 @@ namespace MaintenanceDashboard.Client.ViewModels
                 LastLocation = LastLocation
             };
 
-            context.SetCurrentLocation(receivedThermostat, "Warsztat");
-            
+            if (!context.IsAccepted(BarcodeNumber))
+            {
+                context.Receive(receivedThermostat);
+                
+            }
+            else
+            {
+                context.UpdateOnReceive(receivedThermostat);
+            }
+
             if (receivedThermostat.ActivityPerformed == "Awaria")
             {
                 context.SetCurrentStatus(receivedThermostat, "Awaria");
             }
             else
-                context.SetCurrentStatus(receivedThermostat, "W czasie: "+ receivedThermostat.ActivityPerformed.ToString());
+                context.SetCurrentStatus(receivedThermostat, "W czasie: " + receivedThermostat.ActivityPerformed.ToString());
 
-            context.Receive(receivedThermostat);
-
+            context.SetCurrentLocation(receivedThermostat, "Warsztat");
+            
             ConnectedSuccessfully = true;
         }
 
@@ -120,14 +128,15 @@ namespace MaintenanceDashboard.Client.ViewModels
                 ReceivingEmployee = SelectedReceivedThermostat.ReceivingEmployee,
                 SpendingEmployee = String.Format("{0} {1}", EmployeeViewModel.SelectedEmployee.FirstName, EmployeeViewModel.SelectedEmployee.LastName)
             };
-            
+
+            context.SetLastPreventionDate(SelectedReceivedThermostat);
+            context.SetLastWashDate(SelectedReceivedThermostat);
+            context.SetCurrentLocation(SelectedReceivedThermostat, CurrentLocation);
+            context.SetCurrentStatus(SelectedReceivedThermostat, "Sprawny");
+
             if (CurrentLocation != "Warsztat") //If the release on the machine it seems
             {
                 context.Spend(spendedThermostat);
-                context.SetLastPreventionDate(SelectedReceivedThermostat);
-                context.SetLastWashDate(SelectedReceivedThermostat);
-                context.SetCurrentLocation(SelectedReceivedThermostat, CurrentLocation);
-                context.SetCurrentStatus(SelectedReceivedThermostat, "Sprawny");
 
                 if (SelectedReceivedThermostat != null)
                 {
@@ -138,13 +147,21 @@ namespace MaintenanceDashboard.Client.ViewModels
             }
             else  //If the relese for the workshop take back
             {
-                context.Update(SelectedReceivedThermostat);
-                
-                context.SetLastPreventionDate(SelectedReceivedThermostat);
-                context.SetLastWashDate(SelectedReceivedThermostat);
-                context.SetCurrentLocation(SelectedReceivedThermostat, CurrentLocation);
-                context.SetCurrentStatus(SelectedReceivedThermostat, "Sprawny");
+                var receivedThermostat = new ReceivedThermostat
+                {
+                    ThermostatId = SelectedReceivedThermostat.ThermostatId,
+                    ReceivedDate = SelectedReceivedThermostat.ReceivedDate,
+                    PlannedRepairDate = "n/d",
+                    ActivityPerformed = "Do wydania",
+                    DescriptionIntervention = null,
+                    LastLocation = SelectedReceivedThermostat.LastLocation,
+                    ReceivingEmployee = SelectedReceivedThermostat.ReceivingEmployee
+                };
+
+                context.UpdateOnSpend(receivedThermostat);
+                context.Spend(spendedThermostat);
             }
+
             ConnectedSuccessfully = true;
         }
 
@@ -188,8 +205,8 @@ namespace MaintenanceDashboard.Client.ViewModels
                 return "Niepoprawna składnia ciągu {Ter...}";
             else if (context.IsExistInDb(BarcodeNumber))
                 return "Termostat nie istnieje w bazie danych";
-            else if (context.IsAccepted(BarcodeNumber))
-                return "Termostat jest już przyjęty";
+            //else if (context.IsAccepted(BarcodeNumber))
+            //    return "Termostat jest już przyjęty";
             return base.OnValidate(propertyName);
         }
 

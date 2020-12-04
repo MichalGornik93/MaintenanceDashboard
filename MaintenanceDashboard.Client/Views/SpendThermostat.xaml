@@ -97,7 +97,7 @@
 
                     <WrapPanel Grid.Column="0" Grid.Row="3">
                         <materialDesign:PackIcon Kind="LightningBoltOutline" VerticalAlignment="Center" Width="30" Height="30"/>
-                        <TextBox  Width="220" materialDesign:HintAssist.Hint="Akcja" IsReadOnly="True" 
+                        <TextBox  Width="220" materialDesign:HintAssist.Hint="Akcja" 
                                   ToolTip="W celu wypełnienia pola wybierz paletke z listy obok"
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="10"
                               Text="{Binding SelectedReceivedThermostat.ActivityPerformed}"
@@ -134,9 +134,10 @@
                            Background="White" AutoGenerateColumns="False" IsReadOnly="True" >
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Numer" Binding="{Binding Thermostat.BarcodeNumber}"/>
-                            <DataGridTextColumn Header="Data dodania" Binding="{Binding ReceivedDate}"/>
                             <DataGridTextColumn Header="Status" Binding="{Binding Thermostat.CurrentStatus}"/>
                             <DataGridTextColumn Header="Akcja" Binding="{Binding ActivityPerformed}"/>
+                            <DataGridTextColumn Header="Data dodania" Binding="{Binding ReceivedDate}"/>
+                            <DataGridTextColumn Header="Planowana data naprawy" Binding="{Binding PlannedRepairDate}"/>
                             <DataGridTextColumn Header="Przyjmujący pracownik" Binding="{Binding ReceivingEmployee}"/>
                             <DataGridTextColumn Header="Aktualna lokalizacja" Binding="{Binding Thermostat.CurrentLocation}"/>
                             <DataGridTextColumn Header="Ostatnia lokalizacja" Binding="{Binding LastLocation}"/>

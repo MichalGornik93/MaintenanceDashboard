@@ -46,18 +46,34 @@ namespace MaintenanceDashboard.Data.API
             context.SaveChanges();
         }
 
-        public void Update(ReceivedThermostat receivedThermostat)
+        public void UpdateOnSpend(ReceivedThermostat receivedThermostat)
+        {
+
+            var entity = context.ReceivedThermostats
+                .Where(c => c.ThermostatId == receivedThermostat.ThermostatId)
+                .FirstOrDefault();
+
+            receivedThermostat.Id = entity.Id;
+            if (entity != null)
+            {
+                context.Entry(entity).CurrentValues.SetValues(receivedThermostat);
+                context.SaveChanges();
+            }
+        }
+
+        public void UpdateOnReceive(ReceivedThermostat receivedThermostat)
         {
             var entity = context.ReceivedThermostats
-                .Find(receivedThermostat.Id);
+                .Where(c => c.ThermostatId == receivedThermostat.ThermostatId)
+                .FirstOrDefault();
 
-            if (entity == null)
+            receivedThermostat.Id = entity.Id;
+            if(entity !=null)
             {
-                throw new NotImplementedException("Handle appropriately for your API design.");
+                context.Entry(entity).CurrentValues.SetValues(receivedThermostat);
+                context.SaveChanges();
             }
 
-            context.Entry(entity).CurrentValues.SetValues(receivedThermostat);
-            context.SaveChanges();
         }
 
         public void Remove(ReceivedThermostat receivedThermostat)
