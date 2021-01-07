@@ -89,9 +89,9 @@
                     </WrapPanel>
 
                     <WrapPanel VerticalAlignment="Bottom" HorizontalAlignment="Center">
-                    <Button Height="25"  Background="#FF0069C0" BorderBrush="#FF0069C0"  Width="110" Content="WYDAJ" 
+                        <Button Height="25"  Background="#FF0069C0" BorderBrush="#FF0069C0"  Width="110" Content="WYDAJ" 
                             Margin="5" Command="{Binding SpendCommand}" />
-                   
+
                     </WrapPanel>
                 </StackPanel>
 

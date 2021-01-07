@@ -1,13 +1,12 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text.RegularExpressions;
 using MaintenanceDashboard.Data.API;
 using MaintenanceDashboard.Data.Models;
 using MaintenanceDashboard.Common;
-using MaintenanceDashbord.Common.Properties;
 using MaintenanceDashboard.Client.Interfaces;
-using MaintenanceDashboard.Client.Views;
+using MaintenanceDashboard.Common.Properties;
 
 namespace MaintenanceDashboard.Client.ViewModels
 {

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MaintenanceDashbord.Common.Properties {
+namespace MaintenanceDashboard.Common.Properties {
     using System;
     
     

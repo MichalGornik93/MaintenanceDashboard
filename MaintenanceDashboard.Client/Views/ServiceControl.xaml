@@ -25,25 +25,46 @@
                 <Image Source="/Image/Zebra_Logo_W.png" Width="120" Height="40" Margin="15" HorizontalAlignment="Left"/>
             </StackPanel>
             <StackPanel HorizontalAlignment="Center" Margin="25" VerticalAlignment="Center">
-                <TextBox  Text="{Binding IpAddress}" Margin="15" materialDesign:HintAssist.HelperText="IP Address"/>
+                <TextBox  Text="{Binding ZebraIpAddress}" Margin="15" materialDesign:HintAssist.HelperText="IP Address"/>
                 <TextBox  Text="{Binding BarcodeDescription}" Margin="15" materialDesign:HintAssist.HelperText="Opis"/>
                 <TextBox  Text="{Binding BarcodeNumber}" Margin="15" materialDesign:HintAssist.HelperText="Kod kreskowy"/>
                 <Button  Content="Drukuj etykiete" Width="150" Command="{Binding PrintLabelCommand}" FontSize="15" Height="30" Margin="15" 
                          Background="#007CB0" BorderBrush="#007CB0"/>
             </StackPanel>
         </Grid>
+
         <Grid Grid.Column="1" Margin="10">
             <Rectangle Width="450" Height="730" VerticalAlignment="Bottom"  RadiusY="10" RadiusX="10" Fill="White">
                 <Rectangle.Effect>
                     <DropShadowEffect BlurRadius="15" Direction="0" RenderingBias="Quality" ShadowDepth="1" Color="#FFBBBBBB"/>
                 </Rectangle.Effect>
             </Rectangle>
-            <StackPanel Height="70" Margin="0 10 " VerticalAlignment="Top" Background="#007CB0" Width="450">
-                <WrapPanel>
-                    <Image Source="/Image/plc.png" Width="40" Height="40" Margin="15" HorizontalAlignment="Left"/>
-                    <TextBlock Text="S7-1200" Foreground="White" VerticalAlignment="Center" FontSize="23" FontFamily="Arial Black"/>
-                </WrapPanel>
+            <WrapPanel Height="70" Margin="0 10 " VerticalAlignment="Top" Background="#007CB0" Width="450">
+                <Image Source="/Image/plc.png" Width="40" Height="40" Margin="15" HorizontalAlignment="Left"/>
+                <TextBlock Text="S7-1200" Foreground="White" VerticalAlignment="Center" FontSize="23" FontFamily="Arial Black"/>
+            </WrapPanel>
+
+            <StackPanel HorizontalAlignment="Center" Margin="25" VerticalAlignment="Center">
+
+                <StackPanel>
+                    <TextBox  Text="{Binding PlcIpAddress}" Margin="15" materialDesign:HintAssist.HelperText="Ip address" Width="200"/>
+                    <TextBox Text="{Binding ConnectionState}" IsEnabled="False"  Margin="15" Width="200"
+                             materialDesign:HintAssist.Hint="Connection state"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    <TextBox Margin="15" Text="{Binding ScanTime}" IsEnabled="False" Width="200"
+                             materialDesign:HintAssist.Hint="ScanTime"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    <TextBox Margin="15" Text="{Binding Counter}" TextWrapping="Wrap" IsEnabled="False" Width="200"
+                             materialDesign:HintAssist.Hint="Read value"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    <WrapPanel>
+                        <Button  Content="Połącz" Width="100"  FontSize="15" Height="30" Margin="15" Foreground="Black"
+                         Background="White" Command="{Binding ConnectCommand}" BorderBrush="#007CB0"/>
+                        <Button  Content="Rozłącz" Width="100"  FontSize="15" Height="30" Margin="15" 
+                         Background="White" BorderBrush="#007CB0" Foreground="Black" 
+                             Command="{Binding DisconnectCommand}"/>
+                    </WrapPanel>
+                   
+                </StackPanel>
             </StackPanel>
+
 
         </Grid>
     </Grid>

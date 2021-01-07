@@ -1,16 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using MaintenanceDashboard.Client.Interfaces;
 using MaintenanceDashboard.Common;
 using MaintenanceDashboard.Data.API;
 using MaintenanceDashboard.Data.Models;
-using MaintenanceDashbord.Common;
-using MaintenanceDashbord.Common.Properties;
+using MaintenanceDashboard.Common.Properties;
 using Zebra.Sdk.Comm;
 using Zebra.Sdk.Printer;
 

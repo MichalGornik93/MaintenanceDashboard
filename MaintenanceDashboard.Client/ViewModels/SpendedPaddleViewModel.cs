@@ -5,7 +5,6 @@ using System.Collections.ObjectModel;
 using MaintenanceDashboard.Data.API;
 using MaintenanceDashboard.Client.Interfaces;
 using MaintenanceDashboard.Client.Views;
-using MaintenanceDashbord.Common;
 
 namespace MaintenanceDashboard.Client.ViewModels
 {

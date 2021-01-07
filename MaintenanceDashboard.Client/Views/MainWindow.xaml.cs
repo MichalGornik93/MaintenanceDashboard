@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using MaintenanceDashboard.Client.ViewModels;
 using MaintenanceDashboard.Client.Views;
+using MaintenanceDashboard.Data.API;
 
 namespace MaintenanceDashboard.Client
 {
@@ -10,10 +11,9 @@ namespace MaintenanceDashboard.Client
     {
         public MainWindow()
         {
-                InitializeComponent();
-                this.DataContext = new MainWindowViewModel();
+            InitializeComponent();
+            this.DataContext = new MainWindowViewModel();
         }
-
 
         private void btnCloseWindow_Click(object sender, RoutedEventArgs e)
         {

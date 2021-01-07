@@ -12,6 +12,7 @@ namespace MaintenanceDashboard.Data
         public DbSet<Thermostat> Thermostats { get; set; }
         public DbSet<ReceivedThermostat> ReceivedThermostats { get; set; }
         public DbSet<SpendedThermostat> SpendedThermostats { get; set; }
+        public DbSet<RetrievedEquipment> RetrievedEquipments { get; set; }
 
         public DataContext()
             :base("name=DataContext")

@@ -4,12 +4,11 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text.RegularExpressions;
-using MaintenanceDashbord.Common.Properties;
 using MaintenanceDashboard.Data.API;
 using MaintenanceDashboard.Client.Interfaces;
 using Zebra.Sdk.Printer;
-using MaintenanceDashbord.Common;
 using Zebra.Sdk.Comm;
+using MaintenanceDashboard.Common.Properties;
 
 namespace MaintenanceDashboard.Client.ViewModels
 {

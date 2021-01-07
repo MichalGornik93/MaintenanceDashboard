@@ -1,6 +1,6 @@
 ﻿using MaintenanceDashboard.Common;
-using MaintenanceDashbord.Common;
-using MaintenanceDashbord.Common.Properties;
+using MaintenanceDashboard.Common.Properties;
+using MaintenanceDashboard.Common.PlcService;
 using System;
 using Zebra.Sdk.Comm;
 using Zebra.Sdk.Printer;
@@ -9,12 +9,23 @@ namespace MaintenanceDashboard.Client.ViewModels
 {
     public class ServiceControlViewModel : ViewModel
     {
+        S7PlcHelper _s7PlcHelper;
+
+        public ServiceControlViewModel()
+        {
+            _s7PlcHelper = new S7PlcHelper();
+
+            OnPlcServiceValuesRefreshed(null, null);
+            _s7PlcHelper.ValuesRefreshed += OnPlcServiceValuesRefreshed;
+        }
+
+        #region Zebra printer
         private string barcodeDescription;
         public string BarcodeDescription
         {
             get { return barcodeDescription; }
-            set 
-            { 
+            set
+            {
                 barcodeDescription = value;
                 NotifyPropertyChanged();
             }
@@ -24,20 +35,20 @@ namespace MaintenanceDashboard.Client.ViewModels
         public string BarcodeNumber
         {
             get { return barcodeNamber; }
-            set 
-            { 
+            set
+            {
                 barcodeNamber = value;
                 NotifyPropertyChanged();
             }
         }
 
-        private string ipAddress = "192.168.1.1";
-        public string IpAddress
+        private string zebraIpAddress = "192.168.1.1";
+        public string ZebraIpAddress
         {
-            get { return ipAddress; }
+            get { return zebraIpAddress; }
             set
             {
-                ipAddress = value;
+                zebraIpAddress = value;
                 NotifyPropertyChanged();
             }
         }
@@ -47,19 +58,19 @@ namespace MaintenanceDashboard.Client.ViewModels
         {
             get
             {
-                return new ActionCommand(p => PrintLabel(IpAddress));
+                return new ActionCommand(p => PrintLabel(ZebraIpAddress));
             }
         }
 
         private void PrintLabel(string theIpAddress)
         {
-            string ZPL_STRING = Resources.HeadBarcode+ "^FS^FO250,50^A0,25,25^FD"+ BarcodeDescription + "^FS^FO230,90^BCN,100,Y,N,N^FD"+BarcodeNumber+"^FS^XZ";
+            string ZPL_STRING = Resources.HeadBarcode + "^FS^FO250,50^A0,25,25^FD" + BarcodeDescription + "^FS^FO230,90^BCN,100,Y,N,N^FD" + BarcodeNumber + "^FS^XZ";
 
             ZebraPrinter zebraPrinter = ZebraPrintHelper.Connect(new TcpConnection(theIpAddress, TcpConnection.DEFAULT_ZPL_TCP_PORT), PrinterLanguage.ZPL);
 
-            if (ZebraPrintHelper.CheckStatus(zebraPrinter)) 
+            if (ZebraPrintHelper.CheckStatus(zebraPrinter))
             {
-                ZebraPrintHelper.Print(zebraPrinter, ZPL_STRING); 
+                ZebraPrintHelper.Print(zebraPrinter, ZPL_STRING);
 
                 if (ZebraPrintHelper.CheckStatusAfter(zebraPrinter))
                 {
@@ -68,5 +79,89 @@ namespace MaintenanceDashboard.Client.ViewModels
             }
             zebraPrinter = ZebraPrintHelper.Disconnect(zebraPrinter);
         }
+        #endregion
+
+        #region S7Plc
+        private string plcIpAddress = "192.168.1.1";
+        public string PlcIpAddress
+        {
+            get { return plcIpAddress; }
+            set
+            {
+                plcIpAddress = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private ConnectionStates connectionState;
+        public ConnectionStates ConnectionState
+        {
+            get { return connectionState; }
+            set 
+            { 
+                connectionState = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private int counter;
+        public int Counter
+        {
+            get { return counter; }
+            set
+            {
+                counter = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private TimeSpan scanTime;
+        public TimeSpan ScanTime
+        {
+            get { return scanTime; }
+            set 
+            { 
+                scanTime = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+
+        public ActionCommand ConnectCommand
+        {
+            get
+            {
+                return new ActionCommand(p => Connect());
+            }
+        }
+
+
+        public ActionCommand DisconnectCommand
+        {
+            get
+            {
+                return new ActionCommand(p => Disconnect());
+            }
+        }
+
+
+        private void Connect()
+        {
+            _s7PlcHelper.Connect(PlcIpAddress, 0, 0);
+            
+        }
+
+        private void Disconnect()
+        {
+            _s7PlcHelper.Disconnect();
+        }
+
+        private void OnPlcServiceValuesRefreshed(object sender, EventArgs e)
+        {
+            ConnectionState = _s7PlcHelper.ConnectionState;
+            Counter = _s7PlcHelper.Counter;
+            ScanTime = _s7PlcHelper.ScanTime;
+        }
+        #endregion
     }
 }

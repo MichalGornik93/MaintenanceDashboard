@@ -1,6 +1,6 @@
-﻿using System;
+﻿using MaintenanceDashboard.Common.Properties;
+using System;
 using System.Text.RegularExpressions;
-using MaintenanceDashbord.Common.Properties;
 
 namespace MaintenanceDashboard.Data.API
 {

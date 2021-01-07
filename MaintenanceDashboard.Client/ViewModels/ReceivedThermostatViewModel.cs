@@ -6,7 +6,7 @@ using MaintenanceDashboard.Client.Interfaces;
 using MaintenanceDashboard.Common;
 using MaintenanceDashboard.Data.API;
 using MaintenanceDashboard.Data.Models;
-using MaintenanceDashbord.Common.Properties;
+using MaintenanceDashboard.Common.Properties;
 
 namespace MaintenanceDashboard.Client.ViewModels
 {

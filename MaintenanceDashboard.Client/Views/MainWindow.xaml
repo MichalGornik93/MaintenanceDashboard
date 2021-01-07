@@ -25,7 +25,6 @@
                             Orientation="Horizontal" Margin="0,0,10,0" 
                             Grid.Column="1">
 
-                    <TextBlock Text="{Binding Test}"/>
                     <StackPanel VerticalAlignment="Center" Margin="7">
                         <materialDesign:PopupBox StaysOpen="True" HorizontalAlignment="Center">
                             <materialDesign:PopupBox.ToggleContent>
@@ -91,14 +90,15 @@
 
         <Grid Margin="330 20 10 10">
             <Grid x:Name="GridPrincipal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Image Source="Image/Zenek.png"/>
+                <Image Source="/Image/Zenek.png" />
             </Grid>
         </Grid>
 
         <StackPanel Width="320" HorizontalAlignment="Left" Background="#ff222222">
             <Grid Background="White" Margin="10">
-                <Image Source="Image/Logo.jpg"/>
+
             </Grid>
+            <Image Source="/Image/Logo.jpg" />
 
             <Grid HorizontalAlignment="Left" Background="#ff222222" VerticalAlignment="Bottom">
                 <materialDesign:TransitioningContent x:Name="TrainsitioningContentSlide" 

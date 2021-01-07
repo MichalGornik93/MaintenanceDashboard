@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MaintenanceDashboard.Data.API;
 using MaintenanceDashboard.Data.Models;
 
 namespace MaintenanceDashboard.Data.API

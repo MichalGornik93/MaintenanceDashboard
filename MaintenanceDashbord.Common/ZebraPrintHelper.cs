@@ -4,7 +4,7 @@ using System.Threading;
 using Zebra.Sdk.Comm;
 using Zebra.Sdk.Printer;
 
-namespace MaintenanceDashbord.Common
+namespace MaintenanceDashboard.Common
 {
     public class ZebraPrintHelper 
     {

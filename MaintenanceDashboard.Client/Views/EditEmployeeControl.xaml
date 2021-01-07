@@ -76,10 +76,7 @@
                               Content="USUŃ"  Margin="10" Grid.Column="1"
                               Command="{Binding RemoveCommand}"/>
                 </Grid>
-
             </StackPanel>
-
-           
         </Grid>
     </Grid>
 </UserControl>
