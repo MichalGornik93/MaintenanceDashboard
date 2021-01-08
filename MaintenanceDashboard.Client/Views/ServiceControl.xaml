@@ -52,8 +52,6 @@
                              materialDesign:HintAssist.Hint="Connection state"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                     <TextBox Margin="15" Text="{Binding ScanTime}" IsEnabled="False" Width="200"
                              materialDesign:HintAssist.Hint="ScanTime"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                    <TextBox Margin="15" Text="{Binding Counter}" TextWrapping="Wrap" IsEnabled="False" Width="200"
-                             materialDesign:HintAssist.Hint="Read value"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                     <WrapPanel>
                         <Button  Content="Połącz" Width="100"  FontSize="15" Height="30" Margin="15" Foreground="Black"
                          Background="White" Command="{Binding ConnectCommand}" BorderBrush="#007CB0"/>

@@ -1,21 +1,19 @@
 ﻿using MaintenanceDashboard.Client;
-using MaintenanceDashboard.Common.PlcService;
-using System;
-using System.IO;
+using MaintenanceDashboard.Client.Infrastructure;
 using System.Windows;
 
 namespace MaintenanceDashboard
 {
     public partial class App : Application
     {
-        private eCmmsPlc eCmmsPlc;
+        private smartWorkshopPlc eCmmsPlc;
 
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
             MainWindow window = new MainWindow();
             window.Show();
-            eCmmsPlc = new eCmmsPlc();
+            eCmmsPlc = new smartWorkshopPlc();
         }
 
         public App()

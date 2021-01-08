@@ -9,14 +9,14 @@ namespace MaintenanceDashboard.Client.ViewModels
 {
     public class ServiceControlViewModel : ViewModel
     {
-        S7PlcHelper _s7PlcHelper;
+        smartWorkshopPlcHelper _eCmmsPlcHelper;
 
         public ServiceControlViewModel()
         {
-            _s7PlcHelper = new S7PlcHelper();
+            _eCmmsPlcHelper = new smartWorkshopPlcHelper();
 
             OnPlcServiceValuesRefreshed(null, null);
-            _s7PlcHelper.ValuesRefreshed += OnPlcServiceValuesRefreshed;
+            _eCmmsPlcHelper.ValuesRefreshed += OnPlcServiceValuesRefreshed;
         }
 
         #region Zebra printer
@@ -126,7 +126,6 @@ namespace MaintenanceDashboard.Client.ViewModels
             }
         }
 
-
         public ActionCommand ConnectCommand
         {
             get
@@ -147,20 +146,19 @@ namespace MaintenanceDashboard.Client.ViewModels
 
         private void Connect()
         {
-            _s7PlcHelper.Connect(PlcIpAddress, 0, 0);
+            _eCmmsPlcHelper.Connect(PlcIpAddress, 0, 0);
             
         }
 
         private void Disconnect()
         {
-            _s7PlcHelper.Disconnect();
+            _eCmmsPlcHelper.Disconnect();
         }
 
         private void OnPlcServiceValuesRefreshed(object sender, EventArgs e)
         {
-            ConnectionState = _s7PlcHelper.ConnectionState;
-            Counter = _s7PlcHelper.Counter;
-            ScanTime = _s7PlcHelper.ScanTime;
+            ConnectionState = _eCmmsPlcHelper.ConnectionState;
+            ScanTime = _eCmmsPlcHelper.ScanTime;
         }
         #endregion
     }

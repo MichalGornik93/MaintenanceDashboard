@@ -158,7 +158,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="eCmmsPlc.cs" />
+    <Compile Include="Infrastructure\smartWorkshopPlc.cs" />
     <Compile Include="Interfaces\IRegisterCompontent.cs" />
     <Compile Include="Interfaces\IReceivedComponent.cs" />
     <Compile Include="Interfaces\ISpendedComponent.cs" />
