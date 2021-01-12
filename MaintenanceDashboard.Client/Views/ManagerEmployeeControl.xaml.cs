@@ -1,6 +1,4 @@
-﻿using MaintenanceDashboard.Client.ViewModels;
-using MaintenanceDashboard.Data.API;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 
 namespace MaintenanceDashboard.Client.Views

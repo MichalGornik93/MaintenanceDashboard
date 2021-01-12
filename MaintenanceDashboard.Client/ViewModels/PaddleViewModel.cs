@@ -82,7 +82,7 @@ namespace MaintenanceDashboard.Client.ViewModels
 
             context.Create(paddle);
             ConnectedSuccessfully = true;
-            PrintLabel("192.168.1.1");
+            PrintLabel("192.168.1.4");
         }
 
         public void Update()

@@ -39,18 +39,6 @@ namespace MaintenanceDashboard.Client.ViewModels
             }
         }
 
-        private string test = "Usuń";
-
-        public string Test
-        {
-            get { return test; }
-            set 
-            { 
-                test = value;
-                NotifyPropertyChanged();
-            }
-        }
-
 
         public EmployeeViewModel(EmployeeContext context)
         {

@@ -2,6 +2,7 @@
 using MaintenanceDashboard.Data.Models;
 using MaintenanceDashboard.Common.PlcService;
 using System;
+using System.Threading;
 
 namespace MaintenanceDashboard.Client.Infrastructure
 {
@@ -24,8 +25,8 @@ namespace MaintenanceDashboard.Client.Infrastructure
         {
             var retrievedEquipment = new RetrievedEquipment
             {
-                Name = _smartWorkshopPlcHelper.Employee,
-                Employee = _smartWorkshopPlcHelper.Name,
+                Name = _smartWorkshopPlcHelper.Name,
+                Employee = _smartWorkshopPlcHelper.Employee,
                 Action = _smartWorkshopPlcHelper.Action,
                 Date = DateTime.Now
             };
@@ -33,7 +34,7 @@ namespace MaintenanceDashboard.Client.Infrastructure
             if (_smartWorkshopPlcHelper.SendTrigger == true)
             {
                 _smartWorkshopPlcHelper.DbWrite();
-                context.Create(retrievedEquipment);   
+                context.Create(retrievedEquipment);
             }
         }
     }

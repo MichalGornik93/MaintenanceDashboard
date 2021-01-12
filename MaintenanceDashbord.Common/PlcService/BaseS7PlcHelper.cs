@@ -7,7 +7,7 @@ namespace MaintenanceDashboard.Common.PlcService
     public abstract class BaseS7PlcHelper
     {
         internal readonly S7Client _client;
-        private readonly System.Timers.Timer _timer;
+        private readonly Timer _timer;
         internal DateTime _lastScanTime;
 
         internal volatile object _locker = new object();

@@ -42,7 +42,7 @@ namespace MaintenanceDashboard.Client.ViewModels
             }
         }
 
-        private string zebraIpAddress = "192.168.1.1";
+        private string zebraIpAddress = "192.168.1.4";
         public string ZebraIpAddress
         {
             get { return zebraIpAddress; }

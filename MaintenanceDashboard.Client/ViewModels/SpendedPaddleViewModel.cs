@@ -26,8 +26,6 @@ namespace MaintenanceDashboard.Client.ViewModels
             }
         }
 
-
-
         public SpendedPaddleViewModel(SpendedPaddleContext context)
         {
             this.context = context;

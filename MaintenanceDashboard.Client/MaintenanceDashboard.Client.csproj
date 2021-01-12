@@ -169,12 +169,22 @@
     <Compile Include="ViewModels\EmployeeViewModel.cs" />
     <Compile Include="ViewModels\PaddleViewModel.cs" />
     <Compile Include="ViewModels\ReceivedThermostatViewModel.cs" />
+    <Compile Include="ViewModels\RetrievedEquipmentViewModel.cs" />
     <Compile Include="ViewModels\ServiceControlViewModel.cs" />
     <Compile Include="ViewModels\SpendedPaddleViewModel.cs" />
     <Compile Include="ViewModels\SpendedThermostatViewModel.cs" />
     <Compile Include="ViewModels\ThermostatViewModel.cs" />
     <Compile Include="Views\ComponentDetailsWindow.xaml.cs">
       <DependentUpon>ComponentDetailsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReceiveManulRetreivedEquipmentControl.xaml.cs">
+      <DependentUpon>ReceiveManulRetreivedEquipmentControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HistoryRetrievedEquipment.xaml.cs">
+      <DependentUpon>HistoryRetrievedEquipment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ManagerRetrievedEquipment.xaml.cs">
+      <DependentUpon>ManagerRetrievedEquipment.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PreventionControl.xaml.cs">
       <DependentUpon>PreventionControl.xaml</DependentUpon>
@@ -234,6 +244,18 @@
       <DependentUpon>SpendThermostat.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\ComponentDetailsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ReceiveManulRetreivedEquipmentControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HistoryRetrievedEquipment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ManagerRetrievedEquipment.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

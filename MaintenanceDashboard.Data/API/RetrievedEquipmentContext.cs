@@ -1,4 +1,6 @@
 ﻿using MaintenanceDashboard.Data.Models;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace MaintenanceDashboard.Data.API
 {
@@ -20,6 +22,20 @@ namespace MaintenanceDashboard.Data.API
         {
             context.RetrievedEquipments.Add(retrievedEquipment);
             context.SaveChanges();
+        }
+
+        public ICollection<RetrievedEquipment> GetAll()
+        {
+            return context.RetrievedEquipments
+                .OrderByDescending(p => p.Date)
+                .ToArray();
+        }
+        public ICollection<RetrievedEquipment> GetFiltredList(string name)
+        {
+            return context.RetrievedEquipments
+                .Where(c => c.Name == name)
+                .OrderByDescending(p => p.Date)
+                .ToArray();
         }
     }
 }
