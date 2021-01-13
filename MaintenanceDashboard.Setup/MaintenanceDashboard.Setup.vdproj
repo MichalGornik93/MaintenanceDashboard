@@ -958,13 +958,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_A630EE40701F491F8D16C8F76FB71896"
+        "OwnerKey" = "8:_30791D5E17D350FAFC8ACB9B298AF21E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_1B688C5DDEF5444F69159385999208B9"
+        "OwnerKey" = "8:_A630EE40701F491F8D16C8F76FB71896"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -977,6 +977,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_8B944CFCE3DDE8696084B8481E51BEED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_1B688C5DDEF5444F69159385999208B9"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -1739,12 +1745,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_505ECA3FAC126503080492884931F427"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_30791D5E17D350FAFC8ACB9B298AF21E"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -6020,9 +6020,9 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:MaintenanceDashboardV4.0.0"
+        "ProductName" = "8:MaintenanceDashboardV4.2.0"
         "ProductCode" = "8:{FD6E4DDA-BFC2-421F-BD1F-1CC823BEB6B8}"
-        "PackageCode" = "8:{7CFFACFF-E4D3-45FF-BF21-59EC3BC2A94D}"
+        "PackageCode" = "8:{F118A86A-A924-4A9A-B430-25FB649C87C7}"
         "UpgradeCode" = "8:{6ED766CC-F6E7-4636-9FE3-36D0F64442E9}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -6033,7 +6033,7 @@
         "Manufacturer" = "8:UTR"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
-        "Title" = "8:MaintenanceDashboardV4.0.0"
+        "Title" = "8:MaintenanceDashboardV4.2.0"
         "Subject" = "8:"
         "ARPCONTACT" = "8:Default Company Name"
         "Keywords" = "8:"

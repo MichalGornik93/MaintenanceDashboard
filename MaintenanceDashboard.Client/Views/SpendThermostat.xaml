@@ -10,11 +10,17 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              d:DataContext="{d:DesignInstance viewModels:ThermostatViewModel}">
     <Grid>
+    
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="49*"/>
             <ColumnDefinition Width="43*"/>
         </Grid.ColumnDefinitions>
         <ContentControl Style="{StaticResource RectangleView}" Grid.ColumnSpan="2"/>
+        <Button x:Name="btnRefreash" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10"
+                            Background="{x:Null}" BorderBrush="{x:Null}" Grid.Column="1" 
+                            Padding="0" Foreground="White" Click="btnRefreash_Click">
+            <materialDesign:PackIcon Kind="Refresh" Width="25" Height="25"/>
+        </Button>
 
         <Grid  Margin="15,80,15, 15" Width="Auto" Height="Auto" Grid.ColumnSpan="2">
             <TextBlock Text="WYDANIE TERMOSTATU" HorizontalAlignment="Center" VerticalAlignment="Top"
@@ -90,7 +96,7 @@
                         <TextBox  Width="220" materialDesign:HintAssist.Hint="Data dodania" IsReadOnly="True" 
                                   ToolTip="W celu wypełnienia pola wybierz paletke z listy obok"
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}"  
-                              Text="{Binding SelectedReceivedThermostat.ReceivedDate}"
+                              Text="{Binding SelectedReceivedThermostat.ReceivedDate, StringFormat=yyyy/MM/dd}"
                               Margin="10"/>
                     </WrapPanel>
 
@@ -117,7 +123,7 @@
                         <materialDesign:PackIcon Kind="CalendarAdd" VerticalAlignment="Center" Width="30" Height="30"/>
                         <TextBox  Width="220" materialDesign:HintAssist.Hint="Data naprawy" IsReadOnly="True" 
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}"  
-                              Text="{Binding RepairDate}"
+                              Text="{Binding RepairDate, StringFormat=yyyy/MM/dd}"
                               Margin="10"/>
                     </WrapPanel>
 
@@ -136,8 +142,7 @@
                             <DataGridTextColumn Header="Numer" Binding="{Binding Thermostat.BarcodeNumber}"/>
                             <DataGridTextColumn Header="Status" Binding="{Binding Thermostat.CurrentStatus}"/>
                             <DataGridTextColumn Header="Akcja" Binding="{Binding ActivityPerformed}"/>
-                            <DataGridTextColumn Header="Data dodania" Binding="{Binding ReceivedDate}"/>
-                            <DataGridTextColumn Header="Planowana data naprawy" Binding="{Binding PlannedRepairDate}"/>
+                            <DataGridTextColumn Header="Data dodania" Binding="{Binding ReceivedDate, StringFormat=yyyy/MM/dd}"/>
                             <DataGridTextColumn Header="Przyjmujący pracownik" Binding="{Binding ReceivingEmployee}"/>
                             <DataGridTextColumn Header="Aktualna lokalizacja" Binding="{Binding Thermostat.CurrentLocation}"/>
                             <DataGridTextColumn Header="Ostatnia lokalizacja" Binding="{Binding LastLocation}"/>

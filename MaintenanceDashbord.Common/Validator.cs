@@ -13,13 +13,5 @@ namespace MaintenanceDashboard.Data.API
             else if (value.Trim().Length == 0)
                 throw new ArgumentException();
         }
-
-        public static void RequireDateTime(string value)
-        {
-            if (value == null)
-                throw new ArgumentNullException();
-            else if (!Regex.IsMatch(value, Resources.DateTimeRegexPattern))
-                throw new ArgumentException("Niepoprawny format daty");
-        }
     }
 }

@@ -82,8 +82,8 @@
                                 </Grid.ColumnDefinitions>
                                 <TextBlock Text="{Binding SelectedComponent.ActivityPerformed}" FontSize="14" Grid.Column="0"/>
                                 <TextBlock Text="{Binding SelectedComponent.LastLocation}" FontSize="14" Grid.Column="1" HorizontalAlignment="Center"/>
-                                <TextBlock Text="{Binding SelectedComponent.ReceivedDate}" FontSize="14" Grid.Column="2" HorizontalAlignment="Center"/>
-                                <TextBlock Text="{Binding SelectedComponent.RepairDate}" FontSize="14" Grid.Column="3" HorizontalAlignment="Center" />
+                                <TextBlock Text="{Binding SelectedComponent.ReceivedDate, StringFormat=yyyy/MM/dd}" FontSize="14" Grid.Column="2" HorizontalAlignment="Center"/>
+                                <TextBlock Text="{Binding SelectedComponent.RepairDate, StringFormat=yyyy/MM/dd}" FontSize="14" Grid.Column="3" HorizontalAlignment="Center" />
                             </Grid>
                         </ListViewItem>
                        

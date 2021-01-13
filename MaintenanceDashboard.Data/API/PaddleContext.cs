@@ -23,8 +23,7 @@ namespace MaintenanceDashboard.Data.API
         {
             Validator.RequireString(paddle.BarcodeNumber);
             Validator.RequireString(paddle.Model);
-            Validator.RequireDateTime(paddle.AddedDate);
-
+            
             context.Paddles.Add(paddle);
             context.SaveChanges();
         }
@@ -64,10 +63,15 @@ namespace MaintenanceDashboard.Data.API
 
         public string FindLastBarcodeNumber()
         {
-            return context.Paddles
+            var result = context.Paddles
                 .OrderByDescending(p => p.Id)
                 .Select(r => r.BarcodeNumber)
-                .First().ToString();
+                .FirstOrDefault();
+
+            if (result != null)
+                return result.ToString();
+            else
+                return "0";
         }
 
         public string GetFirstFreeBarcodeNumber()

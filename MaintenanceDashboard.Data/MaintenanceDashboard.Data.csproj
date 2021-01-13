@@ -86,6 +86,14 @@
     <Compile Include="Migrations\202101060907045_AddedRetrievedEquipmentTable.designer.cs">
       <DependentUpon>202101060907045_AddedRetrievedEquipmentTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101131144081_UpdatedAllDateStringPropertyToDateTime.cs" />
+    <Compile Include="Migrations\202101131144081_UpdatedAllDateStringPropertyToDateTime.designer.cs">
+      <DependentUpon>202101131144081_UpdatedAllDateStringPropertyToDateTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101131249252_DropPlannedRepairDateProperty.cs" />
+    <Compile Include="Migrations\202101131249252_DropPlannedRepairDateProperty.designer.cs">
+      <DependentUpon>202101131249252_DropPlannedRepairDateProperty.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Employee.cs" />
     <Compile Include="API\EmployeeContext.cs" />
     <Compile Include="Models\ReceivedPaddle.cs" />
@@ -336,6 +344,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101060907045_AddedRetrievedEquipmentTable.resx">
       <DependentUpon>202101060907045_AddedRetrievedEquipmentTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101131144081_UpdatedAllDateStringPropertyToDateTime.resx">
+      <DependentUpon>202101131144081_UpdatedAllDateStringPropertyToDateTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101131249252_DropPlannedRepairDateProperty.resx">
+      <DependentUpon>202101131249252_DropPlannedRepairDateProperty.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

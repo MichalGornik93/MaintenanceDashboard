@@ -21,7 +21,7 @@
                         <DataGridTextColumn Header="Nr."  Binding="{Binding AlternationIndex, RelativeSource={RelativeSource AncestorType=DataGridRow}}"/>
                         <DataGridTextColumn Header="Numer" Binding="{Binding BarcodeNumber}"/>
                         <DataGridTextColumn Header="Numer seryjny" Binding="{Binding SerialNumber}"/>
-                        <DataGridTextColumn Header="Ostatnia prewencja" Binding="{Binding LastPrevention}"/>
+                        <DataGridTextColumn Header="Ostatnia prewencja" Binding="{Binding LastPrevention, StringFormat=yyyy/MM/dd}"/>
                         <DataGridTextColumn Header="Model" Binding="{Binding Model}"/>
                         <DataGridTextColumn Header="Akcja" Binding="{Binding PreventionDescription}"/>
                     </DataGrid.Columns>

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace MaintenanceDashboard.Data.Models
@@ -12,8 +13,8 @@ namespace MaintenanceDashboard.Data.Models
         [Required]
         public string Model { get; set; }
         [Required]
-        public string AddedDate { get; set; }
-        public string LastPreventionDate { get; set; }
+        public DateTime AddedDate { get; set; }
+        public DateTime LastPreventionDate { get; set; }
         public string Comments { get; set; }
         public virtual ICollection<ReceivedPaddle> ReceivedPaddles { get; set; }
         public virtual ICollection<SpendedPaddle> SpendedPaddles { get; set; }

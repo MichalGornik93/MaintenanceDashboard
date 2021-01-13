@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace MaintenanceDashboard.Data.Models
@@ -13,11 +14,11 @@ namespace MaintenanceDashboard.Data.Models
         public string SerialNumber { get; set; }
         public string Model { get; set; }
         [Required]
-        public string AddedDate { get; set; }
-        public string LastPreventionDate { get; set; }
+        public DateTime AddedDate { get; set; }
+        public DateTime LastPreventionDate { get; set; }
         public string CurrentLocation { get; set; }
         public string CurrentStatus { get; set; }
-        public string LastWashDate { get; set; }
+        public DateTime LastWashDate { get; set; }
         public string Comments { get; set; }
         public virtual ICollection<ReceivedThermostat> ReceivedThermostats { get; set; }
         public virtual ICollection<SpendedThermostat> SpendedThermostats { get; set; }

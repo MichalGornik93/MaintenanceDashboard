@@ -32,7 +32,7 @@
                         <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                         <DataGridTextColumn Header="Nazwa" Binding="{Binding Name}"/>
                         <DataGridTextColumn Header="Pracownik" Binding="{Binding Employee}"/>
-                        <DataGridTextColumn Header="Data" Binding="{Binding Date}" />
+                        <DataGridTextColumn Header="Data" Binding="{Binding Date, StringFormat=yyyy/MM/dd hh:mm:ss}" />
                         <DataGridTextColumn Header="Czynność" Binding="{Binding Action}"/>
                     </DataGrid.Columns>
                 </DataGrid>

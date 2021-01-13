@@ -23,9 +23,7 @@ namespace MaintenanceDashboard.Data.API
         public void Receive(ReceivedPaddle receivedPaddle)
         {
             Validator.RequireString(receivedPaddle.ReceivingEmployee);
-            Validator.RequireDateTime(receivedPaddle.ReceivedDate);
             Validator.RequireString(receivedPaddle.ActivityPerformed);
-            Validator.RequireDateTime(receivedPaddle.PlannedRepairDate);
             
             context.ReceivedPaddles.Add(receivedPaddle);
             context.SaveChanges();
@@ -33,9 +31,7 @@ namespace MaintenanceDashboard.Data.API
 
         public void Spend(SpendedPaddle spendedPaddle)
         {
-            Validator.RequireDateTime(spendedPaddle.ReceivedDate);
             Validator.RequireString(spendedPaddle.ActivityPerformed);
-            Validator.RequireDateTime(spendedPaddle.RepairDate);
             Validator.RequireString(spendedPaddle.DescriptionIntervention);
             Validator.RequireString(spendedPaddle.ReceivingEmployee);
             Validator.RequireString(spendedPaddle.SpendingEmployee);
@@ -58,7 +54,7 @@ namespace MaintenanceDashboard.Data.API
                     (from c in context.Paddles
                      where c.Id == receivedPaddle.PaddleId
                      select c).First();
-                t.LastPreventionDate = DateTime.Now.ToString(Resources.DateTimePattern);
+                t.LastPreventionDate = DateTime.Now;
 
                 context.SaveChanges();
             }

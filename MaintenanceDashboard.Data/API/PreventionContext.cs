@@ -24,39 +24,16 @@ namespace MaintenanceDashboard.Data.API
         {
             return context.Paddles
                 .ToList()
-                .Where(c =>
-                {
-                    
-                    try
-                    {
-                        return (DateTime.Now - DateTime.ParseExact(c.LastPreventionDate, "yyyy-MM-dd", CultureInfo.InvariantCulture)).TotalDays > 60;
-                    }
-                    catch
-                    {
-                        throw new ArgumentException("Bład rzutowania string na typ Date Time dbo.Paddle, LastPrevention");
-                    }
-                });
-
-
+                .Where(c => (DateTime.Now - c.LastPreventionDate).TotalDays > 60);
         }
 
 
         public IEnumerable<Thermostat> GetToWashThermostat()
         {
             return context.Thermostats
-                .Where(d => d.CurrentLocation == "Warsztat" && d.CurrentStatus !="Awaria")
                 .ToList()
-                .Where(c =>
-                {
-                    try
-                    {
-                        return (DateTime.Now - DateTime.ParseExact(c.LastWashDate, "yyyy-MM-dd", CultureInfo.InvariantCulture)).TotalDays > 30;
-                    }
-                    catch
-                    {
-                        throw new ArgumentException("Bład rzutowania string na typ Date Time dbo.Thermostat, LastWashDate");
-                    }
-                });
+                .Where(d => d.CurrentLocation == "Warsztat" && d.CurrentStatus != "Awaria")
+                .Where(c => (DateTime.Now - c.LastWashDate).TotalDays > 30);
         }
     }
 }

@@ -24,9 +24,6 @@ namespace MaintenanceDashboard.Data.API
             Validator.RequireString(thermostat.BarcodeNumber);
             Validator.RequireString(thermostat.SerialNumber);
             Validator.RequireString(thermostat.Model);
-            Validator.RequireDateTime(thermostat.AddedDate);
-            Validator.RequireDateTime(thermostat.LastPreventionDate);
-            Validator.RequireDateTime(thermostat.LastWashDate);
 
             context.Thermostats.Add(thermostat);
             context.SaveChanges();
@@ -72,10 +69,15 @@ namespace MaintenanceDashboard.Data.API
 
         public string FindLastBarcodeNumber()
         {
-            return context.Thermostats
+            var result= context.Thermostats
                 .OrderByDescending(p => p.Id)
                 .Select(r => r.BarcodeNumber)
-                .First().ToString();
+                .FirstOrDefault();
+
+            if (result != null)
+                return result.ToString();
+            else
+                return "0";
         }
 
     }

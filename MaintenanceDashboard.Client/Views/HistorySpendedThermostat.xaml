@@ -35,8 +35,8 @@
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Numer" Binding="{Binding Thermostat.BarcodeNumber}"/>
                         <DataGridTextColumn Header="Numer seryjny" Binding="{Binding Thermostat.SerialNumber}"/>
-                        <DataGridTextColumn Header="Data przyjecia" Binding="{Binding ReceivedDate}" />
-                        <DataGridTextColumn Header="Data naprawy" Binding="{Binding RepairDate}"/>
+                        <DataGridTextColumn Header="Data przyjecia" Binding="{Binding ReceivedDate, StringFormat=yyyy/MM/dd}" />
+                        <DataGridTextColumn Header="Data naprawy" Binding="{Binding RepairDate, StringFormat=yyyy/MM/dd}"/>
                         <DataGridTextColumn Header="Akcja" Binding="{Binding ActivityPerformed}" />
                         <DataGridTextColumn Header="Przyjmujący pracownik" Binding="{Binding ReceivingEmployee}"/>
                         <DataGridTextColumn Header="Wydający pracownik" Binding="{Binding SpendingEmployee}"/>

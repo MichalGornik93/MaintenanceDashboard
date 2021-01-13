@@ -29,8 +29,8 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Numer" Binding="{Binding BarcodeNumber}"/>
                     <DataGridTextColumn Header="Model" Binding="{Binding Model}"/>
-                    <DataGridTextColumn Header="Data dodania" Binding="{Binding AddedDate}"/>
-                    <DataGridTextColumn Header="Ostatnia prewencja" Binding="{Binding LastPreventionDate}"/>
+                    <DataGridTextColumn Header="Data dodania" Binding="{Binding AddedDate, StringFormat=yyyy/MM/dd}"/>
+                    <DataGridTextColumn Header="Ostatnia prewencja" Binding="{Binding LastPreventionDate, StringFormat=yyyy/MM/dd}"/>
                     <DataGridTextColumn Header="Uwagi" Binding="{Binding Comments}"/>
                 </DataGrid.Columns>
             </DataGrid>
@@ -65,7 +65,7 @@
                     <TextBox  materialDesign:HintAssist.Hint="Data dodania" Width="220" 
                               materialDesign:HintAssist.HelperText=""  IsEnabled="False"
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"
-                              Text="{Binding SelectedPaddle.AddedDate}"/>
+                              Text="{Binding SelectedPaddle.AddedDate, StringFormat=yyyy/MM/dd}"/>
                 </WrapPanel>
 
                 <WrapPanel>
@@ -73,7 +73,7 @@
                     <TextBox  materialDesign:HintAssist.Hint="Data ostatniej prewencji" Width="220" 
                               materialDesign:HintAssist.HelperText=""  IsEnabled="False"
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"
-                              Text="{Binding SelectedPaddle.LastPreventionDate}"/>
+                              Text="{Binding SelectedPaddle.LastPreventionDate, StringFormat=yyyy/MM/dd}"/>
                 </WrapPanel>
 
                 <WrapPanel>

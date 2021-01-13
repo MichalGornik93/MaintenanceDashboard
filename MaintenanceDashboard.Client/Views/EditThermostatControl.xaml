@@ -31,9 +31,9 @@
                     <DataGridTextColumn Header="Numer" Binding="{Binding BarcodeNumber}"/>
                     <DataGridTextColumn Header="Numer seryjny" Binding="{Binding SerialNumber}"/>
                     <DataGridTextColumn Header="Model" Binding="{Binding Model}"/>
-                    <DataGridTextColumn Header="Data dodania" Binding="{Binding AddedDate}"/>
-                    <DataGridTextColumn Header="Ostatnia prewencja" Binding="{Binding LastPreventionDate}"/>
-                    <DataGridTextColumn Header="Ostatnie płukanie" Binding="{Binding LastWashDate}"/>
+                    <DataGridTextColumn Header="Data dodania" Binding="{Binding AddedDate, StringFormat=yyyy/MM/dd}"/>
+                    <DataGridTextColumn Header="Ostatnia prewencja" Binding="{Binding LastPreventionDate, StringFormat=yyyy/MM/dd}"/>
+                    <DataGridTextColumn Header="Ostatnie płukanie" Binding="{Binding LastWashDate, StringFormat=yyyy/MM/dd}"/>
                     <DataGridTextColumn Header="Lokalizacja" Binding="{Binding CurrentLocation}"/>
                     <DataGridTextColumn Header="Uwagi" Binding="{Binding Comments}"/>
                 </DataGrid.Columns>
@@ -74,7 +74,7 @@
                     <TextBox  materialDesign:HintAssist.Hint="Data dodania" Width="220" 
                               materialDesign:HintAssist.HelperText=""  IsEnabled="False"
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"
-                              Text="{Binding SelectedThermostat.AddedDate}"/>
+                              Text="{Binding SelectedThermostat.AddedDate, StringFormat=yyyy/MM/dd}"/>
                 </WrapPanel>
 
                 <WrapPanel>
@@ -82,7 +82,7 @@
                     <TextBox  materialDesign:HintAssist.Hint="Data ostatniej prewencji" Width="220" 
                               materialDesign:HintAssist.HelperText=""  IsEnabled="False"
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"
-                              Text="{Binding SelectedThermostat.LastPreventionDate}"/>
+                              Text="{Binding SelectedThermostat.LastPreventionDate, StringFormat=yyyy/MM/dd}"/>
                 </WrapPanel>
 
                 <WrapPanel>
@@ -90,7 +90,7 @@
                     <TextBox  materialDesign:HintAssist.Hint="Data ostatniego płukania" Width="220" 
                               materialDesign:HintAssist.HelperText=""  IsEnabled="False"
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10"
-                              Text="{Binding SelectedThermostat.LastWashDate}"/>
+                              Text="{Binding SelectedThermostat.LastWashDate, StringFormat=yyyy/MM/dd}"/>
                 </WrapPanel>
 
                 <WrapPanel>

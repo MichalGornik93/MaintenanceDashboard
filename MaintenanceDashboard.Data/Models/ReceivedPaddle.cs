@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MaintenanceDashboard.Data.Models
@@ -12,11 +13,10 @@ namespace MaintenanceDashboard.Data.Models
         [ForeignKey("Paddle")]
         public int PaddleId { get; set; }
         [Required]
-        public string ReceivedDate { get; set; }
+        public DateTime ReceivedDate { get; set; }
         [Required]
         public string ActivityPerformed { get; set; }
-        [Required]
-        public string PlannedRepairDate { get; set; }
+
         public string DescriptionIntervention { get; set; }
         public virtual Paddle Paddle { get; set; }
     }

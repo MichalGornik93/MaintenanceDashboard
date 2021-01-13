@@ -20,7 +20,7 @@ namespace MaintenanceDashboard.Client.ViewModels
         public string SerialNumber { get; set; }
         public string BarcodeNumber { get; set; }
         public string Comments { get; set; }
-        public string AddedDate { get; set; } = DateTime.Now.ToString(Resources.DateTimePattern);
+        public DateTime AddedDate { get; set; } = DateTime.Now;
         public string Model { get; set; } = Resources.ThermostatModelPattern;
 
         private bool _connectedSuccessfully;
@@ -78,8 +78,8 @@ namespace MaintenanceDashboard.Client.ViewModels
                 SerialNumber = SerialNumber,
                 Model = Model,
                 AddedDate = AddedDate,
-                LastPreventionDate = DateTime.Now.ToString(Resources.DateTimePattern),
-                LastWashDate = DateTime.Now.ToString(Resources.DateTimePattern),
+                LastPreventionDate = DateTime.Now,
+                LastWashDate = DateTime.Now,
                 Comments = Comments
             };
 

@@ -20,7 +20,7 @@ namespace MaintenanceDashboard.Client.ViewModels
         public string BarcodeNumber { get; set; }
         public string Comments { get; set; }
         public string Model { get; set; } = Resources.PaddleModelPattern;
-        public string AddedDate { get; set; } = DateTime.Now.ToString(Resources.DateTimePattern);
+        public DateTime AddedDate { get; set; } = DateTime.Now;
 
         private bool _connectedSuccessfully;
         public bool ConnectedSuccessfully
@@ -76,7 +76,7 @@ namespace MaintenanceDashboard.Client.ViewModels
                 BarcodeNumber = BarcodeNumber,
                 Model = Model,
                 AddedDate = AddedDate,
-                LastPreventionDate = DateTime.Now.ToString(Resources.DateTimePattern),
+                LastPreventionDate = DateTime.Now,
                 Comments = Comments
             };
 

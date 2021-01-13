@@ -24,9 +24,7 @@ namespace MaintenanceDashboard.Data.API
         public void Receive(ReceivedThermostat receivedThermostat)
         {
             Validator.RequireString(receivedThermostat.ReceivingEmployee);
-            Validator.RequireDateTime(receivedThermostat.ReceivedDate);
             Validator.RequireString(receivedThermostat.ActivityPerformed);
-            Validator.RequireDateTime(receivedThermostat.PlannedRepairDate);
 
             context.ReceivedThermostats.Add(receivedThermostat);
             context.SaveChanges();
@@ -38,8 +36,6 @@ namespace MaintenanceDashboard.Data.API
             Validator.RequireString(spendedThermostat.DescriptionIntervention);
             Validator.RequireString(spendedThermostat.SpendingEmployee);
             Validator.RequireString(spendedThermostat.ActivityPerformed);
-            Validator.RequireDateTime(spendedThermostat.ReceivedDate);
-            Validator.RequireDateTime(spendedThermostat.RepairDate);
 
             context.SpendedThermostats.Add(spendedThermostat);
             context.SaveChanges();
@@ -89,7 +85,7 @@ namespace MaintenanceDashboard.Data.API
                     (from c in context.Thermostats
                      where c.Id == receivedThermostat.ThermostatId
                      select c).First();
-                t.LastPreventionDate = DateTime.Now.ToString(Resources.DateTimePattern);
+                t.LastPreventionDate = DateTime.Now;
 
                 context.SaveChanges();
             }
@@ -103,7 +99,7 @@ namespace MaintenanceDashboard.Data.API
                     (from c in context.Thermostats
                      where c.Id == receivedThermostat.ThermostatId
                      select c).First();
-                t.LastWashDate = DateTime.Now.ToString(Resources.DateTimePattern);
+                t.LastWashDate = DateTime.Now;
 
                 context.SaveChanges();
             }

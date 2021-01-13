@@ -19,10 +19,9 @@ namespace MaintenanceDashboard.Client.ViewModels
 
         public string BarcodeNumber { get; set; }
         public string DescriptionIntervention { get; set; }
-        public string RepairDate { get; set; } = DateTime.Now.ToString(Resources.DateTimePattern);
+        public DateTime RepairDate { get; set; } = DateTime.Now;
         public string ActivityPerformed { get; set; }
         public DateTime ReceivedDate { get; set; } = DateTime.Now;
-        public DateTime PlannedRepairDate { get; set; } = DateTime.Now.AddDays(2);
 
         private bool _connectedSuccessfully;
         public bool ConnectedSuccessfully
@@ -84,9 +83,8 @@ namespace MaintenanceDashboard.Client.ViewModels
             {
                 ReceivingEmployee = String.Format("{0} {1}", EmployeeViewModel.SelectedEmployee.FirstName, EmployeeViewModel.SelectedEmployee.LastName),
                 PaddleId = context.GetId(BarcodeNumber),
-                ReceivedDate = ReceivedDate.ToString(Resources.DateTimePattern),
+                ReceivedDate = ReceivedDate,
                 ActivityPerformed = ActivityPerformed,
-                PlannedRepairDate = PlannedRepairDate.ToString(Resources.DateTimePattern),
                 DescriptionIntervention = DescriptionIntervention
             };
             context.Receive(receivedPaddle);
@@ -144,7 +142,6 @@ namespace MaintenanceDashboard.Client.ViewModels
         {
             if (OnValidate(BarcodeNumber) == null
                 && EmployeeViewModel.SelectedEmployee != null
-                && PlannedRepairDate != null
                 && ReceivedDate != null
                 && ActivityPerformed != null)
                 return true;

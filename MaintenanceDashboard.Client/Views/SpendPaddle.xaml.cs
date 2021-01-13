@@ -12,5 +12,11 @@ namespace MaintenanceDashboard.Client.Views
             this.DataContext = new ReceivedPaddleViewModel(new ReceivedPaddleContext());
             InitializeComponent();
         }
+
+        private void btnRefreash_Click(object sender, RoutedEventArgs e)
+        {
+            this.DataContext = new ReceivedPaddleViewModel(new ReceivedPaddleContext());
+            InitializeComponent();
+        }
     }
 }

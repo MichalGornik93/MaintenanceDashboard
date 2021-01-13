@@ -21,8 +21,7 @@ namespace MaintenanceDashboard.Client.ViewModels
         public string BarcodeNumber { get; set; }
         public string DescriptionIntervention { get; set; }
         public DateTime ReceivedDate { get; set; } = DateTime.Now;
-        public string RepairDate { get; set; } = DateTime.Now.ToString(Resources.DateTimePattern);
-        public DateTime PlannedRepairDate { get; set; } = DateTime.Now.AddDays(2);
+        public DateTime RepairDate { get; set; } = DateTime.Now;
         public string ActivityPerformed { get; set; }
         public string LastLocation { get; set; }
 
@@ -86,9 +85,8 @@ namespace MaintenanceDashboard.Client.ViewModels
             {
                 ReceivingEmployee = String.Format("{0} {1}", EmployeeViewModel.SelectedEmployee.FirstName, EmployeeViewModel.SelectedEmployee.LastName),
                 ThermostatId = context.GetId(BarcodeNumber),
-                ReceivedDate = ReceivedDate.ToString(Resources.DateTimePattern),
+                ReceivedDate = ReceivedDate,
                 ActivityPerformed = ActivityPerformed,
-                PlannedRepairDate = PlannedRepairDate.ToString(Resources.DateTimePattern),
                 DescriptionIntervention = DescriptionIntervention,
                 LastLocation = LastLocation
             };
@@ -151,7 +149,6 @@ namespace MaintenanceDashboard.Client.ViewModels
                 {
                     ThermostatId = SelectedReceivedThermostat.ThermostatId,
                     ReceivedDate = SelectedReceivedThermostat.ReceivedDate,
-                    PlannedRepairDate = "n/d",
                     ActivityPerformed = "Do wydania",
                     DescriptionIntervention = null,
                     LastLocation = SelectedReceivedThermostat.LastLocation,
@@ -177,7 +174,6 @@ namespace MaintenanceDashboard.Client.ViewModels
         {
             if (OnValidate(BarcodeNumber) == null
                 && EmployeeViewModel.SelectedEmployee != null
-                && PlannedRepairDate != null
                 && ReceivedDate != null
                 && ActivityPerformed != null
                 && !String.IsNullOrWhiteSpace(LastLocation))

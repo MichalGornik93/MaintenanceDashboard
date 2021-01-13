@@ -2,6 +2,7 @@
 using MaintenanceDashboard.Common;
 using MaintenanceDashboard.Data.API;
 using MaintenanceDashboard.Data.Models;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
@@ -56,7 +57,7 @@ namespace MaintenanceDashboard.Client.ViewModels
         public string BarcodeNumber { get; set; }
         public string SerialNumber { get; set; }
         public string PreventionDescription { get; set; }
-        public string LastPrevention { get; set; }
+        public DateTime LastPrevention { get; set; }
         public string Model { get; set; }
     }
 }

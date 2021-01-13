@@ -13,5 +13,10 @@ namespace MaintenanceDashboard.Client.Views
             InitializeComponent();
         }
 
+        private void btnRefreash_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            this.DataContext = new ReceivedThermostatViewModel(new ReceivedThermostatContext());
+            InitializeComponent();
+        }
     }
 }

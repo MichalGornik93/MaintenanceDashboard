@@ -38,7 +38,7 @@
                 <WrapPanel>
                     <materialDesign:PackIcon Kind="CalendarAdd" VerticalAlignment="Center" Width="30" Height="30"/>
                     <TextBox  Width="220" materialDesign:HintAssist.Hint="Data dodania" IsEnabled="False"
-                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding AddedDate}"
+                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding AddedDate, StringFormat=yyyy/MM/dd}"
                               Margin="10"/>
                 </WrapPanel>
 
