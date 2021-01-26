@@ -9,11 +9,11 @@ namespace MaintenanceDashboard.Client.ViewModels
 {
     public class ServiceControlViewModel : ViewModel
     {
-        smartWorkshopPlcHelper _eCmmsPlcHelper;
+        SmartWorkshopPlcHelper _eCmmsPlcHelper;
 
         public ServiceControlViewModel()
         {
-            _eCmmsPlcHelper = new smartWorkshopPlcHelper();
+            _eCmmsPlcHelper = new SmartWorkshopPlcHelper();
 
             OnPlcServiceValuesRefreshed(null, null);
             _eCmmsPlcHelper.ValuesRefreshed += OnPlcServiceValuesRefreshed;

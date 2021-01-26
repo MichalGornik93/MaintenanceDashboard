@@ -8,11 +8,11 @@ namespace MaintenanceDashboard.Client.Infrastructure
 {
     public class smartWorkshopPlc
     {
-        smartWorkshopPlcHelper _smartWorkshopPlcHelper;
+        SmartWorkshopPlcHelper _smartWorkshopPlcHelper;
         private readonly RetrievedEquipmentContext context;
         public smartWorkshopPlc()
         {
-            _smartWorkshopPlcHelper = new smartWorkshopPlcHelper();
+            _smartWorkshopPlcHelper = new SmartWorkshopPlcHelper();
             _smartWorkshopPlcHelper.Connect("192.168.1.1", 0, 0);
             context = new RetrievedEquipmentContext();
 

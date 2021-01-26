@@ -48,7 +48,7 @@ namespace MaintenanceDashboard.Client
                     break;
                 case 5:
                     GridPrincipal.Children.Clear();
-                    GridPrincipal.Children.Add(new ManagerRetrievedEquipment());
+                    GridPrincipal.Children.Add(new ManagerRetrievedEquipmentControl());
                     break;
                 case 6:
                     GridPrincipal.Children.Clear();

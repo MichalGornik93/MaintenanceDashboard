@@ -2,9 +2,9 @@
 
 namespace MaintenanceDashboard.Client.Views
 {
-    public partial class ManagerRetrievedEquipment : UserControl
+    public partial class ManagerRetrievedEquipmentControl : UserControl
     {
-        public ManagerRetrievedEquipment()
+        public ManagerRetrievedEquipmentControl()
         {
             InitializeComponent();
         }
@@ -23,7 +23,7 @@ namespace MaintenanceDashboard.Client.Views
             if (GridPrincipal != null)
             {
                 GridPrincipal.Children.Clear();
-                GridPrincipal.Children.Add(new HistoryRetrievedEquipment());
+                GridPrincipal.Children.Add(new HistoryRetrievedEquipmentControl());
             }
         }
     }

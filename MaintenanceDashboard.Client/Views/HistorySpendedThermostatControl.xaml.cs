@@ -4,9 +4,9 @@ using System.Windows.Controls;
 
 namespace MaintenanceDashboard.Client.Views
 {
-    public partial class HistorySpendedThermostat : UserControl
+    public partial class HistorySpendedThermostatControl : UserControl
     {
-        public HistorySpendedThermostat()
+        public HistorySpendedThermostatControl()
         {
             this.DataContext = new SpendedThermostatViewModel(new SpendedThermostatContext());
             InitializeComponent();

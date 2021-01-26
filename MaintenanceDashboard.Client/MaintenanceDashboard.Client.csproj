@@ -180,11 +180,11 @@
     <Compile Include="Views\ReceiveManulRetreivedEquipmentControl.xaml.cs">
       <DependentUpon>ReceiveManulRetreivedEquipmentControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\HistoryRetrievedEquipment.xaml.cs">
-      <DependentUpon>HistoryRetrievedEquipment.xaml</DependentUpon>
+    <Compile Include="Views\HistoryRetrievedEquipmentControl.xaml.cs">
+      <DependentUpon>HistoryRetrievedEquipmentControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ManagerRetrievedEquipment.xaml.cs">
-      <DependentUpon>ManagerRetrievedEquipment.xaml</DependentUpon>
+    <Compile Include="Views\ManagerRetrievedEquipmentControl.xaml.cs">
+      <DependentUpon>ManagerRetrievedEquipmentControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PreventionControl.xaml.cs">
       <DependentUpon>PreventionControl.xaml</DependentUpon>
@@ -216,11 +216,11 @@
     <Compile Include="Views\EditThermostatControl.xaml.cs">
       <DependentUpon>EditThermostatControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\HistorySpendedPaddle.xaml.cs">
-      <DependentUpon>HistorySpendedPaddle.xaml</DependentUpon>
+    <Compile Include="Views\HistorySpendedPaddleControl.xaml.cs">
+      <DependentUpon>HistorySpendedPaddleControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\HistorySpendedThermostat.xaml.cs">
-      <DependentUpon>HistorySpendedThermostat.xaml</DependentUpon>
+    <Compile Include="Views\HistorySpendedThermostatControl.xaml.cs">
+      <DependentUpon>HistorySpendedThermostatControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ManagerEmployeeControl.xaml.cs">
       <DependentUpon>ManagerEmployeeControl.xaml</DependentUpon>
@@ -237,11 +237,11 @@
     <Compile Include="Views\ServiceControl.xaml.cs">
       <DependentUpon>ServiceControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\SpendPaddle.xaml.cs">
-      <DependentUpon>SpendPaddle.xaml</DependentUpon>
+    <Compile Include="Views\SpendPaddleControl.xaml.cs">
+      <DependentUpon>SpendPaddleControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\SpendThermostat.xaml.cs">
-      <DependentUpon>SpendThermostat.xaml</DependentUpon>
+    <Compile Include="Views\SpendThermostatControl.xaml.cs">
+      <DependentUpon>SpendThermostatControl.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\ComponentDetailsWindow.xaml">
       <SubType>Designer</SubType>
@@ -251,11 +251,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\HistoryRetrievedEquipment.xaml">
+    <Page Include="Views\HistoryRetrievedEquipmentControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ManagerRetrievedEquipment.xaml">
+    <Page Include="Views\ManagerRetrievedEquipmentControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -299,11 +299,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\HistorySpendedPaddle.xaml">
+    <Page Include="Views\HistorySpendedPaddleControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\HistorySpendedThermostat.xaml">
+    <Page Include="Views\HistorySpendedThermostatControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -339,11 +339,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\SpendPaddle.xaml">
+    <Page Include="Views\SpendPaddleControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\SpendThermostat.xaml">
+    <Page Include="Views\SpendThermostatControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -4,9 +4,9 @@ using System.Windows.Controls;
 
 namespace MaintenanceDashboard.Client.Views
 {
-    public partial class HistorySpendedPaddle : UserControl
+    public partial class HistorySpendedPaddleControl : UserControl
     {  
-        public HistorySpendedPaddle()
+        public HistorySpendedPaddleControl()
         {
             this.DataContext = new SpendedPaddleViewModel(new SpendedPaddleContext());
             InitializeComponent();

@@ -1,17 +1,16 @@
-﻿using MaintenanceDashboard.Common.PlcService;
-using PlcService.Sharp7;
+﻿using PlcService.Sharp7;
 using System;
 
 namespace MaintenanceDashboard.Common.PlcService
 {
-    public class smartWorkshopPlcHelper:BaseS7PlcHelper
+    public class SmartWorkshopPlcHelper:BaseS7PlcHelper
     {
         public string Employee
         { get; private set; }
         public string Name { get; private set; }
         public string Action { get; private set; }
         public bool SendTrigger { get; private set; }
-        public smartWorkshopPlcHelper():base(){}
+        public SmartWorkshopPlcHelper():base(){}
         internal override void DbRead()
         {
             lock (base._locker)
