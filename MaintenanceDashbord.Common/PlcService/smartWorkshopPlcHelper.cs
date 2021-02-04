@@ -5,8 +5,7 @@ namespace MaintenanceDashboard.Common.PlcService
 {
     public class SmartWorkshopPlcHelper:BaseS7PlcHelper
     {
-        public string Employee
-        { get; private set; }
+        public string Employee { get; private set; }
         public string Name { get; private set; }
         public string Action { get; private set; }
         public bool SendTrigger { get; private set; }

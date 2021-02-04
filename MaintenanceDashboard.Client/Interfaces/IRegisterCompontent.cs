@@ -17,6 +17,6 @@ namespace MaintenanceDashboard.Client.Interfaces
         void Create();
         void Update();
         void GetAll();
-        void PrintLabel(string theIpAddress);
+        void PrintLabel(string IpAddress, string barcodeNumber);
     }
 }

@@ -108,6 +108,7 @@
     <Compile Include="BarcodeNumber.cs" />
     <Compile Include="ObservableObject.cs" />
     <Compile Include="PlcService\ConnectionStates.cs" />
+    <Compile Include="PlcService\RobotToolsPlcHelper.cs" />
     <Compile Include="PlcService\SmartWorkshopPlcHelper.cs" />
     <Compile Include="PlcService\BaseS7PlcHelper.cs" />
     <Compile Include="PlcService\Sharp7.cs" />

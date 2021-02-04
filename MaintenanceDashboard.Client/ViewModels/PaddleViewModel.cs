@@ -82,7 +82,7 @@ namespace MaintenanceDashboard.Client.ViewModels
 
             context.Create(paddle);
             ConnectedSuccessfully = true;
-            PrintLabel("192.168.1.4");
+            PrintLabel("192.168.1.4", BarcodeNumber);
         }
 
         public void Update()
@@ -100,11 +100,11 @@ namespace MaintenanceDashboard.Client.ViewModels
                 Paddles.Add(item);
         }
 
-        public void PrintLabel(string theIpAddress)
+        public void PrintLabel(string IpAddress, string barcodeNumber)
         {
-            string ZPL_STRING = Resources.HeadBarcode + "^FS^FO250,50^A0,25,25^FD" + "Baza paletek" + "^FS^FO230,90^BCN,100,Y,N,N^FD" + BarcodeNumber + "^FS^XZ";
+            string ZPL_STRING = Resources.HeadBarcode + "^FS^FO250,50^A0,25,25^FD" + "Baza paletek" + "^FS^FO230,90^BCN,100,Y,N,N^FD" + barcodeNumber + "^FS^XZ";
 
-            ZebraPrinter zebraPrinter = ZebraPrintHelper.Connect(new TcpConnection(theIpAddress, TcpConnection.DEFAULT_ZPL_TCP_PORT), PrinterLanguage.ZPL);
+            ZebraPrinter zebraPrinter = ZebraPrintHelper.Connect(new TcpConnection(IpAddress, TcpConnection.DEFAULT_ZPL_TCP_PORT), PrinterLanguage.ZPL);
 
             if (ZebraPrintHelper.CheckStatus(zebraPrinter))
             {

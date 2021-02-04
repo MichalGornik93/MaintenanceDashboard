@@ -6,11 +6,11 @@ using System.Threading;
 
 namespace MaintenanceDashboard.Client.Infrastructure
 {
-    public class smartWorkshopPlc
+    public class SmartWorkshopPlc
     {
         SmartWorkshopPlcHelper _smartWorkshopPlcHelper;
         private readonly RetrievedEquipmentContext context;
-        public smartWorkshopPlc()
+        public SmartWorkshopPlc()
         {
             _smartWorkshopPlcHelper = new SmartWorkshopPlcHelper();
             _smartWorkshopPlcHelper.Connect("192.168.1.1", 0, 0);

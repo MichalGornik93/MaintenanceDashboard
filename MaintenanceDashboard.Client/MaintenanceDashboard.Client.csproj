@@ -158,7 +158,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Infrastructure\smartWorkshopPlc.cs" />
+    <Compile Include="Infrastructure\RobotToolsPlc.cs" />
+    <Compile Include="Infrastructure\SmartWorkshopPlc.cs" />
     <Compile Include="Interfaces\IRegisterCompontent.cs" />
     <Compile Include="Interfaces\IReceivedComponent.cs" />
     <Compile Include="Interfaces\ISpendedComponent.cs" />
@@ -170,6 +171,7 @@
     <Compile Include="ViewModels\PaddleViewModel.cs" />
     <Compile Include="ViewModels\ReceivedThermostatViewModel.cs" />
     <Compile Include="ViewModels\RetrievedEquipmentViewModel.cs" />
+    <Compile Include="ViewModels\RobotToolsViewModel.cs" />
     <Compile Include="ViewModels\ServiceControlViewModel.cs" />
     <Compile Include="ViewModels\SpendedPaddleViewModel.cs" />
     <Compile Include="ViewModels\SpendedThermostatViewModel.cs" />
@@ -177,8 +179,11 @@
     <Compile Include="Views\ComponentDetailsWindow.xaml.cs">
       <DependentUpon>ComponentDetailsWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ReceiveManulRetreivedEquipmentControl.xaml.cs">
-      <DependentUpon>ReceiveManulRetreivedEquipmentControl.xaml</DependentUpon>
+    <Compile Include="Views\HistorySpendedRobotToolsControl.xaml.cs">
+      <DependentUpon>HistorySpendedRobotToolsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ManagerRobotToolsControl.xaml.cs">
+      <DependentUpon>ManagerRobotToolsControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\HistoryRetrievedEquipmentControl.xaml.cs">
       <DependentUpon>HistoryRetrievedEquipmentControl.xaml</DependentUpon>
@@ -240,6 +245,9 @@
     <Compile Include="Views\SpendPaddleControl.xaml.cs">
       <DependentUpon>SpendPaddleControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\SpendRobotToolsControl.xaml.cs">
+      <DependentUpon>SpendRobotToolsControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SpendThermostatControl.xaml.cs">
       <DependentUpon>SpendThermostatControl.xaml</DependentUpon>
     </Compile>
@@ -247,7 +255,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ReceiveManulRetreivedEquipmentControl.xaml">
+    <Page Include="Views\HistorySpendedRobotToolsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ManagerRobotToolsControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -340,6 +352,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SpendPaddleControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SpendRobotToolsControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

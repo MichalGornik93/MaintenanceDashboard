@@ -44,7 +44,7 @@ namespace MaintenanceDashboard.Client
                     break;
                 case 4:
                     GridPrincipal.Children.Clear();
-                    GridPrincipal.Children.Add(new BuiltFunctionControl());
+                    GridPrincipal.Children.Add(new ManagerRobotToolsControl());
                     break;
                 case 5:
                     GridPrincipal.Children.Clear();

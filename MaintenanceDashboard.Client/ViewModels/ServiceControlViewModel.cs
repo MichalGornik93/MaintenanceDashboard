@@ -97,8 +97,8 @@ namespace MaintenanceDashboard.Client.ViewModels
         public ConnectionStates ConnectionState
         {
             get { return connectionState; }
-            set 
-            { 
+            set
+            {
                 connectionState = value;
                 NotifyPropertyChanged();
             }
@@ -119,8 +119,8 @@ namespace MaintenanceDashboard.Client.ViewModels
         public TimeSpan ScanTime
         {
             get { return scanTime; }
-            set 
-            { 
+            set
+            {
                 scanTime = value;
                 NotifyPropertyChanged();
             }
@@ -147,7 +147,7 @@ namespace MaintenanceDashboard.Client.ViewModels
         private void Connect()
         {
             _eCmmsPlcHelper.Connect(PlcIpAddress, 0, 0);
-            
+
         }
 
         private void Disconnect()

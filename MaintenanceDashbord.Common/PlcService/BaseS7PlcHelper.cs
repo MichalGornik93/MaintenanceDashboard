@@ -12,9 +12,7 @@ namespace MaintenanceDashboard.Common.PlcService
 
         internal volatile object _locker = new object();
         public ConnectionStates ConnectionState { get; private set; }
-
         public TimeSpan ScanTime { get; private set; }
-
         public event EventHandler ValuesRefreshed;
 
         public BaseS7PlcHelper() 

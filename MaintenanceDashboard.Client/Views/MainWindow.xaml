@@ -38,9 +38,9 @@
                                 <TextBlock Style="{StaticResource MaterialDesignHeadline6TextBlock}" FontSize="12"
                                            HorizontalAlignment="Center" Margin="8" Foreground="Gray" TextWrapping="Wrap"> 
                                            Development by Michał Górnik <LineBreak/>
-                                           michalgornik93@outlook.com <LineBreak/>
+                                           michalgornik93@gmail.com <LineBreak/>
                                            MaintenanceDashboard<LineBreak/>
-                                           Vesion 4.2.0 <LineBreak/>
+                                           Vesion 5.0.2 <LineBreak/>
                                 </TextBlock>
                             </StackPanel>
                         </materialDesign:PopupBox>

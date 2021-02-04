@@ -59,7 +59,7 @@
                          Background="White" BorderBrush="#007CB0" Foreground="Black" 
                              Command="{Binding DisconnectCommand}"/>
                     </WrapPanel>
-                   
+
                 </StackPanel>
             </StackPanel>
 

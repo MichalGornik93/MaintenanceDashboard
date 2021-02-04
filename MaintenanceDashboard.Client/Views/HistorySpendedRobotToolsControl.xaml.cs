@@ -4,11 +4,11 @@ using System.Windows.Controls;
 
 namespace MaintenanceDashboard.Client.Views
 {
-    public partial class ReceiveManulRetreivedEquipmentControl : UserControl
+    public partial class HistorySpendedRobotToolsControl : UserControl
     {
-        public ReceiveManulRetreivedEquipmentControl()
+        public HistorySpendedRobotToolsControl()
         {
-            this.DataContext = new RetrievedEquipmentViewModel(new RetrievedEquipmentContext());
+            this.DataContext = new RobotToolsViewModel(new RobotToolsContext());
             InitializeComponent();
         }
     }

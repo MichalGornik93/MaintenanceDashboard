@@ -85,7 +85,7 @@ namespace MaintenanceDashboard.Client.ViewModels
 
             context.Create(thermostat);
             ConnectedSuccessfully = true;
-            PrintLabel("192.168.1.4");
+            PrintLabel("192.168.1.4", BarcodeNumber);
         }
 
         public void Update()
@@ -103,9 +103,9 @@ namespace MaintenanceDashboard.Client.ViewModels
                 Thermostats.Add(item);
         }
 
-        public void PrintLabel(string theIpAddress)
+        public void PrintLabel(string theIpAddress, string barcodeNumber)
         {
-            string ZPL_STRING = Resources.HeadBarcode + "^FS^FO250,50^A0,25,25^FD" + "Baza termostatow" + "^FS^FO230,90^BCN,100,Y,N,N^FD" + BarcodeNumber + "^FS^XZ";
+            string ZPL_STRING = Resources.HeadBarcode + "^FS^FO250,50^A0,25,25^FD" + "Baza termostatow" + "^FS^FO230,90^BCN,100,Y,N,N^FD" + barcodeNumber + "^FS^XZ";
 
             ZebraPrinter zebraPrinter = ZebraPrintHelper.Connect(new TcpConnection(theIpAddress, TcpConnection.DEFAULT_ZPL_TCP_PORT), PrinterLanguage.ZPL);
 

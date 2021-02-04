@@ -1,0 +1,76 @@
+﻿<UserControl x:Class="MaintenanceDashboard.Client.Views.SpendRobotToolsControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             Width="920" Height="750"
+             xmlns:viewModels="clr-namespace:MaintenanceDashboard.Client.ViewModels"
+             d:DataContext="{d:DesignInstance viewModels:RobotToolsViewModel}">
+    <Grid >
+        <ContentControl Style="{StaticResource RectangleView}"/>
+
+        <ContentControl Style="{StaticResource AddingRecordGridTemplete}"/>
+
+
+        <Grid Margin="15,80,15, 15">
+            <TextBlock Text="WYDANIE NARZEDZIA ROBOTA" HorizontalAlignment="Center" VerticalAlignment="Top"  
+                           FontSize="18"  Foreground="Gray" Margin="18"/>
+
+            <StackPanel HorizontalAlignment="Center"  VerticalAlignment="Center" Style="{StaticResource AddingRecordDataTemplete}">
+                <WrapPanel Margin="5">
+                    <materialDesign:PackIcon Kind="User" VerticalAlignment="Center" Width="30" Height="30"/>
+                    <ComboBox Width="220"  DataContext="{Binding EmployeeViewModel}" materialDesign:HintAssist.Hint="Przyjmujący pracownik" 
+                           Margin="10" SelectedItem="{Binding SelectedEmployee}" ItemsSource="{Binding Path=Employees}" 
+                              materialDesign:HintAssist.HelperText="Pole musi być wypełnione">
+                        <ComboBox.ItemTemplate >
+                            <DataTemplate>
+                                <TextBlock>
+                                    <TextBlock.Text>
+                                        <MultiBinding StringFormat="{}{0} {1}">
+                                            <Binding Path="FirstName"/>
+                                            <Binding Path="LastName"/>
+                                        </MultiBinding>
+                                    </TextBlock.Text>
+                                </TextBlock>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </WrapPanel>
+
+                <WrapPanel>
+                    <materialDesign:PackIcon Kind="RobotIndustrial" VerticalAlignment="Center" Width="30" Height="30"/>
+                    <TextBox Width="220" materialDesign:HintAssist.Hint="Numer narzedzia" 
+                             materialDesign:HintAssist.HelperText="Pole musi być wypełnione"
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"  
+                             Background="White" Text="{Binding Number, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Margin="10"/>
+                </WrapPanel>
+
+                <WrapPanel>
+                    <materialDesign:PackIcon Kind="TextShort" VerticalAlignment="Center" Width="30" Height="30"/>
+                    <TextBox Width="220" materialDesign:HintAssist.Hint="Nazwa narzedzia"
+                             materialDesign:HintAssist.HelperText="Pole musi być wypełnione"
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"  
+                             Background="White" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Margin="10"/>
+                </WrapPanel>
+
+                <WrapPanel>
+                    <materialDesign:PackIcon Kind="CalendarAdd" VerticalAlignment="Center" Width="30" Height="30"/>
+                    <TextBox  Width="220" materialDesign:HintAssist.Hint="Data przeglądu" IsEnabled="False"
+                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding Date, StringFormat=yyyy/MM/dd}"
+                              Margin="10"/>
+                </WrapPanel>
+
+                <WrapPanel>
+                    <materialDesign:PackIcon Kind="CheckboxMarkedOutline" VerticalAlignment="Center" Width="30" Height="30"/>
+                    <CheckBox Margin="10" Style="{StaticResource MaterialDesignCheckBox}" IsChecked="{Binding IsDoubler}"> Podstawa dubler</CheckBox>
+
+                </WrapPanel>
+                <Button Height="25"  Background="#FF0069C0"  
+                             BorderBrush="#FF0069C0"  Width="100" Content="WYDAJ" Margin="10"  Grid.Column="1"
+                             Command="{Binding SpendCommand}"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

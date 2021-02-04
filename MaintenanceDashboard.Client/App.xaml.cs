@@ -6,19 +6,19 @@ namespace MaintenanceDashboard
 {
     public partial class App : Application
     {
-        private smartWorkshopPlc eCmmsPlc;
-
+        private SmartWorkshopPlc smartWorkshopPlc;
+        private RobotToolsPlc robotToolsPlc;
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
             MainWindow window = new MainWindow();
             window.Show();
-            eCmmsPlc = new smartWorkshopPlc();
+            smartWorkshopPlc = new SmartWorkshopPlc();
+            robotToolsPlc = new RobotToolsPlc();
         }
 
         public App()
         {
-
             Dispatcher.UnhandledException += OnDispatcherUnhandledException;
         }
 

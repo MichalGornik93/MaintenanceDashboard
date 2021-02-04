@@ -56,6 +56,7 @@
     <Compile Include="API\ReceivedThermostatContext.cs" />
     <Compile Include="API\RetrievedEquipmentContext.cs" />
     <Compile Include="API\SpendedPaddleContext.cs" />
+    <Compile Include="API\RobotToolsContext.cs" />
     <Compile Include="API\SpendedThermostatContext.cs" />
     <Compile Include="API\ThermostatContext.cs" />
     <Compile Include="Migrations\202009170832162_UpdatedLocationPropertyToString.cs" />
@@ -94,6 +95,18 @@
     <Compile Include="Migrations\202101131249252_DropPlannedRepairDateProperty.designer.cs">
       <DependentUpon>202101131249252_DropPlannedRepairDateProperty.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101290952051_AddedSpendedRobotToolsTable.cs" />
+    <Compile Include="Migrations\202101290952051_AddedSpendedRobotToolsTable.designer.cs">
+      <DependentUpon>202101290952051_AddedSpendedRobotToolsTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101290954588_AddedDatePropertyToSpendedRobotToolsTable.cs" />
+    <Compile Include="Migrations\202101290954588_AddedDatePropertyToSpendedRobotToolsTable.designer.cs">
+      <DependentUpon>202101290954588_AddedDatePropertyToSpendedRobotToolsTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102011353185_AddedSpendingEmployeePropertyToSpendedRobotToolsTable.cs" />
+    <Compile Include="Migrations\202102011353185_AddedSpendingEmployeePropertyToSpendedRobotToolsTable.designer.cs">
+      <DependentUpon>202102011353185_AddedSpendingEmployeePropertyToSpendedRobotToolsTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Employee.cs" />
     <Compile Include="API\EmployeeContext.cs" />
     <Compile Include="Models\ReceivedPaddle.cs" />
@@ -104,6 +117,7 @@
     <Compile Include="Models\RetrievedEquipment.cs" />
     <Compile Include="Models\SelectedComponent.cs" />
     <Compile Include="Models\SpendedPaddle.cs" />
+    <Compile Include="Models\SpendedRobotTool.cs" />
     <Compile Include="Models\SpendedThermostat.cs" />
     <Compile Include="Models\Thermostat.cs" />
     <Compile Include="Migrations\202005281027139_InitialModel.cs" />
@@ -350,6 +364,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101131249252_DropPlannedRepairDateProperty.resx">
       <DependentUpon>202101131249252_DropPlannedRepairDateProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101290952051_AddedSpendedRobotToolsTable.resx">
+      <DependentUpon>202101290952051_AddedSpendedRobotToolsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101290954588_AddedDatePropertyToSpendedRobotToolsTable.resx">
+      <DependentUpon>202101290954588_AddedDatePropertyToSpendedRobotToolsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102011353185_AddedSpendingEmployeePropertyToSpendedRobotToolsTable.resx">
+      <DependentUpon>202102011353185_AddedSpendingEmployeePropertyToSpendedRobotToolsTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
