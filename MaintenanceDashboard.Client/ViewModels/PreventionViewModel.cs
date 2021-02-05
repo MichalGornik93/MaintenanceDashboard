@@ -19,10 +19,10 @@ namespace MaintenanceDashboard.Client.ViewModels
             this.context = context;
             Preventions = new ObservableCollection<PreventionPattern>();
             ReviewPaddles = new List<Paddle>();
-            GetReviewPaddles();
+            GetReviewComponent();
         }
 
-        private void GetReviewPaddles()
+        private void GetReviewComponent()
         {
             Preventions.Clear();
 
@@ -47,6 +47,17 @@ namespace MaintenanceDashboard.Client.ViewModels
                     Model = item.Model,
                     PreventionDescription = "Wykonać przegląd paletki"
                 });
+            }
+
+            foreach (var item in context.GetReviewRobotTools())
+            {
+                Preventions.Add(new PreventionPattern()
+                {
+                    BarcodeNumber = item.Number.ToString(),
+                    LastPrevention = item.Date,
+                    SerialNumber = item.Name,
+                    PreventionDescription = "Wykonać przegląd narzedzia robota"
+                }); ;
             }
         }
 

@@ -48,7 +48,14 @@ namespace MaintenanceDashboard.Client.ViewModels
                     .Where(c => (DateTime.Now - c.LastWashDate).TotalDays > 30)
                    .Any();
 
-                if (IsSomePaddleToReview || IsSomeThermostatToWash)
+                var IsSomeRobotToolsToReview = context.SpendedRobotTools
+                .ToList()
+                .Where(d => (DateTime.Now - d.Date).TotalDays > 160)
+                .GroupBy(c => c.Number)
+                .Select(x => x.FirstOrDefault())
+                .Any();
+
+                if (IsSomePaddleToReview || IsSomeThermostatToWash || IsSomeRobotToolsToReview)
                 {
                     BlinkingPreventionControlItem = true;
                 }

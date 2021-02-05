@@ -24,7 +24,7 @@ namespace MaintenanceDashboard.Data.API
         {
             return context.Paddles
                 .ToList()
-                .Where(c => (DateTime.Now - c.LastPreventionDate).TotalDays > 60);
+                .Where(c => (DateTime.Now - c.LastPreventionDate).TotalDays > 160);
         }
 
 
@@ -34,6 +34,14 @@ namespace MaintenanceDashboard.Data.API
                 .ToList()
                 .Where(d => d.CurrentLocation == "Warsztat" && d.CurrentStatus != "Awaria")
                 .Where(c => (DateTime.Now - c.LastWashDate).TotalDays > 30);
+        }
+        public IEnumerable<SpendedRobotTool> GetReviewRobotTools()
+        {
+            return context.SpendedRobotTools
+                .ToList()
+                .Where(d => (DateTime.Now - d.Date).TotalDays > 160)
+                .GroupBy(c => c.Number)
+                .Select(x => x.FirstOrDefault());
         }
     }
 }
