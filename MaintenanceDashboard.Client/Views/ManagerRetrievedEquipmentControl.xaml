@@ -12,6 +12,7 @@
 
         <StackPanel Orientation="Horizontal" Margin="4" Grid.Row="0">
             <RadioButton x:Name="btnOpenOpenPerformedRetreiveEquipment" Style="{StaticResource MaterialDesignTabRadioButton}" Margin="4" Content="PRZEGLĄD POBRAŃ WYPOSAŻENIA" Checked="btnOpenOpenPerformedRetreiveEquipment_Checked" FontSize="12"/>
+            <RadioButton x:Name="btnEquipmentAudit" Style="{StaticResource MaterialDesignTabRadioButton}" Margin="4" Content="AUDYT WYPOSAŻENIA"  FontSize="12" Checked="btnEquipmentAudit_Checked"/>
         </StackPanel>
         <Grid x:Name="GridPrincipal" Grid.Row="1"  Width="920" Height="750"/>
     </Grid>

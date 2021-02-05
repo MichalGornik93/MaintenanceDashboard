@@ -201,8 +201,6 @@ namespace MaintenanceDashboard.Client.ViewModels
                 return "Niepoprawna składnia ciągu {Ter...}";
             else if (context.IsExistInDb(BarcodeNumber))
                 return "Termostat nie istnieje w bazie danych";
-            //else if (context.IsAccepted(BarcodeNumber))
-            //    return "Termostat jest już przyjęty";
             return base.OnValidate(propertyName);
         }
 

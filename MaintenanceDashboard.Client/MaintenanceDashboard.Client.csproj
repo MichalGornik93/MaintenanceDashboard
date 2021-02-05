@@ -164,6 +164,7 @@
     <Compile Include="Interfaces\IReceivedComponent.cs" />
     <Compile Include="Interfaces\ISpendedComponent.cs" />
     <Compile Include="ViewModels\ComponentDetailsViewModel.cs" />
+    <Compile Include="ViewModels\EquipmentAuditViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\PreventionViewModel.cs" />
     <Compile Include="ViewModels\ReceivedPaddleViewModel.cs" />
@@ -178,6 +179,9 @@
     <Compile Include="ViewModels\ThermostatViewModel.cs" />
     <Compile Include="Views\ComponentDetailsWindow.xaml.cs">
       <DependentUpon>ComponentDetailsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EquipmentAuditControl.xaml.cs">
+      <DependentUpon>EquipmentAuditControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\HistorySpendedRobotToolsControl.xaml.cs">
       <DependentUpon>HistorySpendedRobotToolsControl.xaml</DependentUpon>
@@ -252,6 +256,10 @@
       <DependentUpon>SpendThermostatControl.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\ComponentDetailsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EquipmentAuditControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
