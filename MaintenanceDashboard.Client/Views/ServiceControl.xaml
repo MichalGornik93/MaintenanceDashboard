@@ -47,6 +47,7 @@
             <StackPanel HorizontalAlignment="Center" Margin="25" VerticalAlignment="Center">
 
                 <StackPanel>
+
                     <TextBox  Text="{Binding PlcIpAddress}" Margin="15" materialDesign:HintAssist.HelperText="Ip address" Width="200"/>
                     <TextBox Text="{Binding ConnectionState}" IsEnabled="False"  Margin="15" Width="200"
                              materialDesign:HintAssist.Hint="Connection state"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>

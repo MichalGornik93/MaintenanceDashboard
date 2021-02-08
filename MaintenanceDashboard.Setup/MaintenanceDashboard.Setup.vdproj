@@ -6020,7 +6020,7 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:MaintenanceDashboardV6.0.0"
+        "ProductName" = "8:MaintenanceDashboardV6.0.1"
         "ProductCode" = "8:{FD6E4DDA-BFC2-421F-BD1F-1CC823BEB6B8}"
         "PackageCode" = "8:{44A44B75-C7C7-473E-A9FB-0D7100C8E2CC}"
         "UpgradeCode" = "8:{6ED766CC-F6E7-4636-9FE3-36D0F64442E9}"
@@ -6033,7 +6033,7 @@
         "Manufacturer" = "8:UTR"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
-        "Title" = "8:MaintenanceDashboardV6.0.0"
+        "Title" = "8:MaintenanceDashboardV6.0.1"
         "Subject" = "8:"
         "ARPCONTACT" = "8:Default Company Name"
         "Keywords" = "8:"

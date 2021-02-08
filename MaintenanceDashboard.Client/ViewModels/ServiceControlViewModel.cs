@@ -4,20 +4,27 @@ using MaintenanceDashboard.Common.PlcService;
 using System;
 using Zebra.Sdk.Comm;
 using Zebra.Sdk.Printer;
+using System.Collections.Generic;
+using MaintenanceDashbord.Common.PlcService;
 
 namespace MaintenanceDashboard.Client.ViewModels
 {
     public class ServiceControlViewModel : ViewModel
     {
-        SmartWorkshopPlcHelper _eCmmsPlcHelper;
-
+        SmartWorkshopPlcHelper _smartWorkshopPlcHelper;
+        RobotToolsPlcHelper _robotToolsPlcHelper;
         public ServiceControlViewModel()
         {
-            _eCmmsPlcHelper = new SmartWorkshopPlcHelper();
+            _smartWorkshopPlcHelper = new SmartWorkshopPlcHelper();
+
+            _robotToolsPlcHelper = new RobotToolsPlcHelper();
+            
 
             OnPlcServiceValuesRefreshed(null, null);
-            _eCmmsPlcHelper.ValuesRefreshed += OnPlcServiceValuesRefreshed;
-        }
+            _smartWorkshopPlcHelper.ValuesRefreshed += OnPlcServiceValuesRefreshed;
+            _robotToolsPlcHelper.ValuesRefreshed += OnPlcServiceValuesRefreshed;
+
+        }   
 
         #region Zebra printer
         private string barcodeDescription;
@@ -82,6 +89,7 @@ namespace MaintenanceDashboard.Client.ViewModels
         #endregion
 
         #region S7Plc
+        
         private string plcIpAddress = "192.168.1.1";
         public string PlcIpAddress
         {
@@ -104,16 +112,6 @@ namespace MaintenanceDashboard.Client.ViewModels
             }
         }
 
-        private int counter;
-        public int Counter
-        {
-            get { return counter; }
-            set
-            {
-                counter = value;
-                NotifyPropertyChanged();
-            }
-        }
 
         private TimeSpan scanTime;
         public TimeSpan ScanTime
@@ -146,19 +144,33 @@ namespace MaintenanceDashboard.Client.ViewModels
 
         private void Connect()
         {
-            _eCmmsPlcHelper.Connect(PlcIpAddress, 0, 0);
+            if(PlcIpAddress=="192.168.1.1")
+                _smartWorkshopPlcHelper.Connect(PlcIpAddress, 0, 0);
+            else if (PlcIpAddress == "192.168.1.7")
+                _robotToolsPlcHelper.Connect(PlcIpAddress, 0, 0);
 
         }
 
         private void Disconnect()
         {
-            _eCmmsPlcHelper.Disconnect();
+            if (PlcIpAddress == "192.168.1.1")
+                _smartWorkshopPlcHelper.Disconnect();
+            else if (PlcIpAddress == "192.168.1.7")
+                _robotToolsPlcHelper.Disconnect();
         }
 
         private void OnPlcServiceValuesRefreshed(object sender, EventArgs e)
         {
-            ConnectionState = _eCmmsPlcHelper.ConnectionState;
-            ScanTime = _eCmmsPlcHelper.ScanTime;
+            if (PlcIpAddress == "192.168.1.1")
+            {
+                ConnectionState = _smartWorkshopPlcHelper.ConnectionState;
+                ScanTime = _smartWorkshopPlcHelper.ScanTime;
+            }
+            else if (PlcIpAddress == "192.168.1.7")
+            {
+                ConnectionState = _robotToolsPlcHelper.ConnectionState;
+                ScanTime = _robotToolsPlcHelper.ScanTime;
+            }
         }
         #endregion
     }
