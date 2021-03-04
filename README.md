@@ -10,6 +10,9 @@ CMMS system for managing Maintenance Department activities:
 * Planning inspections and other maintenance activities of the equipment
 * Registration of events related to the maintenance of production equipment
 * Control of planned inspections
+* Assisting the management of the maintenance department
+*Integration with the Zebra label printer
+*Integration with Siemens S7-1200 controllers
 ## Technologies
 Project is created with:
 * NETFramework Version v4.7.2
