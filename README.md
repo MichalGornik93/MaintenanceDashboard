@@ -15,9 +15,12 @@ CMMS system for managing Maintenance Department activities:
 * Integration with Siemens S7-1200 controllers
 ## Technologies
 Project is created with:
-* NETFramework Version v4.7.2
-* EntityFramework Version 6.4.0
+* NETFramework 4.7.2
+* EntityFramework  6.4.0
 * MaterialDesignColors Version 1.2.2
+* Zebra.Printer.Sdk
+* Sharp7
+
 ## App presentation
 
 * Logging in, adding and editing authorized users:
