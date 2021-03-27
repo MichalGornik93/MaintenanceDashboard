@@ -1,9 +1,10 @@
 ﻿using MaintenanceDashboard.Common;
 using MaintenanceDashboard.Data;
 using System;
-using System.Globalization;
 using System.Linq;
 using System.Windows.Threading;
+using MaintenanceDashboard.Common.Properties;
+
 
 namespace MaintenanceDashboard.Client.ViewModels
 {
@@ -39,18 +40,18 @@ namespace MaintenanceDashboard.Client.ViewModels
             {
                 var IsSomePaddleToReview = context.Paddles
                  .ToList()
-                 .Where(c=> (DateTime.Now- c.LastPreventionDate).TotalDays > 60)
+                 .Where(c=> (DateTime.Now- c.LastPreventionDate).TotalDays > Settings.Default.PaddleInspectionInterval)
                  .Any();
 
                 var IsSomeThermostatToWash = context.Thermostats
                     .ToList()
                     .Where(d => d.CurrentLocation == "Warsztat" && d.CurrentStatus != "Awaria")
-                    .Where(c => (DateTime.Now - c.LastWashDate).TotalDays > 30)
+                    .Where(c => (DateTime.Now - c.LastWashDate).TotalDays > Settings.Default.ThermostatWashInterval)
                    .Any();
 
                 var IsSomeRobotToolsToReview = context.SpendedRobotTools
                 .ToList()
-                .Where(d => (DateTime.Now - d.Date).TotalDays > 160)
+                .Where(d => (DateTime.Now - d.Date).TotalDays > Settings.Default.RobotToolInspectionInterval)
                 .GroupBy(c => c.Number)
                 .Select(x => x.FirstOrDefault())
                 .Any();

@@ -7,8 +7,8 @@
     <ProjectGuid>{491C2945-9DC9-4B47-BC61-1F913DDBFD85}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MaintenanceDashbord.Common</RootNamespace>
-    <AssemblyName>MaintenanceDashbord.Common</AssemblyName>
+    <RootNamespace>MaintenanceDashboard.Common</RootNamespace>
+    <AssemblyName>MaintenanceDashboard.Common</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -118,6 +118,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Validator.cs" />
     <Compile Include="ViewModel.cs" />
     <Compile Include="ZebraPrintHelper.cs" />
@@ -131,6 +136,10 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

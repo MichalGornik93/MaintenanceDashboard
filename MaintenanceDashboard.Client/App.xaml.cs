@@ -17,6 +17,7 @@ namespace MaintenanceDashboard
             robotToolsPlc = new RobotToolsPlc();
         }
 
+
         public App()
         {
             Dispatcher.UnhandledException += OnDispatcherUnhandledException;

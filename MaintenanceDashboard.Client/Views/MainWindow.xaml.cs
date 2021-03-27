@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using MaintenanceDashboard.Client.Infrastructure;
 using MaintenanceDashboard.Client.ViewModels;
 using MaintenanceDashboard.Client.Views;
 using MaintenanceDashboard.Data.API;
@@ -58,6 +59,10 @@ namespace MaintenanceDashboard.Client
                     GridPrincipal.Children.Clear();
                     GridPrincipal.Children.Add(new ServiceControl());
                     break;
+                case 8:
+                    GridPrincipal.Children.Clear();
+                    GridPrincipal.Children.Add(new SettingsControl());
+                    break;
                 default:
                     break;
             }
@@ -75,7 +80,7 @@ namespace MaintenanceDashboard.Client
             if (DateTimeNow.ToLower() == PasswordBox.Password.ToLower())
             {
                 itemEmployee.IsEnabled = true;
-                btnCloseWindow.IsEnabled = true;
+                itemSettings.IsEnabled = true;
             }
             else
                 MessageBox.Show("Błędne hasło", "Logowanie", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -85,7 +90,7 @@ namespace MaintenanceDashboard.Client
         private void btnLogout_Click(object sender, RoutedEventArgs e)
         {
             itemEmployee.IsEnabled = false;
-            btnCloseWindow.IsEnabled = false;
+            itemSettings.IsEnabled = false;
             GridPrincipal.Children.Clear();
             GridCursor.Margin = new Thickness(0, 10, 0, 0);
             GridPrincipal.Children.Add(new HomeControl());

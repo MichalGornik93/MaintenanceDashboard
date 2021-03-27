@@ -1,7 +1,6 @@
-﻿ using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Windows.Input;
 using MaintenanceDashboard.Data.API;
 using MaintenanceDashboard.Data.Models;
 using MaintenanceDashboard.Common;

@@ -78,7 +78,7 @@
 
                     <StackPanel VerticalAlignment="Top" Margin="10">
                         <Button x:Name="btnCloseWindow" Width="15" Height="22" 
-                            Background="{x:Null}" BorderBrush="{x:Null}" IsEnabled="False"
+                            Background="{x:Null}" BorderBrush="{x:Null}" 
                             Padding="0" Foreground="Gray" Click="btnCloseWindow_Click">
                             <materialDesign:PackIcon Kind="Power" Width="15" Height="15"/>
                         </Button>
@@ -179,7 +179,18 @@
                                        VerticalAlignment="Center" Margin="20 0" />
                         </StackPanel>
                     </ListViewItem>
+
+                    <ListViewItem Height="60" Foreground="LightGray" x:Name="itemSettings" IsEnabled="False">
+                        <StackPanel Orientation="Horizontal" >
+                            <materialDesign:PackIcon Kind="SettingsApplications" Width="35" Height="35"  
+                                                     VerticalAlignment="Center" Margin="5"/>
+                            <TextBlock Text="Ustawienia" 
+                                       VerticalAlignment="Center" Margin="20 0" />
+                        </StackPanel>
+                    </ListViewItem>
                 </ListView>
+                
+                
             </Grid>
         </StackPanel>
     </Grid>

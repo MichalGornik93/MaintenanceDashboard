@@ -4,7 +4,6 @@ using MaintenanceDashboard.Common.PlcService;
 using System;
 using Zebra.Sdk.Comm;
 using Zebra.Sdk.Printer;
-using System.Collections.Generic;
 using MaintenanceDashbord.Common.PlcService;
 
 namespace MaintenanceDashboard.Client.ViewModels

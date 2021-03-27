@@ -1,5 +1,4 @@
-﻿using MaintenanceDashboard.Client.Views;
-using MaintenanceDashboard.Common;
+﻿using MaintenanceDashboard.Common;
 using MaintenanceDashboard.Data.API;
 using MaintenanceDashboard.Data.Models;
 using System;

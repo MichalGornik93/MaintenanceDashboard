@@ -174,6 +174,7 @@
     <Compile Include="ViewModels\RetrievedEquipmentViewModel.cs" />
     <Compile Include="ViewModels\RobotToolsViewModel.cs" />
     <Compile Include="ViewModels\ServiceControlViewModel.cs" />
+    <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="ViewModels\SpendedPaddleViewModel.cs" />
     <Compile Include="ViewModels\SpendedThermostatViewModel.cs" />
     <Compile Include="ViewModels\ThermostatViewModel.cs" />
@@ -245,6 +246,9 @@
     </Compile>
     <Compile Include="Views\ServiceControl.xaml.cs">
       <DependentUpon>ServiceControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SettingsControl.xaml.cs">
+      <DependentUpon>SettingsControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SpendPaddleControl.xaml.cs">
       <DependentUpon>SpendPaddleControl.xaml</DependentUpon>
@@ -359,6 +363,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\SettingsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\SpendPaddleControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -376,18 +384,9 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Employee.datasource" />
     <None Include="Properties\DataSources\RegisterTool.datasource" />
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

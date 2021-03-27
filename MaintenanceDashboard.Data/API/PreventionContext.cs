@@ -1,8 +1,8 @@
 ﻿using MaintenanceDashboard.Data.Models;
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
+using MaintenanceDashboard.Common.Properties;
 
 namespace MaintenanceDashboard.Data.API
 {
@@ -24,7 +24,7 @@ namespace MaintenanceDashboard.Data.API
         {
             return context.Paddles
                 .ToList()
-                .Where(c => (DateTime.Now - c.LastPreventionDate).TotalDays > 160);
+                .Where(c => (DateTime.Now - c.LastPreventionDate).TotalDays > Settings.Default.PaddleInspectionInterval);
         }
 
 
@@ -33,13 +33,13 @@ namespace MaintenanceDashboard.Data.API
             return context.Thermostats
                 .ToList()
                 .Where(d => d.CurrentLocation == "Warsztat" && d.CurrentStatus != "Awaria")
-                .Where(c => (DateTime.Now - c.LastWashDate).TotalDays > 30);
+                .Where(c => (DateTime.Now - c.LastWashDate).TotalDays > Settings.Default.ThermostatWashInterval);
         }
         public IEnumerable<SpendedRobotTool> GetReviewRobotTools()
         {
             return context.SpendedRobotTools
                 .ToList()
-                .Where(d => (DateTime.Now - d.Date).TotalDays > 160)
+                .Where(d => (DateTime.Now - d.Date).TotalDays > Settings.Default.RobotToolInspectionInterval)
                 .GroupBy(c => c.Number)
                 .Select(x => x.FirstOrDefault());
         }
