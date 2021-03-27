@@ -26,8 +26,12 @@ Project is created with:
 * Logging in, adding and editing authorized users:
 ![My image](https://github.com/MichalGornik93/MaintenanceDashboard/blob/master/MaintenanceDashboard.Client/Gallery/1.gif)
 * Adding equipment to the registry:
-![My image](https://github.com/MichalGornik93/MaintenanceDashboard/blob/master/MaintenanceDashboard.Client/Gallery/3.gif)
-* Registration of events related to the maintenance of production equipment:
 ![My image](https://github.com/MichalGornik93/MaintenanceDashboard/blob/master/MaintenanceDashboard.Client/Gallery/2.gif)
+* Registration of events related to the maintenance of production equipment:
+![My image](https://github.com/MichalGornik93/MaintenanceDashboard/blob/master/MaintenanceDashboard.Client/Gallery/3.gif)
 * Overview of activities performed:
 ![My image](https://github.com/MichalGornik93/MaintenanceDashboard/blob/master/MaintenanceDashboard.Client/Gallery/4.gif)
+* Control of planned inspections:
+![My image](https://github.com/MichalGornik93/MaintenanceDashboard/blob/master/MaintenanceDashboard.Client/Gallery/5.gif)
+* Integration with the Zebra label printer and Siemens S7-1200 controllers
+* ![My image](https://github.com/MichalGornik93/MaintenanceDashboard/blob/master/MaintenanceDashboard.Client/Gallery/6.gif)
