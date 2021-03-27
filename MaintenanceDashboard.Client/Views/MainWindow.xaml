@@ -40,7 +40,7 @@
                                            Development by Michał Górnik <LineBreak/>
                                            michalgornik93@gmail.com <LineBreak/>
                                            MaintenanceDashboard<LineBreak/>
-                                           Vesion 6.0.1 <LineBreak/>
+                                           Vesion 6.1.0 <LineBreak/>
                                 </TextBlock>
                             </StackPanel>
                         </materialDesign:PopupBox>
@@ -97,9 +97,9 @@
         <StackPanel Width="320" HorizontalAlignment="Left" Background="#ff222222">
             <Grid Background="White" Margin="10">
 
-            </Grid>
+            </Grid >
             <Image Source="/Image/Logo.jpg" />
-
+           
             <Grid HorizontalAlignment="Left" Background="#ff222222" VerticalAlignment="Bottom">
                 <materialDesign:TransitioningContent x:Name="TrainsitioningContentSlide" 
                                                      OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.3}">
